@@ -5,14 +5,14 @@
       <h1 class="page-title" itemprop="headline"><?php echo $post_title ?></h1>
 
       <div class="byline">
-        <p>Text here</p>
+        <p>Get help with all things OSMC</p>
         <div class="cat">
           <a></a>
         </div>
       </div>
 
       <section class="entry-content clearfix" itemprop="articleBody">
-      <h2 class="desc"><p>This is a place to get help and support for OSMC. Please post in the category you are running OSMC on, unless it is a generic issue.</p></h2>
+      <h2 class="desc"><p>The OSMC Wiki is a comprehensive resource for all things OSMC and should be your first port of call. This Wiki is community managed -- we welcome any contributions!</p></h2>
       <ul>
       <?php foreach($cat_titles as $key=>$value): ?>
         <a href="<?php echo $cat_links[$key]; ?>">
