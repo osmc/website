@@ -1,0 +1,293 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Captcha on Login Portugues\n"
+"POT-Creation-Date: 2015-04-17 15:52-0300\n"
+"PO-Revision-Date: 2015-04-17 15:54-0300\n"
+"Last-Translator: Anderson <andersonmaki@gmail.com>\n"
+"Language-Team: Anderson.Makiyama <andersonmaki@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: C:\\wamp\\www\\wp-content\\plugins\\captcha-on-login\\\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: templates\n"
+
+#: index.php:60 index.php:93 templates/options.php:143
+msgid "Settings"
+msgstr "Configurações"
+
+#: index.php:87
+msgid "Report"
+msgstr "Relatório"
+
+#: index.php:89
+msgid "Help page"
+msgstr "Página de Suporte"
+
+#: index.php:190 index.php:211
+msgid "Enter the Image Code"
+msgstr "Digite o Código da Imagem"
+
+#: index.php:282 index.php:520
+msgid "Failed: IP already blocked"
+msgstr "Falhou: Ip estava bloqueado"
+
+#: index.php:286 index.php:302
+msgid "Your IP has been Locked! Try again tomorrow"
+msgstr "Teu IP foi bloqueado! Volte amanhã"
+
+#: index.php:298
+msgid "Failed: exceeded max number of tries"
+msgstr "Falhou: Excedido o número de tentativas"
+
+#: index.php:310
+msgid "Failed: image code did not match"
+msgstr "Falhou: código da imagem digitado errado"
+
+#: index.php:314
+msgid "The Image Code is incorrect! Try again!"
+msgstr "O código da imagem está incorreto. Tente novamente!"
+
+#: index.php:333
+msgid "Failed: Login or Password did not match"
+msgstr "Falhou: Login ou senha digitado errado"
+
+#: index.php:347
+msgid "Success"
+msgstr "Sucesso"
+
+#: templates/help.php:7
+msgid "Help"
+msgstr "Ajuda"
+
+#: templates/help.php:14
+msgid "For more help and more details, visit the plugin page"
+msgstr "Para obter Ajuda e mais informações, visite a página do Plugin"
+
+#: templates/help.php:40 templates/options.php:283 templates/report.php:113
+msgid "Author"
+msgstr "Autor"
+
+#: templates/help.php:48 templates/report.php:117
+msgid "Author's email"
+msgstr "Email do autor"
+
+#: templates/help.php:57 templates/options.php:293 templates/report.php:123
+msgid "Facebook"
+msgstr "Facebook"
+
+#: templates/help.php:61 templates/options.php:297 templates/report.php:127
+msgid "Visit the Plugin page"
+msgstr "Visite a página do Plugin"
+
+#: templates/options.php:111
+msgid ""
+"Login has not been update beauce confirmation field dont matched! Try Again!"
+msgstr ""
+"Nome de Login não foi atualizado porque a confirmação do novo nome não "
+"estava igual! Tente Novamente!"
+
+#: templates/options.php:131
+#, fuzzy
+msgid "Settings has been saved successfully!"
+msgstr "As configurações foram salvas com sucesso!"
+
+#: templates/options.php:156
+msgid "Global Seettings"
+msgstr "Configurações Globais"
+
+#: templates/options.php:160
+msgid "How many characteres to display on the image"
+msgstr "Quantidade de Caracteres para exibir na imagem"
+
+#: templates/options.php:171
+msgid "How many tries befor locking the IP"
+msgstr "Quantidade de Tentativas antes de Bloquear o IP"
+
+#: templates/options.php:182
+msgid "It stays locked during the current day"
+msgstr "Fica bloqueado durante o dia atual"
+
+#: templates/options.php:187
+msgid "Remove Blocked IPs from the blacklists"
+msgstr "Remover IPs bloqueados das listas-negras"
+
+#: templates/options.php:188 templates/options.php:211
+msgid "Separate the ips with commas"
+msgstr "Separe os ips com vírgula"
+
+#: templates/options.php:194
+msgid "Change username of "
+msgstr "Mudar nome de usuário de "
+
+#: templates/options.php:204
+msgid "New Username"
+msgstr "Novo Nome de Usuário"
+
+#: templates/options.php:204
+msgid "Repeat New Username"
+msgstr "Repita o novo Nome de Usuário"
+
+#: templates/options.php:204
+msgid ""
+"Attention: Memorize your new username, because you will need it to be able "
+"to login"
+msgstr ""
+"Atenção: Memorize o novo nome de login, pois você precisará dele para poder "
+"fazer login"
+
+#: templates/options.php:210
+msgid "Add IPs into permanent blacklist"
+msgstr "Adicione IPs à lista-negra permanente"
+
+#: templates/options.php:216 templates/options.php:252
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#: templates/options.php:227
+msgid "Visual Settings"
+msgstr "Configurações Visuais"
+
+#: templates/options.php:231
+msgid "Select the font color"
+msgstr "Selecione a cor da fonte"
+
+#: templates/options.php:232
+msgid "Black"
+msgstr "Preto"
+
+#: templates/options.php:233
+msgid "White"
+msgstr "Branco"
+
+#: templates/options.php:234
+msgid "Blue"
+msgstr "Azul"
+
+#: templates/options.php:235
+msgid "Red"
+msgstr "Vermelho"
+
+#: templates/options.php:236
+msgid "Green"
+msgstr "Verde"
+
+#: templates/options.php:241
+msgid "Select the background image"
+msgstr "Selecione a imagem de fundo"
+
+#: templates/options.php:248
+msgid "Aleatory"
+msgstr "Aleatório"
+
+#: templates/options.php:248
+msgid "Changes each time"
+msgstr "Muda a cada vez"
+
+#: templates/options.php:274
+msgid "Meet the Most Powerful Affiliate Links MNG"
+msgstr "Conheça o Melhor Gerenciador de Links"
+
+#: templates/options.php:287
+msgid "Email"
+msgstr "Email"
+
+#: templates/report.php:4
+msgid "Reports"
+msgstr "Relatórios"
+
+#: templates/report.php:13
+msgid "Last 1000 successfull or failed logins"
+msgstr "Úlitmos 1000 logins com sucesso ou falhos"
+
+#: templates/report.php:17
+msgid ""
+"IP&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Date and Time&nbsp;&nbsp;&nbsp;|&nbsp;"
+"&nbsp;&nbsp;Status"
+msgstr ""
+"IP&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Data e Horário&nbsp;&nbsp;&nbsp;|"
+"&nbsp;&nbsp;&nbsp;Status"
+
+#: templates/report.php:39
+msgid "All Currently Blocked IPs"
+msgstr "Todos os IPs bloqueados atualmente"
+
+#: templates/report.php:46
+msgid "Temporary Blocked IPs"
+msgstr "IPs Temporariamente Bloqueados"
+
+#: templates/report.php:57
+msgid "Currently there is no Ips blocked. That is good :)"
+msgstr "Atualmente não há Ips bloqueados. Isso é bom :)"
+
+#: templates/report.php:61
+msgid ""
+"Note that temporary blocked IPs are unblocked<br> automatically on the next "
+"day!"
+msgstr ""
+"Note que IPs temporariamente bloqueados são<br> automaticamente "
+"desbloqueados no próximo dia!"
+
+#: templates/report.php:65
+msgid "Permanent Blocked IPs"
+msgstr "IPs Bloqueados Permanentemente"
+
+#: templates/report.php:76
+msgid "Currently there is no Permanent Ips blocked. That is good :)"
+msgstr "Atualmente não há IPs bloqueados Permanentemente. Isso é bom :)"
+
+#: templates/report.php:80
+msgid ""
+"Note that permanent blocked IPs keep blocked<br>until you unblock it "
+"manually!"
+msgstr ""
+"Note que os IPs bloqueados permanentemente<br>ficam bloqueados até que você "
+"os desbloqueie manualmente!"
+
+#~ msgid "Change your admin username and Improve your site security"
+#~ msgstr "Mude o nome de login do admin e aumente a segurança do teu site"
+
+#~ msgid "Your Current username is"
+#~ msgstr "Seu nome de login atual é"
+
+#~ msgid "Are you an Affiliate?"
+#~ msgstr "Você é um Afiliado?"
+
+#~ msgid "http://plugin-wp.net/hotlinks"
+#~ msgstr "http://hotplus.net.br/plugin-hotlinks-plus/"
+
+#~ msgid "Pay 1, Get 87!"
+#~ msgstr "Pague 1, Leve 87!"
+
+#~ msgid "Visit the author's site"
+#~ msgstr "Visite o site do autor"
+
+#~ msgid "Take a Look!"
+#~ msgstr "Dê Uma Olhada!"
+
+#~ msgid "Best Wordpress Themes"
+#~ msgstr "Melhores Temas Wordpress"
+
+#, fuzzy
+#~ msgid "Best Autoresponder for Email Marketing"
+#~ msgstr "Melhor Autoresponder para Email Marketing"
+
+#~ msgid "Set up the plugins Options at this page"
+#~ msgstr "Configure as opções do plugin nesta página"
+
+#~ msgid "Best Web Hosting for Wordpress"
+#~ msgstr "Melhor Hospedagem Web para Wordpress"
+
+#~ msgid "See the reports on this page:"
+#~ msgstr "Configure as opções do plugin nesta página:"
+
+#, fuzzy
+#~ msgid "Liked the Plugin? Like my Sites!"
+#~ msgstr "Gostou do Plugin? Curta os meus Sites!"
+
+#~ msgid "Liked the plugin? Like my Sites!"
+#~ msgstr "Gostou do Plugin? Curta os meus Sites!"

@@ -1,0 +1,34 @@
+.newsletter {
+    text-align: center;
+}
+
+.newsletter table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #999;
+    padding: 10px;
+    width: auto;
+}
+
+.newsletter th, .newsletter td {
+    padding: 10px;
+    border: 0;
+}
+
+.newsletter th {
+    text-align: right;
+}
+
+.newsletter-td-submit {
+    text-align: center;
+}
+
+.newsletter-submit {
+    font-size: 18px;
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #ddd;
+}

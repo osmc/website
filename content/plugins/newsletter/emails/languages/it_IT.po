@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it_IT\n"
+
+#. Text in echo
+#: emails/new.php:132
+msgid "Back to the themes"
+msgstr "Torna ai temi"
+
+#. Text in function
+#: emails/index.php:131
+msgid "Copy"
+msgstr "Copia"
+
+#. Text in echo
+#: emails/new.php:131
+msgid "Create a newsletter"
+msgstr "Crea una newsletter"
+
+#. Text in echo
+#: emails/index.php:94
+msgid "Date"
+msgstr "Data"
+
+#. Text in function
+#: emails/index.php:132
+msgid "Delete"
+msgstr "Elimina"
+
+#. Text in function
+#: emails/index.php:82
+msgid "Delete selected newsletters"
+msgstr "Cancella le newsletter selezionate"
+
+#. Text in function
+#: emails/index.php:1
+msgid "Delivery engine triggered."
+msgstr ""
+
+#. Text in echo
+#: emails/edit.php:302
+msgid "Gender"
+msgstr "Genere"
+
+#. Text in function
+#: emails/new.php:1 emails/new.php:43
+msgid "Here the email subject"
+msgstr "Qui l'oggetto dell'email"
+
+#. Text in echo
+#: emails/edit.php:259
+msgid "Message"
+msgstr "Messaggio"
+
+#. Text in echo
+#: emails/edit.php:260
+msgid "Message (textual)"
+msgstr "Messaggio (testo)"
+
+#. Text in function
+#: emails/index.php:1
+msgid "Message deleted."
+msgstr "Messaggio cancellato."
+
+#. Text in function
+#: emails/index.php:1
+msgid "Message duplicated."
+msgstr "Messaggio duplicato."
+
+#. Text in echo
+#: emails/index.php:81
+msgid "New newsletter"
+msgstr "Nuova newsletter"
+
+#. Text in echo
+#: emails/index.php:58
+msgid "Newsletters"
+msgstr ""
+
+#. Text in function
+#: emails/index.php:82 emails/index.php:131 emails/index.php:132
+msgid "Proceed?"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:93
+msgid "Progress"
+msgstr ""
+
+#. Text in function
+#: emails/edit.php:1
+msgid "Read more about test subscribers"
+msgstr ""
+
+#. Text in echo
+#: emails/new.php:146
+msgid "Refresh the preview"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:111
+msgid "Scheduled"
+msgstr ""
+
+#. Text in echo
+#: emails/theme.php:54
+msgid "Select a theme"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:111
+msgid "Sending"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:92
+msgid "Status"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:91
+msgid "Subject"
+msgstr ""
+
+#. Text in echo
+#: emails/edit.php:311
+msgid "Subscriber preferences"
+msgstr ""
+
+#. Text in function
+#: emails/edit.php:1
+msgid "Test newsletter sent to:"
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:137
+msgid ""
+"The expected total can change at the delivery end due to subscriptions/"
+"unsubscriptions in the meanwhile."
+msgstr ""
+
+#. Text in echo
+#: emails/new.php:147
+msgid "Theme options are saved for next time you\\'ll use this theme."
+msgstr ""
+
+#. Text in function
+#: emails/edit.php:1
+msgid "There are no test subscribers."
+msgstr ""
+
+#. Text in echo
+#: emails/index.php:95
+msgid "Tracking"
+msgstr ""
+
+#. Text in function
+#: emails/index.php:84
+msgid "Trigger the delivery engine"
+msgstr ""
+
+#. Text in function
+#: emails/index.php:126
+msgid "Yes"
+msgstr ""
+
+#. Text in function
+#: emails/index.php:124
+msgid "of"
+msgstr ""

@@ -1,0 +1,36 @@
+.newsletter-form {
+    width: 100%;
+    display: block;
+    margin: 15px 0;
+    border: 0;
+}
+
+.newsletter-field {
+    clear: both;
+    text-align: left;
+}
+
+.newsletter-field label {
+    display: block;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.newsletter-field input, .newsletter-field select {
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 0;
+    line-height: normal;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+}
+
+.newsletter-field-checkbox label, .newsletter-field-preference label, .newsletter-field-list label {
+    text-align: left;
+    display: inline;
+    padding-left: 1em;
+}
+
+@media all and (max-width: 480px) {
+}
+

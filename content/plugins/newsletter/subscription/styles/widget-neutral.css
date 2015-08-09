@@ -1,0 +1,54 @@
+.newsletter-widget {
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: normal;
+}
+
+.newsletter-widget p {
+    margin: 0 0 10px 0!important;
+    padding: 0;
+}
+
+.newsletter-widget input, .newsletter-widget select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    color: #666;
+    background-color: #fff!important;
+    box-shadow: none;
+    line-height: normal;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.newsletter-widget option {
+    padding-left: 0;
+    margin-left: 0;
+}
+.newsletter-widget .newsletter-email {
+    
+}
+
+.newsletter-widget .newsletter-firstname {
+    
+}
+
+.newsletter-widget .newsletter-lastname {
+    
+}
+
+.newsletter-widget .newsletter-sex {
+    
+}
+
+.newsletter-widget .newsletter-profile {
+    
+}
+
+.newsletter-widget .newsletter-submit {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-image: url(widget-neutral/button.png);
+    color: #fff;
+}

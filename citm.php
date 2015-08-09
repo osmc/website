@@ -7,3 +7,4 @@ curl_setopt($ch, CURLOPT_TIMEOUT, 20); //timeout in seconds
 curl_exec($ch);
 curl_close($ch);
 ?>
+

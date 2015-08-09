@@ -1,0 +1,113 @@
+# Translation Template for Post Snippets.
+# Copyright (C) 2009 Johan Steen
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Snippets\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-snippets\n"
+"POT-Creation-Date: 2009-03-24 09:38+0000\n"
+"PO-Revision-Date: 2011-01-23 02:21+0200\n"
+"Last-Translator: JSEL <jselivingston@gmail.com>\n"
+"Language-Team: www.tml.web.tr <jselivingston@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-Language: Turkish\n"
+
+#: post-snippets.php:70
+msgid "Post Snippets requires WordPress version 2.7 or later!"
+msgstr "Post Snippets eklentisi WordPress 2.7 veya daha üst bir sürümde çalışır!"
+
+#: post-snippets.php:179
+msgid "A snippet named Untitled has been added."
+msgstr "Untitled adında bir snippet eklendi."
+
+#: post-snippets.php:192
+msgid "Snippets have been updated."
+msgstr "Snippets alanları güncellendi."
+
+#: post-snippets.php:208
+msgid "Selected snippets have been deleted."
+msgstr "Seçili snippet(lar) silindi."
+
+#: post-snippets.php:220
+msgid "Add New Snippet"
+msgstr "Yeni Snippet Ekle"
+
+#: post-snippets.php:221
+msgid "Delete Selected"
+msgstr "Seçili Olanları Sil"
+
+#: post-snippets.php:230
+#: post-snippets.php:239
+msgid "Title"
+msgstr "Başlık"
+
+#: post-snippets.php:231
+#: post-snippets.php:240
+msgid "Variables"
+msgstr "Değişkenler"
+
+#: post-snippets.php:232
+#: post-snippets.php:241
+msgid "Snippet"
+msgstr "Snippet"
+
+#: post-snippets.php:263
+msgid "Update Snippets"
+msgstr "Güncelle"
+
+#: post-snippets.php:268
+msgid "Help"
+msgstr "Yardım"
+
+#: post-snippets.php:270
+msgid "<strong>Title</strong><br/>Give the snippet a title that helps you identify it in the post editor."
+msgstr "<strong>Başlık</strong><br/>Yazı editöründe kullanmak üzere snippet'a bir başlık yazın."
+
+#: post-snippets.php:272
+msgid "<strong>Variables</strong><br/>A comma separated list of custom variables you can reference in your snippet.<br/><br/>Example:<br/>url,name"
+msgstr "<strong>Değişkenler</strong><br/>Snippet'da kullanmak üzere virgülle birbirinden ayrılmış özel değişkenler listesi.<br/><br/>Örnek:<br/>url,name"
+
+#: post-snippets.php:274
+msgid "<strong>Snippet</strong><br/>This is the block of text or HTML to insert in the post when you select the snippet from the insert button in the TinyMCE panel in the post editor. If you have entered predefined variables you can reference them from the snippet by enclosing them in {} brackets.<br/><br/>Example:<br/>To reference the variables in the example above, you would enter {url} and {name}.<br/><br/>So if you enter this snippet:<br/><i>This is the website of &lt;a href=\"{url}\"&gt;{name}&lt;/a&gt;</i><br/>You will get the option to replace url and name on insert if they are defined as variables."
+msgstr "<strong>Snippet</strong><br/>Burası TinyMCE panelindeki ekle düğmesi aracılığıyla seçeceğiniz snippet'ın  gönderide ekleneceği metin bloğu veya HTML kısmıdır. Snippet'ınızda daha önce tanımlanmış olan değişkenleri kullanmak için {} karakterleri arasına yazabilirsiniz.<br/><br/>Örnek:<br/>Yukarıdaki örnekteki değişkenleri kullanmak için {url} ve {name} kodlarını yazmalısınız.<br/><br/>Yani aşağıdaki snippet yazıldığında:<br/><i>Siteye ait url ve anchor metni: &lt;a href=\"{url}\"&gt;{name}&lt;/a&gt; şeklinde olacaktır.</i><br/>Böylelikle url ve name değişkenlerini değiştirme şansına sahip olacaksınız."
+
+#: post-snippets.php:281
+msgid "About Post Snippets"
+msgstr "Post Snippets Hakkında"
+
+#: tinymce/window.php:9
+msgid "You are not allowed to be here"
+msgstr "İzniniz yok"
+
+#: tinymce/window.php:109
+msgid "Cancel"
+msgstr "Vazgeç"
+
+#: tinymce/window.php:113
+msgid "Insert"
+msgstr "Ekle"
+
+#. Plugin Name of an extension
+msgid "Post Snippets"
+msgstr "Post Snippets"
+
+#. Plugin URI of an extension
+msgid "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+msgstr "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+
+#. Description of an extension
+msgid "Stores snippets of HTML code or reoccurring text that you often use in your posts. You can use predefined variables to replace parts of the snippet on insert. All snippets are available in the post editor with a TinyMCE button, Quicktags or Shortcodes."
+msgstr "Yazılarınızda sıklıkla kullandığınız HTML kodu veya metinlerdeki snippetlerı kaydeder. Tanımladığınız değişkenleri kullanarak snippet bölümlerini de değiştirebilirsiniz. Tüm snippetlara yazı editöründe yer alan TinyMCE, Quicktags veya Shortcodes düğmeleri aracılığıyla ulaşabilirsiniz."
+
+#. Author of an extension
+msgid "Johan Steen"
+msgstr "Johan Steen"
+
+#. Author URI of an extension
+msgid "http://coding.cglounge.com/"
+msgstr "http://coding.cglounge.com/"
+

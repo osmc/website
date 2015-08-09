@@ -1,0 +1,379 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-05 08:54+0700\n"
+"PO-Revision-Date: 2014-05-29 12:52+0200\n"
+"Last-Translator: Michael Yunat <Michael.Yunat@gmail.com>\n"
+"Language-Team: http://getvoip.com/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk_UA\n"
+"X-Generator: Poedit 1.6.5\n"
+
+#: views/admin_snippets.php:8 views/admin_snippets.php:17
+#: views/help_basic.php:1
+msgid "Title"
+msgstr "Назва"
+
+#: views/admin_snippets.php:9 views/admin_snippets.php:18
+#: views/help_basic.php:6 lib/PostSnippets/Admin.php:364
+msgid "Variables"
+msgstr "Змінні"
+
+#: views/admin_snippets.php:10 views/admin_snippets.php:19
+#: views/help_basic.php:16 lib/PostSnippets/Admin.php:383
+msgid "Snippet"
+msgstr "Уривок"
+
+#: views/admin_snippets.php:39 lib/PostSnippets/Help.php:40
+msgid "Shortcode"
+msgstr "Короткий"
+
+#: views/admin_snippets.php:46
+msgid "PHP Code"
+msgstr "PHP-коду"
+
+#: views/admin_snippets.php:58 views/help_basic.php:29
+msgid "Description"
+msgstr "Опис"
+
+#: views/admin_snippets.php:70
+msgid "Update Snippets"
+msgstr "Оновити Фрагменти"
+
+#: views/admin_snippets.php:71
+msgid "Add New Snippet"
+msgstr "Додати новий сниппет"
+
+#: views/admin_snippets.php:72
+msgid "Delete Selected"
+msgstr "Видалити вибране"
+
+#: views/help_advanced.php:2
+msgid ""
+"You can retrieve a Post Snippet directly from PHP, in a theme for instance, "
+"by using the PostSnippets::getSnippet() method."
+msgstr ""
+"Ви можете отримати поштове Snippet безпосередньо з PHP, в темі, наприклад, "
+"за допомогою PostSnippets :: getSnippet () метод."
+
+#: views/help_advanced.php:5
+msgid "Usage"
+msgstr "Використання"
+
+#: views/help_advanced.php:11
+msgid "Parameters"
+msgstr "Параметри"
+
+#: views/help_advanced.php:14
+msgid "(string) (required) The name of the snippet to retrieve."
+msgstr "(Рядок) (обов'язково) Ім'я фрагменті, щоб відновити."
+
+#: views/help_advanced.php:17
+msgid ""
+"(string) The variables to pass to the snippet, formatted as a query string."
+msgstr ""
+"(Рядок) Змінні перейти на фрагменті, відформатований у вигляді рядка запиту."
+
+#: views/help_advanced.php:20 views/help_basic.php:12 views/help_basic.php:21
+msgid "Example"
+msgstr "Приклад"
+
+#: views/help_basic.php:3
+msgid ""
+"Give the snippet a title that helps you identify it in the post editor. This "
+"also becomes the name of the shortcode if you enable that option"
+msgstr ""
+"Дайте фрагмент назву, яка допоможе вам визначити його в редакторі "
+"повідомленням. Ця також стає ім'я короткий номер, якщо ви дозволите цю опцію"
+
+#: views/help_basic.php:8
+msgid ""
+"A comma separated list of custom variables you can reference in your "
+"snippet. A variable can also be assigned a default value that will be used "
+"in the insert window by using the equal sign, variable=default."
+msgstr ""
+"Розділені коми список користувача змінних, які можна посилатися у вашому "
+"фрагменті. Мінлива також може бути присвоєно значення за замовчуванням, який "
+"буде використовуватися у вікні вставки за допомогою знака рівності, змінна = "
+"значення за замовчуванням."
+
+#: views/help_basic.php:18
+msgid ""
+"This is the block of text, HTML or PHP to insert in the post or as a "
+"shortcode. If you have entered predefined variables you can reference them "
+"from the snippet by enclosing them in {} brackets."
+msgstr ""
+"Це блок тексту, HTML або PHP для вставки на посаді або в якості короткий "
+"номер. Якщо ви ввели зумовлені змінні можна посилатися на них від фрагменті, "
+"укладаючи їх у {} дужках."
+
+#: views/help_basic.php:22
+msgid ""
+"To reference the variables in the example above, you would enter {url} and "
+"{name}. So if you enter this snippet:"
+msgstr ""
+"Для виходу на змінні в наведеному вище прикладі, ви повинні ввести {URL} і "
+"{ім'я} Так що, якщо ви входите в цей фрагмент:."
+
+#: views/help_basic.php:26
+msgid ""
+"You will get the option to replace url and name on insert if they are "
+"defined as variables."
+msgstr ""
+"Ви отримаєте можливість замінити URL і ім'я на вставки, якщо вони "
+"визначається як змінних."
+
+#: views/help_basic.php:31
+msgid ""
+"An optional description for the Snippet. If filled out, the description will "
+"be displayed in the snippets insert window in the post editor."
+msgstr ""
+"Необов'язкове опис для сниппета. Якщо заповнені, опис буде відображатися в "
+"фрагментах вставити вікно в редакторі повідомленням."
+
+#: views/help_php.php:2
+msgid ""
+"Snippets defined as shortcodes can optionally also be evaluated as PHP Code "
+"by enabling the PHP checkbox. PHP snippets is only available when treating "
+"the snippet as a shortcode."
+msgstr ""
+"Фрагменти що визначаються як короткі номери можуть також необов'язково бути "
+"оцінені як PHP код , дозволяючи PHP прапорець. PHP фрагменти доступна тільки "
+"при лікуванні фрагмент як короткий номер."
+
+#: views/help_php.php:5
+msgid "Example PHP Snippet"
+msgstr "Приклад PHP Частковий"
+
+#: views/help_php.php:13
+msgid ""
+"With a snippet defined like the one above, you can call it with its "
+"shortcode definition in a post. Let's pretend that the example snippet is "
+"named phpcode and have one variable defined loop_me, then it would be called "
+"like this from a post:"
+msgstr ""
+"З фрагменті визначеної як один вище, ви можете викликати його з його "
+"визначення Короткий на посаді. Давайте уявимо, що приклад фрагмент є імені "
+"phpcode і є одна змінна, визначена loop_me, то вона буде називатися як це з "
+"посади: "
+
+#: views/help_php.php:19
+msgid ""
+"When the shortcode is executed the loop_me variable will be replaced with "
+"the string supplied in the shortcode and then the PHP code will be "
+"evaluated. (Outputting the string five times in this case. Wow!)"
+msgstr ""
+"Коли шорткод виконується мінлива loop_me будуть замінені рядка, що подається "
+"в короткий номер, а потім код PHP буде оцінені. (Висновок рядок п'ять разів "
+"в цьому випадку. Нічого собі!)"
+
+#: views/help_php.php:23
+msgid ""
+"Note the evaluation order, any snippet variables will be replaced before the "
+"snippet is evaluated as PHP code. Also note that a PHP snippet don't need to "
+"be wrapped in &lt;?php #code; ?&gt;."
+msgstr ""
+"Зверніть увагу на порядок обчислення, будь-які сниппет змінні будуть "
+"замінені до фрагмент оцінюється як PHP коду Відзначимо також, що PHP "
+"фрагмент не потрібно.Бути загорнуті в <PHP #Кодекса;?>."
+
+#: views/help_shortcode.php:2
+msgid ""
+"When enabling the shortcode checkbox, the snippet is no longer inserted "
+"directly but instead inserted as a shortcode. The obvious advantage of this "
+"is of course that you can insert a block of text or code in many places on "
+"the site, and update the content from one single place."
+msgstr ""
+"Коли дозволяє шорткода прапорець, фрагмент більше не вставлений "
+"безпосередньо, але замість того, щоб включити в якості короткий номер. "
+"Очевидна перевага цього , звичайно, що ви можете вставити блок тексту або "
+"коду в багатьох місцях на  сайт і оновлювати вміст з одному місці ."
+
+#: views/help_shortcode.php:6
+msgid ""
+"The name to use the shortcode is the same as the title of the snippet "
+"(spaces are not allowed). When inserting a shortcode snippet, the shortcode "
+"and not the content will be inserted in the post."
+msgstr ""
+"Ім'я використовувати короткий код такий же, як назва фрагмента (пробіли не "
+"допускаються). При вставці шорткода фрагменті шорткод , а не зміст буде "
+"вставлений на посаді."
+
+#: views/help_shortcode.php:10
+msgid ""
+"If you enclose the shortcode in your posts, you can access the enclosed "
+"content by using the variable {content} in your snippet. The {content} "
+"variable is reserved, so don't use it in the variables field."
+msgstr ""
+"Якщо ви укладете шорткод в ваших повідомленнях, ви можете отримати доступ до "
+"закритої вміст за допомогою змінної {зміст} у вашому фрагменті. {Зміст} "
+"змінна захищені, так що не використовувати його в області змінних. "
+
+#: views/help_shortcode.php:13 lib/PostSnippets/Admin.php:380
+msgid "Options"
+msgstr "Опції"
+
+#: views/help_shortcode.php:15
+msgid "See the dedicated help section for information about PHP shortcodes."
+msgstr ""
+"Дивіться спеціальний розділ довідки для отримання інформації про PHP короткі "
+"номери."
+
+#: views/help_shortcode.php:18 php-format
+msgid ""
+"Before the shortcode is outputted, it can optionally be formatted with %s, "
+"to transform quotes to smart quotes, apostrophes, dashes, ellipses, the "
+"trademark symbol, and the multiplication symbol."
+msgstr ""
+"Перед шорткод відтворюється, може додатково бути відформатований %s, "
+"перетворити лапки, щоб смарт-лапки, апострофи, тире, еліпси, в символом "
+"товарного знака, а також символ множення."
+
+#: views/help_sidebar.php:2
+msgid "For more information:"
+msgstr "Для отримання додаткової інформації:"
+
+#: views/help_sidebar.php:6
+msgid "Documentation"
+msgstr "Документація"
+
+#: views/help_sidebar.php:10
+msgid "Support Forums"
+msgstr "Форуми підтримки"
+
+#: views/help_sidebar.php:14
+msgid "GitHub Contribution"
+msgstr "GitHub Вклад"
+
+#: views/jquery-ui-dialog.php:47
+msgid "This snippet is insert only, no variables defined."
+msgstr "Цей фрагмент, це вставити тільки, ніякі змінні не визначено."
+
+#: lib/PostSnippets/Admin.php:39
+msgid "Settings"
+msgstr "Налаштування"
+
+#: lib/PostSnippets/Admin.php:113
+msgid "A snippet named Untitled has been added."
+msgstr "Фрагмент імені Без назви була додана."
+
+#: lib/PostSnippets/Admin.php:133
+msgid "Nothing selected to delete."
+msgstr "Нічого не вибрано для видалення."
+
+#: lib/PostSnippets/Admin.php:149
+msgid "Selected snippets have been deleted."
+msgstr "Окремі фрагменти були видалені."
+
+#: lib/PostSnippets/Admin.php:184
+msgid "Snippets have been updated."
+msgstr "Фрагменти були оновлені."
+
+#: lib/PostSnippets/Admin.php:264
+msgid "Manage Snippets"
+msgstr "Управління помістивши"
+
+#: lib/PostSnippets/Admin.php:264 lib/PostSnippets/Admin.php:307
+msgid "Import/Export"
+msgstr "Імпорт/Експорт"
+
+#: lib/PostSnippets/Admin.php:272
+msgid "Use the help dropdown button for additional information."
+msgstr "Використовуйте кнопку допомогу випадає за додатковою інформацією."
+
+#: lib/PostSnippets/Admin.php:308
+msgid "Export"
+msgstr "Експорт"
+
+#: lib/PostSnippets/Admin.php:311
+msgid "Export your snippets for backup or to import them on another site."
+msgstr ""
+"Експорт фрагменти для резервного копіювання або імпортувати їх на іншому "
+"сайті."
+
+#: lib/PostSnippets/Admin.php:313
+msgid "Export Snippets"
+msgstr "Експорт Фрагменти"
+
+#: lib/PostSnippets/Admin.php:336
+msgid ""
+"This is an overview of all snippets defined for this site. These snippets "
+"are inserted into posts from the post editor using the Post Snippets button. "
+"You can choose to see the snippets here as-is or as they are actually "
+"rendered on the website. Enabling rendered snippets for this overview might "
+"look strange if the snippet have dependencies on variables, CSS or other "
+"parameters only available on the frontend. If that is the case it is "
+"recommended to keep this option disabled."
+msgstr ""
+"Це огляд всіх фрагментів, визначених для цього сайту. Ці фрагменти "
+"вставляються повідомлень з редактора повідомленням допомогою кнопки "
+"Розмістити Фрагменти.Ви можете побачити фрагменти тут як є або як вони "
+"насправді справив на сайті. Включення надаються помістивши для цього огляду, "
+"можливо виглядати дивно, якщо фрагмент мати залежності від змінних, CSS та "
+"інших параметрів, доступних тільки на інтерфейсі. Якщо це ваш випадок, це "
+"рекомендується тримати цей опція вимкнена ."
+
+#: lib/PostSnippets/Admin.php:346
+msgid "Display rendered snippets"
+msgstr "Показати надана фрагменти"
+
+#: lib/PostSnippets/Admin.php:347
+msgid "Update"
+msgstr "Оновлення"
+
+#: lib/PostSnippets/Help.php:33
+msgid "Basic"
+msgstr "Основний"
+
+#: lib/PostSnippets/Help.php:48
+msgid "PHP"
+msgstr "PHP"
+
+#: lib/PostSnippets/Help.php:56
+msgid "Advanced"
+msgstr "Просунутий"
+
+#: lib/PostSnippets/ImportExport.php:38
+msgid "Error: "
+msgstr "Помилка:"
+
+#: lib/PostSnippets/ImportExport.php:61
+msgid "Import"
+msgstr "Імпорт"
+
+#: lib/PostSnippets/ImportExport.php:67
+msgid ""
+"Import snippets from a post-snippets-export.zip file. Importing overwrites "
+"any existing snippets."
+msgstr ""
+"Імпорт фрагменти з файлу пост-фрагменти-export.zip. Імпорт перезапису всі "
+"існуючі фрагменти."
+
+#: lib/PostSnippets/ImportExport.php:74
+msgid "Import Snippets"
+msgstr "Імпорт Фрагменти"
+
+#: lib/PostSnippets/ImportExport.php:113
+msgid "Snippets successfully imported."
+msgstr "Фрагменти успішно імпортовані."
+
+#: lib/PostSnippets/ImportExport.php:118 lib/PostSnippets/ImportExport.php:127
+#: lib/PostSnippets/ImportExport.php:133
+msgid "Snippets could not be imported:"
+msgstr "Фрагменти не можуть бути імпортовані:"
+
+#: lib/PostSnippets/ImportExport.php:120
+msgid "Unzipping failed."
+msgstr "Розпакування не вдалося."
+
+#: lib/PostSnippets/ImportExport.php:135
+msgid "Upload failed."
+msgstr "Завантаження не вдалася."

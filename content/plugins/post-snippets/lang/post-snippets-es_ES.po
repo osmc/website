@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Snippets v1.7\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-snippets\n"
+"POT-Creation-Date: 2009-03-24 09:38+0000\n"
+"PO-Revision-Date: 2011-02-25 23:17-0400\n"
+"Last-Translator: Melvis Leon <me_leon@hotmail.com>\n"
+"Language-Team: MLL Designs <me_leon@hotmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ post-snippets
+#: post-snippets.php:70
+msgid "Post Snippets requires WordPress version 2.7 or later!"
+msgstr "Post Snippets requiere WordPress versi&oacute;n 2.7 o posterior!"
+
+# @ post-snippets
+#: post-snippets.php:179
+msgid "A snippet named Untitled has been added."
+msgstr "Un Snippet llamado Sin t&iacute;tulo ha sido agregado."
+
+# @ post-snippets
+#: post-snippets.php:192
+msgid "Snippets have been updated."
+msgstr "Los Snippets han sido actualizados."
+
+# @ post-snippets
+#: post-snippets.php:208
+msgid "Selected snippets have been deleted."
+msgstr "Los snippets han sido eliminados."
+
+# @ post-snippets
+#: post-snippets.php:220
+msgid "Add New Snippet"
+msgstr "Agregar nuevo Snippet"
+
+# @ post-snippets
+#: post-snippets.php:221
+msgid "Delete Selected"
+msgstr "Eliminar seleccionados"
+
+# @ post-snippets
+#: post-snippets.php:230
+#: post-snippets.php:239
+msgid "Title"
+msgstr "T&iacute;tulo"
+
+# @ post-snippets
+#: post-snippets.php:231
+#: post-snippets.php:240
+msgid "Variables"
+msgstr "Variables"
+
+# @ post-snippets
+#: post-snippets.php:232
+#: post-snippets.php:241
+msgid "Snippet"
+msgstr "Snippet"
+
+# @ post-snippets
+#: post-snippets.php:263
+msgid "Update Snippets"
+msgstr "Actualizar Snippets"
+
+# @ post-snippets
+#: post-snippets.php:268
+msgid "Help"
+msgstr "Ayuda"
+
+# @ post-snippets
+#: post-snippets.php:270
+msgid "<strong>Title</strong><br/>Give the snippet a title that helps you identify it in the post editor."
+msgstr "<strong>Titulo</strong><br/>Nombrar al snippet con un t&iacute;tulo que le ayude a identificarlo en el editor de entradas."
+
+# @ post-snippets
+#: post-snippets.php:272
+msgid "<strong>Variables</strong><br/>A comma separated list of custom variables you can reference in your snippet.<br/><br/>Example:<br/>url,name"
+msgstr "<strong>Variables</strong><br/>Puedes hacer referencia a una lista separada por comas de variables personalizadas en tu snippet.<br/><br/>Ejemplo:<br/>url, nombre"
+
+# @ post-snippets
+#: post-snippets.php:274
+msgid "<strong>Snippet</strong><br/>This is the block of text or HTML to insert in the post when you select the snippet from the insert button in the TinyMCE panel in the post editor. If you have entered predefined variables you can reference them from the snippet by enclosing them in {} brackets.<br/><br/>Example:<br/>To reference the variables in the example above, you would enter {url} and {name}.<br/><br/>So if you enter this snippet:<br/><i>This is the website of &lt;a href=\"{url}\"&gt;{name}&lt;/a&gt;</i><br/>You will get the option to replace url and name on insert if they are defined as variables."
+msgstr "<strong>Snippet</strong><br/>Este es el bloque de texto o HTML a insertar en la entrada al seleccionar el snippet del bot&oacute;n de insertar en el TinyMCE en el editor de entradas. Si ha introducido las variables predefinidas usted puede referenciarlas desde el snippet al encerrarlas entre llaves {}.<br/> Ejemplo: <br/>Para hacer referencia a las variables en el ejemplo anterior, debe escribir {url} y {nombre}.<br/>As&iacute; que si digitas este snippet: <br/> <i> Esta es la p&aacute;gina web de &lt;a href=\"{url}\"&gt;{nombre}&lt;/a&gt;</i><br/> </ i> <br/>Usted recibir&aacute; la opci&oacute;n de reemplazar url y el nombre cuando se inserta, si se definen como variables."
+
+#: post-snippets.php:281
+msgid "About Post Snippets"
+msgstr "Acerca de Post Snippets"
+
+# @ post-snippets
+#: tinymce/window.php:9
+msgid "You are not allowed to be here"
+msgstr "No tiene permitido estar aqu&iacute;"
+
+# @ post-snippets
+#: tinymce/window.php:109
+msgid "Cancel"
+msgstr "Cancelar"
+
+# @ post-snippets
+#: tinymce/window.php:113
+msgid "Insert"
+msgstr "Insertar"
+
+# @ post-snippets
+#. Plugin Name of an extension
+msgid "Post Snippets"
+msgstr "Post Snippets"
+
+#. Plugin URI of an extension
+msgid "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+msgstr "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+
+#. Description of an extension
+msgid "Stores snippets of HTML code or reoccurring text that you often use in your posts. You can use predefined variables to replace parts of the snippet on insert. All snippets are available in the post editor with a TinyMCE button, Quicktags or Shortcodes."
+msgstr "Almacena de snippets(fragmentos) de código HTML o texto recurrente para usarlo en tus entradas. Puedes utilizar las variables predefinidas para reemplazar partes del snippet(fragmento) en inserción. Todos los snippets(fragmentos) están disponibles en el editor de entradas con un botón de TinyMCE, Quicktags o Shortcodes."
+
+#. Author of an extension
+msgid "Johan Steen"
+msgstr "Johan Steen"
+
+#. Author URI of an extension
+msgid "http://coding.cglounge.com/"
+msgstr "http://coding.cglounge.com/"
+

@@ -1,0 +1,114 @@
+# Translation Template for Post Snippets.
+# Copyright (C) 2009 Johan Steen
+# This file is distributed under the same license as the PACKAGE package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Snippets\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-snippets\n"
+"POT-Creation-Date: 2009-03-24 09:38+0000\n"
+"PO-Revision-Date: 2009-08-08 14:02+0300\n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: Fat Cow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: post-snippets.php:70
+msgid "Post Snippets requires WordPress version 2.7 or later!"
+msgstr "Post Snippets требует WordPress версии 2.7 или позднее!"
+
+#: post-snippets.php:179
+msgid "A snippet named Untitled has been added."
+msgstr "Сниппет с названием Untitled был добавлен."
+
+#: post-snippets.php:192
+msgid "Snippets have been updated."
+msgstr "Сниппет был обновлен."
+
+#: post-snippets.php:208
+msgid "Selected snippets have been deleted."
+msgstr "Выбранные сниппеты были удалены."
+
+#: post-snippets.php:220
+msgid "Add New Snippet"
+msgstr "Добавлен новый сниппет "
+
+#: post-snippets.php:221
+msgid "Delete Selected"
+msgstr "Удаление выбранного"
+
+#: post-snippets.php:230
+#: post-snippets.php:239
+msgid "Title"
+msgstr "Заглавие"
+
+#: post-snippets.php:231
+#: post-snippets.php:240
+msgid "Variables"
+msgstr "Переменные"
+
+#: post-snippets.php:232
+#: post-snippets.php:241
+msgid "Snippet"
+msgstr "Сниппет"
+
+#: post-snippets.php:263
+msgid "Update Snippets"
+msgstr "Сниппеты обновлены"
+
+#: post-snippets.php:268
+msgid "Help"
+msgstr "ПОмощь"
+
+#: post-snippets.php:270
+msgid "<strong>Title</strong><br/>Give the snippet a title that helps you identify it in the post editor."
+msgstr "<strong>Заглавие</strong><br/>Давайте сниппетам понятные для дальнейшего восприятия имена."
+
+#: post-snippets.php:272
+msgid "<strong>Variables</strong><br/>A comma separated list of custom variables you can reference in your snippet.<br/><br/>Example:<br/>url,name"
+msgstr "<strong>Переменные</strong><br/>Пример:<br/>url,name"
+
+#: post-snippets.php:274
+msgid "<strong>Snippet</strong><br/>This is the block of text or HTML to insert in the post when you select the snippet from the insert button in the TinyMCE panel in the post editor. If you have entered predefined variables you can reference them from the snippet by enclosing them in {} brackets.<br/><br/>Example:<br/>To reference the variables in the example above, you would enter {url} and {name}.<br/><br/>So if you enter this snippet:<br/><i>This is the website of &lt;a href=\"{url}\"&gt;{name}&lt;/a&gt;</i><br/>You will get the option to replace url and name on insert if they are defined as variables."
+msgstr "<strong>Сниппет</strong><br/>Это блок текста или HTML для вставки в пост, когда вы выбираете фрагмент из добавить кнопку в панель TinyMCE в должности редактора. If you have entered predefined variables you can reference them from the snippet by enclosing them in {} brackets.<br/><br/>Example:<br/>To reference the variables in the example above, you would enter {url} and {name}.<br/><br/>So if you enter this snippet:<br/><i>This is the website of &lt;a href=\"{url}\"&gt;{name}&lt;/a&gt;</i><br/>You will get the option to replace url and name on insert if they are defined as variables."
+
+#: post-snippets.php:281
+msgid "About Post Snippets"
+msgstr "О Post Snippets"
+
+#: tinymce/window.php:9
+msgid "You are not allowed to be here"
+msgstr "Вам не разрешено быть здесь"
+
+#: tinymce/window.php:109
+msgid "Cancel"
+msgstr "Отмена"
+
+#: tinymce/window.php:113
+msgid "Insert"
+msgstr "Вставить"
+
+#. Plugin Name of an extension
+msgid "Post Snippets"
+msgstr "Post Snippets"
+
+#. Plugin URI of an extension
+msgid "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+msgstr "http://coding.cglounge.com/wordpress-plugins/post-snippets/"
+
+#. Description of an extension
+msgid "Stores snippets of HTML code or reoccurring text that you often use in your posts. You can use predefined variables to replace parts of the snippet on insert. All snippets are available in the post editor with a TinyMCE button, Quicktags or Shortcodes."
+msgstr "Магазины фрагмент HTML-код или повторение текста, который вы часто используете в должности. Вы можете использовать предопределенные переменные для замены частей, взяв на вставки. Все фрагменты имеются в должности редактора с TinyMCE кнопки, Quicktags или Shortcodes. "
+
+#. Author of an extension
+msgid "Johan Steen"
+msgstr "Johan Steen"
+
+#. Author URI of an extension
+msgid "http://coding.cglounge.com/"
+msgstr "http://coding.cglounge.com/"
+

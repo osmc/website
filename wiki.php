@@ -12,7 +12,7 @@ $num_errors = 0;
 $calls = 0;
 
 $_SERVER['HTTPS'] = 'on';
-require_once('wp-blog-header.php');
+require_once('cms/wp-blog-header.php');
 
 /* Generate footer and sidebar */
 ob_start();

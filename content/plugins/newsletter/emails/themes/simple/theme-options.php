@@ -1,0 +1,1 @@
+<?php include WP_PLUGIN_DIR . '/newsletter/emails/themes/default/social-options.php'; ?>
