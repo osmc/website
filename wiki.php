@@ -129,7 +129,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
     $tz = $json_category_pages->details->links[$i2];
 
-  if ($tz->reflection == "0" && ! strstr($tz->title, "About")) {
+  if ($tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
 
       chdir(make_slug_dir($tz->title));
 
@@ -161,7 +161,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       chdir("../");
 
     }
-    elseif (strstr($tz->title, "About")) {
+    elseif (substr($tz->title, 0, 6) === '/About') {
 
       /* Get description */
       $post = get_json_obj($tz->url . ".json");
