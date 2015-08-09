@@ -7,7 +7,7 @@
       <div class="byline">
         <a href="../../">Wiki</a><span> > </span><a href="../"><?php echo $post_cat ?></a>
         <div class="cat">
-          <a href="<?php echo $post_url ?>">Contribute</a>
+          <a href="<?php echo $post_url ?>">Make this page better</a>
         </div>
       </div>
 
