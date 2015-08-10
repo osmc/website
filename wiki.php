@@ -128,28 +128,31 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   $cat_body = $json_category_pages->post_stream->posts[0]->cooked;
   $dom = new DOMDocument();
   $dom->loadHTML($cat_body);
-  $a_tags = $dom->getElementsByTagName('a');
-
-  $sorted_links = array();
-  foreach ($a_tags as $key=>$a_tag) {
-    $class = $a_tag->getAttribute("class");
-    if ($class == false) {
-      $sorted_link = $a_tag->getAttribute("href");
-      array_push($sorted_links, $sorted_link);
+  $divs = $dom->getElementsByTagName('img');
+  
+  /* get post ids */
+  $sorted_ids = array();
+  foreach ($divs as $key=>$div) {
+    $class = $div->getAttribute("class");
+    if ($class === "avatar") {
+      $url = $div->nextSibling->getAttribute("href");
+      $sorted_id = substr($url, strrpos($url, '/') + 1);
+      array_push($sorted_ids, $sorted_id);
     }
   }
   
-  /* unsorted urls to search */
-  $unsorted_links = array();
+  /* unsorted ids to search */
+  $unsorted_ids = array();
   for ($i2 = 0; $i2 < count($json_category_pages->details->links); $i2++) {
     $url = $json_category_pages->details->links[$i2]->url;
-    array_push($unsorted_links, $url);
+    $unsorted_id = substr($url, strrpos($url, '/') + 1);
+    array_push($unsorted_ids, $unsorted_id);
   }
   
   /* foreach https://discourse.osmc.tv/t/vero/6559.json */
   for ($i3 = 0; $i3 < count($json_category_pages->details->links); $i3++) {
     
-    $sorted_key = array_search($sorted_links[$i3], $unsorted_links);
+    $sorted_key = array_search($sorted_ids[$i3], $unsorted_ids);
     $tz = $json_category_pages->details->links[$sorted_key];
     
     if ($sorted_key && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
