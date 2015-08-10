@@ -155,7 +155,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
     $sorted_key = array_search($sorted_ids[$i3], $unsorted_ids);
     $tz = $json_category_pages->details->links[$sorted_key];
     
-    if ($sorted_key && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
+    if ($sorted_key !== false && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
 
       chdir(make_slug_dir($tz->title));
 
@@ -187,9 +187,10 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       chdir("../");
 
     }
-    elseif (substr($tz->title, 0, 6) === '/About') {
+    elseif ($sorted_key !== false && substr($tz->title, 0, 6) === '/About') {
 
       /* Get description */
+      echo ("- " . $tz->title . "<br>");
       $post = get_json_obj($tz->url . ".json");
       $post_content = $post->post_stream->posts[0];
       $excerpt = $post_content->cooked;
