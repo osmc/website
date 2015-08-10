@@ -1641,51 +1641,54 @@ $border: 1px dotted $lgrey;
     .desc {
       font-size: 100%;
     }
-    ul {
-      padding: 0;
-      padding-top: 1em;
-      list-style: none;
-      a {
-        li {
-          padding: 1.2em 0.8em;
-          margin: 0;
-          border-top: $border;
-          @include transition-duration(0.1s);
-        }
-        &:last-child li {
-          border-bottom: $border;
-        }
-        &:hover {
+  }
+  &.w-cat, &.w-subcat {
+    section {
+      ul {
+        padding: 0;
+        padding-top: 1em;
+        list-style: none;
+        a {
           li {
-            background-color: $clear;
-            h3 {
-              color: $blue-s3;
-            }
-            p {
-              color: $dgrey2;
+            padding: 1.2em 0.8em;
+            margin: 0;
+            border-top: $border;
+            @include transition-duration(0.1s);
+          }
+          &:last-child li {
+            border-bottom: $border;
+          }
+          &:hover {
+            li {
+              background-color: $clear;
+              h3 {
+                color: $blue-s3;
+              }
+              p {
+                color: $dgrey2;
+              }
             }
           }
         }
-      }
-      
-      h3 {
-        color: $blue-s3;
-        margin: 0;
-        font-weight: 300;
-        @include transition-duration(0.1s);
-      }
-      p {
-        color: $dgrey2;
-        font-size: 90%;
-        margin: 0;
-        margin-top: 0.5em;
+
+        h3 {
+          color: $blue-s3;
+          margin: 0;
+          font-weight: 300;
+          @include transition-duration(0.1s);
+        }
+        p {
+          color: $dgrey2;
+          font-size: 90%;
+          margin: 0;
+          margin-top: 0.5em;
+        }
       }
     }
-  }
-  h3 {
+    h3 {
     font-weight: 300;
+    }
   }
-  
   &.w-cat {
     section {
       ul {
