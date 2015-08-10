@@ -114,8 +114,6 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   /* Make a directory for each category */
   chdir(make_slug_dir($tz->title));
 
-  $json_category_pages = get_json_obj($tz->url . ".json");
-
   $cat_title = $tz->title;
   array_push($cat_titles, $cat_title);
 
@@ -123,13 +121,38 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   array_push($cat_links, $cat_link);
 
   echo ("<br>" . $tz->title . "<br>");
+  
+  $json_category_pages = get_json_obj($tz->url . ".json");
+  
+  /* get urls from body - sorted */
+  $cat_body = $json_category_pages->post_stream->posts[0]->cooked;
+  $dom = new DOMDocument();
+  $dom->loadHTML($cat_body);
+  $a_tags = $dom->getElementsByTagName('a');
 
-  /* foreach https://discourse.osmc.tv/t/vero/6559.json */
+  $sorted_links = array();
+  foreach ($a_tags as $key=>$a_tag) {
+    $class = $a_tag->getAttribute("class");
+    if ($class == false) {
+      $sorted_link = $a_tag->getAttribute("href");
+      array_push($sorted_links, $sorted_link);
+    }
+  }
+  
+  /* unsorted urls to search */
+  $unsorted_links = array();
   for ($i2 = 0; $i2 < count($json_category_pages->details->links); $i2++) {
-
-    $tz = $json_category_pages->details->links[$i2];
-
-  if ($tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
+    $url = $json_category_pages->details->links[$i2]->url;
+    array_push($unsorted_links, $url);
+  }
+  
+  /* foreach https://discourse.osmc.tv/t/vero/6559.json */
+  for ($i3 = 0; $i3 < count($json_category_pages->details->links); $i3++) {
+    
+    $sorted_key = array_search($sorted_links[$i3], $unsorted_links);
+    $tz = $json_category_pages->details->links[$sorted_key];
+    
+    if ($sorted_key && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
 
       chdir(make_slug_dir($tz->title));
 
