@@ -125,21 +125,9 @@ function bones_scripts_and_styles() {
 	global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 	if (!is_admin()) {
 
-		// comment reply script for threaded comments
-		if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-			wp_enqueue_script( 'comment-reply' );
-		}
-
-		//adding scripts file in the footer
+		//adding scripts in the footer
         $script = 'scripts.min.js?v=1.1';
-      
-		wp_register_script( 'script.js', get_stylesheet_directory_uri() . '/library/js/' . $script, array( 'jquery' ), '', true );
-
-		/*
-		I recommend using a plugin to call jQuery
-		using the google cdn. That way it stays cached
-		and your site will load faster.
-		*/
+		wp_register_script( 'script.js', get_stylesheet_directory_uri() . '/library/js/' . $script, array(), '', true );
 		wp_enqueue_script( 'script.js' );
 
 	}
@@ -148,7 +136,7 @@ function bones_scripts_and_styles() {
 // Remove jquery-migrate
 add_filter( 'wp_default_scripts', 'remove_jquery_migrate' );
 
-function remove_jquery_migrate( &$scripts) {
+function remove_jquery_migrate($scripts) {
   if(!is_admin()) {
     $scripts->remove( 'jquery');
     $scripts->add( 'jquery', false, array( 'jquery-core' ));
