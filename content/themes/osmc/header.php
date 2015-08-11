@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
+		<title><?php bloginfo('name'); ?><?php wp_title('‒'); ?></title>
 		<meta name="description" content="<?php echo get_bloginfo ('description');  ?>" />
 		<meta property=og:title content="<?php bloginfo('name'); ?><?php wp_title(); ?>" />
 		<meta property=og:description content="<?php echo get_bloginfo ('description');  ?>" />
@@ -44,7 +44,6 @@
 		<![endif]-->
 		
 		<?php wp_head(); ?>
-        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 		<link rel="alternate" type="application/rss+xml" title="OSMC Feed" href="/feed?cat=-42" />
 		<script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
