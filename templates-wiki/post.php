@@ -1,3 +1,4 @@
+<?php echo file_get_contents($header); ?>
 <div class="row clearfix main wiki-page w-post">
   <div class="container">
     <div class="column three-fourths">

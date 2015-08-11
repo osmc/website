@@ -1,3 +1,4 @@
+<?php echo file_get_contents($header); ?>
 <div class="row clearfix main wiki-page w-cat">
   <div class="container">
     <div class="column three-fourths">
@@ -26,6 +27,6 @@
       </section>
 
     </div>
-    <?php echo $wp_sidebar ?>
+    <?php echo $wp_sidebar; ?>
   </div>
 </div>

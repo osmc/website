@@ -14,12 +14,10 @@ $calls = 0;
 $_SERVER['HTTPS'] = 'on';
 require_once('wp-blog-header.php');
 
-/* Generate footer and sidebar */
-ob_start();
-get_footer();
-$wp_footer = ob_get_clean();
-ob_end_clean();
+$wp_root = $_SERVER['DOCUMENT_ROOT'];
+$header = $_SERVER['DOCUMENT_ROOT'] . "/templates-wiki/header.html";
 
+/* Generate sidebar */
 ob_start();
 get_sidebar();
 $wp_sidebar = ob_get_clean();
@@ -27,7 +25,7 @@ ob_end_clean();
 
 /* Make wiki directory */
 $directory = "wiki-" . rand();
-$base_file = "index.html";
+$base_file = "index.php";
 $parent_contents_url = "https://discourse.osmc.tv/t/table-of-contents/6543.json";
 mkdir($directory, 0775);
 chdir($directory);
@@ -69,30 +67,21 @@ function make_slug_dir($dirname) {
 }
 
 /* The page doesn't exist in Wordpress' SQL database, so we need to customise it */
-$wp_title;
-$page_title = "Wiki";
 
-add_filter('wp_title', 'replace_title');
-function replace_title() {
-  global $wp_title;
-  return " - " . $wp_title;
+function wp_var_title($title) {
+  return '<?php $wp_title = ' . '"' . $title . '"' . ' ?>';
 }
 
-add_filter('body_class', 'replace_class');
-function replace_class() {
-  return array('wiki');
-}
-
-function wp_header($title) {
-  global $wp_title;
-  $wp_title = $title;
-
+function wp_var_footer() {
   ob_start();
-  $return = include TEMPLATEPATH . "/header.php";
-  $header = ob_get_clean();
+  $return = include TEMPLATEPATH . "/footer.php";
+  $footer = ob_get_clean();
   ob_end_clean();
-  return $header;
+  return $footer;
 }
+
+$wp_footer_count = 0;
+$wp_footer;
 
 /* Get the list of all available categories */
 echo ("Downloading list of all available categories <br>");
@@ -176,14 +165,18 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post_url = $tz->url;
       $post_body = $post_content->cooked;
 
-      $wp_header = wp_header($post_title);
-
       ob_start();
       $return = include "templates-wiki/post.php";
       $wp_template = ob_get_clean();
       ob_end_clean();
-
-      file_put_contents($base_file, $wp_header . $wp_template . $wp_footer);
+      
+      if ( $wp_footer_count === 0 ) {
+        $wp_footer = wp_var_footer();
+        $wp_footer_count = 1;
+      }
+      
+      $wp_title = wp_var_title($post_title);
+      file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
       chdir("../");
 
     }
@@ -205,8 +198,8 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   $return = include "templates-wiki/subcat.php";
   $wp_template = ob_get_clean();
   ob_end_clean();
-  $wp_header = wp_header($post_title);
-  file_put_contents($base_file,$wp_header . $wp_template . $wp_footer);
+  $wp_title = wp_var_title($post_title);
+  file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
 
   chdir("../");
 }
@@ -217,8 +210,8 @@ ob_start();
 $return = include "templates-wiki/cat.php";
 $wp_template = ob_get_clean();
 ob_end_clean();
-$wp_header = wp_header($post_title);
-file_put_contents($base_file, $wp_header . $wp_template . $wp_footer);
+$wp_title = wp_var_title($post_title);
+file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
 
 
 echo "<br><br> Errors: " . $num_errors;
@@ -229,5 +222,4 @@ if ($num_errors == 0) {
   system("rm -rf wiki");
   rename(getcwd() . "/" . $directory, "wiki");
 }
-
 ?>
