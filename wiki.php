@@ -161,7 +161,13 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post_content = $post->post_stream->posts[0];
 
       $post_title = $post->title;
-      $post_cat = $post->details->links[0]->title;
+      
+      for ($i4 = 0; $i4 < count($post->details->links); $i4++) {
+        if ( $post->details->links[$i4]->reflection ) {
+          $post_cat = $post->details->links[$i4]->title;
+        }
+      }
+      
       $post_url = $tz->url;
       $post_body = $post_content->cooked;
 
