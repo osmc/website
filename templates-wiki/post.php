@@ -22,3 +22,4 @@
     <?php echo $wp_sidebar ?>
   </div>
 </div>
+<?php echo file_get_contents($footer); ?>

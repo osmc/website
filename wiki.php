@@ -15,7 +15,8 @@ $_SERVER['HTTPS'] = 'on';
 require_once('wp-blog-header.php');
 
 $wp_root = $_SERVER['DOCUMENT_ROOT'];
-$header = $_SERVER['DOCUMENT_ROOT'] . "/templates-wiki/header.html";
+$header = $wp_root . "/templates-wiki/header.html";
+$footer = $wp_root . "/templates-wiki/footer.html";
 
 /* Generate sidebar */
 ob_start();
@@ -72,16 +73,6 @@ function wp_var_title($title) {
   return '<?php $wp_title = ' . '"' . $title . '"' . ' ?>';
 }
 
-function wp_var_footer() {
-  ob_start();
-  $return = include TEMPLATEPATH . "/footer.php";
-  $footer = ob_get_clean();
-  ob_end_clean();
-  return $footer;
-}
-
-$wp_footer_count = 0;
-$wp_footer;
 
 /* Get the list of all available categories */
 echo ("Downloading list of all available categories <br>");
@@ -176,13 +167,8 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $wp_template = ob_get_clean();
       ob_end_clean();
       
-      if ( $wp_footer_count === 0 ) {
-        $wp_footer = wp_var_footer();
-        $wp_footer_count = 1;
-      }
-      
       $wp_title = wp_var_title($post_title);
-      file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
+      file_put_contents($base_file, $wp_title . $wp_template);
       chdir("../");
 
     }
@@ -205,7 +191,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   $wp_template = ob_get_clean();
   ob_end_clean();
   $wp_title = wp_var_title($post_title);
-  file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
+  file_put_contents($base_file, $wp_title . $wp_template);
 
   chdir("../");
 }
@@ -217,7 +203,7 @@ $return = include "templates-wiki/cat.php";
 $wp_template = ob_get_clean();
 ob_end_clean();
 $wp_title = wp_var_title($post_title);
-file_put_contents($base_file, $wp_title . $wp_template . $wp_footer);
+file_put_contents($base_file, $wp_title . $wp_template);
 
 
 echo "<br><br> Errors: " . $num_errors;
