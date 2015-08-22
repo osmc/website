@@ -18,7 +18,7 @@ if (jQuery("body").hasClass("home")) {
 
   var player = new Clappr.Player({
     source: 'https://osmc.tv/homepage_tour.mp4',
-    poster: 'https://osmc.tv/wp-content/themes/osmc/library/images/video-poster.png',
+    poster: 'https://osmc.tv/content/themes/osmc/library/images/video-poster.png',
     preload: 'none',
     loop: 'true',
     width: '100%',
@@ -226,7 +226,7 @@ jQuery.each(jQuery(".donationwidget form"), function (index, oneForm)  {
 function stripe(am, cur) {
   var handler = StripeCheckout.configure({
     key: 'pk_live_HEfJk95fTFmjEBYMYVTxWFZk',
-    image: '/wp-content/themes/osmc/library/images/favicons/apple-touch-icon-180x180.png',
+    image: '/content/themes/osmc/library/images/favicons/apple-touch-icon-180x180.png',
     token: function (token) {
       window.location.href = "https://osmc.tv/contribute/donate/thanks/";
     }
