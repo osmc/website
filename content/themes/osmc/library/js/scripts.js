@@ -17,7 +17,7 @@ jQuery("#nav-res-toggle").click(function () {
 if (jQuery("body").hasClass("home")) {
 
   var player = new Clappr.Player({
-    source: 'https://osmc.tv/homepage_tour.mp4',
+    source: 'https://osmc.tv/homepage-tour.mp4',
     poster: 'https://osmc.tv/content/themes/osmc/library/images/video-poster.png',
     preload: 'none',
     loop: 'true',
