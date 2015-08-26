@@ -16,12 +16,8 @@ require_once('cms/wp-blog-header.php');
 $wp_root = getcwd();
 $header = $wp_root . "/templates-wiki/header.html";
 $footer = $wp_root . "/templates-wiki/footer.html";
+$sidebar = $wp_root . "/templates-wiki/sidebar.html";
 
-/* Generate sidebar */
-ob_start();
-get_sidebar();
-$wp_sidebar = ob_get_clean();
-ob_end_clean();
 
 /* Make wiki directory */
 $directory = "wiki-" . rand();
@@ -205,8 +201,13 @@ $wp_title = wp_var_title($post_title);
 file_put_contents($base_file, $wp_title . $wp_template);
 
 
-echo "<br><br> Errors: " . $num_errors;
-echo "<br> Calls: " . $calls;
+echo "<br><br>Errors: " . $num_errors;
+echo "<br>Calls: " . $calls;
+
+date_default_timezone_set("Europe/London");
+$date = new \DateTime();
+echo "<br><br>" . date_format($date, 'd-m-Y - H:i');
+
 if ($num_errors == 0) {
   chdir("../");
   /* Replace the old Wiki */
