@@ -13,7 +13,7 @@ $calls = 0;
 $_SERVER['HTTPS'] = 'on';
 require_once('cms/wp-blog-header.php');
 
-$wp_root = $_SERVER['DOCUMENT_ROOT'];
+$wp_root = getcwd();
 $header = $wp_root . "/templates-wiki/header.html";
 $footer = $wp_root . "/templates-wiki/footer.html";
 
