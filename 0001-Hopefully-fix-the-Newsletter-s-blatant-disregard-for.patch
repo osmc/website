@@ -1,0 +1,346 @@
+From 4446afa42af3f8ba10edb202e1fb4d614a5d5a6a Mon Sep 17 00:00:00 2001
+From: Sam Nazarko <email@samnazarko.co.uk>
+Date: Sun, 30 Aug 2015 15:34:43 +0100
+Subject: [PATCH] Hopefully fix the Newsletter's blatant disregard for ABSPATH!
+
+Signed-off-by: Sam Nazarko <email@samnazarko.co.uk>
+---
+ content/plugins/newsletter/api/add.php               | 2 +-
+ content/plugins/newsletter/api/delete.php            | 4 ++--
+ content/plugins/newsletter/do/change.php             | 2 +-
+ content/plugins/newsletter/do/confirm.php            | 2 +-
+ content/plugins/newsletter/do/profile.php            | 2 +-
+ content/plugins/newsletter/do/save.php               | 2 +-
+ content/plugins/newsletter/do/subscribe.php          | 4 ++--
+ content/plugins/newsletter/do/subscription-popup.php | 2 +-
+ content/plugins/newsletter/do/subscription.php       | 2 +-
+ content/plugins/newsletter/do/unlock.php             | 2 +-
+ content/plugins/newsletter/do/unsubscribe.php        | 2 +-
+ content/plugins/newsletter/do/unsubscription.php     | 2 +-
+ content/plugins/newsletter/do/view.php               | 4 ++--
+ content/plugins/newsletter/emails/create.php         | 4 ++--
+ content/plugins/newsletter/emails/css.php            | 2 +-
+ content/plugins/newsletter/emails/preview-text.php   | 4 ++--
+ content/plugins/newsletter/emails/preview.php        | 2 +-
+ content/plugins/newsletter/statistics/link.php       | 4 ++--
+ content/plugins/newsletter/statistics/open.php       | 2 +-
+ content/plugins/newsletter/subscription/page.php     | 4 ++--
+ content/plugins/newsletter/users/csv.php             | 2 +-
+ 21 files changed, 28 insertions(+), 28 deletions(-)
+
+diff --git a/content/plugins/newsletter/api/add.php b/content/plugins/newsletter/api/add.php
+index fb6ddbf..c1efd1b 100644
+--- a/content/plugins/newsletter/api/add.php
++++ b/content/plugins/newsletter/api/add.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ if (!isset($newsletter)) $newsletter = new Newsletter();
+ 
+diff --git a/content/plugins/newsletter/api/delete.php b/content/plugins/newsletter/api/delete.php
+index 2201c92..6733a03 100644
+--- a/content/plugins/newsletter/api/delete.php
++++ b/content/plugins/newsletter/api/delete.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ if (!isset($newsletter)) $newsletter = new Newsletter();
+ 
+@@ -10,4 +10,4 @@ if (empty(trim($newsletter->options['api_key'])) || $key != $newsletter->options
+ 
+ $email = $newsletter->normalize_email(stripslashes($_REQUEST['ne']));
+ $r = $wpdb->query($wpdb->prepare("delete from " . NEWSLETTER_USERS_TABLE . " where email=%s", $email));
+-die($r = 0 ? 'ko' : 'ok');
+\ No newline at end of file
++die($r = 0 ? 'ko' : 'ok');
+diff --git a/content/plugins/newsletter/do/change.php b/content/plugins/newsletter/do/change.php
+index d030f2d..dc9ea9b 100644
+--- a/content/plugins/newsletter/do/change.php
++++ b/content/plugins/newsletter/do/change.php
+@@ -3,7 +3,7 @@
+ header('Content-Type: text/html;charset=UTF-8');
+ header('X-Robots-Tag: noindex,nofollow,noarchive');
+ header('Cache-Control: no-cache,no-store,private');
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ $user = Newsletter::instance()->get_user_from_request(true);
+ $field = $_REQUEST['nf'];
+diff --git a/content/plugins/newsletter/do/confirm.php b/content/plugins/newsletter/do/confirm.php
+index b2e57f3..635c6b7 100644
+--- a/content/plugins/newsletter/do/confirm.php
++++ b/content/plugins/newsletter/do/confirm.php
+@@ -8,7 +8,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ if (isset($_GET['ts']) && time() - $_GET['ts'] < 30) {
+diff --git a/content/plugins/newsletter/do/profile.php b/content/plugins/newsletter/do/profile.php
+index f3e603f..717430c 100644
+--- a/content/plugins/newsletter/do/profile.php
++++ b/content/plugins/newsletter/do/profile.php
+@@ -8,7 +8,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ $user = NewsletterSubscription::instance()->check_user();
+diff --git a/content/plugins/newsletter/do/save.php b/content/plugins/newsletter/do/save.php
+index dc17670..c6fa495 100644
+--- a/content/plugins/newsletter/do/save.php
++++ b/content/plugins/newsletter/do/save.php
+@@ -3,7 +3,7 @@
+ header('Content-Type: text/html;charset=UTF-8');
+ header('X-Robots-Tag: noindex,nofollow,noarchive');
+ header('Cache-Control: no-cache,no-store,private');
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ $user = NewsletterSubscription::instance()->save_profile();
+ // $user->alert is a temporary field
+diff --git a/content/plugins/newsletter/do/subscribe.php b/content/plugins/newsletter/do/subscribe.php
+index 5b631a1..3d98b5e 100644
+--- a/content/plugins/newsletter/do/subscribe.php
++++ b/content/plugins/newsletter/do/subscribe.php
+@@ -13,7 +13,7 @@ unset($_POST['na']);
+ unset($_GET['na']);
+ 
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ $module = NewsletterSubscription::instance();
+@@ -61,4 +61,4 @@ else {
+     return;
+ }
+ ?>
+-Uncorrect status: <?php echo $user->status; ?>
+\ No newline at end of file
++Uncorrect status: <?php echo $user->status; ?>
+diff --git a/content/plugins/newsletter/do/subscription-popup.php b/content/plugins/newsletter/do/subscription-popup.php
+index 2b957bb..dbd42e1 100644
+--- a/content/plugins/newsletter/do/subscription-popup.php
++++ b/content/plugins/newsletter/do/subscription-popup.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-require_once '../../../../wp-load.php';
++require_once '../../../../cms/wp-load.php';
+ 
+ if (!isset($newsletter)) $newsletter = new Newsletter();
+ 
+diff --git a/content/plugins/newsletter/do/subscription.php b/content/plugins/newsletter/do/subscription.php
+index 38230a5..d42608d 100644
+--- a/content/plugins/newsletter/do/subscription.php
++++ b/content/plugins/newsletter/do/subscription.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-require_once '../../../../wp-load.php';
++require_once '../../../../cms/wp-load.php';
+ 
+ if (!isset($newsletter)) $newsletter = new Newsletter();
+ 
+diff --git a/content/plugins/newsletter/do/unlock.php b/content/plugins/newsletter/do/unlock.php
+index f4012ce..9afdf04 100644
+--- a/content/plugins/newsletter/do/unlock.php
++++ b/content/plugins/newsletter/do/unlock.php
+@@ -7,7 +7,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    include '../../../../wp-load.php';
++    include '../../../../cms/wp-load.php';
+ }
+ 
+ $user = NewsletterSubscription::instance()->check_user();
+diff --git a/content/plugins/newsletter/do/unsubscribe.php b/content/plugins/newsletter/do/unsubscribe.php
+index 4a10bba..40beeab 100644
+--- a/content/plugins/newsletter/do/unsubscribe.php
++++ b/content/plugins/newsletter/do/unsubscribe.php
+@@ -8,7 +8,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ if (isset($_GET['ts']) && time() - $_GET['ts'] < 30) {
+diff --git a/content/plugins/newsletter/do/unsubscription.php b/content/plugins/newsletter/do/unsubscription.php
+index 8edb879..3347f7d 100644
+--- a/content/plugins/newsletter/do/unsubscription.php
++++ b/content/plugins/newsletter/do/unsubscription.php
+@@ -8,7 +8,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ $user = NewsletterSubscription::instance()->get_user_from_request();
+diff --git a/content/plugins/newsletter/do/view.php b/content/plugins/newsletter/do/view.php
+index 5079cae..66b999b 100644
+--- a/content/plugins/newsletter/do/view.php
++++ b/content/plugins/newsletter/do/view.php
+@@ -12,7 +12,7 @@ unset($_REQUEST['na']);
+ unset($_POST['na']);
+ unset($_GET['na']);
+ if (!defined('ABSPATH')) {
+-    require_once '../../../../wp-load.php';
++    require_once '../../../../cms/wp-load.php';
+ }
+ 
+ // TODO: Change to Newsletter::instance()->get:email(), not urgent
+@@ -28,4 +28,4 @@ if (is_file(WP_CONTENT_DIR . '/extensions/newsletter/view.php')) {
+ 
+ echo $newsletter->replace($email->message, $user, $email->id);
+ die();
+-?>
+\ No newline at end of file
++?>
+diff --git a/content/plugins/newsletter/emails/create.php b/content/plugins/newsletter/emails/create.php
+index 06ce795..ea6bd91 100644
+--- a/content/plugins/newsletter/emails/create.php
++++ b/content/plugins/newsletter/emails/create.php
+@@ -3,7 +3,7 @@
+ // Stops WP Super Cache which removes the logged_in cookie
+ $_GET['preview'] = 'true';
+ 
+-require_once '../../../../wp-load.php';
++require_once '../../../../cms/wp-load.php';
+ 
+ if (!is_user_logged_in()) {
+     die('No logged in user found. A plugin is almost surely removing the authentication cookies, usually a cache plugin. Try to report the issue on http://www.thenewsletterplugin.com forum.');
+@@ -51,4 +51,4 @@ if ($controls->is_action('create')) {
+     $email = Newsletter::instance()->save_email($email);
+ 
+     header('Location: ' . $module->get_admin_page_url('edit') . '&id=' . $email->id);
+-}
+\ No newline at end of file
++}
+diff --git a/content/plugins/newsletter/emails/css.php b/content/plugins/newsletter/emails/css.php
+index bb37e37..8d0e56f 100644
+--- a/content/plugins/newsletter/emails/css.php
++++ b/content/plugins/newsletter/emails/css.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ $email_id = (int)$_GET['id'];
+ 
+diff --git a/content/plugins/newsletter/emails/preview-text.php b/content/plugins/newsletter/emails/preview-text.php
+index 1398d78..0a4a9bf 100644
+--- a/content/plugins/newsletter/emails/preview-text.php
++++ b/content/plugins/newsletter/emails/preview-text.php
+@@ -1,7 +1,7 @@
+ <?php
+ header('Content-Type: text/plain;charset=UTF-8');
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ if (!check_admin_referer())
+     die('Only the administrator can view the preview');
+@@ -12,4 +12,4 @@ $theme_options = NewsletterEmails::instance()->get_current_theme_options();
+ $file = NewsletterEmails::instance()->get_current_theme_file_path('theme-text.php');
+ if (is_file($file)) {
+     include(NewsletterEmails::instance()->get_current_theme_file_path('theme-text.php'));
+-}
+\ No newline at end of file
++}
+diff --git a/content/plugins/newsletter/emails/preview.php b/content/plugins/newsletter/emails/preview.php
+index 094771a..d754326 100644
+--- a/content/plugins/newsletter/emails/preview.php
++++ b/content/plugins/newsletter/emails/preview.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ if (!check_admin_referer())
+     die('Only the administrator can view the preview');
+diff --git a/content/plugins/newsletter/statistics/link.php b/content/plugins/newsletter/statistics/link.php
+index e182d57..b1fc607 100644
+--- a/content/plugins/newsletter/statistics/link.php
++++ b/content/plugins/newsletter/statistics/link.php
+@@ -1,5 +1,5 @@
+ <?php
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ list($email_id, $user_id, $url, $anchor, $key) = explode(';', base64_decode($_GET['r']), 5);
+ 
+@@ -38,4 +38,4 @@ if ($verified) {
+             <h3><?php echo htmlspecialchars($url); ?></h3>
+         </div>
+     </body>
+-</html>
+\ No newline at end of file
++</html>
+diff --git a/content/plugins/newsletter/statistics/open.php b/content/plugins/newsletter/statistics/open.php
+index dd6992c..de44fb9 100644
+--- a/content/plugins/newsletter/statistics/open.php
++++ b/content/plugins/newsletter/statistics/open.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-require_once '../../../../wp-load.php';
++require_once '../../../../cms/wp-load.php';
+ 
+ list($email_id, $user_id) = explode(';', base64_decode($_GET['r']), 2);
+ 
+diff --git a/content/plugins/newsletter/subscription/page.php b/content/plugins/newsletter/subscription/page.php
+index 5447957..121d027 100644
+--- a/content/plugins/newsletter/subscription/page.php
++++ b/content/plugins/newsletter/subscription/page.php
+@@ -12,7 +12,7 @@
+ //
+ // and modify that copy.
+ 
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ $module = NewsletterSubscription::instance();
+ $user = $module->get_user_from_request();
+@@ -77,4 +77,4 @@ if (is_file(WP_CONTENT_DIR . '/extensions/newsletter/subscription/page.php')) {
+             <?php echo $message; ?>
+         </div>
+     </body>
+-</html>
+\ No newline at end of file
++</html>
+diff --git a/content/plugins/newsletter/users/csv.php b/content/plugins/newsletter/users/csv.php
+index e081f51..211ce9c 100644
+--- a/content/plugins/newsletter/users/csv.php
++++ b/content/plugins/newsletter/users/csv.php
+@@ -2,7 +2,7 @@
+ 
+ global $newsletter;
+ 
+-require_once '../../../../wp-load.php';
++require_once '../../../../cms/wp-load.php';
+ require_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
+ 
+ // TODO: Check the user capabilities
+-- 
+2.1.0
+
