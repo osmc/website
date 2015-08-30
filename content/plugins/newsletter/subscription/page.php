@@ -12,7 +12,7 @@
 //
 // and modify that copy.
 
-include '../../../../wp-load.php';
+include '../../../../cms/wp-load.php';
 
 $module = NewsletterSubscription::instance();
 $user = $module->get_user_from_request();

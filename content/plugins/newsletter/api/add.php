@@ -1,6 +1,6 @@
 <?php
 
-include '../../../../wp-load.php';
+include '../../../../cms/wp-load.php';
 
 if (!isset($newsletter)) $newsletter = new Newsletter();
 

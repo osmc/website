@@ -2,7 +2,7 @@
 
 global $newsletter;
 
-require_once '../../../../wp-load.php';
+require_once '../../../../cms/wp-load.php';
 require_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 
 // TODO: Check the user capabilities

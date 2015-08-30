@@ -3,7 +3,7 @@
 header('Content-Type: text/html;charset=UTF-8');
 header('X-Robots-Tag: noindex,nofollow,noarchive');
 header('Cache-Control: no-cache,no-store,private');
-include '../../../../wp-load.php';
+include '../../../../cms/wp-load.php';
 
 $user = Newsletter::instance()->get_user_from_request(true);
 $field = $_REQUEST['nf'];

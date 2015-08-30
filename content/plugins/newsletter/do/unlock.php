@@ -7,7 +7,7 @@ unset($_REQUEST['na']);
 unset($_POST['na']);
 unset($_GET['na']);
 if (!defined('ABSPATH')) {
-    include '../../../../wp-load.php';
+    include '../../../../cms/wp-load.php';
 }
 
 $user = NewsletterSubscription::instance()->check_user();

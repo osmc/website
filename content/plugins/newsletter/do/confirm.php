@@ -8,7 +8,7 @@ unset($_REQUEST['na']);
 unset($_POST['na']);
 unset($_GET['na']);
 if (!defined('ABSPATH')) {
-    require_once '../../../../wp-load.php';
+    require_once '../../../../cms/wp-load.php';
 }
 
 if (isset($_GET['ts']) && time() - $_GET['ts'] < 30) {

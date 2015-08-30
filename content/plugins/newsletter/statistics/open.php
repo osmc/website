@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../../wp-load.php';
+require_once '../../../../cms/wp-load.php';
 
 list($email_id, $user_id) = explode(';', base64_decode($_GET['r']), 2);
 

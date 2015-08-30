@@ -3,7 +3,7 @@
 // Stops WP Super Cache which removes the logged_in cookie
 $_GET['preview'] = 'true';
 
-require_once '../../../../wp-load.php';
+require_once '../../../../cms/wp-load.php';
 
 if (!is_user_logged_in()) {
     die('No logged in user found. A plugin is almost surely removing the authentication cookies, usually a cache plugin. Try to report the issue on http://www.thenewsletterplugin.com forum.');

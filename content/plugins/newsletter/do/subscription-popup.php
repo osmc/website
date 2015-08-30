@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../../wp-load.php';
+require_once '../../../../cms/wp-load.php';
 
 if (!isset($newsletter)) $newsletter = new Newsletter();
 

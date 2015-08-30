@@ -1,6 +1,6 @@
 <?php
 
-include '../../../../wp-load.php';
+include '../../../../cms/wp-load.php';
 
 $email_id = (int)$_GET['id'];
 
