@@ -141,7 +141,7 @@ function buttonLoadStart() {
   button.prop('disabled', true);
   button.addClass("loading");
   button.find(".svg").addClass("hidden");
-  button.append('<img src="https://osmc.tv/wp-content/themes/osmc/library/images/preloader.gif">');
+  button.append('<img src="https://osmc.tv/content/themes/osmc/library/images/preloader.gif">');
 };
 function buttonLoadStop() {
   var button = jQuery(".donationwidget form").find(".clicked");
