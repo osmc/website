@@ -38,7 +38,7 @@ autoLinks.forEach(function(a) {
       setTimeout(function(){
         var textbox = $("textarea.ember-text-area");
         var newstring = textbox.val().replace(a[0], a[1]);
-        textbox.val(newstring).blur();
+        textbox.val(newstring);
       }, 500);
     }
   });
