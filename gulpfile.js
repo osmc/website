@@ -72,10 +72,21 @@ gulp.task('html-reload', function () {
   browserSync.reload();
 });
 
-gulp.task('default', ['browser-sync', 're', 'js', 'style'], function () {
+gulp.task("discourse", function() {
+  return gulp.src([
+    bower + "jquery.dfp/jquery.dfp.min.js",
+    "discourse/scripts.js"
+    ])
+  .pipe(uglify())
+  .pipe(concat("scripts.min.js"))
+  .pipe(gulp.dest("discourse"));
+});
+
+gulp.task('default', ['browser-sync', 're', 'js', 'style', 'discourse'], function () {
   gulp.watch(dist + "**/*.php", ["html-reload"]);
   gulp.watch(dist + "library/style/**/*.scss", ['style']);
   gulp.watch(dist + "library/js/scripts.js", ['js-reload']);
+  gulp.watch("discourse/script.js", ['discourse']);
 });
 
 
@@ -106,7 +117,8 @@ gulp.task('injection', ['revision'], function () {
   .pipe(gulp.dest(dist));
 });
 
-gulp.task("build", ["injection", 'browser-sync', 'js'], function () {
+gulp.task("build", ["injection", 'browser-sync', 'js', "discourse"], function () {
   gulp.watch(dist + "library/style/**/*.scss", ['injection']);
+  gulp.watch("discourse/script.js", ['discourse']);
 });
 
