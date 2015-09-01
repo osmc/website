@@ -35,3 +35,26 @@ Discourse.DiscoveryView = Ember.View.extend({
     this.$(".list-controls .container").before('<a target="_blank" href="https://osmc.tv/contribute/donate/#donate"><button class="btn btn-default donate-button"><i class="fa fa-heart"></i>Donate</button></a>')
   }.on('didInsertElement')
 });
+
+var autoLinks = [
+["/log", "https://discourse.osmc.tv/t/how-to-obtain-provide-necessary-info-for-a-useful-support-request-includes-current-versions/5507"],
+["/wiki", "https://osmc.tv/wiki"],
+["/piracy", "https://discourse.osmc.tv/faq#piracy"],
+["/mediainfo", "https://osmc.tv/wiki/general/how-to-get-mediainfo-output"]
+];
+
+autoLinks.forEach(function(a) {
+  var re = new RegExp(a[0]);
+  Discourse.Dialect.inlineRegexp({
+    start: a[0],
+    matcher: re,
+    spaceBoundary: true,
+    emitter: function() {
+      setTimeout(function(){
+        var textbox = $("textarea.ember-text-area");
+        var newstring = textbox.val().replace(a[0], a[1]);
+        textbox.val(newstring).blur();
+      }, 500);
+    }
+  });
+});
