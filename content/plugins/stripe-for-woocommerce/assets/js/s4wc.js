@@ -1,4 +1,4 @@
-/* global Stripe, s4wc_info, woocommerce_params */
+/* global Stripe, s4wc_info */
 
 // Set API key
 Stripe.setPublishableKey( s4wc_info.publishableKey );
@@ -33,9 +33,11 @@ jQuery( function ( $ ) {
         if ( savedFieldValues.number ) {
             $ccNumber.val( savedFieldValues.number.val ).attr( 'class', savedFieldValues.number.classes );
         }
+
         if ( savedFieldValues.expiry ) {
             $ccExpiry.val( savedFieldValues.expiry.val );
         }
+
         if ( savedFieldValues.cvc ) {
             $ccCvc.val( savedFieldValues.cvc.val );
         }
@@ -62,14 +64,6 @@ jQuery( function ( $ ) {
                     address_country : $( '#billing_country' ).val() || s4wc_info.billing_country || ''
                 };
 
-                $form.block({
-                    message: null,
-                    overlayCSS: {
-                        background: '#fff url(' + woocommerce_params.ajax_loader_url + ') no-repeat center',
-                        opacity: 0.6
-                    }
-                });
-
                 // Validate form fields, create token if form is valid
                 if ( stripeFormValidator( stripeData ) ) {
                     Stripe.createToken( stripeData, stripeResponseHandler );
@@ -87,7 +81,6 @@ jQuery( function ( $ ) {
             // show the errors on the form
             $( '.payment-errors, .stripe_token, .form_errors' ).remove();
             $ccForm.before( '<span class="payment-errors required">' + response.error.message + '</span>' );
-            $form.unblock();
 
         } else {
             // insert the token into the form so it gets submitted to the server
@@ -118,8 +111,6 @@ jQuery( function ( $ ) {
             }
 
             $form.append( '<input type="hidden" class="form_errors" name="form_errors" value="1">' );
-
-            $form.unblock();
 
             return false;
         }
