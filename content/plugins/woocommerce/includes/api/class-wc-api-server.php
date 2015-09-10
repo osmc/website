@@ -7,10 +7,10 @@
  * This class and related code (JSON response handler, resource classes) are based on WP-API v0.6 (https://github.com/WP-API/WP-API)
  * Many thanks to Ryan McCue and any other contributors!
  *
- * @author      WooThemes
- * @category    API
- * @package     WooCommerce/API
- * @since       2.1
+ * @author   WooThemes
+ * @category API
+ * @package  WooCommerce/API
+ * @since    2.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -116,10 +116,11 @@ class WC_API_Server {
 	public function __construct( $path ) {
 
 		if ( empty( $path ) ) {
-			if ( isset( $_SERVER['PATH_INFO'] ) )
+			if ( isset( $_SERVER['PATH_INFO'] ) ) {
 				$path = $_SERVER['PATH_INFO'];
-			else
+			} else {
 				$path = '/';
+			}
 		}
 
 		$this->path           = $path;
@@ -132,6 +133,8 @@ class WC_API_Server {
 		// Compatibility for clients that can't use PUT/PATCH/DELETE
 		if ( isset( $_GET['_method'] ) ) {
 			$this->method = strtoupper( $_GET['_method'] );
+		} elseif ( isset( $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'] ) ) {
+			$this->method = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
 		}
 
 		// load response handler
@@ -152,12 +155,14 @@ class WC_API_Server {
 		$user = apply_filters( 'woocommerce_api_check_authentication', null, $this );
 
 		// API requests run under the context of the authenticated user
-		if ( is_a( $user, 'WP_User' ) )
+		if ( is_a( $user, 'WP_User' ) ) {
 			wp_set_current_user( $user->ID );
+		}
 
 		// WP_Errors are handled in serve_request()
-		elseif ( ! is_wp_error( $user ) )
+		elseif ( ! is_wp_error( $user ) ) {
 			$user = new WP_Error( 'woocommerce_api_authentication_error', __( 'Invalid authentication method', 'woocommerce' ), array( 'code' => 500 ) );
+		}
 
 		return $user;
 	}
@@ -180,6 +185,7 @@ class WC_API_Server {
 				$errors[] = array( 'code' => $code, 'message' => $message );
 			}
 		}
+
 		return array( 'errors' => $errors );
 	}
 
@@ -231,8 +237,9 @@ class WC_API_Server {
 
 		if ( ! $served ) {
 
-			if ( 'HEAD' === $this->method )
+			if ( 'HEAD' === $this->method ) {
 				return;
+			}
 
 			echo $this->handler->generate_response( $result );
 		}
@@ -286,46 +293,49 @@ class WC_API_Server {
 
 		switch ( $this->method ) {
 
-			case 'HEAD':
-			case 'GET':
+			case 'HEAD' :
+			case 'GET' :
 				$method = self::METHOD_GET;
 				break;
 
-			case 'POST':
+			case 'POST' :
 				$method = self::METHOD_POST;
 				break;
 
-			case 'PUT':
+			case 'PUT' :
 				$method = self::METHOD_PUT;
 				break;
 
-			case 'PATCH':
+			case 'PATCH' :
 				$method = self::METHOD_PATCH;
 				break;
 
-			case 'DELETE':
+			case 'DELETE' :
 				$method = self::METHOD_DELETE;
 				break;
 
-			default:
+			default :
 				return new WP_Error( 'woocommerce_api_unsupported_method', __( 'Unsupported request method', 'woocommerce' ), array( 'status' => 400 ) );
 		}
 
 		foreach ( $this->get_routes() as $route => $handlers ) {
 			foreach ( $handlers as $handler ) {
-				$callback = $handler[0];
+				$callback  = $handler[0];
 				$supported = isset( $handler[1] ) ? $handler[1] : self::METHOD_GET;
 
-				if ( !( $supported & $method ) )
+				if ( ! ( $supported & $method ) ) {
 					continue;
+				}
 
 				$match = preg_match( '@^' . $route . '$@i', urldecode( $this->path ), $args );
 
-				if ( !$match )
+				if ( ! $match ) {
 					continue;
+				}
 
-				if ( ! is_callable( $callback ) )
+				if ( ! is_callable( $callback ) ) {
 					return new WP_Error( 'woocommerce_api_invalid_handler', __( 'The handler for the route is invalid', 'woocommerce' ), array( 'status' => 500 ) );
+				}
 
 				$args = array_merge( $args, $this->params['GET'] );
 				if ( $method & self::METHOD_POST ) {
@@ -334,8 +344,7 @@ class WC_API_Server {
 				if ( $supported & self::ACCEPT_DATA ) {
 					$data = $this->handler->parse_body( $this->get_raw_data() );
 					$args = array_merge( $args, array( 'data' => $data ) );
-				}
-				elseif ( $supported & self::ACCEPT_RAW_DATA ) {
+				} elseif ( $supported & self::ACCEPT_RAW_DATA ) {
 					$data = $this->get_raw_data();
 					$args = array_merge( $args, array( 'data' => $data ) );
 				}
@@ -354,8 +363,9 @@ class WC_API_Server {
 				}
 
 				$params = $this->sort_callback_params( $callback, $args );
-				if ( is_wp_error( $params ) )
+				if ( is_wp_error( $params ) ) {
 					return $params;
+				}
 
 				return call_user_func_array( $callback, $params );
 			}
@@ -391,10 +401,11 @@ class WC_API_Server {
 	 * @return array
 	 */
 	protected function sort_callback_params( $callback, $provided ) {
-		if ( is_array( $callback ) )
+		if ( is_array( $callback ) ) {
 			$ref_func = new ReflectionMethod( $callback[0], $callback[1] );
-		else
+		} else {
 			$ref_func = new ReflectionFunction( $callback );
+		}
 
 		$wanted = $ref_func->getParameters();
 		$ordered_parameters = array();
@@ -408,16 +419,15 @@ class WC_API_Server {
 				}
 
 				$ordered_parameters[] = $this->urldecode_deep( $provided[ $param->getName() ] );
-			}
-			elseif ( $param->isDefaultValueAvailable() ) {
+			} elseif ( $param->isDefaultValueAvailable() ) {
 				// We don't have this parameter, but it's optional
 				$ordered_parameters[] = $param->getDefaultValue();
-			}
-			else {
+			} else {
 				// We don't have this parameter and it wasn't optional, abort!
 				return new WP_Error( 'woocommerce_api_missing_callback_param', sprintf( __( 'Missing parameter %s', 'woocommerce' ), $param->getName() ), array( 'status' => 400 ) );
 			}
 		}
+
 		return $ordered_parameters;
 	}
 
@@ -451,6 +461,7 @@ class WC_API_Server {
 				'dimension_unit'     => get_option( 'woocommerce_dimension_unit' ),
 				'ssl_enabled'        => ( 'yes' === get_option( 'woocommerce_force_ssl_checkout' ) ),
 				'permalinks_enabled' => ( '' !== get_option( 'permalink_structure' ) ),
+				'generate_password'  => ( 'yes' === get_option( 'woocommerce_registration_generate_password' ) ),
 				'links'              => array(
 					'help' => 'http://woothemes.github.io/woocommerce-rest-api-docs/',
 				),
@@ -556,10 +567,16 @@ class WC_API_Server {
 		// WP_User_Query
 		if ( is_a( $query, 'WP_User_Query' ) ) {
 
-			$page        = $query->page;
 			$single      = count( $query->get_results() ) == 1;
 			$total       = $query->get_total();
-			$total_pages = $query->total_pages;
+
+			if( $query->get( 'number' ) > 0 ) {
+				$page = ( $query->get( 'offset' ) / $query->get( 'number' ) ) + 1;
+				$total_pages = ceil( $total / $query->get( 'number' ) );
+			} else {
+				$page = 1;
+				$total_pages = 1;
+			}
 
 		// WP_Query
 		} else {
@@ -570,8 +587,9 @@ class WC_API_Server {
 			$total_pages = $query->max_num_pages;
 		}
 
-		if ( ! $page )
+		if ( ! $page ) {
 			$page = 1;
+		}
 
 		$next_page = absint( $page ) + 1;
 
@@ -589,8 +607,9 @@ class WC_API_Server {
 			}
 
 			// last
-			if ( $page != $total_pages )
+			if ( $page != $total_pages ) {
 				$this->link_header( 'last', $this->get_paginated_url( $total_pages ) );
+			}
 		}
 
 		$this->header( 'X-WC-Total', $total );
@@ -627,11 +646,16 @@ class WC_API_Server {
 	 * @return string
 	 */
 	public function get_raw_data() {
+		// $HTTP_RAW_POST_DATA is deprecated on PHP 5.6
+		if ( function_exists( 'phpversion' ) && version_compare( phpversion(), '5.6', '>=' ) ) {
+			return file_get_contents( 'php://input' );
+		}
+
 		global $HTTP_RAW_POST_DATA;
 
 		// A bug in PHP < 5.2.2 makes $HTTP_RAW_POST_DATA not set by default,
 		// but we can do it ourself.
-		if ( !isset( $HTTP_RAW_POST_DATA ) ) {
+		if ( ! isset( $HTTP_RAW_POST_DATA ) ) {
 			$HTTP_RAW_POST_DATA = file_get_contents( 'php://input' );
 		}
 
@@ -722,8 +746,7 @@ class WC_API_Server {
 		foreach ($server as $key => $value) {
 			if ( strpos( $key, 'HTTP_' ) === 0) {
 				$headers[ substr( $key, 5 ) ] = $value;
-			}
-			elseif ( isset( $additional[ $key ] ) ) {
+			} elseif ( isset( $additional[ $key ] ) ) {
 				$headers[ $key ] = $value;
 			}
 		}

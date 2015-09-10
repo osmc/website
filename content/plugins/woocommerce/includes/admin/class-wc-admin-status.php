@@ -143,24 +143,7 @@ class WC_Admin_Status {
 
 		// Manual translation update messages
 		if ( isset( $_GET['translation_updated'] ) ) {
-			switch ( $_GET['translation_updated'] ) {
-				case 2 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Seems you don\'t have permission to do this!', 'woocommerce' ) . '</p></div>';
-					break;
-				case 3 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . sprintf( __( 'An authentication error occurred while updating the translation. Please try again or configure your %sUpgrade Constants%s.', 'woocommerce' ), '<a href="http://codex.wordpress.org/Editing_wp-config.php#WordPress_Upgrade_Constants">', '</a>' ) . '</p></div>';
-					break;
-				case 4 :
-					echo '<div class="error"><p>' . __( 'Failed to install/update the translation:', 'woocommerce' ) . ' ' . __( 'Sorry but there is no translation available for your language =/', 'woocommerce' ) . '</p></div>';
-					break;
-
-				default :
-					// Force WordPress find for new updates and hide the WooCommerce translation update
-					set_site_transient( 'update_plugins', null );
-
-					echo '<div class="updated"><p>' . __( 'Translations installed/updated successfully!', 'woocommerce' ) . '</p></div>';
-					break;
-			}
+			WC_Language_Pack_Upgrader::language_update_messages();
 		}
 
 		// Display message if settings settings have been saved
@@ -239,7 +222,7 @@ class WC_Admin_Status {
 
 		if ( ! empty( $_REQUEST['log_file'] ) && isset( $logs[ sanitize_title( $_REQUEST['log_file'] ) ] ) ) {
 			$viewed_log = $logs[ sanitize_title( $_REQUEST['log_file'] ) ];
-		} elseif ( $logs ) {
+		} elseif ( ! empty( $logs ) ) {
 			$viewed_log = current( $logs );
 		}
 
@@ -285,10 +268,10 @@ class WC_Admin_Status {
 	 */
 	public static function scan_template_files( $template_path ) {
 
-		$files         = scandir( $template_path );
-		$result        = array();
+		$files  = @scandir( $template_path );
+		$result = array();
 
-		if ( $files ) {
+		if ( ! empty( $files ) ) {
 
 			foreach ( $files as $key => $value ) {
 
@@ -313,8 +296,8 @@ class WC_Admin_Status {
 	 * @return array
 	 */
 	public static function scan_log_files() {
-		$files         = @scandir( WC_LOG_DIR );
-		$result        = array();
+		$files  = @scandir( WC_LOG_DIR );
+		$result = array();
 
 		if ( $files ) {
 
@@ -326,7 +309,9 @@ class WC_Admin_Status {
 					}
 				}
 			}
+
 		}
+
 		return $result;
 	}
 }
