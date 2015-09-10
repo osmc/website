@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Installation related functions and actions.
  *
  * @author 		oscargare 
- * @version     1.3.2
+ * @version     1.3.3
  */
 
 class WCPBC_Install {
@@ -44,7 +44,7 @@ class WCPBC_Install {
 		// Queue upgrades
 		$current_version = self::get_install_version();
 		
-		if ( version_compare( WCPBC()->version, $current_version, '<' ) && null !== $current_version ) {
+		if ( null !== $current_version && version_compare( $current_version, '1.3.2', '<' ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'update_notice' ) );
 		} else {
 			delete_option( 'wc_price_based_country_version' );
@@ -57,7 +57,7 @@ class WCPBC_Install {
 	 */
 	public static function check_version() {
 				
-		if (  ! defined( 'IFRAME_REQUEST' ) && self::get_install_version() !== WCPBC()->version ) {
+		if (  ! defined( 'IFRAME_REQUEST' ) && version_compare( self::get_install_version(), '1.3.2', '<' ) ) {
 			add_action( 'admin_notices', array( __CLASS__, 'update_notice' ) );
 
 		} else {

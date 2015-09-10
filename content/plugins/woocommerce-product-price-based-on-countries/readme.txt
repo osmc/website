@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: price based country, dynamic price based country, price by country, dynamic price, woocommerce, geoip
 Requires at least: 3.6.1
 Tested up to: 4.2.2
-Stable tag: 1.3.2
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,18 @@ You should do the test in a private browsing window to prevent data stored in th
 4. /assets/screenshot-4.png
 
 == Changelog ==
+
+= 1.3.5 =
+* Added: Ready for WooCommerce 2.4
+
+= 1.3.4 =
+* Fixed: Country of Base Location not in list of countries.
+* Added: Improved settings page.
+
+= 1.3.3 =
+* Fixed: The manual price is not saved in external/affiliate products.
+* Fixed: The exchange rate only supports dot as decimal separator.
+* Added: Support for WooCommerce Price Filter Widget (beta).
 
 = 1.3.2 =
 * Required: WooCommerce 2.3.0 or or later!

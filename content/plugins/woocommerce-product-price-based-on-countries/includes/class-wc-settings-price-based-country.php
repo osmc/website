@@ -11,7 +11,7 @@ if ( ! class_exists( 'WC_Settings_Price_Based_Country' ) ) :
  * WooCommerce Price Based Country settings page
  *
  * @class 		WC_Settings_Price_Based_Country
- * @version		1.3.0 
+ * @version		1.3.4
  * @author 		oscargare
  */
 class WC_Settings_Price_Based_Country extends WC_Settings_Page {
@@ -154,10 +154,17 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 							<th style="width:80px;"><?php _e( 'Delete', 'woocommerce' ); ?></th>
 						</tr>
 					</thead>
+					<tbody>						
 						<?php
-							
+
 							$currencies = get_woocommerce_currencies();							
-							$base_currency = get_option( 'woocommerce_currency' );
+							$base_currency = get_option( 'woocommerce_currency' );						
+
+							echo '<tr><td></td>';								
+							echo '<td>' . __('Default Zone', 'wc-price-based-country') . '</td>';
+							echo '<td>' . __('All countries not are included in other zones', 'wc-price-based-country') . '</td>';							
+							echo '<td>' . $currencies[ $base_currency ] . '(' . get_woocommerce_currency_symbol( $base_currency ) . ')<br /> <span class="description">Default</span></td>';
+							echo '<td></td></tr>';
 
 							foreach ( get_option( 'wc_price_based_country_regions', array() ) as $key => $region) {
 
@@ -181,7 +188,7 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 
 								echo '<td>';
 								echo $currencies[$region['currency']] . ' (' . get_woocommerce_currency_symbol($region['currency']) . ') <br />';
-								echo '1 ' . $base_currency .' = ' . $region['exchange_rate'] . ' ' . $region['currency'];
+								echo '<span class="description">1 ' . $base_currency .' = ' . wc_format_localized_decimal( $region['exchange_rate'] ) . ' ' . $region['currency'] . '</span>';
 								echo '</td>';								
 
 								echo '<td>';
@@ -193,8 +200,7 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 								echo '</tr>';							
 							}													
 							
-						?>
-					<tbody>
+						?>					
 					</tbody>
 					<tfoot>
 						<tr>							
@@ -261,6 +267,7 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
                 			}
 						?>
 					</select>
+					<!-- <a class="select_all button" href="#"><?php _e( 'Select all', 'woocommerce' ); ?></a> <a class="select_none button" href="#"><?php _e( 'Select none', 'woocommerce' ); ?></a> -->
 				</td>
 			</tr>
 
@@ -286,10 +293,10 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 			<tr valign="top">
 				<th scope="row" class="titledesc">
 					<label for="exchange_rate"><?php _e( 'Exchange Rate', 'wc-price-based-country' ); ?></label>
-					<img class="help_tip" data-tip="<?php echo esc_attr( __( "When product price is empty for this region, price will be the result of multiplying WC base price for the exchange rate.", 'wc-price-based-country' ) ); ?>" src="<?php echo WC()->plugin_url(); ?>/assets/images/help.png" height="16" width="16" />
+					<img class="help_tip" data-tip="<?php echo esc_attr( __( "For each product, if select autocalculate, product's price will be the result of multiplying the default price by this exchange rate.", 'wc-price-based-country' ) ); ?>" src="<?php echo WC()->plugin_url(); ?>/assets/images/help.png" height="16" width="16" />
 				</th>
                 <td class="forminp forminp-text">                	
-                	<input name="exchange_rate" id="exchange_rate" type="text" class="short wc_input_price" value="<?php echo wc_format_localized_price( $group['exchange_rate'] ); ?>"/> 
+                	1 <?php echo get_option( 'woocommerce_currency' );	?> = <input name="exchange_rate" id="exchange_rate" type="text" class="short wc_input_decimal" value="<?php echo wc_format_localized_decimal( $group['exchange_rate'] ); ?>"/> 
                 	<?php //echo $description; ?>
                 </td>
 			</tr>
@@ -308,6 +315,8 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 
 		if ( $current_section ) {			
 
+			$base_country = wc_get_base_location();			
+			
 			$not_available_countries = array();
 			
 			$regions = get_option( 'wc_price_based_country_regions', array() );
@@ -354,7 +363,7 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 
 			WC_Admin_Settings::add_error( __( 'Add at least one country to the list.', 'wc-price-based-country' ) );
 
-		} elseif ( empty( $_POST['exchange_rate'] ) ||  $_POST['exchange_rate'] == 0 ) {
+		} elseif ( empty( $_POST['exchange_rate'] ) ||  wc_format_decimal( $_POST['exchange_rate'] ) == 0 ) {
 			
 			WC_Admin_Settings::add_error( __( 'Exchange rate must be nonzero.', 'wc-price-based-country' ) );			
 
@@ -367,7 +376,7 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 			$section_settings[$key]['name'] = $_POST['group_name'];
 			$section_settings[$key]['countries'] = $_POST['group_countries'];
 			$section_settings[$key]['currency'] = $_POST['group_currency'];			
-			$section_settings[$key]['exchange_rate'] = $_POST['exchange_rate'];
+			$section_settings[$key]['exchange_rate'] = wc_format_decimal( $_POST['exchange_rate'] );
 			
 			update_option( 'wc_price_based_country_regions', $section_settings );
 			
@@ -390,9 +399,11 @@ class WC_Settings_Price_Based_Country extends WC_Settings_Page {
 		
 		global $current_section;
 		
-		if ( $current_section && $this->section_save() ) {
+		if ( $current_section ) {
 			
-			update_option( 'wc_price_based_country_timestamp', time() );
+			if (  $this->section_save() ) {
+				update_option( 'wc_price_based_country_timestamp', time() );
+			}			
 
 		} else {
 													

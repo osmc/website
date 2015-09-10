@@ -10,7 +10,7 @@ if ( ! class_exists( 'WCPBC_Admin' ) ) :
  * WooCommerce Price Based Country Admin 
  *
  * @class 		WCPBC_Admin
- * @version		1.3.2
+ * @version		1.3.3
  * @author 		oscargare
  * @category	Class
  */
@@ -33,6 +33,8 @@ class WCPBC_Admin {
 		add_action( 'woocommerce_product_options_general_product_data', array( &$this, 'product_options_countries_prices' ) );
 		
 		add_action( 'woocommerce_process_product_meta_simple', array( &$this, 'process_product_simple_countries_prices' ) ) ;						
+
+		add_action( 'woocommerce_process_product_meta_external', array( &$this, 'process_product_simple_countries_prices' ) ) ;						
 		
 		add_action( 'woocommerce_product_after_variable_attributes', array( &$this, 'product_variable_attributes_countries_prices') , 10, 3 );				
 		
