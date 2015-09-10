@@ -29,7 +29,7 @@
                       <p>&#169; 2015 OSMC </p>
 
                       <div class="corporate">
-                        <a href="http://osmc.tv/about/corporate">Corporate and Legal</a>
+                        <a href="http://osmc.tv/about/corporate">The fine print</a>
                       </div>
                       <div class="status">
                         <a target="_blank" href="http://stats.osmc.io">System Status</a>
