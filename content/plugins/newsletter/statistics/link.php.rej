@@ -1,0 +1,9 @@
+--- content/plugins/newsletter/statistics/link.php
++++ content/plugins/newsletter/statistics/link.php
+@@ -1,5 +1,5 @@
+ <?php
+-include '../../../../wp-load.php';
++include '../../../../cms/wp-load.php';
+ 
+ list($email_id, $user_id, $url, $anchor, $key) = explode(';', base64_decode($_GET['r']), 5);
+ 
