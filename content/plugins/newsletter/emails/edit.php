@@ -189,7 +189,7 @@ if ($controls->is_action('test')) {
     }
 }
 
-
+$template = '{message}';
 if ($email['editor'] == 0) {
     $x = strpos($controls->data['message'], '<body');
     // Some time the message in $nc->data is already cleaned up, it depends on action called
@@ -197,13 +197,16 @@ if ($email['editor'] == 0) {
         $x = strpos($controls->data['message'], '>', $x);
         $y = strpos($controls->data['message'], '</body>');
 
+        $template = substr($controls->data['message'], 0, $x) . '{message}' . substr($controls->data['message'], $y);
         $controls->data['message'] = substr($controls->data['message'], $x + 1, $y - $x - 1);
+        
     }
 }
 ?>
 
 <script type="text/javascript" src="<?php echo plugins_url('newsletter'); ?>/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
+    var template = <?php echo json_encode($template)?>;
     tinyMCE.init({
         height: 700,
         mode: "specific_textareas",
@@ -235,6 +238,15 @@ if ($email['editor'] == 0) {
             tb_remove();
         }
     });
+    
+    function template_refresh() {
+        var d = document.getElementById('options_preview').contentWindow.document;
+        d.open();
+        //d.write(template.replace("{messaggio}", templateEditor.getValue()));
+        d.write(template.replace("{message}", document.getElementById("options-message").value));
+        d.close();
+        jQuery("#options_preview").toggle();
+    }
 </script>
 
 <div class="wrap">
@@ -283,15 +295,24 @@ if ($email['editor'] == 0) {
             <div id="tabs-a">
 
                 <?php $controls->text('subject', 70, 'Subject'); ?>
+                
+                
 
                 <input id="upload_image_button" type="button" value="Choose or upload an image" />
 
                 <a href="http://www.thenewsletterplugin.com/plugins/newsletter/newsletter-tags" target="_blank"><?php _e('Available tags', 'newsletter-emails') ?></a>
 
                 <br><br>
+                
+                
 
-                <?php $email['editor'] == 0 ? $controls->editor('message', 30) : $controls->textarea_fixed('message', '100%', '700'); ?>
-
+                <?php if ($email['editor'] == 0) { 
+                    $controls->editor('message', 30);
+                } else { 
+                    $controls->textarea_preview('message', '100%', '700'); 
+                }
+                ?>
+                
 
             </div>
 

@@ -1,4 +1,6 @@
 <?php
+global $current_user;
+
 $dismissed = get_option('newsletter_dismissed', array());
 
 if (isset($_REQUEST['dismiss'])) {
@@ -38,6 +40,13 @@ $user_count = $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . 
            " target="_blank">
             <i class="fa fa-facebook-square"></i> Facebook
         </a>
+        &nbsp;&nbsp;
+        Stay updated: 
+        <form target="_blank" style="display: inline" action="http://www.thenewsletterplugin.com/wp-content/plugins/newsletter/subscribe.php" method="post">
+            <input type="email" name="ne" placeholder="Your email" required size="30" value="<?php echo esc_attr($current_user->user_email)?>">
+            <input type="hidden" name="nr" value="plugin">
+            <input type="submit" value="Go">
+        </form>
 
     </div>
 <?php } ?>

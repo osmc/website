@@ -19,37 +19,15 @@ class NewsletterStatistics extends NewsletterModule {
     function __construct() {
         global $wpdb;
 
-        parent::__construct('statistics', '1.1.1');
+        parent::__construct('statistics', '1.1.2');
+        
+        add_action('wp_loaded', array($this, 'hook_wp_loaded'));
+    }
 
-        // Link tracking redirect
+    function hook_wp_loaded() {
         if (isset($_GET['nltr'])) {
-            list($email_id, $user_id, $url, $anchor) = explode(';', base64_decode($_GET['nltr']), 4);
-            $wpdb->insert(NEWSLETTER_STATS_TABLE, array(
-                'email_id' => $email_id,
-                'user_id' => $user_id,
-                'url' => $url,
-                'anchor' => $anchor,
-                'ip' => $_SERVER['REMOTE_ADDR']
-                    )
-            );
-
-            header('Location: ' . $url);
-            die();
-        }
-
-        // Open tracking image
-        if (isset($_GET['noti'])) {
-            list($email_id, $user_id) = explode(';', base64_decode($_GET['noti']), 2);
-
-            $wpdb->insert(NEWSLETTER_STATS_TABLE, array(
-                'email_id' => $email_id,
-                'user_id' => $user_id,
-                'ip' => $_SERVER['REMOTE_ADDR']
-                    )
-            );
-
-            header('Content-Type: image/gif');
-            echo base64_decode('_R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+            $_GET['r'] = $_GET['nltr'];
+            include dirname(__FILE__) . '/link.php';
             die();
         }
     }
@@ -87,7 +65,7 @@ class NewsletterStatistics extends NewsletterModule {
             $this->options['key'] = md5($_SERVER['REMOTE_ADDR'] . rand(100000, 999999) . time());
             $this->save_options($this->options);
         }
-        
+
         // Stores the link of every email to create short links
 //        $this->upgrade_query("create table if not exists {$wpdb->prefix}newsletter_links (id int auto_increment, primary key (id)) $charset_collate");
 //        $this->upgrade_query("alter table {$wpdb->prefix}newsletter_links add column email_id int not null default 0");
@@ -121,11 +99,11 @@ class NewsletterStatistics extends NewsletterModule {
         if (strpos($href, '/newsletter/') !== false) {
             return $matches[0];
         }
-        
+
         if (strpos($href, '?na=') !== false) {
             return $matches[0];
         }
-        
+
         // Do not relink anchors
         if (substr($href, 0, 1) == '#') {
             return $matches[0];

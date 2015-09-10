@@ -133,7 +133,7 @@ function newsletter_emails_get_theme_options($theme) {
 
     <div id="newsletter-title">
         <h2><?php _e('Create a newsletter', 'newsletter-emails') ?>
-            <a class="add-new-h2" href="<?php echo NewsletterEmails::instance()->get_admin_page_url('theme'); ?>"><?php _e('Back to the themes', 'newsletter-emails') ?></a>
+            <a class="add-new-h2" href="<?php echo NewsletterEmails::instance()->get_admin_page_url('theme'); ?>"><?php _e('Back to newsletter themes', 'newsletter-emails') ?></a>
         </h2>
     </div>
     <div class="newsletter-separator"></div>

@@ -68,7 +68,7 @@ $themes = $module->themes->get_all_with_data();
                 <p><?php echo $data['name']; ?></p>
                 <a href="#" onclick="var f = document.getElementById('newsletter-form');
                         f.act.value = 'theme';
-                        f.elements['options[theme]'].value = '<?php echo $data['name']; ?>';
+                        f.elements['options[theme]'].value = '<?php echo $data['id']; ?>';
                         f.submit();
                         return false;" style="margin-right: 20px; margin-bottom: 20px">
                     <img src="<?php echo $data['screenshot'] ?>" width="200" height="200">

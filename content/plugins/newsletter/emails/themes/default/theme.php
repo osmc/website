@@ -1,5 +1,7 @@
 <?php
 /*
+ * Name: Default
+ * Type: standard
  * Some variables are already defined:
  *
  * - $theme_options An array with all theme options
@@ -49,31 +51,37 @@ if (isset($theme_options['theme_posts'])) {
         <br>
         <table align="center">
             <tr>
-                <td style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #666;">
+                <td valign="top" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color: #666;">
                     <div style="text-align: left; background-color: #fff; max-width: 500px;">
                         <div style="text-align: center">
                         <?php //HEADER
 //                        if (!empty($theme_options['theme_banner'])) { 
 //                            echo $theme_options['theme_banner'];
                         if (!empty($theme_options['theme_header_logo']['url'])) { ?>
-                            <img alt="<?php echo $theme_options['main_header_title'] ?>" src="<?php echo $theme_options['theme_header_logo']['url'] ?>" />
+                            <img style="max-width: 500px" alt="<?php echo $theme_options['main_header_title'] ?>" src="<?php echo $theme_options['theme_header_logo']['url'] ?>" />
                         <?php } elseif (!empty($theme_options['main_header_logo']['url'])) { ?>
-                            <img alt="<?php echo $theme_options['main_header_title'] ?>" src="<?php echo $theme_options['main_header_logo']['url'] ?>" />
+                            <img style="max-width: 500px" alt="<?php echo $theme_options['main_header_title'] ?>" src="<?php echo $theme_options['main_header_logo']['url'] ?>" />
                         <?php } elseif (!empty($theme_options['main_header_title'])) { ?>
                              <div style="padding: 30px 0; color: #000; font-size: 28px; background-color: #EFEFEF; border-bottom: 1px solid #ddd; text-align: center;">
                                 <?php echo $theme_options['main_header_title'] ?>
                             </div>
-                        <?php } else { ?>
-                            <div style="padding: 30px 20px; color: #000; font-size: 28px; background-color: #EFEFEF; border-bottom: 1px solid #ddd; text-align: center;">
-                                <?php echo get_option('blogname'); ?>
-                            </div>
-                        <?php } ?>
-                        </div>
-                        <?php if (!empty($theme_options['main_header_sub'])) { ?>
+                            <?php if (!empty($theme_options['main_header_sub'])) { ?>
                             <div style="padding: 10px 0; color: #000; font-size: 16px; text-align: center;">
                                 <?php echo $theme_options['main_header_sub'] ?>
                             </div>
                         <?php } ?>
+                        <?php } else { ?>
+                            <div style="padding: 30px 20px; color: #000; font-size: 28px; background-color: #EFEFEF; border-bottom: 1px solid #ddd; text-align: center;">
+                                <?php echo get_option('blogname'); ?>
+                            </div>
+                            <?php if (!empty($theme_options['main_header_sub'])) { ?>
+                            <div style="padding: 10px 0; color: #000; font-size: 16px; text-align: center;">
+                                <?php echo $theme_options['main_header_sub'] ?>
+                            </div>
+                        <?php } ?>
+                        <?php } ?>
+                        </div>
+                        
                             
                         <div style="padding: 10px 20px 20px 20px; background-color: #fff; line-height: 18px">
 
@@ -85,11 +93,11 @@ if (isset($theme_options['theme_posts'])) {
                                 <?php foreach ($posts as $post) { setup_postdata($post); ?>
                                     <tr>
                                         <?php if (isset($theme_options['theme_thumbnails'])) { ?>
-                                        <td><a target="_blank"  href="<?php echo get_permalink(); ?>"><img width="75" src="<?php echo newsletter_get_post_image($post->ID); ?>" alt="image"></a></td>
+                                        <td valign="top"><a target="_blank"  href="<?php echo get_permalink($post); ?>"><img width="75" src="<?php echo newsletter_get_post_image($post->ID); ?>" alt="image"></a></td>
                                         <?php } ?>
                                         <td valign="top">
                                             <a target="_blank"  href="<?php echo get_permalink(); ?>" style="font-size: 20px; line-height: 26px"><?php the_title(); ?></a>
-                                            <?php if (isset($theme_options['theme_excerpts'])) the_excerpt(); ?>
+                                            <?php if (isset($theme_options['theme_excerpts'])) newsletter_the_excerpt($post); ?>
                                         </td>
                                     </tr>
                                 <?php } ?>

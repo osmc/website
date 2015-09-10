@@ -33,7 +33,7 @@ if (isset($_GET['ts']) && time() - $_GET['ts'] < 30) {
             </script>
         </head>
         <body>
-            If you're not redirect in few seconds, <a href="<?php echo $_SERVER['REQUEST_URI']; ?>&ts=<?php echo time(); ?>">click here</a>, thank you.
+            You'll be redirect in few seconds...
         </body>
     </html>
     <?php

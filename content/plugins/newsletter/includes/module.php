@@ -640,3 +640,21 @@ function nt_post_image($post_id = null, $size = 'thumbnail', $alternative = null
 function newsletter_get_post_image($post_id = null, $size = 'thumbnail', $alternative = null) {
     echo NewsletterModule::get_post_image($post_id, $size, $alternative);
 }
+
+/**
+ * Accepts a post or a post ID.
+ * 
+ * @param WP_Post $post
+ */
+function newsletter_the_excerpt($post, $words = 30) {
+    $post = get_post($post);
+    $excerpt = $post->post_excerpt;
+    if (empty($excerpt)) {
+        $excerpt = $post->post_content;
+        $excerpt = strip_shortcodes($excerpt);
+        $excerpt = wp_strip_all_tags($excerpt, true);
+    }
+    echo '<p>' . wp_trim_words($excerpt, $words) . '</p>';  
+}
+
+

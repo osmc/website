@@ -450,7 +450,7 @@ if ($controls->is_action()) {
                     <tr valign="top">
                         <th>Email template</th>
                         <td>
-                            <?php $controls->textarea('template'); ?>
+                            <?php $controls->textarea_preview('template', '100%', '700'); ?>
                             <?php $controls->button('reset-template', 'Reset this template'); ?>
                             <?php $controls->button('test-template', 'Send a test'); ?>
                         </td>

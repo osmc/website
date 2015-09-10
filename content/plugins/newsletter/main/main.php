@@ -231,15 +231,15 @@ if (!$controls->is_action()) {
                     <div class="tnp-tip">
                         <span class="tip-button">Tip</span>
                         <span class="tip-content">
-                            Keep the file lightweight and ideally smaller than 500px in width and 200px in height.
-                            Remember that .png images provide best performances with text and shapes logos.
+                            This image will be placed on top of email templates as-is, eventually stretched to
+                            match the template width.
                         </span>
                     </div>
                     </th>
                     <td>
-                        <?php $controls->media('header_logo'); ?>
+                        <?php $controls->media('header_logo', 'full'); ?>
                         <p class="description">
-                            Click to change. This should be your logo in .png or .jpg format.
+                            Click to change. This should be your logo in .png or .jpg format. The image shown is a resized preview.
                         </p>
                     </td>
                     </tr>

@@ -641,13 +641,18 @@
     border: 1px solid #ccc;
     margin-bottom: 15px;
     xheight: 110px;
+    color: #fff;
+}
+
+#newsletter-header-new input {
+    font-size: 12px;
 }
 
 #newsletter-header-new a {
     text-decoration: none;
-    font-family: "Montserrat",sans-serif;
+    /*font-family: "Montserrat",sans-serif;*/
     color: white;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
 }
 
 #newsletter-header-new a:hover {
@@ -1044,6 +1049,10 @@ table.clicks {
 
 .newsletter-box h3 {
     margin-top: 0;
+}
+
+.newsletter-textarea-preview {
+    border: 1px solid #ddd;
 }
 
 
