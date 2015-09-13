@@ -1,0 +1,158 @@
+@import '../../../woocommerce/assets/css/variables';
+@import '../../../woocommerce/assets/css/mixins';
+
+// WooCommerce Pre-Orders Admin
+
+// Order status icon
+.widefat .column-order_status {
+	mark.pre-ordered {
+		@include ir();
+		background: none;
+		font-size: 1.4em;
+		margin: 0 auto;
+
+		&:after {
+			@include icon( "\e012" );
+			color: $green;
+		}
+	}
+}
+.pre-orders {
+	.column-status {
+		width: 90px;
+	}
+}
+
+// Product tab
+#woocommerce-product-data {
+	ul.product_data_tabs {
+		li.wc_pre_orders_tab a {
+			&:before {
+				content: "\e00e";
+			}
+		}
+	}
+}
+
+// jQuery UI timepicker
+.ui-timepicker-div {
+
+	.ui-widget-header {
+		margin-bottom: 8px;
+	}
+
+	dl {
+		text-align: left;
+		dt {
+			height: 25px; margin-bottom: -25px;
+		}
+		dd {
+			margin: 0 10px 10px 65px;
+		}
+	}
+
+	td {
+		font-size: 90%;
+	}
+}
+
+.ui-tpicker-grid-label {
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ui-timepicker-rtl {
+	direction: rtl;
+	dl {
+		text-align: right;
+		dd {
+			margin: 0 65px 10px 10px;
+		}
+	}
+}
+
+// List Table
+.widefat.pre-orders {
+
+	td {
+		&.column-status {
+			padding: 6px 7px;
+		}
+
+	}
+
+	.column-status {
+		text-align: left;
+
+		mark.active, mark.completed, mark.cancelled {
+			@include ir();
+			background: none;
+			font-size: 1.4em;
+			margin: 0 auto;
+
+			&:after {
+				@include icon();
+			}
+		}
+
+		mark {
+			&.active {
+				&:after {
+					content: "\e012";
+					color: $green;
+				}
+			}
+			&.completed {
+				&:after {
+					content: "\e015";
+					color: $blue;
+				}
+			}
+			&.cancelled {
+				&:after {
+					content: "\e013";
+					color: $red;
+				}
+			}
+		}
+	}
+
+	.column-customer {
+		width: 15%;
+	}
+
+	.column-product {
+		width: 30%;
+	}
+
+	.column-order {
+		width: 15%;
+	}
+
+	.column-order_date {
+		width: 100px;
+	}
+
+	.column-availability-date {
+		width: 100px;
+	}
+}
+
+// List table row actions
+.wp-list-table.pre-orders .column-status .row-actions {
+	text-align: center;
+
+	.cancel {
+		a {
+			color: $red;
+
+			&:hover {
+				color: $red + #444;
+			}
+		}
+	}
+}
+
+
