@@ -58,7 +58,6 @@ get_header( 'shop' ); ?>
                 <button class="link">Go to product</button>
               </a>
             </div>
-            <a class="verolink" href="https://getvero.tv" target="_blank">Go to getvero.tv for the presentation</a>
            
           </div>
         </div>
