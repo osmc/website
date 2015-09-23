@@ -52,12 +52,14 @@ foreach(glob("wiki-*") as $wikidir) {
 function get_slug_url($url) {
   $url = strtolower($url);
   $url = str_replace(" ", "-", $url);
+  $url = str_replace("'", "", $url);
   return $url;
 }
 
 function make_slug_dir($dirname) {
   $dirname = strtolower($dirname);
   $dirname = str_replace(" ", "-", $dirname);
+  $dirname = str_replace("'", "", $dirname);
   mkdir($dirname, 0755);
   return $dirname;
 }
@@ -136,7 +138,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
       $subcat_title = $tz->title;
       array_push($subcat_titles, $subcat_title);
-
+      
       $subcat_link = get_slug_url($tz->title);
       array_push($subcat_links, $subcat_link);
 
@@ -148,11 +150,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
       $post_title = $post->title;
       
-      for ($i4 = 0; $i4 < count($post->details->links); $i4++) {
-        if ( $post->details->links[$i4]->reflection ) {
-          $post_cat = $post->details->links[$i4]->title;
-        }
-      }
+      $post_cat = $cat_title;
       
       $post_url = $tz->url;
       $post_body = $post_content->cooked;
