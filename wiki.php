@@ -53,6 +53,7 @@ function get_slug_url($url) {
   $url = strtolower($url);
   $url = str_replace(" ", "-", $url);
   $url = str_replace("'", "", $url);
+	$url = str_replace("?", "", $url);
   return $url;
 }
 
@@ -60,6 +61,7 @@ function make_slug_dir($dirname) {
   $dirname = strtolower($dirname);
   $dirname = str_replace(" ", "-", $dirname);
   $dirname = str_replace("'", "", $dirname);
+	$dirname = str_replace("?", "", $dirname);
   mkdir($dirname, 0755);
   return $dirname;
 }
