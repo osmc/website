@@ -1,0 +1,119 @@
+@include link;
+a {
+  @include transition-duration(0.05s);
+	@include transition-timing-function(ease);
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font;
+  font-weight: 400;
+  font-size: 100%;
+}
+
+button, select, textarea, input, a, img {
+	&:focus {
+		outline: 0;
+	}
+}
+
+* {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+// MAIN //
+html,
+body {
+  width: 100%;
+  line-height: 1.6em;
+}
+
+body {
+  background-color: $back;
+  color: $dark;
+  margin: 0;
+}
+
+input,
+textarea {
+  border: 0;
+  padding: 0.4em;
+  border: 1px solid transparent;
+  color: $black;
+  font-size: 0.8rem;
+  @include border-radius(1px);
+  @include transition-duration(0.1s);
+  &:focus {
+    border: 1px solid $acc3-2;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  padding-left: 1.3em;
+}
+
+li {
+  margin: 0.20em 0;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid $acc1-2;
+  margin: 1.5em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin: 1.2em 0 0.5em;
+}
+
+p {
+  margin: 0.8em 0;
+}
+
+button, .button {
+	@include button;
+}
+
+pre {
+  background-color: $acc1-2;
+  line-height: 1.3em;
+  @include box-shadow($white 0 0 8px);
+  
+  padding: 1em;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow: auto;
+  @include scrollbars(0.3em, $acc1-1, $acc1-3);
+    
+  code {
+		font-size: $small3;
+    display: block;
+    color: $black;
+		background-color: $trans;
+  }
+}
+
+code {
+  font-size: $small4;
+  font-family: $font-code;
+  color: $acc1-1;
+	background-color: $grey4;
+	padding: 0.1em 0.2em;
+	@include border-radius(2px);
+}

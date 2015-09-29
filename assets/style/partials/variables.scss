@@ -1,0 +1,52 @@
+$dblue: #003450;
+$red: #fc4f4f;
+$white: #ffffff;
+$dark: $dblue;
+$black: $dark;
+$trans: transparent;
+$blue-s1: #2e9db8;
+$blue-s2: #107aaf;
+$blue-s3: #0C5B8E;
+
+$small1: 95%;
+$small2: 90%;
+$small3: 85%;
+$small4: 80%;
+
+$res: 52em;
+$res2: 33em;
+
+$back: $white;
+
+// Blue
+$blue1: #087bb4;
+$blue2: rgb(206, 226, 247);
+$blue3: lighten($blue2, 7%);
+$blue4: #1a97d6;
+
+// Green
+$green1: #38d4ab;
+$green2: #98ebd2;
+
+// Grey
+$grey1: #D3D3D3;
+$grey2: #969696;
+$grey3: #575757;
+$grey4: #f5f5f5;
+
+// Accent colors
+$acc1-1: $blue1;
+$acc1-2: $blue2;
+$acc1-3: $blue3;
+$acc1-4: $blue4;
+
+$acc2-1: $green1;
+$acc2-2: $green2;
+
+$acc3-1: $grey1;
+$acc3-2: $grey2;
+$acc3-3: $grey3;
+
+$font: "Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$font-code: "Office Code Pro", "Monospace", Monospace;

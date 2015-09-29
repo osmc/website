@@ -1,242 +1,14 @@
 @import "../../node_modules/normalize.css/normalize.css";
-@import "compass";
 
-// COLOR //
-
-$dblue: #003450;
-$red: #fc4f4f;
-$white: #ffffff;
-$white-alt: #F0F0F0;
-$lgrey: #D3D3D3;
-$dgrey: #969696;
-$dgrey2: #575757;
-$dark: $dblue;
-$black: $dark;
-$trans: transparent;
-$blue-s1: #2e9db8;
-$blue-s2: #107aaf;
-$blue-s3: #0C5B8E;
-
-$small: 90%; 
-$res: 52em;
-$res2: 33em;
-
-$back: $white;
-
-// Blue
-$acc1: #107aaf;
-$acc2: rgb(206, 226, 247);
-$acc3: lighten($acc2, 7%);
-
-// Green
-$acc1-alt: #4ca388;
-$acc2-alt: #98ebd2;
-
-$font: "Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-
-$font-code: "Office Code Pro", "Monospace", Monospace;
-
-
-@mixin ie10 {
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    @content;
-  }
-}
-
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
-  &::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
-  }
-
-  &::-webkit-scrollbar-thumb {
-      background: $foreground-color;
-  }
-
-  &::-webkit-scrollbar-track {
-      background: $background-color;
-  }
-
-  // For Internet Explorer
-  scrollbar-face-color: $foreground-color;
-  scrollbar-track-color: $background-color;
-}
-
-
-$link: $acc1;
-$link-bottom: rgba(0, 0, 0, 0.08);
-$link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
-
-
-@mixin link ($color: null, $color-hover: null) {
-  
-  $border-bottom: null;
-  $border-bottom-hover: null;
-    
-  @if $color {
-    $border-bottom: 0px;
-    $border-bottom-hover: 0px;
-  } @else {
-    $color: $link;
-    $color-hover: $link;
-    $border-bottom: 2px solid $link-bottom;
-    $border-bottom-hover: 2px solid $link-bottom-hover;
-  }
-  
-  a {
-    color: $color;
-    text-decoration: none;
-    border-bottom: $border-bottom;
-    
-    &:visited {
-      color: $color;
-      border-bottom: $border-bottom;
-    }
-    &:hover {
-      color: $color-hover;
-      border-bottom: $border-bottom-hover;
-    }
-    &:active {
-      color: $color-hover;
-      border-bottom: $border-bottom-hover;
-    }
-    &:focus {
-      color: $color-hover;
-      border-bottom: $border-bottom-hover;
-    }
-  }
-  
-}
-
-@mixin hover ($color, $setting: null) {
-  
-  @if $setting == "back" {
-    $setting: "background-color";
-  } @else {
-    $setting: "color";
-  }
-  
-  &:hover {
-    #{$setting}: $color;
-  }
-  &:active {
-    #{$setting}: $color;
-  }
-  &:focus {
-    #{$setting}: $color;
-  }
-}
-
-@include link;
-a {
-  @include transition-duration(0.1s);
-}
+@import "partials/global";
 
 @import "lib/grid";
 @import "lib/chartistSettings";
 @import "../../node_modules/chartist/dist/scss/chartist";
 
-html,
-body,
-button,
-input,
-select,
-textarea {
-  font-family: $font;
-  font-weight: 400;
-  font-size: 100%;
-}
-
-* {
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-// MAIN //
-html,
 body {
-  width: 100%;
-  height: 100%;
-  font-size: 100%;
-  line-height: 1.6em;
-}
-
-body {
-  background-color: $back;
-  color: $dark;
-  margin: 0;
   overflow-y: scroll;
-  
-  @include scrollbars(0.5em, $lgrey, $back);
-}
-
-input,
-textarea {
-  border: 0;
-  padding: 0.4em;
-  border: 1px solid transparent;
-  color: $black;
-  font-size: 0.8rem;
-  @include border-radius(1px);
-  @include transition-duration(0.1s);
-  &:focus {
-    border: 1px solid $dgrey;
-  }
-}
-
-input:focus {
-  outline: none;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-select:focus {
-  outline: none;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-}
-
-:focus {
-  outline: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-ul, ol {
-  padding-left: 1.3em;
-}
-
-li {
-  margin: 0.20em 0;
-}
-
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid $acc2;
-  margin: 1.5em 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-  margin: 1.2em 0 0.5em;
-}
-
-p {
-  margin: 0.8em 0;
+  @include scrollbars(0.5em, $acc3-1, $back);
 }
 
 .break {
@@ -246,7 +18,7 @@ p {
   background-color: $back;
   
   $dot: $back;
-  $dot2: $acc1;
+  $dot2: $acc1-1;
   
   $gradient: 135deg, $dot2, $dot 1px, transparent 2px, transparent 2px, $dot 3px;
   $size: 4px 4px;
@@ -260,18 +32,6 @@ p {
   background-size: $size;
 }
 
-button, .button {
-  display: inline-block;
-  font-size: $small;
-  border: 0;
-  @include border-radius(1px);
-  color: $white;
-  padding: 0.2em 0.7em;
-  margin: 0.3em 0.3em;
-  @include transition-duration(0.1s);
-  cursor: pointer;
-}
-
 table {
   width: 100%;
   th {
@@ -283,29 +43,6 @@ table {
   }
 }
 
-pre {
-  background-color: $acc2;
-  line-height: 1.3em;
-  @include box-shadow($white 0 0 8px);
-  
-  padding: 1em;
-  white-space: pre-wrap;
-  max-height: 400px;
-  overflow: auto;
-  @include scrollbars(0.3em, $acc1, $acc3);
-    
-  code {
-    display: block;
-    color: $black;
-  }
-}
-
-code {
-  font-size: 85%;
-  font-family: $font-code;
-  color: $acc1-alt;
-}
-
 .share {
   @include link($white, $white);
   
@@ -313,7 +50,7 @@ code {
     display: none;
     margin: 0 0 1em;
     text-transform: uppercase;
-    font-size: $small;
+    font-size: $small1;
     padding-right: 2em;
   }
   
@@ -335,7 +72,7 @@ code {
   
   .text {
     padding: 0 0.2em;
-    font-size: $small;
+    font-size: $small1;
     display: inline-block;
   }
   
@@ -400,7 +137,7 @@ $title-size-res: 1.2em;
   max-height: $header;
   height: 100%;
   width: 100%;
-  @include box-shadow($lgrey 0px 1px 2px);
+  @include box-shadow($acc3-1 0px 1px 2px);
   .container {
     height: 100%;
     position: static;
@@ -539,7 +276,7 @@ $home-header: rgba(14,
             g {
               polygon {
                 stroke-width: 0px;
-                stroke: $dgrey2;
+                stroke: $grey3;
               }
             }
           }
@@ -867,7 +604,7 @@ $home-header: rgba(14,
           h3,
           p,
           p a {
-            color: $dgrey;
+            color: $acc3-2;
             @include transition-duration(0.3s);
           }
           h3 {
@@ -877,7 +614,7 @@ $home-header: rgba(14,
           p {
             margin: 0;
             a {
-              color: $dgrey;
+              color: $acc3-2;
               pointer-events: none;
               cursor: default;
             }
@@ -908,7 +645,7 @@ $home-header: rgba(14,
               pointer-events: auto;
               cursor: pointer;
               &:hover {
-                color: $dgrey2;
+                color: $grey3;
               }
             }
           }
@@ -976,8 +713,8 @@ $home-header: rgba(14,
           border-bottom: 1px solid $link;
           display: inline-block;
           &:hover {
-            color: $dgrey;
-            border-bottom: 1px solid $dgrey;
+            color: $acc3-2;
+            border-bottom: 1px solid $acc3-2;
           }
         }
       }
@@ -1194,7 +931,7 @@ article {
 
 .post {
   &-header {
-    @include link($link, $black);
+    @include link($link, $acc2-1);
   }
   &-title {
     font-weight: 300;
@@ -1202,9 +939,9 @@ article {
   }
   &-meta {
     margin: 1em 0 0;
-    font-size: $small;
+    font-size: $small2;
   }
-  &-excerpt {
+	&-excerpt {
   }
   &-time {
   }
@@ -1215,6 +952,17 @@ article {
   &-content {
     margin: 1em 0;
   }
+	
+	&-comments {
+		header {
+			position: relative;
+			margin-bottom: -1.45em;
+			
+			h3 {
+				margin-bottom: 0;
+			}
+		}
+	}
   
   &-footer {
     margin: 1em 0;
@@ -1252,7 +1000,7 @@ nav.pagination {
   float: right;
   line-height: 1.5em;
   .widget {
-    border-bottom: 1px solid $lgrey;
+    border-bottom: 1px solid $acc3-1;
     padding: 0 0 2em 0;
   }
   .widgettitle {
@@ -1315,10 +1063,10 @@ nav.pagination {
     .github:hover,
     .github:focus {
       svg path {
-        fill: $dgrey;
+        fill: $acc3-2;
       }
       p {
-        color: $dgrey;
+        color: $acc3-2;
       }
     }
     .rss:hover,
@@ -1333,7 +1081,7 @@ nav.pagination {
   }
   .adsbygoogle {
     margin: 2em 0 0;
-    border: 1px solid $lgrey;
+    border: 1px solid $acc3-1;
     overflow: hidden;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -1362,19 +1110,19 @@ nav.pagination {
     }
     label {
       cursor: pointer;
-      background-color: $lgrey;
+      background-color: $acc3-1;
       padding: 0.2em 0.4em;
       font-size: 95%;
       @include border-radius(2px);
       @include transition-duration(0.1s);
     }
     .radio:checked + label {
-      background-color: $dgrey;
+      background-color: $acc3-2;
     }
     .options {
       margin: 1.5em 0 0;
       button {
-        background-color: $lgrey;
+        background-color: $acc3-1;
         width: 35%;
         max-width: 6.5em;
         height: 2.8em;
@@ -1459,7 +1207,7 @@ nav.pagination {
     color: $dark;
     margin-top: 1em;
     @include input-placeholder {
-      color: $dgrey;
+      color: $acc3-2;
     }
   }
   textarea {
@@ -1476,7 +1224,7 @@ nav.pagination {
   width: 100%;
   height: 1px;
   margin: 0 0 2em 0;
-  border-bottom: 2px dotted $lgrey;
+  border-bottom: 2px dotted $acc3-1;
   float: left;
   display: block;
 }
@@ -1495,7 +1243,7 @@ nav.pagination {
 .veroline {
   font-size: 0.9em;
   text-align: center;
-  color: $dgrey2;
+  color: $grey3;
 }
 
 .download {
@@ -1551,12 +1299,12 @@ nav.pagination {
         font-size: 88%;
       }
       .info {
-        color: $dgrey2;
+        color: $grey3;
         margin: 0.4em 0 0 0;
       }
       .info2 {
         font-size: 88%;
-        color: $dgrey;
+        color: $acc3-2;
         margin: 0;
       }
       &:hover,
@@ -1614,7 +1362,7 @@ nav.pagination {
     h3 {
       margin: 0 0 0.5em;
       display: inline-block;
-      border-bottom: 2px solid $lgrey;
+      border-bottom: 2px solid $acc3-1;
     }
     table {
       width: auto;
@@ -1630,7 +1378,7 @@ nav.pagination {
 }
 
 // Wiki
-$border: 1px dotted $lgrey;
+$border: 1px dotted $acc3-1;
 
 .wiki-page {
   section {
@@ -1660,7 +1408,7 @@ $border: 1px dotted $lgrey;
                 color: $blue-s3;
               }
               p {
-                color: $dgrey2;
+                color: $grey3;
               }
             }
           }
@@ -1673,7 +1421,7 @@ $border: 1px dotted $lgrey;
           @include transition-duration(0.1s);
         }
         p {
-          color: $dgrey2;
+          color: $grey3;
           font-size: 90%;
           margin: 0;
           margin-top: 0.5em;
@@ -1703,7 +1451,7 @@ $border: 1px dotted $lgrey;
   }
   &.w-post {
     span {
-      color: $dgrey;
+      color: $acc3-2;
     }
   }
 }
@@ -1756,7 +1504,7 @@ $border: 1px dotted $lgrey;
     }
   }
   .footerinfo {
-    color: $lgrey;
+    color: $acc3-1;
     font-weight: 300;
     font-size: 0.8em;
     margin: 2em 0 0;
@@ -1770,7 +1518,7 @@ $border: 1px dotted $lgrey;
     a:active {
       margin: 0;
       font-weight: 300;
-      color: $lgrey;
+      color: $acc3-1;
     }
     img {
       margin: 0 0 1em;
@@ -1798,12 +1546,12 @@ $border: 1px dotted $lgrey;
     width: 100%;
     max-width: 15em;
     @include input-placeholder {
-      color: $dgrey;
+      color: $acc3-2;
     }
   }
   .newsletter-submit {
     text-align: center;
-    background-color: $dgrey;
+    background-color: $acc3-2;
   }
   .newsletter-submit:hover,
   .newsletter-submit:focus {
@@ -2183,7 +1931,7 @@ $border: 1px dotted $lgrey;
     }
     .column {
       padding: 1em 0;
-      border-bottom: 1px solid $lgrey;
+      border-bottom: 1px solid $acc3-1;
     }
     .widgettitle {
       margin-top: 0;
@@ -2192,7 +1940,7 @@ $border: 1px dotted $lgrey;
   .sidebar {
     .widget:first-child {
       padding: 1.33em 0 2em 0;
-      border-top: 1px solid $lgrey;
+      border-top: 1px solid $acc3-1;
     }
   }
   .contactform {
@@ -2208,9 +1956,6 @@ $border: 1px dotted $lgrey;
 @media screen and (max-width: $res2) {
   button {
     padding: 0.4em 0.7em 0.5em;
-  }
-  .comments-area {
-    width: 100%;
   }
   .download.os {
     margin: 1em 0 3.5em;

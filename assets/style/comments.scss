@@ -1,0 +1,78 @@
+@import "partials/global";
+
+@include link($link, $black);
+
+body {
+	font-size: $small1;
+}
+
+header.discourse {
+	border-bottom: 0px;
+	font-size: 100%;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 1em;
+	text-align: right;
+	
+	border-bottom: 1px solid $acc1-2;
+	
+	.replies {
+		font-size: $small1;
+		color: $acc3-2;
+	}
+}
+
+article.post {
+	
+	.author {
+		img {
+			max-width: 30px;
+		}
+	}
+	
+	.in-reply-to {
+		@include hover($acc2-1);
+		color: $link;
+		font-size: $small2;
+	}
+	.post-date {
+		@include hover($acc2-1);
+		color: $link;
+		font-size: $small2;
+	}
+		
+	.cooked {
+		margin-left: 50px;
+		p {
+			@include link;
+		}
+		
+		.button {
+			@include button;
+		}
+		
+		.username {
+			@include link;
+			font-size: 90%;
+			
+			a.staff {
+				background-color: $trans;
+			}
+			span.title {
+				color: $acc3-2;
+				&:before {
+					font-size: 90%;
+					content: "- ";
+				}
+			}
+		}
+	}
+}
+
+footer {
+	font-size: 100%;
+	
+	.button {
+		@include button;
+	}
+}

@@ -1,0 +1,115 @@
+@mixin ie10 {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  scrollbar-face-color: $foreground-color;
+  scrollbar-track-color: $background-color;
+}
+
+
+$link: $acc1-1;
+$link-bottom: rgba(0, 0, 0, 0.08);
+$link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
+
+
+@mixin link ($color: null, $color-hover: null) {
+  
+  $border-bottom: null;
+  $border-bottom-hover: null;
+    
+  @if $color {
+    $border-bottom: 0px;
+    $border-bottom-hover: 0px;
+  } @else {
+    $color: $link;
+    $color-hover: $link;
+    $border-bottom: 2px solid $link-bottom;
+    $border-bottom-hover: 2px solid $link-bottom-hover;
+  }
+  
+  a {
+    color: $color;
+    text-decoration: none;
+    border-bottom: $border-bottom;
+    
+    &:visited {
+      color: $color;
+      border-bottom: $border-bottom;
+    }
+    &:hover {
+      color: $color-hover;
+      border-bottom: $border-bottom-hover;
+    }
+    &:active {
+      color: $color-hover;
+      border-bottom: $border-bottom-hover;
+    }
+    &:focus {
+      color: $color-hover;
+      border-bottom: $border-bottom-hover;
+    }
+  }
+  
+}
+
+@mixin hover ($color, $setting: null) {
+  
+  @if $setting == "back" {
+    $setting: "background-color";
+  } @else {
+    $setting: "color";
+  }
+  
+  &:hover {
+    #{$setting}: $color;
+  }
+  &:active {
+    #{$setting}: $color;
+  }
+  &:focus {
+    #{$setting}: $color;
+	}
+}
+
+@mixin button ($back: null) {
+	
+	@if $back {
+		
+	} @else {
+		$back: $acc1-4;
+	}
+	
+	display: inline-block;
+  font-size: $small2;
+  border: 0;
+  @include border-radius(1px);
+  color: $white;
+	background-color: $back;
+  padding: 0.2em 0.7em;
+  margin: 0.3em 0.3em;
+  @include transition-duration(0.1s);
+  cursor: pointer;
+	
+	// color hover
+	@include hover($white);
+	
+	// background hover
+	@include hover($acc1-1, back);
+}
