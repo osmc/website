@@ -1,8 +1,4 @@
 @include link;
-a {
-  @include transition-duration(0.05s);
-	@include transition-timing-function(ease);
-}
 
 html,
 body,
@@ -29,13 +25,15 @@ button, select, textarea, input, a, img {
 html,
 body {
   width: 100%;
-  line-height: 1.6em;
+  line-height: $line-h;
 }
 
 body {
   background-color: $back;
   color: $dark;
   margin: 0;
+  overflow-y: scroll;
+  //@include scrollbars(0.8em, $acc3-1, $back);
 }
 
 input,
@@ -46,7 +44,7 @@ textarea {
   color: $black;
   font-size: 0.8rem;
   @include border-radius(1px);
-  @include transition-duration(0.1s);
+  @include transition-duration($ani-duration);
   &:focus {
     border: 1px solid $acc3-2;
   }
@@ -55,10 +53,13 @@ textarea {
 img {
   max-width: 100%;
   height: auto;
+  @include transition-duration($ani-duration);
+  @include transition-timing-function(ease);
 }
 
 ul, ol {
   padding-left: 1.3em;
+  margin: 0;
 }
 
 li {
@@ -80,10 +81,17 @@ h5,
 h6 {
   font-weight: 400;
   margin: 1.2em 0 0.5em;
+  line-height: 1.4em;
 }
 
 p {
   margin: 0.8em 0;
+}
+
+blockquote {
+  background-color: $acc3-4;
+  margin: 0;
+  padding: 0.1em 0.5em 0.1em 1em;
 }
 
 button, .button {
@@ -99,13 +107,13 @@ pre {
   white-space: pre-wrap;
   max-height: 400px;
   overflow: auto;
-  @include scrollbars(0.3em, $acc1-1, $acc1-3);
+  @include scrollbars(0.35em, $acc1-5, $acc1-3);
     
   code {
-		font-size: $small3;
+    font-size: $small3;
     display: block;
     color: $black;
-		background-color: $trans;
+    background-color: $trans;
   }
 }
 
@@ -113,7 +121,7 @@ code {
   font-size: $small4;
   font-family: $font-code;
   color: $acc1-1;
-	background-color: $grey4;
+	background-color: $acc3-4;
 	padding: 0.1em 0.2em;
 	@include border-radius(2px);
 }

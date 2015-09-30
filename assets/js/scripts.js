@@ -12,7 +12,7 @@ $("#nav-res-toggle").click(function () {
 
 // FRONT PAGE //
 
-var homeClass = "page-homepage";
+var homeClass = "page-home";
 
 // Video
 

@@ -1,4 +1,5 @@
 {{#foreach posts}}
+{{!^has tag="development"}}
 <article class="{{post_class}}">
   <header class="post-header">
     <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
@@ -7,6 +8,7 @@
     <p>{{excerpt words="60"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
   </section>
 </article>
+{{!/has}}
 {{/foreach}}
 
 {{pagination}}

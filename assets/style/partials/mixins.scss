@@ -25,8 +25,9 @@
 
 
 $link: $acc1-1;
+$link-hover: $acc1-4;
 $link-bottom: rgba(0, 0, 0, 0.08);
-$link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
+$link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
 
 
 @mixin link ($color: null, $color-hover: null) {
@@ -39,7 +40,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
     $border-bottom-hover: 0px;
   } @else {
     $color: $link;
-    $color-hover: $link;
+    $color-hover: $link-hover;
     $border-bottom: 2px solid $link-bottom;
     $border-bottom-hover: 2px solid $link-bottom-hover;
   }
@@ -48,22 +49,21 @@ $link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
     color: $color;
     text-decoration: none;
     border-bottom: $border-bottom;
+    @include transition-duration($ani-duration);
+    @include transition-timing-function(ease);
     
     &:visited {
       color: $color;
       border-bottom: $border-bottom;
     }
-    &:hover {
+    &:hover, &:active, &:focus {
       color: $color-hover;
       border-bottom: $border-bottom-hover;
-    }
-    &:active {
-      color: $color-hover;
-      border-bottom: $border-bottom-hover;
-    }
-    &:focus {
-      color: $color-hover;
-      border-bottom: $border-bottom-hover;
+      
+      img {
+        opacity: 0.6;
+      }
+      
     }
   }
   
@@ -88,28 +88,41 @@ $link-bottom-hover: adjust-hue( lighten( $link, 40% ), 22% );
 	}
 }
 
-@mixin button ($back: null) {
+@mixin button ($back: null, $hover: null, $height: null, $homepage: null) {
 	
-	@if $back {
-		
-	} @else {
-		$back: $acc1-4;
-	}
-	
-	display: inline-block;
-  font-size: $small2;
-  border: 0;
-  @include border-radius(1px);
-  color: $white;
-	background-color: $back;
-  padding: 0.2em 0.7em;
-  margin: 0.3em 0.3em;
-  @include transition-duration(0.1s);
-  cursor: pointer;
-	
-	// color hover
-	@include hover($white);
-	
-	// background hover
-	@include hover($acc1-1, back);
+  @if $back {
+  } @else {
+      $back: $acc1-5;
+  }
+  @if $hover {
+  } @else {
+      $hover: $acc1-4;
+  }
+  @if $height {
+  } @else {
+     $height: 0.1em;
+  }
+  
+  @if $homepage {
+    background-color: $back;
+    color: $white;
+    @include transition-duration($ani-duration);
+  } @else {
+    display: inline-block;
+    font-size: $small2;
+    border: 0;
+    @include border-radius(1px);
+    color: $white;
+    background-color: $back;
+    padding: $height 0.7em;
+    margin: 0.3em 0.3em 0.3em 0;
+    cursor: pointer;
+    @include transition-duration($ani-duration);
+  }
+  
+  // color hover
+  @include hover($white);
+
+  // background hover
+  @include hover($hover, back);
 }
