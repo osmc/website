@@ -96,6 +96,10 @@ blockquote {
 
 button, .button {
 	@include button;
+	
+	&-alt1 {		
+		@include button-alt1;
+	}
 }
 
 pre {
@@ -122,6 +126,7 @@ code {
   font-family: $font-code;
   color: $acc1-1;
 	background-color: $acc3-4;
-	padding: 0.1em 0.2em;
+	padding: 0 0.2em 0.2em;
 	@include border-radius(2px);
+	vertical-align: top;
 }

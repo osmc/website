@@ -16,6 +16,11 @@ header.discourse {
     font-size: $small1;
     color: $acc3-2;
   }
+	.button {
+		float: left;
+		margin-top: 3em;
+		@include button-alt1;
+	}
 }
 
 article.post {
@@ -41,7 +46,7 @@ article.post {
       @include link;
     }
     .button {
-      @include button(null, 0);
+      @include button(null, null, 0);
     }
     .username {
       @include link;
@@ -67,21 +72,24 @@ article.post {
         @include border-radius(50px);
         margin-bottom: 2px;
       }
-    }
+		}
     blockquote {
       background-color: $acc1-3;
       border-left: 5px solid $acc1-2;
     }
   }
+	aside {
+		margin: 1em 0;
+	}
   aside.onebox {
     border-left: 5px solid $acc1-2;
     background-color: $acc1-3;
     font-size: 90%;
-    margin: 1em 0;
     .source {
       background-size: 16px 16px;
       background-position: 1px;
       padding-left: 25px;
+			@include link;
     }
     .onebox-body {
       @include link($link, $black);
@@ -92,6 +100,6 @@ article.post {
 footer {
   font-size: 100%;
   .button {
-    @include button(null, 0);
+    @include button-alt1;
   }
 }

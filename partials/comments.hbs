@@ -5,13 +5,22 @@
   
   <div id='discourse-comments'></div>
   <script type="text/javascript">
-    DiscourseEmbed = { discourseUrl: 'https://discourse.osmc.tv/',
-                       topicId: 8431 };
-
-    (function() {
-      var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-      d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-    })();
+		
+		var commentsLoaded = false;
+		var commentsPosition = $(".post-comments").offset().top;
+		var documentHeight = $(document).height();
+		var loadPosition = (commentsPosition / documentHeight) - 0.33;
+		$(window).on("scroll", function() {
+			var scrollPosition = $(window).scrollTop() / documentHeight;
+			if (scrollPosition >= loadPosition && !commentsLoaded) {
+				commentsLoaded = true;
+				DiscourseEmbed = { discourseUrl: 'https://discourse.osmc.tv/', topicId: 8431 };
+				(function() {
+					var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+					d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+				})();
+			}
+		});
   </script>
 </section>

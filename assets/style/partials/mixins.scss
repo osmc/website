@@ -119,10 +119,20 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
     cursor: pointer;
     @include transition-duration($ani-duration);
   }
+	
+	&:visited {
+		color: $white;
+	}
   
   // color hover
   @include hover($white);
 
   // background hover
   @include hover($hover, back);
+}
+
+@mixin button-alt1 {
+	@include button;
+	background-color: $acc2-1;
+	@include hover($acc2-3, back);
 }

@@ -87,7 +87,7 @@ gulp.task("reload", function () {
 });
 
 gulp.task("default", ["ghost"], function () {
-  gulp.watch(["assets/style/style.*", "assets/style/partials/**/*"], ["style"]);
+  gulp.watch(["assets/style/**/*", "!assets/style/comments.scss"], ["style"]);
 	gulp.watch("assets/style/comments.*", ["comments"]);
   gulp.watch("assets/js/scripts.js", ["js-reload"]);
   gulp.watch("**/*.hbs", ["reload"]);
