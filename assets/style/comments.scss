@@ -2,6 +2,7 @@
 @include link($link, $black);
 body {
   font-size: $small1;
+  overflow-y: auto;
 }
 
 header.discourse {
@@ -9,7 +10,6 @@ header.discourse {
   font-size: 100%;
   padding-left: 0px;
   padding-bottom: 0px;
-  margin-bottom: 1em;
   text-align: right;
   border-bottom: 1px solid $acc1-2;
   .replies {
@@ -17,15 +17,20 @@ header.discourse {
     color: $acc3-2;
   }
 	.button {
-		float: left;
-		margin-top: 3em;
-		@include button-alt1;
+      @include button-alt1;
+      float: left;
+      margin-top: 2.5em;
+      padding: 0.15em 0.7em 0.1em;
 	}
 }
 
 article.post {
+  float: left;
+  width: 100%;
+  padding: 0.5em 0;
+  
   .author {
-    padding: 8px 5px;
+    padding: 7px 5px;
     img {
       max-width: 30px;
     }
@@ -99,7 +104,21 @@ article.post {
 
 footer {
   font-size: 100%;
+  width: 100%;
+  float: left;
+  text-align: right;
+  margin: 1em 0;
   .button {
     @include button-alt1;
+    padding: 0.15em 0.7em 0.1em;
+    margin-top: -0.15em;
+    float: left;
+  }
+  .replies {
+    font-size: $small1;
+    color: $acc3-2;
+  }
+  img {
+    display: none;
   }
 }

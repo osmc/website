@@ -5,22 +5,30 @@
   
   <div id='discourse-comments'></div>
   <script type="text/javascript">
-		
-		var commentsLoaded = false;
-		var commentsPosition = $(".post-comments").offset().top;
-		var documentHeight = $(document).height();
-		var loadPosition = (commentsPosition / documentHeight) - 0.33;
-		$(window).on("scroll", function() {
-			var scrollPosition = $(window).scrollTop() / documentHeight;
-			if (scrollPosition >= loadPosition && !commentsLoaded) {
-				commentsLoaded = true;
-				DiscourseEmbed = { discourseUrl: 'https://discourse.osmc.tv/', topicId: 8431 };
-				(function() {
-					var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-					d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
-					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-				})();
-			}
-		});
+    function isVisible(elem, offset) {
+      var $elem = $(elem);
+      var $window = $(window);
+      var docViewTop = $window.scrollTop();
+      var docViewBottom = docViewTop + $window.height();
+      var elemTop = $elem.offset().top;
+      var elemBottom = elemTop + $elem.height() - offset;
+      return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+    var commentsLoaded = false;
+    
+    $(window).on("scroll", function() {
+      var visible = isVisible(".post-comments", 300);
+      if (visible && !commentsLoaded) {
+        console.log("visible");
+        commentsLoaded = true;
+        DiscourseEmbed = { discourseUrl: 'https://discourse.osmc.tv/', topicId: 8431 };
+        (function() {
+          var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+          d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+        })();
+      }
+    });
+    
   </script>
 </section>

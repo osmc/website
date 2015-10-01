@@ -95,34 +95,49 @@ if ($("body").hasClass(homeClass)) {
 
 // NEWSLETTER FORM //
 
-$(".newsletter_subscribe").submit(function (e) {
-
+// Subscribe
+$(".news-email").on("input propertychange", function() {
+   if ( $(this).val().length > 0 ) {
+     $(this).parent().addClass("focus");
+     $(this).parent().removeClass("unfocus");
+   } else {
+     $(this).parent().removeClass("focus");
+     $(this).parent().removeClass("error");
+     $(this).parent().addClass("unfocus");
+   }
+});
+var subscribeMessage = "Failed!   :'(";
+var errorMessage = "Failed!   :'(";
+$(".news-form").submit(function(e) {
   e.preventDefault();
-
   var form = $(this);
   var button = form.find("button");
-
-  form.removeClass("wait success error");
-
-  form.addClass("wait");
-
+  
   button.prop('disabled', true);
-  button.text("loading");
-
+  form.addClass("posting");
+  
   $.ajax({
-
     url: $(this).attr("action"),
     type: "POST",
     data: $(this).serialize(),
-    success: function (response)  {
+    success: function (response) {
       button.prop('disabled', false);
-      button.text("Subscribe");
-      form.find(".email").val("You are now subscribed!");
-      form.removeClass("wait").addClass("success");
+      button.blur();
+      form.removeClass("posting");
+      form.find(".news-email").val(subscribeMessage);
+    },
+    error: function() {
+      button.prop('disabled', false);
+      button.blur();
+      form.removeClass("posting");
+      form.addClass("error");
+      form.find(".news-email").val(subscribeMessage);
     }
   });
-});
 
+    
+
+});
 // DONATION //
 
 // check hash on load

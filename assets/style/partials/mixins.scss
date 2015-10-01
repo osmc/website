@@ -100,7 +100,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
   }
   @if $height {
   } @else {
-     $height: 0.1em;
+     $height: 0.15em;
   }
   
   @if $homepage {
@@ -119,10 +119,16 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
     cursor: pointer;
     @include transition-duration($ani-duration);
   }
+  border-bottom: 0px;
+  
+  &:visited {
+    color: $white;
+  }
 	
-	&:visited {
-		color: $white;
-	}
+  &:hover, &:active, &:focus {
+    color: $white;
+    border-bottom: 0px;
+  }
   
   // color hover
   @include hover($white);
@@ -135,4 +141,78 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
 	@include button;
 	background-color: $acc2-1;
 	@include hover($acc2-3, back);
+}
+
+@mixin button-alt2 {
+	@include button;
+	background-color: $acc3-2;
+	@include hover($acc3-3, back);
+}
+
+@mixin animated {
+  @include animation-duration(0.3s);
+  @include animation-timing-function(ease-out);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideOutDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.slideOutDown {
+  -webkit-animation-name: slideOutDown;
+}
+
+@-webkit-keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
 }

@@ -1,8 +1,54 @@
 <aside class="column fourth sidebar">
-  <form role="search" method="get" class="search">
-    <div class="wrap">
-      <svg width="20" height="20" viewBox="0 0 2048 2048" xmlns="http://www.w3.org/2000/svg"><path d="M1344 960q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z"></path></svg>
-      <input type="text" value="" placeholder="Search the Site.">
-    </div>
-  </form>
+  
+  <section class="sidebar-donate">
+    <header>
+      <h3 class="sidebar-title">Donate</h3>
+    </header>
+    <p class="sidebar-text">OSMC is free and will always remain free. Help support further development by making a donation. No matter how large or small, every contribution is appreciated.</p>
+    <a class="button button-alt1" href="#donate">Donate</a>
+  </section>
+  
+  <section class="sidebar-news">
+    <header>
+      <h3 class="sidebar-title">Newsletter</h3>
+    </header>
+    <p class="sidebar-text">Just your regular old newsletter.<br/>OSMC, parrots n' pirates.</p>
+    <form action="https://osmc.tv/content/plugins/newsletter/do/subscribe.php" method="POST" class="input-icon news-form">
+      <div class="input-icon-wrap">
+        <span class="mail-spinner">
+          <span class="spinner">
+            {{> icons/spinner}}
+          </span>
+          <span class="mail">
+            {{> icons/mail}}
+          </span>
+        </span>
+        <button class="check" type="submit">
+          {{> icons/check}}
+        </button>
+      </div>
+      <input class="news-email" type="email" value="" placeholder="Email" required>
+    </form>
+  </section>
+  
+  <section class="sidebar-social">
+    <header>
+      <h3 class="sidebar-title">Follow</h3>
+      <ul class="link">
+        <li class="link-facebook">
+          <a href="https://www.facebook.com/osmcproject" target="_black">{{> icons/facebook}}Facebook</a>
+        </li>
+        <li class="link-twitter">
+          <a href="https://twitter.com/try_osmc" target="_black">{{> icons/twitter}}Twitter</a>
+        </li>
+        <li class="link-github">
+          <a href="https://github.com/osmc/osmc" target="_black">{{> icons/github}}GitHub</a>
+        </li>
+        <li class="link-rss">
+          <a href="/rss" target="_black">{{> icons/rss}}RSS</a>
+        </li>
+      </ul>
+    </header>
+  </section>
+  
 </aside>

@@ -6,52 +6,30 @@
 @import "lib/chartistSettings";
 @import "../../node_modules/chartist/dist/scss/chartist";
 
-.break {
-  display: block;
-  width: 100%;
-  padding: 0.19em 0;
-  background-color: $back;
-  
-  $dot: $back;
-  $dot2: $acc1-1;
-  
-  $gradient: 135deg, $dot2, $dot 1px, transparent 2px, transparent 2px, $dot 3px;
-  $size: 4px 4px;
-  
-  background-image: -webkit-repeating-linear-gradient($gradient);
-  background-image: -moz-repeating-linear-gradient($gradient);
-  background-image: -o-repeating-linear-gradient($gradient);
-  background-image: repeating-linear-gradient($gradient);
-  -webkit-background-size: $size;
-  -moz-background-size: $size;
-  background-size: $size;
-}
-
-table {
-  width: 100%;
-  th {
-    padding: 0.5em;
-    text-align: left;
-  }
-  td {
-    padding: 0.5em;
-  }
-}
-
 .share {
   @include link($white, $white);
+  width: 100%;
+  overflow: auto;
+  font-size: $small1;
   
-  &-title {
-    display: none;
-    margin: 0 0 1em;
-    text-transform: uppercase;
-    font-size: $small1;
-    padding-right: 2em;
+  &-wrap {
+    width: 100%;
   }
   
-  .button {
+  &-button {
     padding: 0.05em 0.7em;
-    margin: 0 0.2em 0 0;
+    margin: 0 0.5em 0 0;
+    float: left;
+  }
+  
+  &-title {
+    display: inline-block;
+    margin: 0;
+    font-size: $small1;
+    padding-right: 0.5em;
+    margin-top: 0.1em;
+    float: right;
+    color: $acc3-2;
   }
   
   svg {
@@ -65,43 +43,32 @@ table {
     }
   }
   
-  .text {
+  &-text {
     padding: 0 0.2em;
-    font-size: $small1;
     display: inline-block;
   }
   
   &-facebook {
-    $color: #3b5998;
+    $color: $facebook;
     background-color: $color;
     @include hover(saturate(lighten($color, 15%), 8%), back);
     
     svg {
-      width: 1em;
-      height: 1em;
+      width: 1.05em;
+      height: 1.05em;
     }
   }
   &-twitter {
-    $color: #55acee;
+    $color: $twitter;
     background-color: $color;
    @include hover(saturate(lighten($color, 7%), 20%), back);
   }
   &-google {
-    $color: #dc4e41;
+    $color: $google;
     background-color: $color;
     @include hover(saturate(lighten($color, 9%), 10%), back);
   }
 }
-
-.search {
-  .wrap {
-    border: 1px solid $black;
-  }
-  svg {
-    vertical-align: middle;
-  }
-}
-
 
 
 abbr[title] {
@@ -401,16 +368,15 @@ article {
     margin: 1em 0;
   }
 	
-	&-comments {
-		header {
-			position: relative;
-			margin-bottom: -1.45em;
-			
-			h3 {
-				margin-bottom: 0;
-			}
-		}
-	}
+  &-comments {
+    header {
+      position: relative;
+      margin-bottom: -1.45em;
+      h3 {
+        margin-bottom: 0;
+      }
+    }
+  }
   
   &-footer {
     margin: 1em 0;
@@ -445,95 +411,92 @@ nav.pagination {
 }
 
 .sidebar {
-  float: right;
-  line-height: 1.5em;
-  .widget {
-    border-bottom: 1px solid $acc3-1;
-    padding: 0 0 2em 0;
+  //background-color: $acc3-4;
+  margin-top: 0.8em;
+  font-size: $small2;
+  font-weight: 300;
+  line-height: 1.35em;
+  color: $black;
+  
+  section {
+    border: 1px solid $acc2-1;
+    @include border-radius(1px);
+    padding: 0.5em 0.5em 0.8em 1em;
+    margin: 1em 0;
   }
-  .widgettitle {
-    font-weight: 600;
+  &-title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
   }
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  &-text {
+    margin: 0.5em 0;
+    color: $black;
   }
-  .social {
-    text-align: center;
-    padding-bottom: 3em;
-    max-width: 20em;
-    margin: 0 auto;
-    .icon {
-      display: inline-block;
-      position: relative;
-      float: left;
-      width: 25%;
-      svg {
-        width: 100%;
-        max-width: 2em;
-        height: 100%;
-        path {
-          fill: $dark;
-          @include transition-duration(0.2s);
+  .button {
+    font-weight: 400;
+  }
+  
+  &-social {
+    font-weight: 400;
+
+    svg {
+      vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      margin-right: 0.6em;
+      margin-bottom: 0.15em;
+    }
+    
+    $hover: $acc2-1;
+        
+    .link {
+      list-style: none;
+      padding: 0;
+      &-facebook {
+        @include link($facebook, $hover);
+        svg {
+          height: 0.9em;
+          width: 0.9em;
+          margin-right: 0.7em;
+        }
+        path {
+          fill: $facebook;
         }
       }
-      p {
-        position: absolute;
-        font-size: 78%;
-        left: 0;
-        right: 0;
-        margin: 0;
-        color: $dark;
-        opacity: 1;
-        white-space: nowrap;
-        @include transition-duration(0.2s);
+      &-twitter {
+        @include link($twitter, $hover);
+        path {
+          fill: $twitter;
+        }
+      }
+      &-github {
+        @include link($github, $hover);
+        path {
+          fill: $github;
+        }
+      }
+      &-rss {
+        @include link($rss, $hover);
+        path {
+          fill: $rss;
+        }
       }
     }
-    .facebook:hover,
-    .facebook:focus {
-      svg path {
-        fill: #3B5998;
-      }
-      p {
-        color: #3B5998;
-      }
-    }
-    .twitter:hover,
-    .twitter:focus {
-      svg path {
-        fill: #4099FF;
-      }
-      p {
-        color: #4099FF;
-      }
-    }
-    .github:hover,
-    .github:focus {
-      svg path {
-        fill: $acc3-2;
-      }
-      p {
-        color: $acc3-2;
-      }
-    }
-    .rss:hover,
-    .rss:focus {
-      svg path {
-        fill: #FF6600;
-      }
-      p {
-        color: #FF6600;
+    a {
+      &:hover, &:active, &:focus {
+        path {
+          fill: $hover;
+        }
       }
     }
   }
-  .adsbygoogle {
-    margin: 2em 0 0;
-    border: 1px solid $acc3-1;
-    overflow: hidden;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
+
+  &-news {
+    .news {
+      &-form {
+        margin-right: 0.5em;
+      }
+    }
   }
 }
 
@@ -639,31 +602,6 @@ nav.pagination {
     .alternative p {
       margin-bottom: 0;
     }
-  }
-}
-
-// Form
-.contactform {
-  color: $black;
-  input {
-    width: 30%;
-    float: left;
-    margin: 0 1em 0 0;
-  }
-  input,
-  textarea {
-    color: $dark;
-    margin-top: 1em;
-    @include input-placeholder {
-      color: $acc3-2;
-    }
-  }
-  textarea {
-    width: 80%;
-    font-size: 1rem;
-    height: 10em;
-    padding: 0.5em;
-    margin: 2em 0 1.5em;
   }
 }
 
@@ -775,27 +713,6 @@ nav.pagination {
         }
       }
     }
-  }
-}
-
-.diskline {
-  margin: 0 0 2em;
-  svg {
-    width: 18px;
-    height: 18px;
-    margin-right: 0.2em;
-    margin-top: 0.1em;
-    vertical-align: middle;
-    display: inline-block;
-    line, circle {
-      stroke-width: 4;
-      stroke: $dark;
-    }
-  }
-  p {
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
   }
 }
 
@@ -984,32 +901,6 @@ $border: 1px dotted $acc3-1;
       right: 1.5em;
       bottom: 1.5em;
     }
-  }
-}
-
-.newsletter_subscribe {
-  .email {
-    display: block;
-    margin: 1em auto;
-    width: 100%;
-    max-width: 15em;
-    @include input-placeholder {
-      color: $acc3-2;
-    }
-  }
-  .newsletter-submit {
-    text-align: center;
-    background-color: $acc3-2;
-  }
-  .newsletter-submit:hover,
-  .newsletter-submit:focus {
-    background-color: $link;
-  }
-}
-
-.newsletter_subscribe.success {
-  .email {
-    text-align: center;
   }
 }
 
@@ -1367,12 +1258,6 @@ $border: 1px dotted $acc3-1;
         max-width: 4em;
         width: 100%;
       }
-    }
-  }
-  .sidebar {
-    .widget:first-child {
-      padding: 1.33em 0 2em 0;
-      border-top: 1px solid $acc3-1;
     }
   }
   .contactform {

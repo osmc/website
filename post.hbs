@@ -3,9 +3,9 @@
 <div class="row clearfix main {{post_class}}">
   <div class="container">
     
-    <article class="column three-fourths post-body">
+    <article class="column full post-body">
       
-      <header class="post-header">
+      <header class="post-header column three-fourths">
         <h1 class="post-title">{{title}}</h1>
         <section class="post-meta">
           {{#author}}
@@ -16,25 +16,28 @@
         </section>
       </header>
       
-      {{> break}}
+      <div class="column three-fourths">
+        {{> break}}
+        <section class="post-content">
+          {{content}}
+        </section>
 
-      <section class="post-content">
-        {{content}}
-      </section>
-      
-      {{> break}}
+        {{> break}}
 
-      <footer class="post-footer">
-        {{> share-buttons}}
-      </footer>
+        <footer class="post-footer">
+          {{> share-buttons}}
+        </footer>
+
+        {{> break}}
+
+        {{> comments}}
+      </div>
       
-      {{> break}}
-      
-      {{> comments}}
+      {{> sidebar}}
       
     </article>
     
-    {{> sidebar}}
+    
     
     
         
