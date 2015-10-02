@@ -12,6 +12,8 @@ options = {
 	config: path.join(__dirname, 'config.js')
 };
 
+require('./helpers/url')();
+
 ghost(options).then(function (ghostServer) {
     ghostServer.start();
 });
