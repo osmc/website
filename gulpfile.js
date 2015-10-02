@@ -22,11 +22,11 @@ var css = theme + "assets/css/";
 var img = theme + "assets/img/";
 
 // Start server
-var cmd = exec("node index.js");
+var cmd = exec("node index.js dev");
 gulp.task("ghost", function() {
   cmd.stdout.on('data', function(data) {
     process.stdout.write(data);
-    if (data.indexOf("Ghost is running") !=-1) {
+    if (data.indexOf("Listening on") !=-1) {
       browserSync.init({
         proxy: "localhost:2369",
 				host: "osmc.dev",

@@ -1,8 +1,12 @@
-process.env.NODE_ENV = "production";
 var ghost = require("ghost");
 var path = require("path");
 var express = require("express");
 var httpProxy = require("http-proxy");
+
+var flag = process.argv[2];
+if ( flag != "dev" ) {
+	process.env.NODE_ENV = "production";
+}
 
 options = {
 	config: path.join(__dirname, 'config.js')
