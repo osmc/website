@@ -15,10 +15,9 @@
       return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
     var commentsLoaded = false;
-    
-    $(window).on("scroll", function() {
-      var visible = isVisible(".post-comments", 300);
-      if (visible && !commentsLoaded) {
+		
+		function comments(visible) {
+			if (visible && !commentsLoaded) {
         console.log("visible");
         commentsLoaded = true;
         DiscourseEmbed = { discourseUrl: 'https://discourse.osmc.tv/', topicId: 8431 };
@@ -28,7 +27,17 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
         })();
       }
+		};
+    
+    $(window).on("scroll", function() {
+			if (!commentsLoaded) {
+      	var visible = isVisible(".post-comments", 300);
+				comments(visible);
+			}
     });
+		
+		var visible = isVisible(".post-comments", 300);
+		comments(visible);
     
   </script>
 </section>

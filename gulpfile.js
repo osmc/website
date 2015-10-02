@@ -1,4 +1,5 @@
-var gulp = require("gulp"); 
+var gulp = require("gulp");
+var del = require("del");
 var compass = require("gulp-compass");
 var cssmin = require("gulp-cssmin");
 var prefix = require("gulp-autoprefixer");
@@ -75,10 +76,14 @@ gulp.task("js", ["minify"], function () {
     "assets/js/minified.js"
   ])
   .pipe(concat("main.js"))
-  .pipe(gulp.dest("assets/js"));
+  .pipe(gulp.dest("assets/js"))
 });
 
-gulp.task("js-reload", ["js"], function () {
+gulp.task("clean:js", ["js"], function() {
+	return del("assets/js/minified.js");
+});
+
+gulp.task("js-reload", ["clean:js"], function () {
     reload();
 });
 

@@ -320,11 +320,6 @@ $home-header: rgba(14,
 }
 
 // Content
-article {
-  float: left;
-  width: 100%;
-  margin: 2em 0 0em;
-}
 
 .page-title {
   font-weight: 300;
@@ -350,10 +345,10 @@ article {
   }
   &-title {
     font-weight: 300;
-    margin: 0;
+    margin: 0 0 0.2em;
   }
   &-meta {
-    margin: 1em 0 0;
+    margin: 0 0 0;
     font-size: $small2;
   }
 	&-excerpt {
@@ -381,6 +376,13 @@ article {
   &-footer {
     margin: 1em 0;
   }
+}
+
+.bloglist {
+	
+	&-post {
+		margin: 0 0 2em;
+	}
 }
 
 .page {
@@ -412,6 +414,7 @@ nav.pagination {
 
 .sidebar {
   //background-color: $acc3-4;
+	float: left;
   margin-top: 0.8em;
   font-size: $small2;
   font-weight: 300;
@@ -491,13 +494,166 @@ nav.pagination {
     }
   }
 
-  &-news {
-    .news {
-      &-form {
-        margin-right: 0.5em;
-      }
-    }
-  }
+  &-news {		
+		&-form {
+			padding: 0 0.2em 0.2em;
+			@include border-radius(1px);
+			overflow: hidden;
+			border: 1px solid $acc3-1;
+			margin: 1em 0.5em 0.3em 0;
+		}
+
+		&-icons {
+			display: inline;
+			overflow: hidden;
+			position: relative;
+		}
+
+		svg {
+			width: 1.4em;
+			height: 1.4em;
+			vertical-align: middle;
+			display: block;
+
+			path {
+				fill: $black;
+			}
+		}
+
+		img {
+			max-width: 1.45em;
+			width: 1.45em;
+			margin-top: -1px;
+			margin-left: -1px;
+			-webkit-backface-visibility: hidden;
+			-webkit-transform: translateZ(0) scale(1.0, 1.0);
+		}		
+
+		&-icon1 {
+			display: block;
+			position: absolute;
+			top: 4px;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			padding: 0;
+			margin: auto;
+			height: 1.3em;
+			width: 1.3em;
+			@include animated;
+		}
+
+		&-mail, &-spinner {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: auto;
+			@include animated;
+		}
+
+		&-check {
+			background-color: $trans;
+			padding: 0;
+			margin-top: 1px;
+			font-size: 100%;
+			position: absolute;
+			top: 4px;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			margin: auto;
+			@include animated;
+			visibility: hidden;
+			height: 1.3em;
+			width: 1.3em;
+			@include transition-duration($ani-duration);
+			@include border-radius(2px);
+
+			svg {
+				path {
+					@include transition-duration($ani-duration);
+					fill: $acc2-1;
+					stroke: $acc2-1;
+					stroke-width: 1px;
+				}
+			}
+
+			&:hover, &:active, &:focus {
+				background-color: $trans;
+				svg {
+					path {
+						fill: $black;
+						stroke: $black;
+					}
+				}
+			}
+		}
+
+		&-spinner {
+			visibility: hidden;
+			@extend .slideOutDown;
+		}
+
+		input {
+			margin-left: 1.8em;
+			margin-top: 0.05em;
+			width: calc(100% - 1.7em);
+		}
+
+		&-form.focus {
+			.sidebar-news {
+				&-mail {
+					@extend .slideOutDown;
+				}
+				&-check {
+					@extend .slideInDown;
+					visibility: visible;
+				}
+				&-spinner {
+					visibility: visible;
+				}
+			}
+		}
+		&-form.unfocus {
+			.sidebar-news {
+				&-mail {
+					@extend .slideInDown;
+				}
+				&-check {
+					@extend .slideOutDown;
+					visibility: visible;
+				}
+			}
+		}
+		&-form.focus.posting {
+			.sidebar-news {
+				&-check {
+					@extend .slideOutDown;
+				}
+				&-spinner {
+					visibility: visible;
+					@extend .slideInDown;
+				}
+				&-mail {
+					visibility: hidden;
+				}
+			}
+		}
+		&-form.error {
+			.sidebar-news {
+				&-check {
+					svg {
+						path {
+							fill: $red;
+							stroke: $red;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .donationwidget {

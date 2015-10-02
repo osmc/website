@@ -8,6 +8,7 @@
     "browser-sync": "^2.9.6",
     "chartist": "^0.9.4",
     "clappr": "^0.2.13",
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-compass": "^2.1.0",

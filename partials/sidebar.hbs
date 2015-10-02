@@ -13,21 +13,21 @@
       <h3 class="sidebar-title">Newsletter</h3>
     </header>
     <p class="sidebar-text">Just your regular old newsletter.<br/>OSMC, parrots n' pirates.</p>
-    <form action="https://osmc.tv/content/plugins/newsletter/do/subscribe.php" method="POST" class="input-icon news-form">
-      <div class="input-icon-wrap">
-        <span class="mail-spinner">
-          <span class="spinner">
+    <form action="https://osmc.tv/content/plugins/newsletter/do/subscribe.php" method="POST" class="sidebar-news-form">
+      <div class="sidebar-news-icons">
+        <span class="sidebar-news-icon1">
+          <span class="sidebar-news-spinner">
             {{> icons/spinner}}
           </span>
-          <span class="mail">
+          <span class="sidebar-news-mail">
             {{> icons/mail}}
           </span>
         </span>
-        <button class="check" type="submit">
+        <button class="sidebar-news-check" type="submit">
           {{> icons/check}}
         </button>
       </div>
-      <input class="news-email" type="email" value="" placeholder="Email" required>
+      <input class="sidebar-news-email" type="email" value="" placeholder="Email" required>
     </form>
   </section>
   

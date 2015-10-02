@@ -47,156 +47,6 @@ input {
   }
 }
 
-.input-icon {
-  padding: 0 0.2em 0.2em;
-  @include border-radius(1px);
-  overflow: hidden;
-  border: 1px solid $acc3-1;
-  margin: 1em 0 0.3em;
-  
-  &-wrap {
-    display: inline;
-    overflow: hidden;
-    position: relative;
-  }
-    
-  svg {
-    width: 1.4em;
-    height: 1.4em;
-    vertical-align: middle;
-    display: block;
-    
-    path {
-      fill: $black;
-    }
-  }
-  
-  img {
-    max-width: 1.45em;
-    width: 1.45em;
-    margin-top: -1px;
-    margin-left: -1px;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translateZ(0) scale(1.0, 1.0);
-  }
-  
-  .mail-spinner {
-    display: block;
-    position: absolute;
-    top: 4px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: 0;
-    margin: auto;
-    height: 1.3em;
-    width: 1.3em;
-    @include animated;
-  }
-  
-  .mail, .spinner {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    @include animated;
-  }
-  
-  .check {
-    background-color: $trans;
-    padding: 0;
-    margin-top: 1px;
-    font-size: 100%;
-    position: absolute;
-    top: 4px;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    @include animated;
-    visibility: hidden;
-    height: 1.3em;
-    width: 1.3em;
-    @include transition-duration($ani-duration);
-    @include border-radius(2px);
-
-    svg {
-      path {
-        @include transition-duration($ani-duration);
-        fill: $acc2-1;
-        stroke: $acc2-1;
-        stroke-width: 1px;
-      }
-    }
-    
-    &:hover, &:active, &:focus {
-      svg {
-        path {
-          fill: $black;
-          stroke: $black;
-        }
-      }
-    }
-  }
-  
-  .spinner {
-    visibility: hidden;
-    @extend .slideOutDown;
-  }
-  
-  input {
-    margin-left: 1.8em;
-    margin-top: 0.05em;
-    width: calc(100% - 1.7em);
-  }
-  
-  &.focus {
-    .mail {
-      @extend .slideOutDown;
-    }
-    .check {
-      @extend .slideInDown;
-      visibility: visible;
-    }
-    .spinner {
-      visibility: visible;
-    }
-  }
-  &.unfocus {
-    .mail {
-      @extend .slideInDown;
-    }
-    .check {
-      @extend .slideOutDown;
-      visibility: visible;
-    }
-  }
-  &.focus.posting {
-    .check {
-      @extend .slideOutDown;
-    }
-    .spinner {
-      visibility: visible;
-      @extend .slideInDown;
-    }
-    .mail {
-      visibility: hidden;
-    }
-  }
-  &.error {
-    .check {
-      svg {
-        path {
-          fill: $red;
-          stroke: $red;
-        }
-      }
-    }
-  }
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -268,6 +118,7 @@ pre {
     display: block;
     color: $black;
     background-color: $trans;
+		word-break: normal;
   }
 }
 
@@ -279,6 +130,7 @@ code {
   padding: 0 0.2em 0.1em;
   @include border-radius(1px);
   vertical-align: top;
+	word-break: break-all;
 }
 
 .break {

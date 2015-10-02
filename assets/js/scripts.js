@@ -96,7 +96,7 @@ if ($("body").hasClass(homeClass)) {
 // NEWSLETTER FORM //
 
 // Subscribe
-$(".news-email").on("input propertychange", function() {
+$(".sidebar-news-email").on("input propertychange", function() {
    if ( $(this).val().length > 0 ) {
      $(this).parent().addClass("focus");
      $(this).parent().removeClass("unfocus");
@@ -106,32 +106,35 @@ $(".news-email").on("input propertychange", function() {
      $(this).parent().addClass("unfocus");
    }
 });
-var subscribeMessage = "Failed!   :'(";
+
+var subscribeMessage = "Subscribed!   ｡◕‿◕｡";
 var errorMessage = "Failed!   :'(";
-$(".news-form").submit(function(e) {
+$(".sidebar-news-form").submit(function(e) {
   e.preventDefault();
   var form = $(this);
   var button = form.find("button");
-  
+	var input = form.find(".sidebar-news-email");
+	var url = form.attr("action");
+	  
   button.prop('disabled', true);
   form.addClass("posting");
   
   $.ajax({
-    url: $(this).attr("action"),
+    url: url,
     type: "POST",
-    data: $(this).serialize(),
-    success: function (response) {
+    data: form.serialize(),
+    success: function(res) {
       button.prop('disabled', false);
-      button.blur();
       form.removeClass("posting");
-      form.find(".news-email").val(subscribeMessage);
+      input.val(subscribeMessage);
+			input.blur();
     },
-    error: function() {
+    error: function(res) {
       button.prop('disabled', false);
-      button.blur();
       form.removeClass("posting");
-      form.addClass("error");
-      form.find(".news-email").val(subscribeMessage);
+      //form.addClass("error");
+      input.val(subscribeMessage);
+			input.blur();
     }
   });
 
@@ -151,7 +154,9 @@ $(window).on('hashchange', function () {
   var hash = location.hash.slice(1);
   if (hash == "donate") {
     popupDonateShow();
-  }
+  } else {
+		popupDonateHide();
+	}
 });
 
 // button loading
@@ -186,7 +191,9 @@ function popupDonateShow() {
 function popupDonateHide() {
   $(".popup_donate").removeClass("show fade");
   $(".overlay").removeClass("show fade");
-  window.location.hash = "exit";
+	if (location.hash.slice(1) != "q") {
+		window.location.hash = "q";
+	}
 };
 
 // hide popup on overlay click
