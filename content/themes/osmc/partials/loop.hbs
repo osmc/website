@@ -1,25 +1,23 @@
 <section class="column three-fourths bloglist">
-	{{#foreach posts}}
-	{{^has tag="development"}}
-		<article class="bloglist-post {{post_class}}">
-			<header class="post-header">
-				<h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-				<section class="post-meta">
-					{{#author}}
-					<span>By </span><span class="post-author">{{name}}</span><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					{{/author}}
-					<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
-						{{date format="DD MMMM YYYY"}}
-					</time>
-					<span class="post-tags">{{tags prefix=""}}</span>
-				</section>
-			</header>
-			{{> break}}
-			<section class="post-excerpt">
-				<p>{{excerpt words="60"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-			</section>
-		</article>
-	{{/has}}
-	{{/foreach}}
-	{{pagination}}
+  {{#foreach posts}}
+    <article class="bloglist-post {{post_class}}">
+      <header class="post-header">
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+        <section class="post-meta">
+          {{#author}}
+          <span>By </span><span class="post-author">{{name}}</span><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+          {{/author}}
+          <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+            {{date format="DD MMMM YYYY"}}
+          </time>
+          <span class="post-tags">{{tags prefix=""}}</span>
+        </section>
+      </header>
+      {{> break}}
+      <section class="post-excerpt">
+        <p>{{excerpt words="60"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+      </section>
+    </article>
+  {{/foreach}}
+  {{pagination}}
 </section>

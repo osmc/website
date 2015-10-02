@@ -11,7 +11,7 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://osmc.dev',
+        url: 'http://osmc.tv',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -25,15 +25,15 @@ config = {
             host: '127.0.0.1',
             port: '2368'
         },
-			paths: {
-				contentPath: path.join(__dirname, '/content/')
-			}
+        paths: {
+            contentPath: path.join(__dirname, '/content/')
+        }
     },
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: 'http://localhost:2368',
+        url: 'http://osmc.dev',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -55,7 +55,7 @@ config = {
         database: {
             client: 'sqlite3',
             connection: {
-                filename: path.join(__dirname, '/content/data/ghost-dev.db')
+                filename: path.join(__dirname, '/content/data/ghost.db')
             },
             debug: false
         },

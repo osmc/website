@@ -8,11 +8,11 @@ if ( flag != "dev" ) {
 	process.env.NODE_ENV = "production";
 }
 
+require('./helpers/custom')();
+
 options = {
 	config: path.join(__dirname, 'config.js')
 };
-
-require('./helpers/url')();
 
 ghost(options).then(function (ghostServer) {
     ghostServer.start();
@@ -25,10 +25,14 @@ var host = "http://localhost:2368";
 var proxyAll = httpProxy.createProxyServer({
   prependPath: false,
   ignorePath: false,
+}).on('error', function(err, req, res) {
+  res.end();
 });
 var proxySingle = httpProxy.createProxyServer({
   prependPath: true,
   ignorePath: true,
+}).on('error', function(err, req, res) {
+  res.end();
 });
 
 app.all("/", function(req, res){
@@ -36,9 +40,14 @@ app.all("/", function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/blog/*", function(req, res){
-  var url = host + req.url.substr(5);
+app.all("/blog", function(req, res){
+  var url = host + "/";
   proxySingle.web(req, res, {target: url});
+});
+
+app.all("/page/1", function(req, res){
+  var url = host + "/home";
+  res.redirect("/blog");
 });
 
 app.all("/wiki/*", function(req, res){

@@ -1,51 +1,15 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  {{#is "home"}}
-  {{! Blog AKA Homepage}}
-  <title>Blog - {{@blog.title}}</title>
-  <meta property="og:title" content="Blog - {{@blog.title}}" />
-  <meta property="og:url" content="{{@blog.url}}/blog" />
-  <meta name="twitter:title" content="Blog - {{@blog.title}}" />
-  <meta name="twitter:url" content="{{@blog.url}}/blog" />
-  {{else}}
-  {{#is "index"}}
-  {{! Pagination}}
-  <title>{{meta_title}}</title>
-  <meta property="og:title" content="{{meta_title}}" />
-  <meta property="og:url" content="{{@blog.url}}/blog{{url}}" />
-  <meta name="twitter:title" content="{{meta_title}}" />
-  <meta name="twitter:url" content="{{@blog.url}}/blog{{url}}" />
-  {{else}}
-  {{#post}}
-  {{#has tag="home"}}
-  {{! Homepage AKA static page}}
-  <title>{{@blog.title}}</title>
-  <meta property="og:title" content="{{@blog.title}}" />
-  <meta property="og:url" content="{{@blog.url}}" />
-  <meta name="twitter:title" content="{{@blog.title}}" />
-  <meta name="twitter:url" content="{{@blog.url}}" />
-  {{else}}
-  {{! Dynamic page/post}}
-  <title>{{title}} - {{@blog.title}}</title>
-  <meta property="og:title" content="{{title}} - {{@blog.title}}" />
-  <meta property="og:url" content="{{url absolute=true}}" />
-  <meta name="twitter:title" content="{{title}} - {{@blog.title}}" />
-  <meta name="twitter:url" content="{{url absolute=true}}" />
-  {{/has}}
-  {{/post}}
-  {{/is}}
-  {{/is}}
-	
-	{{#if wiki}}
-	<p>efokeofk</p>
-	{{/if}}
-  
+  <title>{{custom "title"}}</title>
+  <meta property="og:title" content="{{custom "title"}}" />
+  <meta property="og:url" content="{{custom "url"}}" />
+  <meta name="twitter:title" content="{{custom "title"}}" />
+  <meta name="twitter:url" content="{{custom "url"}}" />
   <meta property="og:site_name" content="{{@blog.title}}" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:description" content="{{meta_description}}" />
-  
   <meta name="description" content="{{meta_description}}" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -55,7 +19,6 @@
   <link rel="alternate" type="application/rss+xml" title="OSMC" href="/rss/">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   
-  
   <style>
     .overlay {
       display: none;
@@ -64,6 +27,4 @@
       display: none;
     }
   </style>
-  
 </head>
-{{wiki}}
