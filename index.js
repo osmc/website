@@ -30,8 +30,8 @@ app.all("/", function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/blog", function(req, res){
-  var url = host;
+app.all("/blog/*", function(req, res){
+  var url = host + req.url.substr(5);
   proxySingle.web(req, res, {target: url});
 });
 
