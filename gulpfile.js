@@ -28,7 +28,9 @@ gulp.task("ghost", function() {
     process.stdout.write(data);
     if (data.indexOf("Ghost is running") !=-1) {
       browserSync.init({
-        proxy: "localhost:2369"
+        proxy: "localhost:2369",
+				host: "osmc.dev",
+				open: "ui"
       });
     }
   });
