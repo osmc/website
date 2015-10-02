@@ -14,15 +14,14 @@ var exec = require('child_process').exec;
 
 var modules = "node_modules/";
 
-var ghostRoot = path.join(__dirname, '../../../');
-var cmd = exec("cd " + ghostRoot + " && npm start");
+var cmd = exec("node server.js");
 gulp.task("ghost", function() {
   cmd.stdout.on('data', function(data) {
     process.stdout.write(data);
     
-    if (data.indexOf("Listening") !=-1) {
+    if (data.indexOf("Ghost is running") !=-1) {
       browserSync.init({
-        proxy: "localhost:2368"
+        proxy: "localhost:2369"
       });
     }
   });
