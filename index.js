@@ -1,12 +1,18 @@
-var path = require("path");
-var ghostRoot = path.join(__dirname, "../../../");
-var express = require(ghostRoot + "node_modules/express");
-var httpProxy = require("http-proxy");
-app = express();
-
-// Start ghost
 process.env.NODE_ENV = "production";
-require(ghostRoot + "index.js");
+var ghost = require("ghost");
+var path = require("path");
+var express = require("express");
+var httpProxy = require("http-proxy");
+
+options = {
+	config: path.join(__dirname, 'config.js')
+};
+
+ghost(options).then(function (ghostServer) {
+    ghostServer.start();
+});
+
+app = express();
 
 var host = "http://localhost:2368";
 

@@ -14,11 +14,18 @@ var exec = require('child_process').exec;
 
 var modules = "node_modules/";
 
-var cmd = exec("node server.js");
+var theme = "content/themes/osmc/";
+var style = "src/assets/style/";
+var js = "src/assets/js/";
+var jsDist = theme + "assets/js/";
+var css = theme + "assets/css/";
+var img = theme + "assets/img/";
+
+// Start server
+var cmd = exec("node index.js");
 gulp.task("ghost", function() {
   cmd.stdout.on('data', function(data) {
     process.stdout.write(data);
-    
     if (data.indexOf("Ghost is running") !=-1) {
       browserSync.init({
         proxy: "localhost:2369"
@@ -29,42 +36,43 @@ gulp.task("ghost", function() {
 
 // style
 gulp.task("style", function () {
-  return gulp.src("assets/style/style.scss")
+  return gulp.src(style + "style.scss")
     .pipe(compass({
-      css: "assets/css",
-      sass: "assets/style",
-      image: "assets/img"
+      css: css,
+      sass: style,
+      image: img,
+			import_path: modules
     }))
     .pipe(cssimport())
     .pipe(prefix())
     .pipe(cssmin())
-    .pipe(gulp.dest("assets/css"))
+    .pipe(gulp.dest(css))
     .pipe(reload({stream:true}));
 });
 
 // style comments
 gulp.task("comments", function () {
-  return gulp.src("assets/style/comments.scss")
+  return gulp.src(style + "comments.scss")
     .pipe(compass({
-      css: "assets/css",
-      sass: "assets/style",
-      image: "assets/img"
+      css: css,
+      sass: style,
+      image: img
     }))
     .pipe(cssimport())
     .pipe(prefix())
     .pipe(cssmin())
-    .pipe(gulp.dest("assets/css"));
+    .pipe(gulp.dest(css));
 });
 
 // minify js
 gulp.task("minify", function () {
   return gulp.src([
     modules + "jquery-validation/dist/jquery.validate.js",
-    "assets/js/scripts.js"
+    js + "scripts.js"
   ])
   .pipe(uglify())
   .pipe(concat("minified.js"))
-  .pipe(gulp.dest("assets/js"));
+  .pipe(gulp.dest(js));
 });
 
 // js
@@ -72,14 +80,14 @@ gulp.task("js", ["minify"], function () {
   return gulp.src([
     modules + "chartist/dist/chartist.min.js",
     modules + "clappr/dist/clappr.min.js",
-    "assets/js/minified.js"
+    js + "minified.js"
   ])
   .pipe(concat("main.js"))
-  .pipe(gulp.dest("assets/js"))
+  .pipe(gulp.dest(jsDist))
 });
 
 gulp.task("clean:js", ["js"], function() {
-	return del("assets/js/minified.js");
+	return del(js + "minified.js");
 });
 
 gulp.task("js-reload", ["clean:js"], function () {
@@ -91,10 +99,10 @@ gulp.task("reload", function () {
 });
 
 gulp.task("default", ["ghost"], function () {
-  gulp.watch(["assets/style/**/*", "!assets/style/comments.scss"], ["style"]);
-	gulp.watch("assets/style/comments.*", ["comments"]);
-  gulp.watch("assets/js/scripts.js", ["js-reload"]);
-  gulp.watch("**/*.hbs", ["reload"]);
+  gulp.watch([style + "**/*", !style + "comments.scss"], ["style"]);
+	gulp.watch(style + "comments.*", ["comments"]);
+  gulp.watch(js + "scripts.js", ["js-reload"]);
+  gulp.watch(theme + "**/*.hbs", ["reload"]);
 });
 
 process.on('SIGINT', function () {
