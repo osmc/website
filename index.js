@@ -13,7 +13,6 @@ require('./helpers/custom')();
 options = {
 	config: path.join(__dirname, 'config.js')
 };
-
 ghost(options).then(function (ghostServer) {
     ghostServer.start();
 });
@@ -57,11 +56,6 @@ app.all("/wiki/*", function(req, res){
   }
   
   var url = host + req.url;
-  proxySingle.web(req, res, {target: url});
-});
-
-app.get("/server.js", function(req, res){  
-  var url = host + "/404";
   proxySingle.web(req, res, {target: url});
 });
 
