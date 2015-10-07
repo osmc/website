@@ -13,8 +13,8 @@ require('./helpers/custom')();
 options = {
 	config: path.join(__dirname, 'config.js')
 };
-ghost(options).then(function (ghostServer) {
-    ghostServer.start();
+ghost(options).then(function(ghostServer) {
+	ghostServer.start();
 });
 
 app = express();
@@ -49,17 +49,17 @@ app.all("/page/1", function(req, res){
   res.redirect("/blog");
 });
 
-app.all("/wiki/*", function(req, res){
-  res.oldWriteHead = res.writeHead;
-  res.writeHead = function(statusCode, headers) {
-    res.oldWriteHead("200", headers);
-  }
-  
+app.all("/wiki", function(req, res){
   var url = host + req.url;
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/*", function(req, res){  
+app.all("/wiki/*", function(req, res){
+  var url = host + "/wiki-post";
+  proxySingle.web(req, res, {target: url});
+});
+
+app.all("/*", function(req, res){
   var url = host + req.url;
   proxyAll.web(req, res, {target: url});
 });

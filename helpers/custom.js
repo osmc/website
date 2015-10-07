@@ -40,12 +40,12 @@ module.exports = function(){
     var page = _.get(res, "data.root.pagination.page");
     var title_default = _.get(res, "data.root.post.title");
     var title_custom = pages[url(res)];
-    
+				    
     var host = res.data.blog.url;
     var relativeUrl = res.data.root.relativeUrl;
     var url_default = relativeUrl;
     var url_custom = urls[url(res)];
-        
+		
     var output;
     if ( option == "title" ) {
       if ( title_custom ) {
@@ -61,7 +61,7 @@ module.exports = function(){
       } else {
         output = host + url_default;
       }
-    }
+    }		
     
     return output;
 
