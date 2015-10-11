@@ -1,7 +1,7 @@
-var ad = true;
+var ad = false;
 
-var bannertext = "OSMC's July update is here with Kodi 15, click here to learn more";
-var bannerlink = "http://bit.ly/1IHiX1F";
+var bannertext = "Get 10% off at the OSMC Store today using coupon 'autumnsavings'.";
+var bannerlink = "https://osmc.tv/store";
 var bannerimg = "https://osmc.tv/content/themes/osmc/library/images/forum_banner_back.png";
 
 var autoLinks = [
