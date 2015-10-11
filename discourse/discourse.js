@@ -1,7 +1,7 @@
 var ad = false;
 
 var bannertext = "Get 10% off at the OSMC Store today using coupon 'autumnsavings'.";
-var bannerlink = "https://osmc.tv/store";
+var bannerlink = "https://osmc.tv/shop";
 var bannerimg = "https://osmc.tv/content/themes/osmc/library/images/forum_banner_back.png";
 
 var autoLinks = [
