@@ -1,4 +1,4 @@
-var ad = false;
+var ad = true;
 
 var bannertext = "Get 10% off at the OSMC Store today using coupon 'autumnsavings'.";
 var bannerlink = "https://osmc.tv/shop";
