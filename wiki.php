@@ -11,21 +11,8 @@
 $num_errors = 0;
 $calls = 0;
 
-$_SERVER['HTTPS'] = 'on';
-require_once('cms/wp-blog-header.php');
-
 $wp_root = getcwd();
-$header = $wp_root . "/templates-wiki/header.html";
-$footer = $wp_root . "/templates-wiki/footer.html";
-$sidebar = $wp_root . "/templates-wiki/sidebar.html";
-
-
-/* Make wiki directory */
-$directory = "wiki-" . rand();
-$base_file = "index.php";
 $parent_contents_url = "https://discourse.osmc.tv/t/table-of-contents/6543.json";
-mkdir($directory, 0775);
-chdir($directory);
 
 function get_json_obj($url) {
   global $num_errors;
@@ -58,44 +45,35 @@ function get_slug_url($url) {
   return $url;
 }
 
-function make_slug_dir($dirname) {
-  $dirname = get_slug_url($dirname);
-  mkdir($dirname, 0755);
-  return $dirname;
-}
-
-/* The page doesn't exist in Wordpress' SQL database, so we need to customise it */
-
-function wp_var_title($title) {
-  return '<?php $wp_title = ' . '"' . $title . '"' . ' ?>';
-}
-
-
 /* Get the list of all available categories */
 echo ("Downloading list of all available categories <br>");
 $json_categories = get_json_obj($parent_contents_url);
 
 $cat_titles = array();
-$cat_links = array();
+$cat_slugs = array();
 $cat_ids = array();
 $cat_descs = array();
+
+$cat_json = array();
+//$cat_json["categories"][];
 
 /* foreach $json_categories */
 for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
-  $subcat_titles = array();
-  $subcat_links = array();
-
   $tz = $json_categories->details->links[$i];
-
-  /* Make a directory for each category */
-  chdir(make_slug_dir($tz->title));
 
   $cat_title = $tz->title;
   array_push($cat_titles, $cat_title);
 
-  $cat_link = get_slug_url($tz->title);
-  array_push($cat_links, $cat_link);
+  $cat_slug = get_slug_url($tz->title);
+  array_push($cat_slugs, $cat_slug);
+  
+  // new stuff
+  
+  $cat_json["title"] = "Wiki";
+  
+  $cat_json["categories"][$i]["title"] = $cat_title;
+  $cat_json["categories"][$i]["slug"] = $cat_slug;
 
   echo ("<br>" . $tz->title . "<br>");
   
@@ -133,37 +111,27 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
     $tz = $json_category_pages->details->links[$sorted_key];
     
     if ($sorted_key !== false && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
-
-      chdir(make_slug_dir($tz->title));
-
-      $subcat_title = $tz->title;
-      array_push($subcat_titles, $subcat_title);
       
-      $subcat_link = get_slug_url($tz->title);
-      array_push($subcat_links, $subcat_link);
-
       /* Get the post contents */
       echo ("- " . $tz->title . "<br>");
 
       $post = get_json_obj($tz->url . ".json");
       $post_content = $post->post_stream->posts[0];
-
-      $post_title = $post->title;
-      
-      $post_cat = $cat_title;
-      
-      $post_url = $tz->url;
       $post_body = $post_content->cooked;
 
-      ob_start();
-      $return = include "templates-wiki/post.php";
-      $wp_template = ob_get_clean();
-      ob_end_clean();
+      $post_title = $post->title;
+      $post_slug = get_slug_url($post_title);
+      $post_url = $tz->url;
+      $post_cat = $cat_title;
       
-      $wp_title = wp_var_title($post_title);
-      file_put_contents($base_file, $wp_title . $wp_template);
-      chdir("../");
-
+      $post_json
+      
+      $cat_json["categories"][$i]["posts"][]["title"] = $post_title;
+      $cat_json["categories"][$i]["posts"][$i3]["slug"] = $post_slug;
+      //$cat_json["categories"][$i]["posts"][][$i3]["url"] = $post_url;
+      //$cat_json["categories"][$i]["posts"][][$i3]["category"] = $post_cat;
+      //$cat_json["categories"][$i]["posts"][]["body"] = $post_body;
+      
     }
     elseif ($sorted_key !== false && substr($tz->title, 0, 6) === '/About') {
 
@@ -173,31 +141,29 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post_content = $post->post_stream->posts[0];
       $excerpt = $post_content->cooked;
       array_push($cat_descs, $excerpt);
+      $cat_json["categories"][$i]["description"] = $excerpt;
     }
   }
 
   /* Generate subcategory Wiki pages */
   $post_title = $cat_title;
   $post_desc = $cat_descs[$i];
-  ob_start();
-  $return = include "templates-wiki/subcat.php";
-  $wp_template = ob_get_clean();
-  ob_end_clean();
-  $wp_title = wp_var_title($post_title);
-  file_put_contents($base_file, $wp_title . $wp_template);
+  
+  $wp_title = $post_title;
+}
 
-  chdir("../");
+foreach($cat_titles as $title) {
+  echo "Cat titles: " . $title . "<br>";
 }
 
 /* Generate Wiki page */
-$post_title = "Wiki";
-ob_start();
-$return = include "templates-wiki/cat.php";
-$wp_template = ob_get_clean();
-ob_end_clean();
-$wp_title = wp_var_title($post_title);
-file_put_contents($base_file, $wp_title . $wp_template);
+$wiki_title = "Wiki";
+$wiki_desc = "";
 
+
+$json = '{ "title": "wiki",';
+
+echo PHP_EOL . json_encode($cat_json, JSON_PRETTY_PRINT) . PHP_EOL; 
 
 echo "<br><br>Errors: " . $num_errors;
 echo "<br>Calls: " . $calls;
@@ -205,11 +171,3 @@ echo "<br>Calls: " . $calls;
 date_default_timezone_set("Europe/London");
 $date = new \DateTime();
 echo "<br><br>" . date_format($date, 'd-m-Y - H:i');
-
-if ($num_errors == 0) {
-  chdir("../");
-  /* Replace the old Wiki */
-  system("rm -rf wiki");
-  rename(getcwd() . "/" . $directory, "wiki");
-}
-?>

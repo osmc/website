@@ -1,0 +1,43 @@
+{{!< default}}
+{{!< default}}
+{{#post}} 
+<div class="row clearfix main {{post_class}}">
+  <div class="container">
+    <article class="column full post-body">
+      
+      <header class="post-header column three-fourths">
+        <h1 class="post-title">{{title}}</h1>
+        <section class="post-meta">
+          {{#author}}
+          <span>By </span><span class="post-author">{{name}}</span><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+          {{/author}}
+          <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+            {{date format="DD MMMM YYYY"}}
+          </time>
+          <span class="post-tags">{{tags prefix=""}}</span>
+        </section>
+      </header>
+      
+      <div class="column three-fourths">
+        {{> break}}
+        <section class="post-content">
+          {{content}}
+        </section>
+
+        {{> break}}
+
+        <footer class="post-footer">
+          {{> share-buttons}}
+        </footer>
+
+        {{> break}}
+
+        {{> comments}}
+      </div>
+      
+      {{> sidebar}}
+      
+    </article>
+  </div>
+</div>
+{{/post}}

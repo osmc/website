@@ -55,7 +55,7 @@ app.all("/wiki", function(req, res){
 });
 
 app.all("/wiki/*", function(req, res){
-  var url = host + "/wiki-post";
+  var url = host + "/wikipost";
   proxySingle.web(req, res, {target: url});
 });
 
