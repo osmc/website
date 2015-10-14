@@ -11,7 +11,7 @@
 $num_errors = 0;
 $calls = 0;
 
-$wp_root = getcwd();
+$base_file = "wiki.json";
 $parent_contents_url = "https://discourse.osmc.tv/t/table-of-contents/6543.json";
 
 function get_json_obj($url) {
@@ -20,6 +20,7 @@ function get_json_obj($url) {
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
   $output = curl_exec($ch);
   $errno = curl_errno($ch);
   curl_close($ch);
@@ -30,11 +31,6 @@ function get_json_obj($url) {
     $calls +=1;
     return json_decode($output);
   }
-}
-
-foreach(glob("wiki-*") as $wikidir) {
-  /* Clean up old Wiki */
-  system("rm -rf $wikidir");
 }
 
 function get_slug_url($url) {
@@ -49,13 +45,7 @@ function get_slug_url($url) {
 echo ("Downloading list of all available categories <br>");
 $json_categories = get_json_obj($parent_contents_url);
 
-$cat_titles = array();
-$cat_slugs = array();
-$cat_ids = array();
-$cat_descs = array();
-
 $cat_json = array();
-//$cat_json["categories"][];
 
 /* foreach $json_categories */
 for ($i = 0; $i < count($json_categories->details->links); $i++) {
@@ -63,19 +53,13 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   $tz = $json_categories->details->links[$i];
 
   $cat_title = $tz->title;
-  array_push($cat_titles, $cat_title);
-
   $cat_slug = get_slug_url($tz->title);
-  array_push($cat_slugs, $cat_slug);
-  
-  // new stuff
-  
+    
   $cat_json["title"] = "Wiki";
-  
   $cat_json["categories"][$i]["title"] = $cat_title;
   $cat_json["categories"][$i]["slug"] = $cat_slug;
 
-  echo ("<br>" . $tz->title . "<br>");
+  echo ("<br>" . $cat_title . "<br>");
   
   $json_category_pages = get_json_obj($tz->url . ".json");
   
@@ -104,6 +88,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
     array_push($unsorted_ids, $unsorted_id);
   }
   
+  $cat_json_post_num = 0;
   /* foreach https://discourse.osmc.tv/t/vero/6559.json */
   for ($i3 = 0; $i3 < count($json_category_pages->details->links); $i3++) {
     
@@ -124,13 +109,12 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post_url = $tz->url;
       $post_cat = $cat_title;
       
-      $post_json
-      
-      $cat_json["categories"][$i]["posts"][]["title"] = $post_title;
-      $cat_json["categories"][$i]["posts"][$i3]["slug"] = $post_slug;
-      //$cat_json["categories"][$i]["posts"][][$i3]["url"] = $post_url;
-      //$cat_json["categories"][$i]["posts"][][$i3]["category"] = $post_cat;
-      //$cat_json["categories"][$i]["posts"][]["body"] = $post_body;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["title"] = $post_title;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["url"] = $post_url;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["category"] = $post_cat;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["body"] = $post_body;
+                 
+      $cat_json_post_num += 1;
       
     }
     elseif ($sorted_key !== false && substr($tz->title, 0, 6) === '/About') {
@@ -140,30 +124,13 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post = get_json_obj($tz->url . ".json");
       $post_content = $post->post_stream->posts[0];
       $excerpt = $post_content->cooked;
-      array_push($cat_descs, $excerpt);
       $cat_json["categories"][$i]["description"] = $excerpt;
     }
   }
-
-  /* Generate subcategory Wiki pages */
-  $post_title = $cat_title;
-  $post_desc = $cat_descs[$i];
-  
-  $wp_title = $post_title;
 }
 
-foreach($cat_titles as $title) {
-  echo "Cat titles: " . $title . "<br>";
-}
-
-/* Generate Wiki page */
-$wiki_title = "Wiki";
-$wiki_desc = "";
-
-
-$json = '{ "title": "wiki",';
-
-echo PHP_EOL . json_encode($cat_json, JSON_PRETTY_PRINT) . PHP_EOL; 
+/* Generate json file */
+file_put_contents($base_file, json_encode($cat_json, JSON_PRETTY_PRINT));
 
 echo "<br><br>Errors: " . $num_errors;
 echo "<br>Calls: " . $calls;
