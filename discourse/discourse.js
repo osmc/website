@@ -5,7 +5,7 @@ var bannerlink = "https://osmc.tv/shop";
 var bannerimg = "https://osmc.tv/content/themes/osmc/library/images/forum_banner_back.png";
 
 var autoLinks = [
-["!log", "To get a better understanding of the problem you are experiencing we need more information from you. Please see http://osmc.tv/wiki/general/how-to-submit-a-useful-support-request/ for advice on how to help us."],
+["!logs", "To get a better understanding of the problem you are experiencing we need more information from you. Please see http://osmc.tv/wiki/general/how-to-submit-a-useful-support-request/ for advice on how to help us."],
 ["!osmcwiki", "Your question is explained in the OSMC Wiki. Have a look at https://osmc.tv/wiki. This should be your first port of call for OSMC help. If you feel something is missing, feel free to edit it or tell us how we can improve it."],
 ["!kodiwiki", "Your question is explained in the Kodi Wiki. Have a look at http://kodi.wiki. This should be your first port of call for Kodi related questions"],
 ["!piracy", "We have removed your thread from public viewing because it mentions a pirate addon. We cannot provide support for these. To get a better idea of our piracy policy, please see this link here https://discourse.osmc.tv/faq#piracy" + "\n\nThanks for your understanding"],
