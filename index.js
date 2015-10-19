@@ -1,21 +1,14 @@
 var ghost = require("ghost");
+var fs = require("fs");
 var path = require("path");
-var express = require("express");
 var httpProxy = require("http-proxy");
-
 var ghostPath = path.join(__dirname, "node_modules/ghost/");
+var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 
-var theme = __dirname + "/content/themes/osmc";
+require("./helpers/env");
 
-var flag = process.argv[2];
-if ( flag != "dev" ) {
-	process.env.NODE_ENV = "production";
-}
-
-require(ghostPath + "core/server/helpers");
-
-require("./helpers/custom")();
+require("./helpers/custom").helpers();
 
 options = {
 	config: path.join(__dirname, "config.js")
@@ -25,11 +18,13 @@ ghost(options).then(function(ghostServer) {
 });
 
 app = express();
+
+// custom rendering for the wiki
+var theme = __dirname + "/content/themes/osmc";
 app.engine("hbs", hbs.express4({
   partialsDir: theme + "/partials"
 }));
 app.set("view engine", "hbs");
-
 app.set("views", theme);
 
 var host = "http://localhost:2368";
@@ -62,23 +57,19 @@ app.all("/page/1", function(req, res){
   res.redirect("/blog");
 });
 
-var data = {
-	baba: "yeye",
-	bab2: "eywef"
-};
-
-app.get("/tester", function(req, res) {
-	res.render("test.hbs", data);
-});
-
 app.all("/wiki", function(req, res){
   var url = host + req.url;
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/wiki/*", function(req, res){
-  var url = host + "/wikipost";
-  proxySingle.web(req, res, {target: url});
+var wiki = require("./helpers/custom").wikiCheck;
+app.get("/wiki/*", function(req, res) {
+  var content = wiki(req.url);
+  if (content) {
+    res.render("wiki-post.hbs", {wikiPost: content});
+  } else {
+    proxySingle.web(req, res, {target: host + "/404"});
+  }
 });
 
 app.all("/*", function(req, res){

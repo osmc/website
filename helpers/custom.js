@@ -5,9 +5,9 @@ var ghost = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghost + "node_modules/express-hbs");
 var _ = require(ghost + "node_modules/lodash");
 
-function url(res) {
-  var relativeUrl = res.data.root.relativeUrl.substring(1);
-  if ( relativeUrl.substring(0, 4) !== "page" ) {
+function url(res, relativeUrl)  {
+  relativeUrl = relativeUrl.substring(1);
+  if (relativeUrl.substring(0, 4) !== "page") {
     return relativeUrl.substring(0, relativeUrl.indexOf('/'));
   } else {
     return "page";
@@ -15,7 +15,6 @@ function url(res) {
 };
 
 var pages = {
-  wiki: "Wiki - OSMC",
   home: "OSMC",
   "": "Blog - OSMC"
 };
@@ -30,66 +29,97 @@ var wikiPath = path.join(__dirname, "/wiki/wiki.json");
 function readWiki() {
   try {
     wiki = JSON.parse(fs.readFileSync(wikiPath));
-  } catch(err) {
+  } catch (err) {
     // File not found.
-    console.log("err");
+    console.log("wiki.json not found");
   }
 };
 
 readWiki();
-fs.watch(wikiPath, function(event, filename) {
+
+fs.watch(wikiPath, function (event, filename) {
   readWiki();
 });
 
-module.exports = function(){  
-  
-  hbs.registerHelper("wiki", function(option, res, req) {
-    var data = res.data.root.relativeUrl;
-    var output;
-    if ( option == "body" ) {
-      console.log("tes");
-      console.log(data);
-      output = JSON.stringify(data);
-    }
-    
-    return output;
-
+// if no wiki post is found in the json file, return false for custom render
+var wikiCheck = function (wikiUrl) {
+  var split = wikiUrl.substring(1).split("/");
+  var cat = split[1];
+  var post = split[2];
+  var singleCat = _.find(wiki.categories, {
+    "slug": cat
   });
-  
-  hbs.registerHelper("custom", function(option, res) {
-		console.log(res);
+  if (singleCat) {
+    var singlePost = _.find(singleCat.posts, {
+      "slug": post
+    });
+  }
+  if (singlePost) {
+    return singlePost;
+  } else {
+    return false;
+  }
+};
+
+var env = require("./env");
+var config = require(path.join(__dirname, "../config.js"));
+var liveHost = config[env].url;
+
+var helpers = function () {
+
+  hbs.registerHelper("wiki", function (option, res) {
+    var singlePost = res.data.root.wikiPost;
+    return singlePost[option];
+  });
+
+  hbs.registerHelper("custom", function (option, res) {
+    var relativeUrl = _.get(res, "data.root.relativeUrl");
     var blog_title = _.get(res, "data.blog.title");
-		if (!blog_title) {
-			blog_title = "some_title";
-		}
-    var page = _.get(res, "data.root.pagination.page");
     var title_default = _.get(res, "data.root.post.title");
-    var title_custom = pages[url(res)];
-				    
-    var host = res.data.blog.url;
-    var relativeUrl = res.data.root.relativeUrl;
-    var url_default = relativeUrl;
-    var url_custom = urls[url(res)];
-		
+    var page = _.get(res, "data.root.pagination.page");
+    var host = _.get(res, "data.blog.url");
+
+    if (relativeUrl) {
+      var title_custom = pages[url(res, relativeUrl)];
+      var url_custom = urls[url(res, relativeUrl)];
+      var url_default = relativeUrl;
+    }
+
+    var wikiPost = _.get(res, "data.root.wikiPost");
+    if (wikiPost) {
+      var singlePost = res.data.root.wikiPost;
+      _.set(res, "data.blog.title", "OSMC");
+      _.set(res, "data.blog.url", liveHost);
+      title_custom = singlePost.title + " - " + singlePost.category + " - OSMC";
+      url_custom = singlePost.url;
+    }
+
     var output;
-    if ( option == "title" ) {
-      if ( title_custom ) {
+    if (option == "title") {
+      if (title_custom) {
         output = title_custom;
       } else if (title_default) {
         output = title_default + " - " + blog_title;
-      } else if ( page ) {
+      } else if (page) {
         output = "page " + page + " - " + blog_title;
       }
-    } else if ( option == "url" ) {
-      if ( url_custom ) {
+    } else if (option == "url") {
+      if (url_custom) {
         output = host + url_custom;
       } else {
         output = host + url_default;
       }
-    }		
-    
+    }
+
     return output;
 
   });
-  
+
 };
+
+var exports = {
+  helpers: helpers,
+  wikiCheck: wikiCheck
+};
+
+module.exports = exports;

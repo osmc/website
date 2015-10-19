@@ -110,7 +110,9 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       $post_cat = $cat_title;
       
       $cat_json["categories"][$i]["posts"][$cat_json_post_num]["title"] = $post_title;
-      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["url"] = $post_url;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["slug"] = $post_slug;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["url"] = "/wiki/" . $cat_slug . "/" . $post_slug;
+      $cat_json["categories"][$i]["posts"][$cat_json_post_num]["discourseUrl"] = $post_url;
       $cat_json["categories"][$i]["posts"][$cat_json_post_num]["category"] = $post_cat;
       $cat_json["categories"][$i]["posts"][$cat_json_post_num]["body"] = $post_body;
                  
