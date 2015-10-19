@@ -6,6 +6,7 @@
   "author": "Mark Theis Madsen",
   "dependencies": {
     "express": "^4.13.3",
+    "express-hbs": "^0.8.4",
     "ghost": "^0.7.1",
     "http-proxy": "^1.11.2"
   },

@@ -36,7 +36,11 @@ module.exports = function(){
   });
   
   hbs.registerHelper("custom", function(option, res) {
-    var blog_title = res.data.blog.title;
+		console.log(res);
+    var blog_title = _.get(res, "data.blog.title");
+		if (!blog_title) {
+			blog_title = "some_title";
+		}
     var page = _.get(res, "data.root.pagination.page");
     var title_default = _.get(res, "data.root.post.title");
     var title_custom = pages[url(res)];
