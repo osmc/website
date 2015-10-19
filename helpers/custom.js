@@ -1,3 +1,4 @@
+var fs = require("fs");
 var path = require("path");
 var ghost = path.join(__dirname, "../node_modules/ghost/");
 
@@ -23,16 +24,36 @@ var urls = {
   "": "/blog"
 };
 
+var wiki;
+var wikiPath = path.join(__dirname, "/wiki/wiki.json");
+
+function readWiki() {
+  try {
+    wiki = JSON.parse(fs.readFileSync(wikiPath));
+  } catch(err) {
+    // File not found.
+    console.log("err");
+  }
+};
+
+readWiki();
+fs.watch(wikiPath, function(event, filename) {
+  readWiki();
+});
+
 module.exports = function(){  
   
-  hbs.registerHelper("wiki", function(res) {
-    var relativeUrl = res.data.root.relativeUrl;
-        
-    if ( relativeUrl.substring(1, 5) == "wiki" ) {
-      return true;
-    } else {
-      return true;
+  hbs.registerHelper("wiki", function(option, res, req) {
+    var data = res.data.root.relativeUrl;
+    var output;
+    if ( option == "body" ) {
+      console.log("tes");
+      console.log(data);
+      output = JSON.stringify(data);
     }
+    
+    return output;
+
   });
   
   hbs.registerHelper("custom", function(option, res) {
