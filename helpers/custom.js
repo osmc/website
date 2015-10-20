@@ -76,7 +76,7 @@ var liveHost = config[env].url;
 
 var helpers = function () {
   
-  hbs.registerHelper("wiki", function (option, res) {
+  hbs.registerHelper("wiki-index", function (option, res) {
     var categories = wiki.categories;
     
     var html = "";
@@ -85,13 +85,12 @@ var helpers = function () {
       var list = "";
       
       cat.posts.forEach(function(post) {
-        console.log(post.title);
-        var div = '<ul><li><a href="' + post.url + '">' + post.title + '</a></li></ul>';
+        var div = '<li><a href="' + post.url + '">' + post.title + '</a></li>';
         list += div;
       });
       
-      var div = '<div class="test"><header><h2>' + cat.title + '</h2></header>' + list + '</div>';
-      console.log(cat.title);
+      var div = '<section class="wiki-cat ' + cat.slug + '"><header><h2>' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
+			
       html += div;
     });
     
