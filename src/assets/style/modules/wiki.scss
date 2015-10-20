@@ -1,0 +1,108 @@
+.wiki {
+  &-cat {
+    position: relative;
+    padding: 0;
+    margin: 1em 0 2em 0;
+    //background-color: $acc1-3;
+    @include border-radius(1px);
+    border: 2px solid $acc3-4;
+    //@include box-shadow($z2-shadow);
+    //max-height: 15em;
+    min-height: 10em;
+    
+    &-header {
+      padding: 0.5em 1em 1em;
+      background-color: $acc3-4;
+    }
+    
+    &-title {
+      margin: 0;
+    }
+    &-desc {
+      font-size: $small2;
+      line-height: 1.4em;
+      p {
+        margin: 0;
+      }
+    }
+    &-list {
+      list-style: none;
+      padding: 0 1em;
+      
+      li {
+        border-bottom: 1px solid $acc3-4;
+        margin: 0;
+        padding: 0.5em 0 2em;
+        @include link($link, $black);
+        @include transition-duration(0.2s);
+        @include transition-timing-function(ease);
+        overflow: hidden;
+        height: 0;
+        
+        &.hide {
+          border-bottom: 0;
+          padding: 0;
+        }
+        .highlight {
+          @include border-radius(1px);
+          background-color: $acc3-4;
+        }
+      }
+      li:last-child {
+        border-bottom: 0;
+      }
+    }
+    &-gradient {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      pointer-events: none;
+      
+      //@include background-image(linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, $white 90%, $white));
+    }
+    &-more {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: left;
+      font-size: 1.3em;
+      color: $acc1-4;
+      //background-color: $acc3-4;
+      //border-top: 1px solid $acc1-2;
+      padding-top: 0.2em;
+      display: none;
+      
+      .arrow {
+        display: block;
+        @include transform(rotate(90deg));
+      }
+    }
+  }
+  &-search {
+    &-wrap {
+      display: inline-block;
+      @include border-radius(1px);
+      border: 1px solid $acc3-1;
+      padding-left: 0.2em;
+      
+      svg {
+        width: 1.2em;
+        height: 1.2em;
+        vertical-align: middle;
+        padding-bottom: 0.25em;
+        
+        path {
+          fill: $acc3-2;
+        }
+      }
+    }
+    &-input {
+      vertical-align: baseline;
+    }
+  }
+}

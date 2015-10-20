@@ -10,7 +10,37 @@ $("#nav-res-toggle").click(function () {
 
 });
 
-// FRONT PAGE //
+// Wiki search
+
+if ($("body").hasClass("page-wiki")) {
+  $(".wiki-search-input").on("input propertychange", function() {
+    var val = $(this).val();
+    var search = val.toLowerCase();
+    
+    $(".wiki-cat-list li a").each(function () {      
+      var title = $(this).attr("data-name");
+      $(this).text(title);
+      var match = title.toLowerCase().search(search);
+      
+      if (match > -1) {
+        $(this).parent().removeClass("hide");
+        
+        if (val.length > 0) {
+          var start = match;
+          var end = match + search.length;
+          var index = title.substring(start, end);
+          var newText = title.replace(index, "<span class='highlight'>" + index + "</span>");
+          $(this).html(newText);
+        }
+      } else {
+        $(this).parent().addClass("hide");
+        $(this).text(title);
+      }
+    });
+  });
+}
+
+// FRONT PAGE
 
 var homeClass = "page-home";
 
@@ -93,7 +123,7 @@ if ($("body").hasClass(homeClass)) {
 
 };
 
-// NEWSLETTER FORM //
+// NEWSLETTER FORM
 
 // Subscribe
 $(".sidebar-news-email").on("input propertychange", function() {
@@ -141,7 +171,8 @@ $(".sidebar-news-form").submit(function(e) {
     
 
 });
-// DONATION //
+
+// DONATION
 
 // check hash on load
 var url_load = document.URL.substr(document.URL.indexOf('#') + 1);
@@ -175,7 +206,7 @@ function buttonLoadStop() {
   button.find("img").remove();
 };
 
-// popup //
+// popup
 function popupDonateShow() {
   var overlay = $(".overlay");
   var popup = $(".popup_donate");
@@ -276,7 +307,7 @@ function stripe(am, cur) {
   
 };
 
-// DOWNLOAD SCROLL TO //
+// DOWNLOAD SCROLL TO
 
 $(".download.devices .wrapper").click(function () {
   $('html, body').animate({
@@ -332,7 +363,7 @@ function pieChart(title, items) {
   
 };
 
-// JS TABLE //
+// JS TABLE
 
 var tablecount = 0;
 var tableclass = "";

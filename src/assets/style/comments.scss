@@ -3,7 +3,7 @@
 body {
   font-size: $small1;
   overflow-y: auto;
-	background-color: $white;
+  background-color: $white;
 }
 
 header.discourse {
@@ -17,19 +17,18 @@ header.discourse {
     font-size: $small1;
     color: $acc3-2;
   }
-	.button {
-      @include button-alt1;
-      float: left;
-      margin-top: 2.5em;
-      padding: 0.15em 0.7em 0.1em;
-	}
+  .button {
+    @include button-alt1;
+    float: left;
+    margin-top: 2.5em;
+    padding: 0.15em 0.7em 0.1em;
+  }
 }
 
 article.post {
   float: left;
   width: 100%;
   padding: 0.5em 0;
-  
   .author {
     padding: 7px 5px;
     img {
@@ -78,15 +77,15 @@ article.post {
         @include border-radius(50px);
         margin-bottom: 2px;
       }
-		}
+    }
     blockquote {
       background-color: $acc1-3;
       border-left: 5px solid $acc1-2;
     }
   }
-	aside {
-		margin: 1em 0;
-	}
+  aside {
+    margin: 1em 0;
+  }
   aside.onebox {
     border-left: 5px solid $acc1-2;
     background-color: $acc1-3;
@@ -95,7 +94,7 @@ article.post {
       background-size: 16px 16px;
       background-position: 1px;
       padding-left: 25px;
-			@include link;
+      @include link;
     }
     .onebox-body {
       @include link($link, $black);

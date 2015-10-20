@@ -1,27 +1,23 @@
 @import "normalize-scss/normalize";
-
 @import "partials/global";
-
 @import "lib/grid";
 @import "lib/chartistSettings";
 @import "chartist/dist/scss/chartist";
-
+@import "modules/home";
+@import "modules/wiki";
 .share {
   @include link($white, $white);
   width: 100%;
   overflow: auto;
   font-size: $small1;
-  
   &-wrap {
     width: 100%;
   }
-  
   &-button {
     padding: 0.05em 0.7em;
     margin: 0 0.5em 0 0;
     float: left;
   }
-  
   &-title {
     display: inline-block;
     margin: 0;
@@ -31,28 +27,23 @@
     float: right;
     color: $acc3-2;
   }
-  
   svg {
     width: 1.1em;
     height: 1.1em;
     padding-bottom: 1px;
     vertical-align: sub;
-    
     path {
       fill: $white;
     }
   }
-  
   &-text {
     padding: 0 0.2em;
     display: inline-block;
   }
-  
   &-facebook {
     $color: $facebook;
     background-color: $color;
     @include hover(saturate(lighten($color, 15%), 8%), back);
-    
     svg {
       width: 1.05em;
       height: 1.05em;
@@ -61,7 +52,7 @@
   &-twitter {
     $color: $twitter;
     background-color: $color;
-   @include hover(saturate(lighten($color, 7%), 20%), back);
+    @include hover(saturate(lighten($color, 7%), 20%), back);
   }
   &-google {
     $color: $google;
@@ -69,7 +60,6 @@
     @include hover(saturate(lighten($color, 9%), 10%), back);
   }
 }
-
 
 abbr[title] {
   border-bottom: none;
@@ -92,7 +82,6 @@ $header: 3.5em;
 $header-res: 3em;
 $title-size: 1.2em;
 $title-size-res: 1.2em;
-
 .header {
   z-index: 1;
   position: fixed;
@@ -155,7 +144,8 @@ nav {
   margin: 0;
   a {
     color: $white;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border-bottom: 2px solid $white;
     }
   }
@@ -169,163 +159,14 @@ nav {
   display: none !important;
 }
 
-// Front page
-$home-header: rgba(14,
-61,
-82,
-0.52);
-.home.page {
-  .header {
-    backface-visibility: hidden;
-    background-color: $home-header;
-    box-shadow: none;
-    z-index: 200;
-    nav li {}
-  }
-}
-
-@import "modules/home";
-
-@media screen and (max-width: $res) {
-  .home.page .header .container .nav-header .top-nav {
-    background-color: $home-header;
-    top: 3.15em;
-    border-top: 1px solid rgba(163, 163, 163, 0.66);
-  }
-}
-
-@media screen and (max-width: $res) {
-  .row.main.home {
-    font-size: 90%;
-    .secondn {}
-    .thirdn {
-      h2 {}
-      .table {
-        padding: 0;
-        display: block;
-        float: left;
-        .column {
-          width: 100%;
-          float: left;
-          display: block;
-          padding: 0 1em;
-        }
-      }
-      .two-thirds {
-        .img {
-          .img-wrap1 {
-            img {
-              position: relative;
-              float: left;
-            }
-          }
-          div {
-            position: relative;
-            float: left;
-            width: 100%;
-          }
-          img {
-            position: absolute;
-            top: auto;
-          }
-        }
-      }
-      .third {
-        ul {
-          text-align: center;
-          li {
-            margin: 0 1em;
-            width: 21%;
-            text-align: left;
-            display: inline-block;
-            vertical-align: top;
-          }
-          li:first-child,
-          li:last-child {
-            margin: 0;
-          }
-        }
-      }
-    }
-    .fourthn {
-      .table {
-        display: block;
-        float: left;
-        .column {
-          display: block;
-        }
-        .third {
-          text-align: center;
-        }
-        img {
-          width: 60%;
-          max-width: 18em;
-        }
-      }
-    }
-    .fifthn {}
-  }
-}
-
-@media screen and (max-width: $res2) {
-  .row.main.home {
-    .secondn {
-      .full {
-        h2 {
-          font-size: 115%;
-        }
-      }
-    }
-    .thirdn {
-      h2 {
-        font-size: 175%;
-        margin-top: 0.2em;
-        margin-bottom: 11%;
-      }
-      .third {
-        ul {
-          li {
-            margin: 0 0.2em;
-            width: 47%;
-          }
-          li:first-child,
-          li:last-child {
-            margin: 0 0.2em;
-          }
-        }
-      }
-    }
-    .fifthn {
-      .container {
-        .row {
-          .full {
-            font-size: 95%;
-            h2 {
-              font-size: 190%;
-              margin-bottom: 1em;
-            }
-            .buttons {
-              font-size: 100%;
-              button {
-                width: auto;
-                padding-left: 1em;
-                padding-right: 1em;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // Content
-
 .page-title {
   font-weight: 300;
   font-size: 2em;
   margin: 0;
-  a:visited, a:active, a {
+  a:visited,
+  a:active,
+  a {
     color: $dark;
     text-decoration: none;
     border-bottom: none;
@@ -351,18 +192,14 @@ $home-header: rgba(14,
     margin: 0 0 0;
     font-size: $small2;
   }
-	&-excerpt {
-  }
-  &-time {
-  }
+  &-excerpt {}
+  &-time {}
   &-tags {
     float: right;
   }
-  
   &-content {
     margin: 1em 0;
   }
-	
   &-comments {
     header {
       position: relative;
@@ -372,24 +209,20 @@ $home-header: rgba(14,
       }
     }
   }
-  
-  &-footer {
+  &-footer {
     margin: 1em 0;
   }
 }
 
 .bloglist {
-	
-	&-post {
-		margin: 0 0 2em;
-	}
+  &-post {
+    margin: 0 0 2em;
+  }
 }
 
 .page {
   margin-bottom: 1em;
-  &-header {
-    
-  }
+  &-header {}
   &-title {
     margin-bottom: 0.1em;
   }
@@ -404,7 +237,8 @@ nav.pagination {
   text-align: center;
   margin: 0 auto;
   padding: 1em 0;
-  li, li:last-child {
+  li,
+  li:last-child {
     padding: 0 0.2em 0 0.2em;
   }
   li a {
@@ -414,13 +248,12 @@ nav.pagination {
 
 .sidebar {
   //background-color: $acc3-4;
-	float: left;
+  float: left;
   margin-top: 0.8em;
   font-size: $small2;
   font-weight: 300;
   line-height: 1.35em;
   color: $black;
-  
   section {
     border: 1px solid $acc2-1;
     @include border-radius(1px);
@@ -438,10 +271,8 @@ nav.pagination {
   .button {
     font-weight: 400;
   }
-  
   &-social {
     font-weight: 400;
-
     svg {
       vertical-align: middle;
       width: 1em;
@@ -449,9 +280,7 @@ nav.pagination {
       margin-right: 0.6em;
       margin-bottom: 0.15em;
     }
-    
     $hover: $acc2-1;
-        
     .link {
       list-style: none;
       padding: 0;
@@ -462,198 +291,190 @@ nav.pagination {
           width: 0.9em;
           margin-right: 0.7em;
         }
-        path {
+        path {
           fill: $facebook;
         }
       }
       &-twitter {
         @include link($twitter, $hover);
-        path {
+        path {
           fill: $twitter;
         }
       }
       &-github {
         @include link($github, $hover);
-        path {
+        path {
           fill: $github;
         }
       }
       &-rss {
         @include link($rss, $hover);
-        path {
+        path {
           fill: $rss;
         }
       }
     }
     a {
-      &:hover, &:active, &:focus {
+      &:hover,
+      &:active,
+      &:focus {
         path {
           fill: $hover;
         }
       }
     }
   }
-
-  &-news {		
-		&-form {
-			padding: 0 0.2em 0.2em;
-			@include border-radius(1px);
-			overflow: hidden;
-			border: 1px solid $acc3-1;
-			margin: 1em 0.5em 0.3em 0;
-		}
-
-		&-icons {
-			display: inline;
-			overflow: hidden;
-			position: relative;
-		}
-
-		svg {
-			width: 1.4em;
-			height: 1.4em;
-			vertical-align: middle;
-			display: block;
-
-			path {
-				fill: $black;
-			}
-		}
-
-		img {
-			max-width: 1.45em;
-			width: 1.45em;
-			margin-top: -1px;
-			margin-left: -1px;
-			-webkit-backface-visibility: hidden;
-			-webkit-transform: translateZ(0) scale(1.0, 1.0);
-		}		
-
-		&-icon1 {
-			display: block;
-			position: absolute;
-			top: 4px;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			padding: 0;
-			margin: auto;
-			height: 1.3em;
-			width: 1.3em;
-			@include animated;
-		}
-
-		&-mail, &-spinner {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			@include animated;
-		}
-
-		&-check {
-			background-color: $trans;
-			padding: 0;
-			margin-top: 1px;
-			font-size: 100%;
-			position: absolute;
-			top: 4px;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			@include animated;
-			visibility: hidden;
-			height: 1.3em;
-			width: 1.3em;
-			@include transition-duration($ani-duration);
-			@include border-radius(2px);
-
-			svg {
-				path {
-					@include transition-duration($ani-duration);
-					fill: $acc2-1;
-					stroke: $acc2-1;
-					stroke-width: 1px;
-				}
-			}
-
-			&:hover, &:active, &:focus {
-				background-color: $trans;
-				svg {
-					path {
-						fill: $black;
-						stroke: $black;
-					}
-				}
-			}
-		}
-
-		&-spinner {
-			visibility: hidden;
-			@extend .slideOutDown;
-		}
-
-		input {
-			margin-left: 1.8em;
-			margin-top: 0.05em;
-			width: calc(100% - 1.7em);
-		}
-
-		&-form.focus {
-			.sidebar-news {
-				&-mail {
-					@extend .slideOutDown;
-				}
-				&-check {
-					@extend .slideInDown;
-					visibility: visible;
-				}
-				&-spinner {
-					visibility: visible;
-				}
-			}
-		}
-		&-form.unfocus {
-			.sidebar-news {
-				&-mail {
-					@extend .slideInDown;
-				}
-				&-check {
-					@extend .slideOutDown;
-					visibility: visible;
-				}
-			}
-		}
-		&-form.focus.posting {
-			.sidebar-news {
-				&-check {
-					@extend .slideOutDown;
-				}
-				&-spinner {
-					visibility: visible;
-					@extend .slideInDown;
-				}
-				&-mail {
-					visibility: hidden;
-				}
-			}
-		}
-		&-form.error {
-			.sidebar-news {
-				&-check {
-					svg {
-						path {
-							fill: $red;
-							stroke: $red;
-						}
-					}
-				}
-			}
-		}
-	}
+  &-news {
+    &-form {
+      padding: 0 0.2em 0.2em;
+      @include border-radius(1px);
+      overflow: hidden;
+      border: 1px solid $acc3-1;
+      margin: 1em 0.5em 0.3em 0;
+    }
+    &-icons {
+      display: inline;
+      overflow: hidden;
+      position: relative;
+    }
+    svg {
+      width: 1.4em;
+      height: 1.4em;
+      vertical-align: middle;
+      display: block;
+      path {
+        fill: $black;
+      }
+    }
+    img {
+      max-width: 1.45em;
+      width: 1.45em;
+      margin-top: -1px;
+      margin-left: -1px;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    }
+    &-icon1 {
+      display: block;
+      position: absolute;
+      top: 4px;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 0;
+      margin: auto;
+      height: 1.3em;
+      width: 1.3em;
+      @include animated;
+    }
+    &-mail,
+    &-spinner {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      @include animated;
+    }
+    &-check {
+      background-color: $trans;
+      padding: 0;
+      margin-top: 1px;
+      font-size: 100%;
+      position: absolute;
+      top: 4px;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      @include animated;
+      visibility: hidden;
+      height: 1.3em;
+      width: 1.3em;
+      @include transition-duration($ani-duration);
+      @include border-radius(2px);
+      svg {
+        path {
+          @include transition-duration($ani-duration);
+          fill: $acc2-1;
+          stroke: $acc2-1;
+          stroke-width: 1px;
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $trans;
+        svg {
+          path {
+            fill: $black;
+            stroke: $black;
+          }
+        }
+      }
+    }
+    &-spinner {
+      visibility: hidden;
+      @extend .slideOutDown;
+    }
+    input {
+      margin-left: 1.8em;
+      margin-top: 0.05em;
+      width: calc(100% - 1.7em);
+    }
+    &-form.focus {
+      .sidebar-news {
+        &-mail {
+          @extend .slideOutDown;
+        }
+        &-check {
+          @extend .slideInDown;
+          visibility: visible;
+        }
+        &-spinner {
+          visibility: visible;
+        }
+      }
+    }
+    &-form.unfocus {
+      .sidebar-news {
+        &-mail {
+          @extend .slideInDown;
+        }
+        &-check {
+          @extend .slideOutDown;
+          visibility: visible;
+        }
+      }
+    }
+    &-form.focus.posting {
+      .sidebar-news {
+        &-check {
+          @extend .slideOutDown;
+        }
+        &-spinner {
+          visibility: visible;
+          @extend .slideInDown;
+        }
+        &-mail {
+          visibility: hidden;
+        }
+      }
+    }
+    &-form.error {
+      .sidebar-news {
+        &-check {
+          svg {
+            path {
+              fill: $red;
+              stroke: $red;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .donationwidget {
@@ -697,7 +518,8 @@ nav.pagination {
         margin: 0 0.2em;
         vertical-align: middle;
         position: relative;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           background-color: $link;
         }
       }
@@ -857,7 +679,8 @@ nav.pagination {
           }
         }
         .pi {
-          .ins, .leaf {
+          .ins,
+          .leaf {
             fill: $link;
           }
         }
@@ -887,7 +710,8 @@ nav.pagination {
     }
     table {
       width: auto;
-      th, td {
+      th,
+      td {
         padding: 0.4em 0.7em;
         padding-left: 0;
       }
@@ -900,14 +724,14 @@ nav.pagination {
 
 // Wiki
 $border: 1px dotted $acc3-1;
-
 .wiki-page {
   section {
     .desc {
       font-size: 100%;
     }
   }
-  &.w-cat, &.w-subcat {
+  &.w-cat,
+  &.w-subcat {
     section {
       ul {
         padding: 0;
@@ -934,7 +758,6 @@ $border: 1px dotted $acc3-1;
             }
           }
         }
-
         h3 {
           color: $blue-s3;
           margin: 0;
@@ -950,7 +773,7 @@ $border: 1px dotted $acc3-1;
       }
     }
     h3 {
-    font-weight: 300;
+      font-weight: 300;
     }
   }
   &.w-cat {
@@ -959,7 +782,6 @@ $border: 1px dotted $acc3-1;
         li {
           padding-top: 1.5em;
           padding-bottom: 1.5em;
-          
           h3 {
             font-size: 140%;
           }
@@ -967,9 +789,7 @@ $border: 1px dotted $acc3-1;
       }
     }
   }
-  &.w-subcat {
-    
-  }
+  &.w-subcat {}
   &.w-post {
     span {
       color: $acc3-2;
@@ -1006,7 +826,8 @@ $border: 1px dotted $acc3-1;
   a:visited,
   a:active {
     color: #fff;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       border-bottom: 2px solid $white;
       color: #fff;
     }
@@ -1029,7 +850,8 @@ $border: 1px dotted $acc3-1;
     font-weight: 300;
     font-size: 0.8em;
     margin: 2em 0 0;
-    a:hover, a:focus {
+    a:hover,
+    a:focus {
       text-decoration: underline;
       border-bottom: none;
     }
@@ -1309,16 +1131,12 @@ $border: 1px dotted $acc3-1;
         cursor: pointer;
         cursor: hand;
         -webkit-user-select: none;
-        
         -moz-user-select: none;
         /* Firefox all */
-        
         -ms-user-select: none;
         /* IE 10+ */
-        
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
         /* No support for these yet, use at own risk */
-        
         -o-user-select: none;
         user-select: none;
         p {

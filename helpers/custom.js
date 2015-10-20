@@ -1,18 +1,8 @@
 var fs = require("fs");
 var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
-var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
-app = express();
-
-// custom rendering for the wiki
-var theme = path.join(__dirname, "../content/themes/osmc");
-app.engine("hbs", hbs.express4({
-  partialsDir: theme + "/partials"
-}));
-app.set("view engine", "hbs");
-app.set("views", theme);
 
 function url(res, relativeUrl)  {
   relativeUrl = relativeUrl.substring(1);
@@ -75,29 +65,29 @@ var config = require(path.join(__dirname, "../config.js"));
 var liveHost = config[env].url;
 
 var helpers = function () {
-  
+
   hbs.registerHelper("wiki-index", function (option, res) {
     var categories = wiki.categories;
-    
+
     var html = "";
-    categories.forEach(function(cat) {
-      
+    categories.forEach(function (cat) {
+
       var list = "";
-      
-      cat.posts.forEach(function(post) {
-        var div = '<li><a href="' + post.url + '">' + post.title + '</a></li>';
+
+      cat.posts.forEach(function (post) {
+        var div = '<li><a data-name="' + post.title + '" href="' + post.url + '">' + post.title + '</a></li>';
         list += div;
       });
-      
-      var div = '<section class="wiki-cat ' + cat.slug + '"><header><h2>' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
-			
-      html += div;
+
+      var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul><div class="wiki-cat-gradient"></div><div class="wiki-cat-more"><span class="arrow">&#x27A9;</div></section>';
+
+      html += section;
     });
-    
+
     return html;
-    
+
   });
-  
+
   hbs.registerHelper("wiki-post", function (option, res) {
     var singlePost = res.data.root.wikiPost;
     return singlePost[option];
