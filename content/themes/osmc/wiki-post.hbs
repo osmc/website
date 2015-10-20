@@ -4,7 +4,7 @@
     <article class="column full post-body">
       
       <header class="post-header column three-fourths">
-        <h1 class="post-title">{{wiki "title"}}</h1>
+        <h1 class="post-title">{{wiki-post "title"}}</h1>
         <section class="post-meta">
         </section>
       </header>
@@ -12,18 +12,13 @@
       <div class="column three-fourths">
         {{> break}}
         <section class="post-content">
-          {{{wiki "body"}}}
+          {{{wiki-post "body"}}}
         </section>
 
         {{> break}}
 
         <footer class="post-footer">
-          {{> share-buttons}}
         </footer>
-
-        {{> break}}
-
-        {{> comments}}
       </div>
       
       {{> sidebar}}

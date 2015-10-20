@@ -53,7 +53,6 @@ app.all("/blog", function(req, res){
 });
 
 app.all("/page/1", function(req, res){
-  var url = host + "/home";
   res.redirect("/blog");
 });
 

@@ -1,9 +1,18 @@
 var fs = require("fs");
 var path = require("path");
-var ghost = path.join(__dirname, "../node_modules/ghost/");
+var ghostPath = path.join(__dirname, "../node_modules/ghost/");
+var express = require(ghostPath + "node_modules/express");
+var hbs = require(ghostPath + "node_modules/express-hbs");
+var _ = require(ghostPath + "node_modules/lodash");
+app = express();
 
-var hbs = require(ghost + "node_modules/express-hbs");
-var _ = require(ghost + "node_modules/lodash");
+// custom rendering for the wiki
+var theme = path.join(__dirname, "../content/themes/osmc");
+app.engine("hbs", hbs.express4({
+  partialsDir: theme + "/partials"
+}));
+app.set("view engine", "hbs");
+app.set("views", theme);
 
 function url(res, relativeUrl)  {
   relativeUrl = relativeUrl.substring(1);
@@ -30,7 +39,6 @@ function readWiki() {
   try {
     wiki = JSON.parse(fs.readFileSync(wikiPath));
   } catch (err) {
-    // File not found.
     console.log("wiki.json not found");
   }
 };
@@ -43,6 +51,7 @@ fs.watch(wikiPath, function (event, filename) {
 
 // if no wiki post is found in the json file, return false for custom render
 var wikiCheck = function (wikiUrl) {
+  // e.g. /wiki/general/faq
   var split = wikiUrl.substring(1).split("/");
   var cat = split[1];
   var post = split[2];
@@ -66,8 +75,31 @@ var config = require(path.join(__dirname, "../config.js"));
 var liveHost = config[env].url;
 
 var helpers = function () {
-
+  
   hbs.registerHelper("wiki", function (option, res) {
+    var categories = wiki.categories;
+    
+    var html = "";
+    categories.forEach(function(cat) {
+      
+      var list = "";
+      
+      cat.posts.forEach(function(post) {
+        console.log(post.title);
+        var div = '<ul><li><a href="' + post.url + '">' + post.title + '</a></li></ul>';
+        list += div;
+      });
+      
+      var div = '<div class="test"><header><h2>' + cat.title + '</h2></header>' + list + '</div>';
+      console.log(cat.title);
+      html += div;
+    });
+    
+    return html;
+    
+  });
+  
+  hbs.registerHelper("wiki-post", function (option, res) {
     var singlePost = res.data.root.wikiPost;
     return singlePost[option];
   });
