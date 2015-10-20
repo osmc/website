@@ -61,6 +61,10 @@ app.all("/wiki", function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
+app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
+	res.redirect("/wiki");
+});
+
 var wiki = require("./helpers/custom").wikiCheck;
 app.get("/wiki/*", function(req, res) {
   var content = wiki(req.url);
