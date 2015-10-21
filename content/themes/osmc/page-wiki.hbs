@@ -13,20 +13,18 @@
       <div class="column three-fourths">
         {{> break}}
         <section class="post-content">
-          {{content}}
-          {{> wiki-search}}
-          {{{wiki-index}}}
-        </section>
-
-        {{> break}}
-
+					{{content}}
+					{{> wiki-search}}
+					<section class="wiki">
+						<div class="wiki-list">
+          		{{{wiki-index}}}
+						</div>
+					</section>
+					{{> break}}
         <footer class="post-footer">
         </footer>
-
       </div>
-      
       {{> sidebar}}
-      
     </article>
   </div>
 </div>

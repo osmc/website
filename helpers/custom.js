@@ -79,7 +79,7 @@ var helpers = function () {
         list += div;
       });
 
-      var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul><div class="wiki-cat-gradient"></div><div class="wiki-cat-more"><span class="arrow">&#x27A9;</div></section>';
+      var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
 
       html += section;
     });

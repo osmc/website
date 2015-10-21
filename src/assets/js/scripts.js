@@ -16,8 +16,8 @@ if ($("body").hasClass("page-wiki")) {
   $(".wiki-search-input").on("input propertychange", function() {
     var val = $(this).val();
     var search = val.toLowerCase();
-    
-    $(".wiki-cat-list li a").each(function () {      
+		    
+    $(".wiki-cat-list li a").each(function () {
       var title = $(this).attr("data-name");
       $(this).text(title);
       var match = title.toLowerCase().search(search);
