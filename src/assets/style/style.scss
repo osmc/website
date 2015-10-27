@@ -6,6 +6,7 @@
 @import "modules/home";
 @import "modules/sidebar";
 @import "modules/wiki";
+@import "modules/donate";
 .share {
   @include link($white, $white);
   width: 100%;
@@ -244,112 +245,6 @@ nav.pagination {
   }
   li a {
     font-weight: 400;
-  }
-}
-
-.donationwidget {
-  form {
-    font-size: 90%;
-    text-align: center;
-    position: relative;
-    .amount {
-      padding: 0.2em;
-      width: 15%;
-      max-width: 3em;
-      min-width: 2.2em;
-      margin: 0 5% 0 0;
-      text-align: center;
-    }
-    .amount.error {
-      border: 1px solid $red;
-    }
-    .radio {
-      display: none;
-    }
-    label {
-      cursor: pointer;
-      background-color: $acc3-1;
-      padding: 0.2em 0.4em;
-      font-size: 95%;
-      @include border-radius(2px);
-      @include transition-duration($ani-duration);
-    }
-    .radio:checked + label {
-      background-color: $acc3-2;
-    }
-    .options {
-      margin: 1.5em 0 0;
-      button {
-        background-color: $acc3-1;
-        width: 35%;
-        max-width: 6.5em;
-        height: 2.8em;
-        padding: 0.4em 0.5em;
-        margin: 0 0.2em;
-        vertical-align: middle;
-        position: relative;
-        &:hover,
-        &:focus {
-          background-color: $link;
-        }
-      }
-      button.loading {
-        background-color: $link;
-      }
-      img {
-        max-height: 100%;
-        max-width: 100%;
-        vertical-align: middle;
-      }
-      .paypal {
-        svg {
-          width: 100%;
-          height: 100%;
-          padding: 3px 0 0;
-        }
-      }
-      .stripe {
-        .svg {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          left: 0;
-          width: 100%;
-          height: 47%;
-          margin: auto;
-          svg {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .svg.hidden {
-          display: none;
-        }
-        .card1 {
-          bottom: 0.3em;
-          left: auto;
-          width: 89%;
-        }
-        .card2 {
-          top: 0.3em;
-          right: auto;
-          width: 89%;
-        }
-      }
-    }
-    #amount-error {
-      font-size: 90%;
-      position: absolute;
-      top: 1.6em;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      background-color: $trans;
-    }
-    .alternative p {
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -648,69 +543,6 @@ $border: 1px dotted $acc3-1;
       position: absolute;
       right: 1.5em;
       bottom: 1.5em;
-    }
-  }
-}
-
-// Donation popup
-.overlay.show {
-  display: block;
-}
-
-.overlay.fade {
-  opacity: 1;
-}
-
-.overlay {
-  opacity: 0;
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  @include transition-duration(0.2s);
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.60);
-}
-
-.popup_donate.show {
-  display: block;
-}
-
-.popup_donate.fade {
-  opacity: 1;
-}
-
-.popup_donate {
-  opacity: 0;
-  z-index: 5;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 28em;
-  max-height: 25em;
-  @include transition-duration(0.2s);
-  h3 {
-    margin: 0;
-  }
-  .donationwidget {
-    padding: 1em 1em 3em;
-    margin: 1em;
-    background-color: $white;
-    @include border-radius(2px);
-    form {
-      #amount-error {
-        top: 1.7em;
-      }
     }
   }
 }

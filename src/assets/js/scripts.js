@@ -175,71 +175,56 @@ $(".sidebar-news-form").submit(function(e) {
 // DONATION
 
 // check hash on load
-var url_load = document.URL.substr(document.URL.indexOf('#') + 1);
-if (url_load === "donate") {
-  popupDonateShow();
+var hash = function() {
+  return location.hash.slice(1);
+};
+if (hash() === "donate") {
+  $(".donate").addClass("show");
 };
 
+$(".donate-exit").click(function(e) {
+  history.pushState(undefined, undefined, " ");
+  $(".donate").removeClass("show");
+});
+
 // check hash on change
-$(window).on('hashchange', function () {
-  var hash = location.hash.slice(1);
-  if (hash == "donate") {
-    popupDonateShow();
-  } else {
-		popupDonateHide();
-	}
+window.addEventListener("popstate", function(event) {
+  if (hash() === "donate") {
+    $(".donate").addClass("show");
+    
+    $("html, body").animate({
+      scrollTop: 0
+    }, 500);
+    
+  } else {
+    $(".donate").removeClass("show");
+  }
 });
 
 // button loading
 function buttonLoadStart() {
-  var button = $(".donationwidget form").find(".clicked");
+  var button = $(".donate-form").find(".clicked");
   button.prop('disabled', true);
   button.addClass("loading");
-  button.find(".svg").addClass("hidden");
-  button.append('<img src="https://osmc.tv/content/themes/osmc/library/images/preloader.gif">');
+  button.find(".donate-stripe-svg").addClass("hidden");
+  button.append("<img src='/assets/img/load.gif'>");
 };
 function buttonLoadStop() {
-  var button = $(".donationwidget form").find(".clicked");
+  var button = $(".donate-form").find(".clicked");
   button.prop('disabled', false);
   button.removeClass("loading");
-  button.find(".svg").removeClass("hidden");
+  button.find(".donate-stripe-svg").removeClass("hidden");
   button.find("img").remove();
 };
 
-// popup
-function popupDonateShow() {
-  var overlay = $(".overlay");
-  var popup = $(".popup_donate");
-  overlay.addClass("show");
-  popup.addClass("show");
-
-  setTimeout(function () {
-    overlay.addClass("fade");
-    popup.addClass("fade");
-  }, 100);
-
-};
-function popupDonateHide() {
-  $(".popup_donate").removeClass("show fade");
-  $(".overlay").removeClass("show fade");
-	if (location.hash.slice(1) != "q") {
-		window.location.hash = "q";
-	}
-};
-
-// hide popup on overlay click
-$(".overlay").click(function () {
-  popupDonateHide();
-});
-
 // set which donation form
-$(".donationwidget button").click(function () {
-  $('.donationwidget button').removeClass("clicked");
+$(".donate-button").click(function () {
+  $(".donate-button").removeClass("clicked");
   $(this).addClass("clicked");
 });
 
 // validate form
-$.each($(".donationwidget form"), function (index, oneForm)  {  
+$.each($(".donate-form"), function (index, oneForm)  {  
   $(oneForm).validate({
     rules: {
       amount: {
@@ -254,7 +239,7 @@ $.each($(".donationwidget form"), function (index, oneForm)  {
       var amount = form.find(".amount").val();
       var currency = form.find(".radio:checked").val();
 
-      if (button.hasClass("paypal"))  {
+      if (button.hasClass("donate-paypal"))  {
         
         var currentUrl = window.location.host + window.location.pathname;
         var paypallink = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=email@samnazarko.co.uk&item_name=OSMC%20Blog%20Donation&item_number=" + currentUrl + "&no_shipping=1&&no_note=1&tax=0&currency_code=" + currency + "&amount=" + amount;
@@ -262,7 +247,7 @@ $.each($(".donationwidget form"), function (index, oneForm)  {
         window.open(paypallink);
 
       }
-      if (button.hasClass("stripe")) {
+      if (button.hasClass("donate-stripe")) {
         
         buttonLoadStart();
         var newamount = amount + "00";
@@ -270,11 +255,6 @@ $.each($(".donationwidget form"), function (index, oneForm)  {
           stripe(newamount, currency);
         });
       }
-      if (button.hasClass("bitcoin")) {
-        console.log("bitcoin");
-        window.addEventListener('message', receiveMessage, false);
-        $(".overlay").before('<iframe class="overlayCoinbase" id="coinbase_inline_iframe_db2f17ea41912e21935a4850388cd848" src="https://www.coinbase.com/checkouts/db2f17ea41912e21935a4850388cd848/inline" style="width: 460px; height: 350px; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.25);" allowtransparency="true" frameborder="0"></iframe>');
-      };
     }
   });
 });
