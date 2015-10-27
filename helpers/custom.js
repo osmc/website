@@ -3,6 +3,7 @@ var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
+var mkdirp = require("mkdirp");
 var chokidar = require("chokidar");
 
 function url(res, relativeUrl)  {
@@ -23,6 +24,9 @@ var urls = {
   "": "/blog"
 };
 
+// create static directory
+mkdirp.sync(path.join(__dirname, "/static"), function (err) {});
+
 var wiki;
 var wikiPath = path.join(__dirname, "/static/wiki.json");
 
@@ -37,10 +41,6 @@ function readWiki() {
 
 var watcher = chokidar.watch(wikiPath);
 watcher.on("change", function() {
-  readWiki();
-});
-
-fs.watch(wikiPath, function (event, filename) {
   readWiki();
 });
 

@@ -43,8 +43,7 @@ function readImagelist() {
     html = fs.readFileSync(imagelist);
   } catch (err) {
     console.log("imagelist.html not found... ಠ_ಠ");
-    console.log("But don't worry!");
-    console.log("Downloading right now  ｡◕‿◕｡");
+    console.log("But don't worry! --> Downloading now  ｡◕‿◕｡");
     fetch();
   }
 };
@@ -79,10 +78,9 @@ function fetch() {
           if (!error && response.statusCode == 200) {
 
             var md5 = body.split("  ")[0];
-            console.log(md5);
 
             // so we can sort by date
-            var newDate = date.substring(0, 4) + "." + date.substring(4, 6) + "." + date.substring(6, 8)
+            var newDate = date.substring(0, 4) + "." + date.substring(4, 6) + "." + date.substring(6, 8);
             var unixDate = new Date(newDate).getTime();
 
             files.push({
