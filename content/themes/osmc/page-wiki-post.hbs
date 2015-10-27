@@ -1,11 +1,13 @@
 {{!< default}}
 <div class="row clearfix main {{post_class}}">
   <div class="container">
-    <article class="column full post-body">
+    <article class="column full post-body wikipost">
       
       <header class="post-header column three-fourths">
         <h1 class="post-title">{{wiki-post "title"}}</h1>
         <section class="post-meta">
+          <a class="post-link" href="../">Back to wiki</a>
+          <a class="wikipost-contribute" href="{{wiki-post "discourseUrl"}}" target="_blank">Make this page better</a>
         </section>
       </header>
       
@@ -21,7 +23,7 @@
         </footer>
       </div>
       
-      {{> sidebar}}
+      {{> sidebar-wiki}}
       
     </article>
   </div>

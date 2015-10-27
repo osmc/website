@@ -1,71 +1,68 @@
 .wiki {
-	position: relative;
-	padding: 0;
-	margin: 1em 0 2em 0;
-	//background-color: $acc1-3;
-	//@include box-shadow($z2-shadow);
-	clear: both;
-
-	&-header {
-		padding: 0.5em 1em 1em;
-		background-color: $acc1-2;
-	}
-
-	&-title {
-		margin: 0;
-		display: inline-block;
-	}
-	&-desc {
-		font-size: $small2;
-		line-height: 1.4em;
-		p {
-			margin: 0;
-		}
-	}
-	
-	&-list {
-		@include border-radius(1px);
-		border: 2px solid $acc3-4;
-	}
-	
+  position: relative;
+  padding: 0;
+  margin: 1em 0 2em 0;
+  //background-color: $acc1-3;
+  //@include box-shadow($z2-shadow);
+  clear: both;
+  &-header {
+    padding: 0.5em 1em 1em;
+    background-color: $acc1-2;
+  }
+  &-title {
+    margin: 0;
+    display: inline-block;
+  }
+  &-desc {
+    font-size: $small2;
+    line-height: 1.4em;
+    p {
+      margin: 0;
+    }
+  }
+  &-list {
+    font-size: $small2;
+    @include border-radius(1px);
+    border: 2px solid $acc3-4;
+  }
   &-cat {
-    
     &-header {
       background-color: $acc3-4;
-			margin: 0;
-      padding: 0.5em 1em 2em;
-			height: 0;
+      margin: 0;
+      padding: 0.5em 1em;
     }
     &-title {
-			font-size: 1em;
+      font-size: 1em;
       margin: 0;
-			font-weight: 400;
+      padding: 0;
+      font-weight: 400;
     }
     &-desc {
-			display: none;
+      display: none;
       font-size: $small2;
       line-height: 1.4em;
       p {
         margin: 0;
       }
     }
-    &-list {
+    &-list {
       list-style: none;
       padding: 0 1em;
-      
       li {
         border-bottom: 1px solid $acc3-4;
         margin: 0;
-        padding: 0.5em 0 2em;
+        padding: 0.5em 0;
         @include link($link, $black);
         @include transition-duration(0.2s);
         @include transition-timing-function(ease);
         overflow: hidden;
-        height: 0;
         
         &.hide {
           border-bottom: 0;
+          //max-height: 0;
           padding: 0;
+          opacity: 0;
+          height: 0;
         }
         .highlight {
           @include border-radius(1px);
@@ -78,19 +75,17 @@
     }
   }
   &-search {
-		display: inline-block;
+    display: inline-block;
     &-wrap {
       display: inline-block;
       @include border-radius(1px);
       border: 1px solid $acc3-1;
       padding-left: 0.2em;
-      
       svg {
         width: 1.2em;
         height: 1.2em;
         vertical-align: middle;
         padding-bottom: 0.25em;
-        
         path {
           fill: $acc3-2;
         }
@@ -101,3 +96,51 @@
     }
   }
 }
+
+.wikipost {
+  &-contribute {
+    float: right;
+  }
+}
+
+.sidebar-wiki {
+  .wiki {
+    margin: 0;
+    
+    &-list {
+      border: 0;
+    }
+    
+    &-cat {
+      border: 0;
+      padding: 0;
+      
+      &-header {
+        background-color: $trans;
+        padding: 0;
+        font-size: 110%;
+      }
+      &-title {
+        display: inline-block;
+        border-bottom: 1px solid $acc3-1; 
+      }
+      
+      &-list {
+        padding: 0;
+        font-weight: 400;
+        
+        li {
+          border-bottom: 0;
+          padding: 0.25em 0;
+        }
+      }
+    }
+    
+  }
+}
+
+
+
+
+
+

@@ -71,7 +71,7 @@ var wiki = require("./helpers/custom").wikiCheck;
 app.get("/wiki/*", function(req, res) {
   var content = wiki(req.url);
   if (content) {
-    res.render("wiki-post.hbs", {wikiPost: content});
+    res.render("page-wiki-post.hbs", {wikiPost: content});
   } else {
     proxySingle.web(req, res, {target: host + "/404"});
   }

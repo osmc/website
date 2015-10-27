@@ -1,54 +1,9 @@
 <aside class="column fourth sidebar">
   
-  <section class="sidebar-donate">
-    <header>
-      <h3 class="sidebar-title">Donate</h3>
-    </header>
-    <p class="sidebar-text">OSMC is free and will always remain free. Help support further development by making a donation. No matter how large or small, every contribution is appreciated.</p>
-    <a class="button button-alt1" href="#donate">Donate</a>
-  </section>
+  {{> sidebar/donate}}
   
-  <section class="sidebar-news">
-    <header>
-      <h3 class="sidebar-title">Newsletter</h3>
-    </header>
-    <p class="sidebar-text">Just your regular old newsletter.<br/>OSMC, parrots n' pirates.</p>
-    <form action="https://osmc.tv/content/plugins/newsletter/do/subscribe.php" method="POST" class="sidebar-news-form">
-      <div class="sidebar-news-icons">
-        <span class="sidebar-news-icon1">
-          <span class="sidebar-news-spinner">
-            <img src="{{asset "img/load.gif"}}">
-          </span>
-          <span class="sidebar-news-mail">
-            {{> svg/mail}}
-          </span>
-        </span>
-        <button class="sidebar-news-check" type="submit">
-          {{> svg/check}}
-        </button>
-      </div>
-      <input class="sidebar-news-email" type="email" value="" placeholder="Email" required>
-    </form>
-  </section>
+  {{> sidebar/newsletter}}
   
-  <section class="sidebar-social">
-    <header>
-      <h3 class="sidebar-title">Follow</h3>
-      <ul class="link">
-        <li class="link-facebook">
-          <a href="https://www.facebook.com/osmcproject" target="_black">{{> svg/facebook}}Facebook</a>
-        </li>
-        <li class="link-twitter">
-          <a href="https://twitter.com/try_osmc" target="_black">{{> svg/twitter}}Twitter</a>
-        </li>
-        <li class="link-github">
-          <a href="https://github.com/osmc/osmc" target="_black">{{> svg/github}}GitHub</a>
-        </li>
-        <li class="link-rss">
-          <a href="/rss" target="_black">{{> svg/rss}}RSS</a>
-        </li>
-      </ul>
-    </header>
-  </section>
+  {{> sidebar/social}}
   
 </aside>
