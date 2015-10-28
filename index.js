@@ -12,6 +12,8 @@ require("./helpers/custom").helpers();
 
 require("./helpers/images")();
 
+require("./helpers/update");
+
 options = {
 	config: path.join(__dirname, "config.js")
 };
