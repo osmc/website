@@ -35,6 +35,8 @@ var imagelist = path.join(__dirname, "/static/imagelist.html");
 var watcher = chokidar.watch(imagelist);
 watcher.on("change", function() {
   readImagelist();
+}).on("add", function() {
+  readImagelist();
 });
 
 readImagelist();
@@ -130,7 +132,7 @@ function buildHtml() {
       });
 
       var header = "<tr><th>Release</th><th>Checksum (MD5)</th></tr>";
-      content += "<section class='table " + key + "'><header><h2>" + images[0].name + "</h2></header><table>" + header + list + "</table></section>";
+      content += "<section class='table " + key + "'><header><h3>" + images[0].name + "</h3></header><table>" + header + list + "</table></section>";
 
     }
 
