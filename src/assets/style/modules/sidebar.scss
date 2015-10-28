@@ -121,7 +121,7 @@
       margin: auto;
       height: 1.3em;
       width: 1.3em;
-      @include animated;
+      @include ani-news;
     }
     &-mail,
     &-spinner {
@@ -131,7 +131,7 @@
       right: 0;
       left: 0;
       margin: auto;
-      @include animated;
+      @include ani-news;
     }
     &-check {
       background-color: $trans;
@@ -144,15 +144,14 @@
       right: 0;
       left: 0;
       margin: auto;
-      @include animated;
+      @include ani-news;
       visibility: hidden;
       height: 1.3em;
       width: 1.3em;
-      @include transition-duration($ani-duration);
       @include border-radius(2px);
       svg {
         path {
-          @include transition-duration($ani-duration);
+          @include ani1;
           fill: $acc2-1;
           stroke: $acc2-1;
           stroke-width: 1px;

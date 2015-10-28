@@ -39,7 +39,7 @@
       height: $s;
       
       path {
-        @include transition-duration($ani-duration);
+        @include transition-duration($ani-duration1);
       }
     }
     &:hover, &:focus, &:active {
@@ -76,7 +76,6 @@
       padding: 0.2em 0.4em;
       font-size: $small1;
       @include border-radius(1px);
-      @include transition-duration($ani-duration);
     }
     .radio:checked + label {
       background-color: $acc3-2;

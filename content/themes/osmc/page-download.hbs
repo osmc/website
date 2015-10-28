@@ -13,49 +13,57 @@
       <div class="column three-fourths">
         {{> break}}
         <section class="post-content">
-          {{content}}
+          <p>owpgkwpgokewpfo weof kwepf ok</p>
           
 					<hr>
 					
-					<h3>OS</h3>
-					<p>Prepare osmc on your OS. Select your OS.</p>
-					<div class="row clearfix download-systems">
-						<div class="column third download-system">
+					{{content}}
+					<section class="row clearfix download-systems">
+						<div class="column-fixed third download-system">
 							{{> svg/windows}}
 							<div class="download-system-wrap">
-								<span class="download-system-title">Windows</span>
-								<a href="http://download.osmc.tv/installers/osmc-installer.exe" class="download-system-dl">{{> svg/download}}</a>
+								<a href="http://download.osmc.tv/installers/osmc-installer.exe" class="download-system-dl">
+									<span class="download-system-title ani1">Windows</span>
+									{{> svg/download}}
+								</a>
+								<span class="download-system-meta" title="XP SP2 or later. Not sure about 2000">XP SP2 +</span>
 							</div>
 						</div>
-						<div class="column third download-system">
+						<div class="column-fixed third download-system">
 							{{> svg/osx}}
 							<div class="download-system-wrap">
-								<span class="download-system-title">OS X</span>
-								<a href="http://download.osmc.tv/installers/osmc-installer.dmg" class="download-system-dl">{{> svg/download}}</a>
+								<a href="http://download.osmc.tv/installers/osmc-installer.dmg" class="download-system-dl">
+									<span class="download-system-title ani1">OS X</span>
+									{{> svg/download}}
+								</a>
+								<span class="download-system-meta">10.07 +</span>
 							</div>
 						</div>
-						<div class="column third download-system">
+						<div class="column-fixed third download-system">
 							{{> svg/linux}}
 							<div class="download-system-wrap">
-								<span class="download-system-title">Linux</span>
-								<a href="http://software.opensuse.org/download.html?project=home:osmc&package=osmc-installer&hcolor=17394a&fcolor=17394a&acolor=17394a" target="_blank" class="download-system-dl">{{> svg/download}}</a>
+								<a href="http://software.opensuse.org/download.html?project=home:osmc&package=osmc-installer&hcolor=17394a&fcolor=17394a&acolor=17394a" target="_blank" class="download-system-dl">
+									<span class="download-system-title ani1">Linux</span>
+									{{> svg/download}}
+								</a>
 							</div>
 						</div>
-					</div>
+					</section>
+					
+					<hr>
+					<p>You can also download disk images.</p>
+					<span class="download-disk button button-alt1">
+						<span class="download-disk-text">Disk images</span>{{> svg/cd}}
+					</span>
 					
 					<div class="download-tables">
-						<hr>
           	{{{images}}}
 					</div>
         </section>
 
-        {{> break}}
-
         <footer class="post-footer">
-          {{> share-buttons}}
+					{{> break}}
         </footer>
-
-        {{> break}}
       </div>
       
       {{> sidebar}}

@@ -1,50 +1,104 @@
 .download {
-	&-systems {
-		text-align: center;
-	}
-	&-system {
-		font-size: $small2;
-		line-height: 1.2em;
-		@include link($black, $black);
-		
-		svg {
-			$s: 4em;
-			width: $s;
-			height: $s;
-			path {
-				fill: $black;
+	
+  &-systems {
+    text-align: center;
+		margin: 2.5em 0;
+  }
+  &-system {
+    font-size: $small2;
+    line-height: 1.2em;
+    @include link($black, $black);
+    svg {
+      $s: 4.5em;
+      width: $s;
+      height: $s;
+      path {
+        fill: $black;
+      }
+			@include res2 {
+				$s-1: 3.5em;
+				width: $s-1;
+				height: $s-1;
 			}
-		}
-		&-wrap {
-			margin-top: 0.5em;
-		}
-		&-title {
-			vertical-align: bottom;
-			margin-top: 0.5em;
-			margin-right: 0.2em;
-		}
-		&-dl {
-			vertical-align: bottom;
-			border-bottom: 0;
+    }
+    &-wrap {
+      margin-top: 0.8em;
+    }
+    &-title {
+      vertical-align: bottom;
+      margin-right: 0.2em;
+			line-height: 1em;
+    }
+    &-dl {
+      vertical-align: bottom;
+      border-bottom: 0;
+      svg {
+        $s2: 1.2em;
+        width: $s2;
+        height: $s2;
+        vertical-align: top;
+      }
 			
-			svg {
-				$s2: 1.4em;
-				width: $s2;
-				height: $s2;
-				vertical-align: bottom;
-				padding-bottom: 0.1em;
+			&:hover, &:focus, &:active {
+				.download-system-title {
+					color: $link;
+				}
+				svg {
+					path {
+						@include ani1;
+						fill: $link;
+					}
+				}
 			}
+    }
+		&-meta {
+			font-size: $small2;
+			color: $acc3-2;
+			display: block;
+			margin-top: 0.2em;
+		}
+  }
+  &-tables {
+		max-height: 0;
+		overflow: hidden;
+		@include transition(max-height 0.3s ease-out);
+		&.show {
+			max-height: 100em;
+			@include transition(max-height 0.3s ease-in);
 		}
 	}
-	&-tables {
+  &-table {
+    table {
+      max-width: 30em;
+    }
+    &-title {
+      margin-bottom: 0.25em;
+    }
+  }
+	&-disk {
+		cursor: pointer;
+		position: relative;
 		
-	}
-	&-table {
-		table {
-			max-width: 30em;
+		&-text {
+			//vertical-align: bottom;
+			//line-height: 1.1em;
+			padding-right: 1.2em;
 		}
-		&-title {
-			margin-bottom: 0;
+		svg {
+			$s3: 0.9em;
+			width: $s3;
+			height: $s3;
+			//vertical-align: bottom;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0.5em;
+			margin: auto;
+			overflow: visible;
+			circle, line {
+				stroke: $white;
+				stroke-width: 6;
+			}
 		}
 	}
 }

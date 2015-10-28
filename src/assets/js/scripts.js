@@ -1,3 +1,7 @@
+var hash = function() {
+  return location.hash.slice(1);
+};
+
 $("#nav-res-toggle").click(function () {
 
   if ($(this).hasClass("open"))  {
@@ -9,36 +13,6 @@ $("#nav-res-toggle").click(function () {
   }
 
 });
-
-// Wiki search
-
-if ($("body").hasClass("page-wiki")) {
-  $(".wiki-search-input").on("input propertychange", function() {
-    var val = $(this).val();
-    var search = val.toLowerCase();
-		    
-    $(".wiki-cat-list li a").each(function () {
-      var title = $(this).attr("data-name");
-      $(this).text(title);
-      var match = title.toLowerCase().search(search);
-      
-      if (match > -1) {
-        $(this).parent().removeClass("hide");
-        
-        if (val.length > 0) {
-          var start = match;
-          var end = match + search.length;
-          var index = title.substring(start, end);
-          var newText = title.replace(index, "<span class='highlight'>" + index + "</span>");
-          $(this).html(newText);
-        }
-      } else {
-        $(this).parent().addClass("hide");
-        $(this).text(title);
-      }
-    });
-  });
-}
 
 // FRONT PAGE
 
@@ -123,9 +97,55 @@ if ($("body").hasClass(homeClass)) {
 
 };
 
-// NEWSLETTER FORM
 
-// Subscribe
+// Download
+$(".download-disk").click(function() {
+	var tables = $(".download-tables");
+	if (tables.hasClass("show")) {
+		tables.removeClass("show");
+	} else {
+		tables.addClass("show");
+	}
+});
+
+// Wiki search
+if ($("body").hasClass("page-wiki")) {
+  $(".wiki-search-input").on("input propertychange", function() {
+    var val = $(this).val();
+    var search = val.toLowerCase();
+		    
+    $(".wiki-cat-list li a").each(function () {
+      var title = $(this).attr("data-name");
+      $(this).text(title);
+      var match = title.toLowerCase().search(search);
+      
+      if (match > -1) {
+        $(this).parent().removeClass("hide");
+        
+        if (val.length > 0) {
+          var start = match;
+          var end = match + search.length;
+          var index = title.substring(start, end);
+          var newText = title.replace(index, "<span class='highlight'>" + index + "</span>");
+          $(this).html(newText);
+        }
+      } else {
+        $(this).parent().addClass("hide");
+        $(this).text(title);
+      }
+    });
+  });
+}
+
+// Corporate
+
+if ($("body").hasClass("page-corporate-and-legal") && hash().length > 1) {
+	$("html, body").stop().animate({
+		"scrollTop": $("#" + hash()).offset().top
+	}, 200);
+};
+
+// Newsletter
 $(".sidebar-news-email").on("input propertychange", function() {
    if ( $(this).val().length > 0 ) {
      $(this).parent().addClass("focus");
@@ -175,14 +195,11 @@ $(".sidebar-news-form").submit(function(e) {
 // DONATION
 
 // check hash on load
-var hash = function() {
-  return location.hash.slice(1);
-};
 if (hash() === "donate") {
   $(".donate").addClass("show");
 };
 
-$(".donate-exit").click(function(e) {
+$(".donate-exit").click(function() {
   history.pushState(undefined, undefined, " ");
   $(".donate").removeClass("show");
 });
@@ -191,11 +208,9 @@ $(".donate-exit").click(function(e) {
 window.addEventListener("popstate", function(event) {
   if (hash() === "donate") {
     $(".donate").addClass("show");
-    
     $("html, body").animate({
       scrollTop: 0
     }, 500);
-    
   } else {
     $(".donate").removeClass("show");
   }

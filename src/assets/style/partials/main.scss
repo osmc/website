@@ -36,6 +36,10 @@ body {
   //@include scrollbars(0.8em, $acc3-1, $back);
 }
 
+.main {
+  padding: 5em 0 2em;
+}
+
 input {
   border: 0px;
   font-size: $small2;
@@ -50,7 +54,7 @@ input {
 img {
   max-width: 100%;
   height: auto;
-  @include transition-duration($ani-duration);
+  @include transition-duration($ani-duration1);
   @include transition-timing-function(ease);
 }
 
@@ -161,4 +165,11 @@ table {
     padding: 0.2em 1em 0.2em 0;
     text-align: left;
   }
+}
+
+.ani1 {
+	@include animation-duration($ani-duration1);
+}
+.ani2 {
+	@include animation-duration($ani-duration2);
 }

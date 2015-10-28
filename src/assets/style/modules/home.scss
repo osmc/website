@@ -565,7 +565,7 @@ $home-header: rgba(14, 61, 82, 0.52);
   }
 }
 
-@media screen and (max-width: $res) {
+@media screen and (max-width: $res1) {
   .home.page .header .container .nav-header .top-nav {
     background-color: $home-header;
     top: 3.15em;
@@ -573,7 +573,7 @@ $home-header: rgba(14, 61, 82, 0.52);
   }
 }
 
-@media screen and (max-width: $res) {
+@media screen and (max-width: $res1) {
   .row.main.home {
     font-size: 90%;
     .secondn {}

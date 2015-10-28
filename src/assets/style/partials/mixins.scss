@@ -4,6 +4,13 @@
   }
 }
 
+@mixin ani1 {
+	@include animation-duration($ani-duration1);
+}
+@mixin ani2 {
+	@include animation-duration($ani-duration2);
+}
+
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
   &::-webkit-scrollbar {
       width:  $size;
@@ -49,7 +56,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
     color: $color;
     text-decoration: none;
     border-bottom: $border-bottom;
-    @include transition-duration($ani-duration);
+    @include ani1;
     @include transition-timing-function(ease);
     
     &:visited {
@@ -106,7 +113,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
   @if $homepage {
     background-color: $back;
     color: $white;
-    @include transition-duration($ani-duration);
+    @include transition-duration($ani-duration1);
   } @else {
     display: inline-block;
     font-size: $small2;
@@ -117,7 +124,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
     padding: $height 0.7em;
     margin: 0.3em 0.3em 0.3em 0;
     cursor: pointer;
-    @include transition-duration($ani-duration);
+    @include transition-duration($ani-duration1);
   }
   border-bottom: 0px;
   
@@ -156,12 +163,25 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 	@include hover($acc3-3, back);
 }
 
-@mixin animated {
+@mixin ani-news {
   @include animation-duration(0.3s);
   @include animation-timing-function(ease-out);
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
+
+@mixin res1 {
+  @media (max-width: #{$res1}) {
+    @content;
+  }
+}
+@mixin res2 {
+	@media (max-width: #{$res2}) {
+    @content;
+  }
+}
+
 
 @-webkit-keyframes slideOutDown {
   from {

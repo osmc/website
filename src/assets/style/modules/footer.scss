@@ -1,0 +1,10 @@
+.footer {
+	padding: 1em 0;
+	border-top: 1px solid $acc4-1;
+	&-wrap {
+		padding: 0 1em;
+	}
+	&-size {
+		font-size: $small2;
+	}
+}
