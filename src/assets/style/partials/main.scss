@@ -156,11 +156,9 @@ code {
 
 table {
   width: 100%;
-  th {
-    padding: 0.5em;
+	font-size: $small1;
+  th, td {
+    padding: 0.2em 1em 0.2em 0;
     text-align: left;
-  }
-  td {
-    padding: 0.5em;
   }
 }

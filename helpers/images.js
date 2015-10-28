@@ -132,7 +132,7 @@ function buildHtml() {
       });
 
       var header = "<tr><th>Release</th><th>Checksum (MD5)</th></tr>";
-      content += "<section class='table " + key + "'><header><h3>" + images[0].name + "</h3></header><table>" + header + list + "</table></section>";
+      content += "<section class='download-table " + key + "'><header><h3 class='download-table-title'>" + images[0].name + "</h3></header><table>" + header + list + "</table></section>";
 
     }
 

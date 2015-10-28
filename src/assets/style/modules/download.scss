@@ -1,0 +1,50 @@
+.download {
+	&-systems {
+		text-align: center;
+	}
+	&-system {
+		font-size: $small2;
+		line-height: 1.2em;
+		@include link($black, $black);
+		
+		svg {
+			$s: 4em;
+			width: $s;
+			height: $s;
+			path {
+				fill: $black;
+			}
+		}
+		&-wrap {
+			margin-top: 0.5em;
+		}
+		&-title {
+			vertical-align: bottom;
+			margin-top: 0.5em;
+			margin-right: 0.2em;
+		}
+		&-dl {
+			vertical-align: bottom;
+			border-bottom: 0;
+			
+			svg {
+				$s2: 1.4em;
+				width: $s2;
+				height: $s2;
+				vertical-align: bottom;
+				padding-bottom: 0.1em;
+			}
+		}
+	}
+	&-tables {
+		
+	}
+	&-table {
+		table {
+			max-width: 30em;
+		}
+		&-title {
+			margin-bottom: 0;
+		}
+	}
+}
