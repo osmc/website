@@ -7,6 +7,7 @@
 @import "modules/sidebar";
 @import "modules/wiki";
 @import "modules/donate";
+
 .share {
   @include link($white, $white);
   width: 100%;
@@ -162,22 +163,6 @@ nav {
 }
 
 // Content
-.page-title {
-  font-weight: 300;
-  font-size: 2em;
-  margin: 0;
-  a:visited,
-  a:active,
-  a {
-    color: $dark;
-    text-decoration: none;
-    border-bottom: none;
-  }
-  a:hover,
-  a:focus {
-    color: $dark;
-  }
-}
 
 .post {
   &-body {

@@ -1,9 +1,4 @@
-$dblue: #003450;
-$red: #fc4f4f;
-$white: #ffffff;
-$dark: $dblue;
-$black: $dark;
-$trans: transparent;
+//home page
 $blue-s1: #2e9db8;
 $blue-s2: #107aaf;
 $blue-s3: #0C5B8E;
@@ -23,25 +18,42 @@ $small4: 80%;
 $res: 52em;
 $res2: 33em;
 
+$white: #ffffff;
 $back: $white;
+
+$black1: #282828;
+$black2: #1F3A4C;
+
+$dark: $black2;
+$black: $dark;
+$trans: transparent;
 
 // Blue
 $blue1: #0f8ccb;
 $blue2: rgb(206, 226, 247);
 $blue3: lighten($blue2, 7%);
-$blue4: #177eb2;
+$blue4: #2C86A5;
 $blue5: #53b5e6;
+$blue6: #003450;
 
 // Green
 $green1: #35d0a7;
 $green2: #98ebd2;
 $green3: #2aa585;
+$green4: #50BE9C;
 
 // Grey
 $grey1: #D3D3D3;
 $grey2: #969696;
 $grey3: #575757;
 $grey4: #f2f2f2;
+
+$red1: #E44D51;
+$red2: #fc4f4f;
+
+$gold1: #E4BE92;
+
+
 
 // Accent colors
 $acc1-1: $blue1;
@@ -58,6 +70,9 @@ $acc3-1: $grey1;
 $acc3-2: $grey2;
 $acc3-3: $grey3;
 $acc3-4: $grey4;
+
+$acc4-1: $gold1;
+$acc4-2: lighten($acc4-1, 7%);
 
 // Social
 $facebook: #3b5998;
