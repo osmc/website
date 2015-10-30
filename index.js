@@ -79,6 +79,8 @@ app.get("/wiki/*", function(req, res) {
   }
 });
 
+app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
+
 app.all("/*", function(req, res){
   var url = host + req.url;
   proxyAll.web(req, res, {target: url});
