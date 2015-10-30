@@ -24,7 +24,7 @@ if ($("body").hasClass(homeClass)) {
 
   var player = new Clappr.Player({
     source: '/assets/vid/homepage-tour.mp4',
-    poster: '/assets/img/video-poster.png',
+    poster: '/assets/img/home/video-poster.png',
     preload: 'none',
     loop: 'true',
     width: '100%',
