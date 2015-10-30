@@ -1,31 +1,29 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	
   <title>{{custom "title"}}</title>
   <meta property="og:title" content="{{custom "title"}}" />
   <meta property="og:url" content="{{custom "url"}}" />
-  <meta name="twitter:title" content="{{custom "title"}}" />
-  <meta name="twitter:url" content="{{custom "url"}}" />
+	<meta name="description" content="{{meta_description}}" />
+	
   <meta property="og:site_name" content="{{@blog.title}}" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:description" content="{{meta_description}}" />
-  <meta name="description" content="{{meta_description}}" />
 	<meta property=og:image content="{{asset "img/osmc_meta.css"}}" />
+	
+	<meta name="twitter:title" content="{{custom "title"}}" />
+  <meta name="twitter:url" content="{{custom "url"}}" />
+  <meta name="twitter:description" content="{{meta_description}}" />
+	<meta name="twitter:card" content="summary" />
+	
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="alternate" type="application/rss+xml" title="OSMC" href="/rss/">
+	
   <link rel="shortcut icon" href="{{asset "img/favicon/favicon.ico"}}">
   <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
   <link href='//fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,600,400italic' rel='stylesheet' type='text/css'>
-  <link rel="alternate" type="application/rss+xml" title="OSMC" href="/rss/">
+	
   {{> analytics}}
-    
-  <style>
-    .overlay {
-      display: none;
-    }
-    .popup_donate {
-      display: none;
-    }
-  </style>
+	
 </head>

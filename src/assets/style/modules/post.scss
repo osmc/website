@@ -1,0 +1,36 @@
+.post {
+  &-body {
+    margin: 2em 0 0;
+  }
+  &-header {
+    @include link($link, $acc2-1);
+  }
+  &-title {
+    font-weight: 300;
+    margin: 0 0 0.2em;
+  }
+  &-meta {
+    margin: 0 0 0;
+    font-size: $small2;
+  }
+  &-excerpt {}
+  &-time {}
+  &-tags {
+    float: right;
+  }
+  &-content {
+    margin: 1em 0;
+  }
+  &-comments {
+    header {
+      position: relative;
+      margin-bottom: -1.45em;
+      h3 {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &-footer {
+    margin: 1em 0;
+  }
+}

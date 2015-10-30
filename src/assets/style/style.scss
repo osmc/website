@@ -5,67 +5,13 @@
 @import "chartist/dist/scss/chartist";
 @import "modules/home";
 @import "modules/sidebar";
+@import "modules/post";
 @import "modules/download";
 @import "modules/wiki";
 @import "modules/donate";
+@import "modules/share";
 @import "modules/error";
 @import "modules/footer";
-
-.share {
-  @include link($white, $white);
-  width: 100%;
-  overflow: auto;
-  font-size: $small1;
-  &-wrap {
-    width: 100%;
-  }
-  &-button {
-    padding: 0.05em 0.7em;
-    margin: 0 0.5em 0 0;
-    float: left;
-  }
-  &-title {
-    display: inline-block;
-    margin: 0;
-    font-size: $small1;
-    padding-right: 0.5em;
-    margin-top: 0.1em;
-    float: right;
-    color: $acc3-2;
-  }
-  svg {
-    width: 1.1em;
-    height: 1.1em;
-    padding-bottom: 1px;
-    vertical-align: sub;
-    path {
-      fill: $white;
-    }
-  }
-  &-text {
-    padding: 0 0.2em;
-    display: inline-block;
-  }
-  &-facebook {
-    $color: $facebook;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 15%), 8%), back);
-    svg {
-      width: 1.05em;
-      height: 1.05em;
-    }
-  }
-  &-twitter {
-    $color: $twitter;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 7%), 20%), back);
-  }
-  &-google {
-    $color: $google;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 9%), 10%), back);
-  }
-}
 
 .corp-index {
 	margin: 0 0 2em;
@@ -73,139 +19,6 @@
 
 abbr[title] {
   border-bottom: none;
-}
-
-.vero-frame {
-  display: block;
-  height: 513em;
-  margin: 2em auto;
-  width: 90%;
-  overflow: hidden;
-  background-color: #fff;
-  .nav {
-    display: none;
-  }
-}
-
-// Header
-$header: 3.5em;
-$header-res: 3em;
-$title-size: 1.2em;
-$title-size-res: 1.2em;
-.header {
-  z-index: 1;
-  position: fixed;
-  max-height: $header;
-  height: 100%;
-  width: 100%;
-  @include box-shadow($acc3-1 0px 1px 2px);
-  .container {
-    height: 100%;
-    position: static;
-    .column {
-      font-size: 95%;
-      height: 100%;
-    }
-    #logo-title {
-      float: left;
-      height: 100%;
-      margin: 0;
-      font-size: $title-size;
-      font-weight: 300;
-    }
-    #logo-img {
-      float: left;
-      height: 100%;
-    }
-    img {
-      height: auto;
-      max-height: 1.5em;
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      border: 0;
-    }
-    .ie9 img {
-      max-height: 100px;
-    }
-    a {
-      margin: 0px;
-      padding: 0px;
-      line-height: $header;
-      text-decoration: none;
-    }
-  }
-}
-
-nav {
-  float: right;
-  list-style-type: none;
-  li {
-    display: inline;
-    padding: 0 1em 0 1em;
-    margin: 0;
-    a {
-      font-weight: 300;
-    }
-  }
-}
-
-.top-nav {
-  margin: 0;
-  a {
-    color: $white;
-    &:hover,
-    &:focus {
-      border-bottom: 2px solid $white;
-    }
-  }
-  .current-menu-item a,
-  .current-page-ancestor a {
-    border-bottom: 2px solid $white;
-  }
-}
-
-#nav-res-toggle {
-  display: none !important;
-}
-
-// Content
-
-.post {
-  &-body {
-    margin: 2em 0 0;
-  }
-  &-header {
-    @include link($link, $acc2-1);
-  }
-  &-title {
-    font-weight: 300;
-    margin: 0 0 0.2em;
-  }
-  &-meta {
-    margin: 0 0 0;
-    font-size: $small2;
-  }
-  &-excerpt {}
-  &-time {}
-  &-tags {
-    float: right;
-  }
-  &-content {
-    margin: 1em 0;
-  }
-  &-comments {
-    header {
-      position: relative;
-      margin-bottom: -1.45em;
-      h3 {
-        margin-bottom: 0;
-      }
-    }
-  }
-  &-footer {
-    margin: 1em 0;
-  }
 }
 
 .bloglist {
@@ -216,10 +29,6 @@ nav {
 
 .main.page {
   margin-bottom: 1em;
-  &-header {}
-  &-title {
-    margin-bottom: 0.1em;
-  }
 }
 
 nav.pagination {
@@ -237,130 +46,7 @@ nav.pagination {
 }
 
 // ie
-.ie9 #inner-header {
-  background-color: #fff;
-}
-
-.ie9 #inner-header #inner-header-content img {
-  max-height: 40px;
-}
-
 .ie9 a {
   text-decoration: none;
   border-bottom: none;
-}
-
-// res
-@media screen and (max-width: $res1) {
-  .row.main {
-    padding: 5em 0 0;
-    margin: 0 auto;
-  }
-  .header {
-    height: $header-res;
-    .container {
-      a {
-        line-height: $header-res;
-      }
-      img {
-        max-height: 1.4em;
-      }
-      #logo-title {
-        font-size: $title-size-res;
-        a {
-          line-height: ($header-res / $title-size-res);
-        }
-      }
-      .nav-header {
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: auto;
-        width: auto;
-      }
-      #nav-res-toggle {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: block !important;
-        float: right;
-        height: 100%;
-        padding: 0 1em;
-        cursor: pointer;
-        cursor: hand;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        /* Firefox all */
-        -ms-user-select: none;
-        /* IE 10+ */
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        /* No support for these yet, use at own risk */
-        -o-user-select: none;
-        user-select: none;
-        p {
-          color: $white;
-          font-size: 105%;
-          line-height: 1em;
-          font-weight: 400;
-          @include transition-duration(0.5s);
-          @include transition-timing-function(ease);
-        }
-        p:after {
-          display: block;
-          left: 0;
-          bottom: 0;
-          margin-top: 2px;
-          width: 0;
-          height: 2px;
-          background-color: $white;
-          content: "";
-          @include transition-duration(0.5s);
-          @include transition-timing-function(ease);
-        }
-      }
-      #nav-res-toggle.open {
-        p {
-          color: $link;
-        }
-        p:after {
-          background-color: $link;
-          width: 100%;
-        }
-      }
-      .top-nav {
-        position: absolute;
-        background-color: $dark;
-        font-size: 1em;
-        padding: 1em 2em 0;
-        height: 1000em;
-        width: auto;
-        right: -9em;
-        top: 3.1em;
-        @include transition-duration(0.5s);
-        @include transition-timing-function(ease);
-        a {
-          color: $white;
-        }
-        li {
-          float: right;
-          clear: right;
-          width: 100%;
-          height: 2.5em;
-          padding: 0;
-          margin: 0;
-          white-space: nowrap;
-        }
-      }
-      .top-nav.open {
-        right: 0;
-      }
-    }
-  }
-  .row.main.home {
-    .firstn-back {
-      .vignette-wrap {
-        @include box-shadow(inset 0 0 200px rgba(0, 0, 0, 0.75));
-      }
-    }
-  }
 }
