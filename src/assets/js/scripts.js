@@ -311,9 +311,11 @@ $(".download.devices .wrapper").click(function () {
 });
 
 // CHARTIST.JS
+if (typeof CTtitle !== "undefined") {
+	pieChart(CTtitle, CTdata);
+}
 
 function pieChart(title, items) {
-  
   var nr = 0;
   var sum = function(a, b) { return a + b };
   
@@ -356,4 +358,47 @@ function pieChart(title, items) {
     legend.append(listItem);
   };
   
+};
+
+
+// Discourse comments
+if ($("#discourse-comments").length) {
+	$(window).on("scroll", function () {
+		if (!commentsLoaded) {
+			var visible = isVisible(".post-comments", 300);
+			comments(visible);
+		}
+	});
+
+	var visible = isVisible(".post-comments", 300);
+	comments(visible);
+}
+
+var commentsLoaded = false;
+
+function isVisible(elem, offset) {
+	var $elem = $(elem);
+	var $window = $(window);
+	var docViewTop = $window.scrollTop();
+	var docViewBottom = docViewTop + $window.height();
+	var elemTop = $elem.offset().top;
+	var elemBottom = elemTop + $elem.height() - offset;
+	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function comments(visible) {
+	if (visible && !commentsLoaded) {
+		commentsLoaded = true;
+		DiscourseEmbed = {
+			discourseUrl: "https://discourse.osmc.tv/",
+			topicId: 8431
+		};
+		(function () {
+			var d = document.createElement("script");
+			d.type = "text/javascript";
+			d.async = true;
+			d.src = DiscourseEmbed.discourseUrl + "javascripts/embed.js";
+			(document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(d);
+		})();
+	}
 };
