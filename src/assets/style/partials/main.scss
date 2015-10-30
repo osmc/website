@@ -132,7 +132,7 @@ code {
   color: $acc1-1;
   background-color: $acc3-4;
   padding: 0 0.2em 0.1em;
-  @include border-radius(1px);
+  @include radius1;
   vertical-align: top;
 	word-break: break-all;
 }

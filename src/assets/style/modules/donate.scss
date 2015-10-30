@@ -75,7 +75,7 @@
       background-color: $acc3-1;
       padding: 0.2em 0.4em;
       font-size: $small1;
-      @include border-radius(1px);
+      @include radius1;
     }
     .radio:checked + label {
       background-color: $acc3-2;

@@ -22,7 +22,7 @@
   }
   &-list {
     font-size: $small2;
-    @include border-radius(1px);
+    @include radius1;
     border: 2px solid $acc3-4;
   }
   &-cat {
@@ -65,7 +65,7 @@
           height: 0;
         }
         .highlight {
-          @include border-radius(1px);
+          @include radius1;
           background-color: $acc3-4;
         }
       }
@@ -78,7 +78,7 @@
     display: inline-block;
     &-wrap {
       display: inline-block;
-      @include border-radius(1px);
+      @include radius1;
       border: 1px solid $acc3-1;
       padding-left: 0.2em;
       svg {

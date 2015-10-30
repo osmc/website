@@ -11,6 +11,10 @@
 	@include animation-duration($ani-duration2);
 }
 
+@mixin radius1 {
+	@include border-radius($b-radius1);
+}
+
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
   &::-webkit-scrollbar {
       width:  $size;
@@ -118,7 +122,7 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
     display: inline-block;
     font-size: $small2;
     border: 0;
-    @include border-radius(1px);
+    @include radius1;
     color: $white;
     background-color: $back;
     padding: $height 0.7em;

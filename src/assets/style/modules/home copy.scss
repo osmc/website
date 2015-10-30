@@ -1,11 +1,8 @@
-.row.main.home {
+.main.home {
   padding: 0;
   overflow: hidden;
   .container {
     max-width: 70em;
-  }
-	@include res1 {
-		font-size: $small2;
 	}
 }
 
@@ -310,26 +307,12 @@
     width: 100%;
     display: table;
     padding-left: 1em;
-		
-		@include res1 {
-			padding: 0;
-			display: block;
-			float: left;
-		}
-		
     .column {
       display: table-cell;
       vertical-align: middle;
       float: none;
-			
-			@include res1 {
-				width: 100%;
-				float: left;
-				display: block;
-				padding: 0 1em;
-			}
     }
-	}
+  }
   &-pics {
     width: 62%;
     position: relative;
@@ -342,13 +325,6 @@
         bottom: 0;
         left: 0;
         margin: auto;
-				
-				@include res1 {
-					position: relative;
-          float: left;
-          width: 100%;
-				}
-				
         .ie9 & {
           position: relative;
         }
@@ -366,11 +342,6 @@
         @include transition-duration(0.4s);
         opacity: 0;
         @include box-shadow(0 0 10px rgba(58, 128, 106, 0.45));
-				
-				@include res1 {
-					position: relative;
-					float: left;
-				}
       }
       img.show {
         opacity: 1;
@@ -385,31 +356,12 @@
       list-style: none;
       font-size: 90%;
       @include user-select(none);
-			
-			@include res1 {
-				text-align: center;
-			}
-			
       li {
         margin: 1.8em 0;
         cursor: pointer;
         @include transition-duration(0.3s);
         position: relative;
         $icon-size: 6px;
-				@include res1 {
-					margin: 0 1em;
-					width: 21%;
-					text-align: left;
-					display: inline-block;
-					vertical-align: top;
-					
-					&:first-child {
-						margin: 0;
-					}
-					&:last-child {
-						margin: 0;
-					}
-				}
         .icon {
           @include transition-duration(0.3s);
           opacity: 0;
@@ -525,11 +477,6 @@
   &-wrap {
     display: table;
     vertical-align: middle;
-		
-		@include res1 {
-			display: block;
-			float: left;
-		}
     h3 {
       font-weight: 300;
       font-size: 125%;
@@ -557,22 +504,8 @@
       display: table-cell;
       vertical-align: middle;
       float: none;
-			
-			@include res1 {
-				display: block;
-			}
     }
   }
-	&-img {
-		@include res1 {
-			text-align: center;
-
-			img {
-				width: 60%;
-				max-width: 18em;
-			}
-		}
-	}
 }
 
 .breaker.b3 {
@@ -622,33 +555,16 @@
 
 @media screen and (max-width: $res1) {
   .row.main.home {
-    font-size: 90%;
     .secondn {}
     .thirdn {
       h2 {}
-      .table {
-        padding: 0;
-        display: block;
-        float: left;
-        .column {
-          width: 100%;
-          float: left;
-          display: block;
-          padding: 0 1em;
-        }
-      }
       .two-thirds {
         .img {
           .img-wrap1 {
             img {
-              position: relative;
-              float: left;
             }
           }
           div {
-            position: relative;
-            float: left;
-            width: 100%;
           }
           img {
             position: absolute;
@@ -658,34 +574,21 @@
       }
       .third {
         ul {
-          text-align: center;
           li {
-            margin: 0 1em;
-            width: 21%;
-            text-align: left;
-            display: inline-block;
-            vertical-align: top;
           }
           li:first-child,
           li:last-child {
-            margin: 0;
           }
         }
       }
     }
     .fourthn {
       .table {
-        display: block;
-        float: left;
         .column {
-          display: block;
         }
         .third {
-          text-align: center;
         }
         img {
-          width: 60%;
-          max-width: 18em;
         }
       }
     }

@@ -8,7 +8,7 @@
   color: $black;
   section {
     border: 1px solid $acc2-1;
-    @include border-radius(1px);
+    @include radius1;
     padding: 0.5em 0.5em 0.8em 1em;
     margin: 1em 0;
   }
@@ -83,7 +83,7 @@
   &-news {
     &-form {
       padding: 0 0.2em 0.2em;
-      @include border-radius(1px);
+      @include radius1;
       overflow: hidden;
       border: 1px solid $acc3-1;
       margin: 1em 0.5em 0.3em 0;
