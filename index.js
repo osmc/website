@@ -79,6 +79,10 @@ app.get("/wiki/*", function(req, res) {
   }
 });
 
+app.all("/author/*", function(req, res){
+  res.redirect("/blog");
+});
+
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 
 app.all("/*", function(req, res){
