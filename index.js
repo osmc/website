@@ -56,8 +56,13 @@ app.all("/blog", function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/page/1", function(req, res){
+app.all("/blog/page/1", function(req, res){
   res.redirect("/blog");
+});
+
+app.all("/blog/page/:page", function(req,res) {
+	var url = host + "/page/" + req.params.page;
+  proxySingle.web(req, res, {target: url});
 });
 
 app.all("/wiki", function(req, res){
