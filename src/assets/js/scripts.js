@@ -76,18 +76,18 @@ if ($("body").hasClass(homeClass)) {
 
     if ($.isNumeric(nr)) {
 
-      $(".home .thirdn img").removeClass("show");
-      $(".home .thirdn .img-wrap" + currentImg + " img").addClass("show");
-      $(".home .thirdn .img-wrap" + nr).css("z-index", currentZ + 1);
-      $(".home .thirdn .img-wrap" + nr + " img").addClass("show");
-      $(".home .thirdn li").removeClass("show");
-      $(".home .thirdn li.link" + nr).addClass("show");
+      $(".thirdn-pics-wrap img").removeClass("show");
+      $(".thirdn-pics-wrap .img-wrap" + currentImg + " img").addClass("show");
+      $(".thirdn-pics-wrap .img-wrap" + nr).css("z-index", currentZ + 1);
+      $(".thirdn-pics-wrap .img-wrap" + nr + " img").addClass("show");
+      $(".thirdn-text li").removeClass("show");
+      $(".thirdn-text li.link" + nr).addClass("show");
 
       oldImg = currentImg;
       currentImg = nr;
 
       setTimeout(function () {
-        $(".home .thirdn .img-wrap" + oldImg + " img").removeClass("show");
+        $(".thirdn-pics-wrap .img-wrap" + oldImg + " img").removeClass("show");
       }, 400);
 
     }
