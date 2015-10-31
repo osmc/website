@@ -6,24 +6,6 @@ var _ = require(ghostPath + "node_modules/lodash");
 var mkdirp = require("mkdirp");
 var chokidar = require("chokidar");
 
-function url(res, relativeUrl)  {
-  relativeUrl = relativeUrl.substring(1);
-  if (relativeUrl.substring(0, 4) !== "page") {
-    return relativeUrl.substring(0, relativeUrl.indexOf('/'));
-  } else {
-    return "page";
-  }
-};
-
-var pages = {
-  home: "OSMC",
-  "": "Blog - OSMC"
-};
-var urls = {
-  home: "/",
-  "": "/blog"
-};
-
 // create static directory
 mkdirp.sync(path.join(__dirname, "/static"), function (err) {});
 
@@ -105,53 +87,68 @@ var helpers = function () {
     var relativeUrl = _.get(res, "data.root.relativeUrl");
     var blog_title = _.get(res, "data.blog.title");
     var title_default = _.get(res, "data.root.post.title");
+		var url_default = _.get(res, "data.root.post.url");
     var page = _.get(res, "data.root.pagination.page");
 		var tag = _.get(res, "data.root.tag");
     var host = _.get(res, "data.blog.url");
+		
+		var wikiPost = _.get(res, "data.root.wikiPost");
+		
+		var url = relativeUrl;
+		var title_custom;
+		var url_custom;
+		
+		
+		if (url) {
+			
+			if (url === "/home/") {
+				// Home page
+				title_custom = blog_title;
+				url_custom = "/";
 
-    if (relativeUrl) {
-      var title_custom = pages[url(res, relativeUrl)];
-      var url_custom = urls[url(res, relativeUrl)];
-      var url_default = relativeUrl;
-    }
+			} else if (url === "/" || url.substring(0,6) === "/page/") {
+				// Blog and pagination
+				if (page > 1) {
+					title_custom = "Blog - " + page + " - " + blog_title;
+					url_custom = "/blog/page/" + page;
+				} else {
+					title_custom = "Blog - " + blog_title;
+					url_custom = "/blog";
+				}
 
-    var wikiPost = _.get(res, "data.root.wikiPost");
-    if (wikiPost) {
-      var singlePost = res.data.root.wikiPost;
+			} else if (tag) {
+				// Tag page and pagination
+				if (page > 1) {
+					title_custom = tag.name + " - " + page + " - " + blog_title;
+				} else {
+					title_custom = tag.name + " - " + blog_title;
+				}
+			}
+			
+		} else if (wikiPost) {
+			//Wiki post
+			var singlePost = res.data.root.wikiPost;
       _.set(res, "data.blog.title", "OSMC");
       _.set(res, "data.blog.url", liveHost);
       title_custom = singlePost.title + " - " + singlePost.category + " - " + blog_title;
       url_custom = singlePost.url;
-    }
-		
-		if (tag) {
-			if (page > 1) {
-				title_custom = tag.name + " - " + page + " - " + blog_title;
-			} else {
-				title_custom = tag.name + " - " + blog_title;
-			}
+			
 		}
 		
     var output;
+		
     if (option == "title") {
       if (title_custom) {
-				
         output = title_custom;
-      } else if (title_default) {
-        output = title_default + " - " + blog_title;
-      } else if (page) {
-        output = "Blog - " + page + " - " + blog_title;
-      }
-			
-    } else if (option == "url") {
+			} else {
+				output = title_default;
+			}
+    }
+		
+		if (option == "url") {
       if (url_custom) {
         output = host + url_custom;
       } else {
-				
-				if (url_default.substring(0,6) === "/page/") {
-					url_default = "/blog" + url_default;
-				};
-				
 				output = host + url_default;
       }
     }

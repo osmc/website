@@ -46,8 +46,15 @@ var proxySingle = httpProxy.createProxyServer({
   res.end();
 });
 
+app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
+
 app.all("/", function(req, res){
   var url = host + "/home";
+  proxySingle.web(req, res, {target: url});
+});
+
+app.all("/home", function(req, res){
+  var url = host + "/404";
   proxySingle.web(req, res, {target: url});
 });
 
@@ -87,8 +94,6 @@ app.get("/wiki/*", function(req, res) {
 app.all("/author/*", function(req, res){
   res.redirect("/blog");
 });
-
-app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 
 app.all("/*", function(req, res){
   var url = host + req.url;
