@@ -222,7 +222,7 @@ function buttonLoadStart() {
   button.prop('disabled', true);
   button.addClass("loading");
   button.find(".donate-stripe-svg").addClass("hidden");
-  button.append("<img src='/assets/img/load.gif'>");
+  button.append("<img src='/assets/img/icon/load2.gif'>");
 };
 function buttonLoadStop() {
   var button = $(".donate-form").find(".clicked");
@@ -277,8 +277,8 @@ $.each($(".donate-form"), function (index, oneForm)  {
 // stripe
 function stripe(am, cur) {
   var handler = StripeCheckout.configure({
-    key: 'pk_live_HEfJk95fTFmjEBYMYVTxWFZk',
-    image: '/content/themes/osmc/library/images/favicons/apple-touch-icon-180x180.png',
+    key: "pk_live_HEfJk95fTFmjEBYMYVTxWFZk",
+    image: "/assets/img/logo/logo2-b.png",
     token: function (token) {
       window.location.href = "https://osmc.tv/contribute/donate/thanks/";
     }
@@ -286,7 +286,7 @@ function stripe(am, cur) {
 
   // Open Checkout with further options
   handler.open({
-    name: 'OSMC Donation',
+    name: "OSMC Donation",
     description: "",
     amount: am,
     currency: cur,
@@ -296,19 +296,11 @@ function stripe(am, cur) {
   });
   
   // Close stripe checkout on page navigation
-  $(window).on('popstate', function () {
+  $(window).on("popstate", function () {
     handler.close();
   });
   
 };
-
-// DOWNLOAD SCROLL TO
-
-$(".download.devices .wrapper").click(function () {
-  $('html, body').animate({
-    scrollTop: $(".getstarted").offset().top - 40
-  }, 800);
-});
 
 // CHARTIST.JS
 if (typeof CTtitle !== "undefined") {
@@ -359,7 +351,6 @@ function pieChart(title, items) {
   };
   
 };
-
 
 // Discourse comments
 if ($("#discourse-comments").length) {

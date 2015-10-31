@@ -77,16 +77,15 @@
 			text-align: center;
 		}
     .amount {
-      padding: 0.2em;
       width: 2.5em;
-      margin: 0 1em;
+      margin: 0 0.5em;
       text-align: center;
 			@include radius1;
+			border: 1px solid $acc3-1;
 			position: relative;
-			height: 24.5px;
-    }
-    .amount.error {
-      //border: 1px solid $red1;
+			height: 25.5px;
+			vertical-align: top;
+			font-size: $small1;
     }
     .radio {
       display: none;
@@ -174,9 +173,19 @@
     position: absolute;
     font-size: $small2;
     top: -3px;
-    left: -8px;
-    background-color: $trans;
+		right: 12.5em;
+		white-space: nowrap;
+		background-color: $trans;
 		border: none;
+		color: $red1;
+		
+		@include res1 {
+			max-width: 7em;
+			white-space: normal;
+			line-height: 1.5em;
+			right: auto;
+			left: 0;
+		}
   }
   &-alt {
     white-space: nowrap;
