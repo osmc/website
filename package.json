@@ -11,18 +11,18 @@
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.9.6",
+    "browser-sync": "^2.9.11",
     "chartist": "^0.9.4",
-    "clappr": "^0.2.13",
+    "clappr": "^0.2.15",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.0.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssimport": "^2.1.1",
     "gulp-cssmin": "^0.1.7",
-    "gulp-uglify": "^1.4.1",
+    "gulp-uglify": "^1.4.2",
     "jquery-validation": "^1.14.0",
-    "normalize-scss": "^3.0.2"
+    "normalize-scss": "^3.0.3"
   }
 }
