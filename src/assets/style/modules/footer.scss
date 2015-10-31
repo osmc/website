@@ -1,10 +1,54 @@
 .footer {
-	padding: 1em 0;
-	border-top: 1px solid $acc4-1;
+	padding: 2em 0;
+	//border-top: 1px solid $acc4-1;
+	background-color: $acc3-4;
+	@include link($acc3-3, $link);
+	
+	p {
+		color: $acc3-3;
+	}
+	
+	a {
+		margin: 0;
+	}
+	
 	&-wrap {
 		padding: 0 1em;
 	}
 	&-size {
-		font-size: $small2;
+		font-size: $small4;
+		line-height: 1.5em;
+	}
+	&-left {
+		text-align: left;
+		
+		@include res1 {
+			text-align: center;
+		}
+	}
+	&-right {
+		text-align: right;
+		
+		@include res1 {
+			text-align: center;
+		}
+	}
+	&-logo {
+		display: inline-block;
+		width: 4em;
+		height: 4em;
+		@include filter(grayscale(100%));
+	}
+	&-desc {
+		display: inline-block;
+		height: 4em;
+		vertical-align: top;
+		padding-top: 0.5em;
+		width: 18em;
+		line-height: 1.5em;
+		text-align: left;
+	}
+	&-links {
+		padding-top: 0.5em;
 	}
 }

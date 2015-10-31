@@ -133,8 +133,8 @@ if ($("body").hasClass("page-wiki")) {
   });
 }
 
-// Corporate
-if ($("body").hasClass("page-corporate-and-legal") && hash().length > 1) {
+// hash scroll
+if (if (hash() !== "donate") && hash().length > 1) {
 	$("html, body").stop().animate({
 		"scrollTop": $("#" + hash()).offset().top
 	}, 200);

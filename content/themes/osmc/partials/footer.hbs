@@ -1,55 +1,26 @@
 <footer class="footer">
   <div class="container">
     <div class="row clearfix footer-wrap">
-			<div class="column-fixed third">
+
+			<div class="column half footer-left">
 				<div class="footer-size">
-					<p>eokwfko</p>
+					<img class="footer-logo" src="{{asset "img/logo/logo2-b.png"}}">
+					<span class="footer-desc">{{@blog.description}}</span>
+					<p>&#169; 2015 OSMC</p>
+					<a href="http://simonbrunton.com" target="_blank" class="designed">Graphic Design by Simon Brunton</a>
+          <br>
+          <a href="http://markthe.is" target="_blank" class="designed">Website Design by Mark Theis Madsen</a>
+				</div>
+			</div>
+			<div class="column half footer-right">
+				<div class="footer-size">
+					<div class="footer-links">
+						<a target="_blank" href="http://stats.osmc.io">System Status</a><br>
+        		<a href="/corporate-and-legal">Corporate and Legal</a><br><br>
+						{{navigation}}
+					</div>
 				</div>
 			</div>
 		</div>
   </div>
 </footer>
-
-<!--
-<footer class="footer">
-  <div class="container">
-    <div class="contentcontainer">
-      <div class="row clearfix">
-
-        <div class="column third widget1">
-        </div>
-
-        <div class="column third widget2">
-
-        </div>
-
-        <div class="column third widget3">
-
-        </div>
-      </div>
-      <div class="footerinfo">
-        <div class="middle">
-          <img src="{{asset "img/logo-l.png"}}">
-          <br>
-          <a href="http://simonbrunton.com" target="_blank" class="designed">Graphic Design by Simon Brunton</a>
-          <br>
-          <a href="http://markthe.is" target="_blank" class="designed">Website Design by Mark Theis Madsen</a>
-          <br>
-          <br>
-          <p>&#169; 2015 OSMC </p>
-
-          <div class="corporate">
-            <a href="http://osmc.tv/about/corporate">Corporate and Legal</a>
-          </div>
-          <div class="status">
-            <a target="_blank" href="http://stats.osmc.io">System Status</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-
--->

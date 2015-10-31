@@ -76,6 +76,7 @@
   }
   &-search {
     display: inline-block;
+		margin-top: 1em;
     &-wrap {
       display: inline-block;
       @include radius1;

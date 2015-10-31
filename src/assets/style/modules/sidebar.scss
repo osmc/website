@@ -87,6 +87,7 @@
       overflow: hidden;
       border: 1px solid $acc3-1;
       margin: 1em 0.5em 0.3em 0;
+			max-width: 13em;
     }
     &-icons {
       display: inline;
@@ -174,9 +175,13 @@
       @extend .slideOutDown;
     }
     input {
+			margin: 0;
       margin-left: 1.8em;
       margin-top: 0.05em;
       width: calc(100% - 1.7em);
+			max-width: 30em;
+			border: none;
+			padding: 0;
     }
     &-form.focus {
       .sidebar-news {

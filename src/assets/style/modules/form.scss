@@ -1,0 +1,27 @@
+form {
+	font-size: $small2;
+}
+
+input, textarea {
+	border: 1px solid $acc3-1;
+	padding: 0.2em 0.4em;
+	margin: 1em;
+	margin-left: 0;
+	margin-bottom: 0;
+	@include radius1;
+}
+
+textarea {
+	width: 30em;
+	height: 8em;
+	max-width: 100%;
+}
+
+input {
+  vertical-align: middle;
+	max-width: 10em;
+  
+  @include input-placeholder {
+    color: $acc3-2;
+  }
+}
