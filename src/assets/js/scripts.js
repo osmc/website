@@ -15,10 +15,7 @@ $("#nav-res-toggle").click(function () {
 });
 
 // FRONT PAGE
-
 var homeClass = "page-home";
-
-// Video
 
 if ($("body").hasClass(homeClass)) {
 
@@ -97,7 +94,6 @@ if ($("body").hasClass(homeClass)) {
 
 };
 
-
 // Download
 $(".download-disk").click(function() {
 	var tables = $(".download-tables");
@@ -138,7 +134,6 @@ if ($("body").hasClass("page-wiki")) {
 }
 
 // Corporate
-
 if ($("body").hasClass("page-corporate-and-legal") && hash().length > 1) {
 	$("html, body").stop().animate({
 		"scrollTop": $("#" + hash()).offset().top
@@ -255,15 +250,12 @@ $.each($(".donate-form"), function (index, oneForm)  {
       var currency = form.find(".radio:checked").val();
 
       if (button.hasClass("donate-paypal"))  {
-        
         var currentUrl = window.location.host + window.location.pathname;
         var paypallink = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=email@samnazarko.co.uk&item_name=OSMC%20Blog%20Donation&item_number=" + currentUrl + "&no_shipping=1&&no_note=1&tax=0&currency_code=" + currency + "&amount=" + amount;
-
         window.open(paypallink);
-
       }
+			
       if (button.hasClass("donate-stripe")) {
-        
         buttonLoadStart();
         var newamount = amount + "00";
         $.getScript("https://checkout.stripe.com/checkout.js", function () {
