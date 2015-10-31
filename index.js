@@ -5,6 +5,7 @@ var httpProxy = require("http-proxy");
 var ghostPath = path.join(__dirname, "node_modules/ghost/");
 var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
+app = express();
 
 require("./helpers/env");
 
@@ -20,8 +21,6 @@ options = {
 ghost(options).then(function(ghostServer) {
 	ghostServer.start();
 });
-
-app = express();
 
 // custom rendering for the wiki
 var theme = __dirname + "/content/themes/osmc";
@@ -81,6 +80,10 @@ app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 	res.redirect("/wiki");
 });
 
+app.get("/help/wiki", function(req, res) {
+	res.redirect("/wiki");
+});
+
 var wiki = require("./helpers/custom").wikiCheck;
 app.get("/wiki/*", function(req, res) {
   var content = wiki(req.url);
@@ -93,6 +96,10 @@ app.get("/wiki/*", function(req, res) {
 
 app.all("/author/*", function(req, res){
   res.redirect("/blog");
+});
+
+app.get("/shop/*", function(req, res){
+  res.redirect("https://store.osmc.tv");
 });
 
 app.all("/*", function(req, res){
