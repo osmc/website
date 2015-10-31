@@ -161,7 +161,7 @@ $(".sidebar-news-form").submit(function(e) {
 	var input = form.find(".sidebar-news-email");
 	var url = form.attr("action");
 	  
-  button.prop('disabled', true);
+  button.prop("disabled", true);
   form.addClass("posting");
   
   $.ajax({
@@ -169,22 +169,19 @@ $(".sidebar-news-form").submit(function(e) {
     type: "POST",
     data: form.serialize(),
     success: function(res) {
-      button.prop('disabled', false);
+      button.prop("disabled", false);
       form.removeClass("posting");
       input.val(subscribeMessage);
 			input.blur();
     },
     error: function(res) {
-      button.prop('disabled', false);
+      button.prop("disabled", false);
       form.removeClass("posting");
       //form.addClass("error");
       input.val(subscribeMessage);
 			input.blur();
     }
   });
-
-    
-
 });
 
 // DONATION
@@ -293,6 +290,29 @@ function stripe(am, cur) {
   });
   
 };
+
+// Contact form
+$(".contact-form").submit(function(e) {
+  e.preventDefault();
+  var form = $(this);
+  var button = form.find("button");
+	var url = form.attr("action");
+  button.prop("disabled", true);
+  
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: form.serialize(),
+    success: function(res) {
+      button.prop("disabled", false);
+			button.text("Message sent");
+    },
+    error: function(res) {
+      button.prop("disabled", false);
+			button.text("Error");
+    }
+  });
+});
 
 // CHARTIST.JS
 if (typeof CTtitle !== "undefined") {
