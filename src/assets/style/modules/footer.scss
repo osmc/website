@@ -1,5 +1,5 @@
 .footer {
-	padding: 2em 0;
+	padding: 2em 0 0;
 	//border-top: 1px solid $acc4-1;
 	background-color: $acc3-4;
 	@include link($acc3-3, $link);
@@ -21,10 +21,6 @@
 	}
 	&-left {
 		text-align: left;
-		
-		@include res1 {
-			text-align: center;
-		}
 	}
 	&-right {
 		text-align: right;
@@ -33,22 +29,54 @@
 			text-align: center;
 		}
 	}
+	&-info {
+		display: table;
+		
+		@include res1 {
+			margin: 0 auto;
+		}
+	}
+	
+	$s: 3.5em;
 	&-logo {
-		display: inline-block;
-		width: 4em;
-		height: 4em;
+		display: table-cell;
+		width: $s;
+		height: $s;
 		@include filter(grayscale(100%));
+		opacity: 0.9;
 	}
 	&-desc {
-		display: inline-block;
-		height: 4em;
-		vertical-align: top;
-		padding-top: 0.5em;
+		display: table-cell;
 		width: 18em;
-		line-height: 1.5em;
 		text-align: left;
+		vertical-align: middle;
 	}
+	
 	&-links {
-		padding-top: 0.5em;
+		padding-top: 0.3em;
+	}
+	
+	&-bottom {
+		margin-top: 0;
+		
+		&-wrap {
+			border-top: 1px solid $acc3-1;
+			position: relative;
+			padding: 1em 0;
+			font-size: $small4;
+		}
+	}
+	&-c {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+		display: table;
+		
+		&-text {
+			display: table-cell;
+			vertical-align: middle;
+		}
 	}
 }
