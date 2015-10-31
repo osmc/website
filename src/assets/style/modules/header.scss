@@ -1,0 +1,45 @@
+.header {
+	position: absolute;
+	width: 100%;
+	margin: 4em 0 0;
+	
+	.page-home & {
+		z-index: 1;
+	}
+}
+$color: $acc3-3;
+$hover: $link;
+
+.nav {
+	font-weight: 400;
+	float: right;
+	
+	&-ul {
+		padding: 0;
+		list-style: none;
+		@include link($color, $hover);
+		
+		.page-home & {
+			@include link($white, $hover);
+		}
+		
+		a {
+			@include ani1;
+			padding-bottom: 0.1em;
+		}
+		
+		li {
+			display: inline-block;
+			margin: 0 0.5em;
+		}
+	}
+	&-current {
+		a, a:visited {
+			//border-bottom: 2px solid $color;
+			color: $link;
+			&:hover, &:focus, &:active {
+				//border-bottom: 2px solid $color;
+			}
+		}
+	}
+}

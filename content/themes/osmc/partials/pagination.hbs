@@ -2,21 +2,21 @@
 	{{^is "tag"}}
 	
 		{{#if prev}}
-			<a class="newer-posts" href="{{url}}blog/page/{{prev}}">&larr; Newer</a>
+			<a class="newer-posts" href="{{url}}blog/page/{{prev}}"><span class="more">&loarr;</span> Newer</a>
 		{{/if}}
 		<span class="page-number">Page {{page}} of {{pages}}</span>
 		{{#if next}}
-			<a class="older-posts" href="{{url}}blog/page/{{next}}">Older &rarr;</a>
+			<a class="older-posts" href="{{url}}blog/page/{{next}}">Older <span class="more">&roarr;</span></a>
 		{{/if}}
 
 	{{else}}
 	
 		{{#if prev}}
-			<a class="newer-posts" href="{{page_url prev}}">&larr; Newer</a>
+	<a class="newer-posts" href="{{page_url prev}}"><span class="more">&loarr;</span> Newer</a>
 		{{/if}}
 		<span class="page-number">Page {{page}} of {{pages}}</span>
 		{{#if next}}
-			<a class="older-posts" href="{{page_url next}}">Older &rarr;</a>
+	<a class="older-posts" href="{{page_url next}}">Older <span class="more">&roarr;</span></a>
 		{{/if}}
 	
 	{{/is}}

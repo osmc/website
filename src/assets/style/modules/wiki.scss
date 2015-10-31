@@ -93,6 +93,10 @@
       }
     }
     &-input {
+			padding: 0;
+			border: none;
+			max-width: 20em;
+			margin: 0;
       vertical-align: baseline;
     }
   }
