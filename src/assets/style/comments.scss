@@ -1,5 +1,5 @@
 @import "partials/global";
-@include link($link, $black);
+@include link2;
 body {
   font-size: $small1;
   overflow-y: auto;
@@ -36,12 +36,12 @@ article.post {
     }
   }
   .in-reply-to {
-    @include hover($acc2-1);
+    @include hover($link2);
     color: $link;
     font-size: $small2;
   }
   .post-date {
-    @include hover($acc2-1);
+    @include hover($link2);
     color: $link;
     font-size: $small2;
   }
@@ -97,7 +97,7 @@ article.post {
       @include link;
     }
     .onebox-body {
-      @include link($link, $black);
+      @include link2;
     }
   }
 }

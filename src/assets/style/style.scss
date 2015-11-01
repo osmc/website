@@ -30,8 +30,14 @@ abbr[title] {
 }
 
 .bloglist {
-	@include link($link, $black);
+	@include link2;
 	
+	&-title {
+		margin: 0;
+	}
+	&-meta {
+		color: $acc3-3;
+	}
   &-post {
     margin: 0 0 2em;
   }
@@ -39,6 +45,7 @@ abbr[title] {
 		font-size: $small2;
 	}
 }
+
 .more {
 	font-size: $big4;
 }

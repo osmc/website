@@ -75,7 +75,7 @@ p {
 }
 
 blockquote {
-  background-color: $acc3-4;
+  background-color: $quote;
   margin: 0;
   padding: 0.1em 0.5em 0.1em 1em;
 }
@@ -92,7 +92,7 @@ button, .button {
 }
 
 pre {
-  background-color: $acc1-2;
+  background-color: $pre;
   line-height: 1.3em;
   @include box-shadow($white 0 0 8px);
   

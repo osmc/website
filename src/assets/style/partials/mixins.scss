@@ -35,12 +35,6 @@
 }
 
 
-$link: $acc1-1;
-$link-hover: $acc1-4;
-$link-bottom: rgba(0, 0, 0, 0.08);
-$link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
-
-
 @mixin link ($color: null, $color-hover: null) {
   
   $border-bottom: null;
@@ -80,6 +74,10 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
   
 }
 
+@mixin link2 {
+	@include link($link, $link2);
+}
+
 @mixin hover ($color, $setting: null) {
   
   @if $setting == "back" {
@@ -103,11 +101,11 @@ $link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
 	
   @if $back {
   } @else {
-      $back: $acc1-5;
+      $back: $link;
   }
   @if $hover {
   } @else {
-      $hover: $acc1-4;
+      $hover: $link-hover;
   }
   @if $height {
   } @else {

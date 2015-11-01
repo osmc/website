@@ -7,8 +7,9 @@
 		z-index: 1;
 	}
 }
-$color: $acc3-3;
-$hover: $link;
+$text: $acc3-3;
+$color: $link;
+$hover: $link2;
 
 .nav {
 	font-weight: 400;
@@ -17,11 +18,11 @@ $hover: $link;
 	&-ul {
 		padding: 0;
 		list-style: none;
-		@include link($color, $hover);
+		@include link($text, $hover);
 		@include columns(1em 2);
 		
 		.page-home & {
-			@include link($white, $hover);
+			@include link($white, $color);
 		}
 		
 		a {
@@ -35,10 +36,12 @@ $hover: $link;
 	}
 	&-current {
 		a, a:visited {
-			//border-bottom: 2px solid $color;
-			color: $link;
+			padding-bottom: 1px;
+			border-bottom: 2px solid $acc3-4;
+			color: $color;
 			&:hover, &:focus, &:active {
-				//border-bottom: 2px solid $color;
+				color: $hover;
+				border-bottom: 2px solid $hover;
 			}
 		}
 	}

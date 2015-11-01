@@ -41,12 +41,12 @@
 			
 			&:hover, &:focus, &:active {
 				.download-system-title {
-					color: $link;
+					color: $link2;
 				}
 				svg {
 					path {
 						@include ani1;
-						fill: $link;
+						fill: $link2;
 					}
 				}
 			}
@@ -100,5 +100,8 @@
 				stroke-width: 6;
 			}
 		}
+	}
+	&-ad {
+		margin: 2em 0;
 	}
 }

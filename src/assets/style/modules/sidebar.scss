@@ -36,7 +36,7 @@
       margin-right: 0.6em;
       margin-bottom: 0.15em;
     }
-    $hover: $acc2-1;
+    $hover: $link2;
     .link {
       list-style: none;
       padding: 0;
@@ -228,8 +228,8 @@
         &-check {
           svg {
             path {
-              fill: $red1;
-              stroke: $red1;
+              fill: $acc5-1;
+              stroke: $acc5-1;
             }
           }
         }
