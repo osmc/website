@@ -35,6 +35,8 @@
 		display: table;
 		
 		@include res1 {
+			display: block;
+			text-align: center;
 			margin: 0 auto;
 		}
 	}
@@ -46,6 +48,11 @@
 		height: $s;
 		@include filter(grayscale(100%));
 		opacity: 0.9;
+		
+		@include res1 {
+			display: block;
+			margin: 0 auto;
+		}
 	}
 	&-desc {
 		display: table-cell;
@@ -53,6 +60,21 @@
 		text-align: left;
 		vertical-align: middle;
 		padding-left: 0.5em;
+		
+		@include res1 {
+			text-align: center;
+			display: inline-block;
+		}
+	}
+	
+	&-break {
+		display: none;
+		@include res1 {
+			width: 5em;
+			border-top: 1px solid $acc3-1;
+			display: block;
+    	margin: 1em auto 0.5em;
+		}
 	}
 	
 	&-links {
@@ -64,7 +86,7 @@
 			padding: 2em 0;
 			border-top: 1px solid $acc3-1;
 			position: relative;
-			font-size: $small4;
+			font-size: 75%;
 			
 			@include link($acc3-2, $link);
 			color: $acc3-2;

@@ -406,7 +406,6 @@
 
 				@include res1 {
 					text-align: center;
-					margin: 1em 0;
 				}
 
 				li {
@@ -451,6 +450,11 @@
 						border-style: solid;
 						border-width: 0 $icon-size ( $icon-size * 2) $icon-size;
 						pointer-events: none;
+						
+						@include res1 {
+							top: 1em;
+							left: -2em;
+						}
 					}
 					h3,
 					p,
@@ -488,6 +492,10 @@
 					.icon {
 						opacity: 1;
 						left: -1.5em;
+						
+						@include res1 {
+							left: -1em;
+						}
 					}
 					p,
 					h3 {
@@ -506,14 +514,23 @@
 				}
 				.link1 {
 					.icon {
+						top: 0.15em;
 						@include transform(rotate(25deg));
 						border-color: transparent transparent #9ed48b transparent;
+						
+						@include res1 {
+							top: 1em;
+						}
 					}
 				}
 				.link2 {
 					.icon {
 						@include transform(rotate(-20deg));
 						border-color: transparent transparent #edc0c3 transparent;
+						
+						@include res1 {
+							top: 1em;
+						}
 					}
 				}
 				.link3 {
@@ -521,6 +538,10 @@
 						top: 0.15em;
 						@include transform(rotate(50deg));
 						border-color: transparent transparent #4c9aed transparent;
+						
+						@include res1 {
+							top: 1em;
+						}
 					}
 				}
 				.link4 {
@@ -528,6 +549,10 @@
 						top: 0.5em;
 						@include transform(rotate(140deg));
 						border-color: transparent transparent #56c49e transparent;
+						
+						@include res1 {
+							top: 1em;
+						}
 					}
 				}
 			}

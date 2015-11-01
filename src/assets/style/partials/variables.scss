@@ -72,7 +72,7 @@ $acc3-3: $grey3;
 $acc3-4: $grey4;
 
 $acc4-1: $gold1;
-$acc4-2: lighten($acc4-1, 7%);
+$acc4-2: darken($acc4-1, 7%);
 
 // Social
 $facebook: #3b5998;

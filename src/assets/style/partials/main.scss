@@ -112,13 +112,12 @@ pre {
 }
 
 code {
-  font-size: $small3;
+  font-size: $small2;
   font-family: $font-code;
   color: $acc1-1;
   background-color: $acc3-4;
   padding: 0 0.2em 0.1em;
   @include radius1;
-  vertical-align: top;
 	word-break: break-all;
 }
 
