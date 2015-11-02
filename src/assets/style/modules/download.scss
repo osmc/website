@@ -41,12 +41,12 @@
 			
 			&:hover, &:focus, &:active {
 				.download-system-title {
-					color: $link2;
+					color: $link;
 				}
 				svg {
 					path {
 						@include ani1;
-						fill: $link2;
+						fill: $link;
 					}
 				}
 			}

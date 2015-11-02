@@ -56,15 +56,14 @@ $brand-red: #E44D51;
 
 $red2: #fc4f4f;
 
-
 // Accent colors
-$acc1-1: $brand-blue;
+$acc1-1: $blue1;
 $acc1-2: $blue2;
 $acc1-3: $blue3;
 $acc1-4: $blue4;
 $acc1-5: $blue5;
 
-$acc2-1: $brand-green;
+$acc2-1: $green1;
 $acc2-2: $green2;
 $acc2-3: $green3;
 
@@ -82,11 +81,11 @@ $acc5-2: $red2;
 
 // Links
 $link: $acc1-1;
-$link-hover: $acc1-1;
+$link-hover: $brand-blue;
 $link-bottom: rgba(0, 0, 0, 0.08);
-$link-bottom-hover: adjust-hue( lighten( $link, 30% ), 22% );
+$link-bottom-hover: adjust-hue( lighten( $acc1-1, 30% ), 10% );
 
-$link2: $acc1-5;
+$link2: $brand-blue;
 
 // etc.
 

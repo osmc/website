@@ -21,13 +21,14 @@ $hover: $link2;
 		@include link($text, $hover);
 		@include columns(1em 2);
 		
-		.page-home & {
-			@include link($white, $color);
-		}
-		
 		a {
 			@include ani1;
 			padding-bottom: 0.1em;
+			
+			&:hover, &:focus, &:active {
+				color: $color;
+				border-bottom: none;
+			}
 		}
 		
 		li {
