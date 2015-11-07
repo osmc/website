@@ -106,7 +106,7 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost"], function () {
+gulp.task("default", ["ghost", "style", "comments", "js"], function () {
   gulp.watch([style + "**/*", !style + "comments.scss"], ["style"]);
   gulp.watch(style + "comments.*", ["comments"]);
   gulp.watch(js + "scripts.js", ["js-reload"]);

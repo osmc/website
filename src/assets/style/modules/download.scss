@@ -1,5 +1,14 @@
 .download {
 	
+	&-devices {
+		text-align: center;
+		svg {
+			width: auto;
+			height: 12em;
+			vertical-align: middle;
+		}
+	}
+	
   &-systems {
     text-align: center;
 		margin: 2.5em 0;
