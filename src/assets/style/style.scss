@@ -8,6 +8,7 @@
 @import "modules/home";
 @import "modules/sidebar";
 @import "modules/post";
+@import "modules/blog";
 @import "modules/download";
 @import "modules/wiki";
 @import "modules/donate";
@@ -21,42 +22,6 @@
 
 abbr[title] {
   border-bottom: none;
-}
-
-.pagination {
-	margin-top: 4em 0;
-	font-size: $small2;
-	text-align: center;
-}
-
-.bloglist {
-	@include link2;
-	
-	&-title {
-		margin: 0;
-	}
-	&-meta {
-		color: $acc3-3;
-	}
-  &-post {
-    margin: 0 0 2em;
-  }
-	&-excerpt {
-		font-size: $small2;
-	}
-}
-
-.more {
-	font-size: $big4;
-}
-
-.main {
-	margin-top: 8em;
-  margin-bottom: 4em;
-	
-	.page-home & {
-		margin-top: 0;
-	}
 }
 
 // ie

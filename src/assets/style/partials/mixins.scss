@@ -5,146 +5,141 @@
 }
 
 @mixin ani1 {
-	@include animation-duration($ani-duration1);
+	@include transition($ani-duration1);
 }
 @mixin ani2 {
-	@include animation-duration($ani-duration2);
+	@include transition($ani-duration2);
 }
 
 @mixin radius1 {
 	@include border-radius($b-radius1);
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
-  &::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
-  }
-
-  &::-webkit-scrollbar-thumb {
-      background: $foreground-color;
-  }
-
-  &::-webkit-scrollbar-track {
-      background: $background-color;
-  }
-
-  // For Internet Explorer
-  scrollbar-face-color: $foreground-color;
-  scrollbar-track-color: $background-color;
-}
-
-
-@mixin link ($color: null, $color-hover: null) {
-  
-  $border-bottom: null;
-  $border-bottom-hover: null;
-    
-  @if $color {
-    $border-bottom: 0px;
-    $border-bottom-hover: 0px;
-  } @else {
-    $color: $link;
-    $color-hover: $link-hover;
-    $border-bottom: 2px solid $link-bottom;
-    $border-bottom-hover: 2px solid $link-bottom-hover;
-  }
-  
-  a {
+// Underline
+@mixin link {
+	$color: $link;
+	$border-bottom: 2px solid $link-bottom;
+	$border-bottom-hover: 2px solid $link-bottom-hover;
+	
+	a {
     color: $color;
-    text-decoration: none;
     border-bottom: $border-bottom;
-    @include ani1;
-    @include transition-timing-function(ease);
     
     &:visited {
       color: $color;
       border-bottom: $border-bottom;
     }
     &:hover, &:active, &:focus {
-      color: $color-hover;
+      color: $color;
       border-bottom: $border-bottom-hover;
-      
-      img {
-        opacity: 0.6;
-      }
-      
     }
   }
-  
 }
 
+// blue hover
 @mixin link2 {
-	@include link($link, $link2);
-}
-
-@mixin hover ($color, $setting: null) {
-  
-  @if $setting == "back" {
-    $setting: "background-color";
-  } @else {
-    $setting: "color";
-  }
-  
-  &:hover {
-    #{$setting}: $color;
-  }
-  &:active {
-    #{$setting}: $color;
-  }
-  &:focus {
-    #{$setting}: $color;
-	}
-}
-
-@mixin button ($back: null, $hover: null, $height: null, $homepage: null) {
 	
-  @if $back {
-  } @else {
-      $back: $link;
+	$color: $link;
+	$color-hover: $black;
+	
+  a, a:visited {
+    color: $color;
+		border-bottom: 0;
+
+    &:hover, &:active, &:focus {
+      color: $color-hover;
+			border-bottom: 0;
+    }
   }
-  @if $hover {
-  } @else {
-      $hover: $link-hover;
+}
+
+// black to blue
+@mixin link3 {
+	
+  a, a:visited {
+		color: $black;
+		border-bottom: 0;
+
+    &:hover, &:active, &:focus {
+      color: $link;
+			border-bottom: 0;
+    }
   }
-  @if $height {
-  } @else {
-     $height: 0.15em;
-  }
-  
-  @if $homepage {
-    background-color: $back;
-    color: $white;
-    @include transition-duration($ani-duration1);
-  } @else {
-    display: inline-block;
-    font-size: $small2;
-    border: 0;
-    @include radius1;
-    color: $white;
-    background-color: $back;
-    padding: $height 0.7em;
-    margin: 0.3em 0.3em 0.3em 0;
-    cursor: pointer;
-    @include transition-duration($ani-duration1);
-  }
-  border-bottom: 0px;
-  
+}
+@mixin link-share($color, $hover) {
+	
+	a, a:visited {
+		color: $color;
+		
+		&:hover, &:active, &:focus {
+      color: $hover;
+    }
+	}
+}  
+
+@mixin button {
+
+	display: inline-block;
+	font-size: $small2;
+	border: 0;
+	@include radius1;
+	color: $white;
+	background-color: $button;
+	padding: 0.15em 0.7em;
+	margin: 0.3em 0.3em 0.3em 0;
+	cursor: pointer;
+	@include ani1;
+	border-bottom: 0;
+ 
   &:visited {
+		background-color: $button;
     color: $white;
   }
 	
   &:hover, &:active, &:focus {
     color: $white;
+		background-color: $button-hover;
     border-bottom: 0px;
   }
-  
-  // color hover
-  @include hover($white);
-
-  // background hover
-  @include hover($hover, back);
 }
+
+
+@mixin button-share($color, $hover) {
+	
+	@include button;
+	color: $white;
+	background-color: $color;
+	padding: 0 0.5em;
+	margin: 0 0.5em 0 0;
+	
+	&:visited {
+		color: $white;
+		background-color: $color;
+  }
+	
+	&:hover, &:active, &:focus {
+		color: $white;
+		background-color: $hover;
+	}
+}
+
+@mixin button-home($color, $hover) {
+	
+	@include button;
+	background-color: $color;
+	padding: 0.5em 0.7em;
+	margin: 0;
+	font-size: $big1;
+	
+	&:visited {
+		background-color: $color;
+  }
+	
+	&:hover, &:active, &:focus {
+		background-color: $hover;
+	}
+}
+	
 
 // Standard Shadows
 $z1-shadow: 0  1px  3px rgba(#000, 0.12), 0  1px  2px rgba(#000, 0.24);
@@ -156,13 +151,14 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 @mixin button-alt1 {
 	@include button;
 	background-color: $acc2-1;
-	@include hover($acc2-3, back);
-}
-
-@mixin button-alt2 {
-	@include button;
-	background-color: $acc3-2;
-	@include hover($acc3-3, back);
+	
+	&:visited {
+		background-color: $acc2-1;
+	}
+	&:hover, &:active, &:focus {
+		background-color: $acc2-3;
+	}
+	
 }
 
 @mixin ani-news {
@@ -184,6 +180,24 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
   }
 }
 
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  scrollbar-face-color: $foreground-color;
+  scrollbar-track-color: $background-color;
+}
 
 @-webkit-keyframes slideOutDown {
   from {

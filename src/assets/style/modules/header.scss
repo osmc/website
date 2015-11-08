@@ -1,48 +1,158 @@
 .header {
-	position: absolute;
 	width: 100%;
-	margin: 4em 0 0;
+	padding: 4em 0;
+	border-bottom: 2px solid $acc3-4;
+	@include background-image(linear-gradient(to top, $white 0%, $acc3-4 100%));
+	position: relative;
 	
 	.page-home & {
 		z-index: 1;
+		position: absolute;
+		border-top: 0;
+		border-bottom: 0;
+		@include background-image(none);
+		
+		&-logo {
+			display: none;
+		}
+	}
+	
+	$c1: #0076a7;
+	$c2: #1092B3;
+	$c3: #2a9ecc;
+	$c4: #107bb3;
+	$c5: #2C989A;
+	$c6: #008FC2;
+	$c7: #1b518e;
+	$c8: #059fd6;
+	
+	&-top {
+		width: 100%;
+		height: 0.2em;
+		@include background-image(linear-gradient(
+			to right, 
+			$c1 9%,
+			$c2 9%,
+			$c2 20%,
+			$c3 20%,
+			$c3 30%,
+			$c4 30%,
+			$c4 55%,
+			$c5 55%,
+			$c5 68%,
+			$c6 68%,
+			$c6 80%,
+			$c7 80%,
+			$c7 90%,
+			$c8 90%
+		));
+		
+		.page-home & {
+			display: none;
+		}
+		
+		svg {
+			width: 100%;
+		}
+	}
+
+	&-wrap {
+		position: relative;
+	}
+	
+	$w: 3em;
+	&-logo {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		width: $w;
+		height: $w;
+		overflow: visible;
+		
+		a {
+			border-bottom: 0;
+		}
+		
+		svg {
+			width: $w;
+			height: auto;
+			
+			path {
+				fill: $brand-dblue;
+			}
+		}
 	}
 }
-$text: $acc3-3;
+$text: $black;
 $color: $link;
 $hover: $link2;
 
 .nav {
 	font-weight: 400;
-	float: right;
+	@include radius1;
+	padding: 0.5em;
+	text-align: center;
 	
+	.page-home & {
+		text-align: right;
+	}
+
 	&-ul {
 		padding: 0;
 		list-style: none;
-		@include link($text, $hover);
-		@include columns(1em 2);
+		@include link3;
+		font-size: $small1;
+		z-index: 1;
+		display: inline-block;
 		
 		a {
 			@include ani1;
-			padding-bottom: 0.1em;
+			@include text-shadow(1px 1px 0px $acc3-4);
 			
-			&:hover, &:focus, &:active {
-				color: $color;
-				border-bottom: none;
+			.page-home & {
+				color: $white;
+				opacity: 0.8;
+				@include text-shadow(0px 0px 0px);
 			}
 		}
 		
+		$pp: 0.75em;
+		
 		li {
-			margin: 0 0.5em;
+			display: inline-block;
+			padding: 0 $pp;
+			text-align: left;
+			
+			.page-home & {
+				//display: block;
+			}
+
+			
+			$p: 3.5em;
+			
+			&:nth-child(3) {
+				padding-right: $p;
+				.page-home & {
+					padding-right: $pp;
+				}
+			}
+			&:nth-child(4) {
+				padding-left: $p;
+				.page-home & {
+					padding-left: $pp;
+				}
+			}
 		}
 	}
 	&-current {
 		a, a:visited {
 			padding-bottom: 1px;
-			border-bottom: 2px solid $acc3-4;
 			color: $color;
 			&:hover, &:focus, &:active {
-				color: $hover;
-				border-bottom: 2px solid $hover;
+				color: $color;
 			}
 		}
 	}

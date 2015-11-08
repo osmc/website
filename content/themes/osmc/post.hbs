@@ -4,35 +4,37 @@
   <div class="container">
     <article class="column full post-body">
       
-      <header class="post-header column three-fourths">
+      <header class="column three-fourths post-three post-header">
         <h1 class="post-title">{{title}}</h1>
         <section class="post-meta">
-          {{#author}}
-          <span>By </span><span class="post-author">{{name}}</span><span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-          {{/author}}
           <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
             {{date format="DD MMMM YYYY"}}
           </time>
           <span class="post-tags">{{tags prefix=""}}</span>
         </section>
       </header>
+			
+			<div class="column three-fourths post-three post-break">
+				{{> break}}
+			</div>
       
-      <div class="column three-fourths">
-        {{> break}}
-        <section class="post-content">
-          {{content}}
-        </section>
-
-        {{> break}}
-
-        <footer class="post-footer">
-          {{> share-buttons}}
-        </footer>
-
-        {{> break}}
-
-        {{> comments}}
+      <div class="column three-fourths post-three post-content">
+				
+				{{content}}
+				
+				{{> break}}
+				
+				<footer class="post-footer">
+					{{> share-buttons}}
+				</footer>
+				
+				{{> break}}
+				
+				{{> comments}}
+				
       </div>
+			
+			
       
       {{> sidebar}}
       

@@ -3,7 +3,7 @@ $blue-s1: #2e9db8;
 $blue-s2: #107aaf;
 $blue-s3: #0C5B8E;
 
-$line-h: 1.6em;
+$line-h: 1.7em;
 
 $big1: 105%;
 $big2: 110%;
@@ -32,8 +32,8 @@ $trans: transparent;
 $blue1: #0f8ccb;
 $blue2: rgb(206, 226, 247);
 $blue3: lighten($blue2, 7%);
-$blue4: #2C86A5;
-$blue5: #53b5e6;
+$blue4: darken($blue1, 10%);
+$blue5: #4facdb;
 $blue6: #003450;
 
 // Green
@@ -81,11 +81,14 @@ $acc5-2: $red2;
 
 // Links
 $link: $acc1-1;
-$link-hover: $brand-blue;
+$link-hover: $acc1-4;
 $link-bottom: rgba(0, 0, 0, 0.08);
-$link-bottom-hover: adjust-hue( lighten( $acc1-1, 30% ), 10% );
+$link-bottom-hover: adjust-hue( lighten( $acc1-1, 27% ), 15% );
 
 $link2: $brand-blue;
+
+$button: $acc1-5;
+$button-hover: $acc1-1;
 
 // etc.
 

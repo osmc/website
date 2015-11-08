@@ -100,7 +100,7 @@ if ($("body").hasClass(homeClass)) {
 };
 
 // Download
-$(".download-disk").click(function () {
+$(".download-disk-button").click(function () {
 	var tables = $(".download-tables");
 	if (tables.hasClass("show")) {
 		tables.removeClass("show");
@@ -398,7 +398,7 @@ function isVisible(elem, offset) {
 }
 
 function comments(visible) {
-	if (visible && !commentsLoaded) {
+	if (visible && commentsLoaded === false) {
 		commentsLoaded = true;
 		DiscourseEmbed = {
 			discourseUrl: "https://discourse.osmc.tv/",

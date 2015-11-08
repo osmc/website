@@ -29,6 +29,9 @@ article.post {
   float: left;
   width: 100%;
   padding: 0.5em 0;
+	
+	@include link2;
+	
   .author {
     padding: 7px 5px;
     img {
@@ -36,13 +39,9 @@ article.post {
     }
   }
   .in-reply-to {
-    @include hover($link2);
-    color: $link;
     font-size: $small2;
   }
   .post-date {
-    @include hover($link2);
-    color: $link;
     font-size: $small2;
   }
   .cooked {
@@ -51,7 +50,8 @@ article.post {
       @include link;
     }
     .button {
-      @include button(null, null, 0);
+      @include button;
+			padding: 0 0.7em;
     }
     .username {
       @include link;

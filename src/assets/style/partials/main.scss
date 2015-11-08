@@ -1,4 +1,9 @@
-@include link;
+a, a:visited {
+	color: $black;
+	border-bottom: 0;
+	text-decoration: none;
+	@include ani1;
+}
 
 html,
 body,
@@ -29,11 +34,34 @@ body {
 }
 
 body {
-  background-color: $back;
+  //background-color: aliceblue;
   color: $dark;
   margin: 0;
   overflow-y: scroll;
   //@include scrollbars(0.8em, $acc3-1, $back);
+	
+	.page-home & {
+		background-color: $white;
+	}
+}
+
+.body-wrap {
+	//margin: 1em;
+	background-color: $white;
+	@include radius1;
+	
+	.page-home & {
+		margin: 0;
+		background-color: $trans;
+	}
+}
+
+.main {
+  margin-bottom: 4em;
+	
+	.page-home & {
+		margin-top: 0;
+	}
 }
 
 img {
@@ -59,6 +87,11 @@ hr {
   margin: 1.5em 0;
 }
 
+h1 {
+	font-size: 2.1em;
+	@include text-shadow(1px 1px 0px $acc3-4);
+}
+
 h1,
 h2,
 h3,
@@ -80,22 +113,27 @@ blockquote {
   padding: 0.1em 0.5em 0.1em 1em;
 }
 
+$bp: 0 0.7em;
+
 button, .button {
   @include button;
 
-  &-alt1 {		
+  &-alt1 {
     @include button-alt1;
-  }
-  &-alt2 {
-    @include button-alt2;
-  }
+	}
+}
+
+button.button, span.button {
+	padding: $bp;
+  &-alt1 {
+		padding: $bp;
+	}
 }
 
 pre {
   background-color: $pre;
   line-height: 1.3em;
   @include box-shadow($white 0 0 8px);
-  
   padding: 1em;
   white-space: pre-wrap;
   max-height: 400px;
@@ -105,17 +143,17 @@ pre {
   code {
     font-size: $small3;
     display: block;
-    color: $black;
+    color: $pre-text;
     background-color: $trans;
 		word-break: normal;
   }
 }
 
 code {
-  font-size: $small2;
+  font-size: $small3;
   font-family: $font-code;
-  color: $acc1-1;
-  background-color: $acc3-4;
+  color: $code;
+  background-color: $code-back;
   padding: 0 0.2em 0.1em;
   @include radius1;
 	word-break: break-all;
@@ -127,7 +165,7 @@ code {
   padding: 0.19em 0;
   background-color: $back;
   
-  $dot: $back;
+  $dot: $acc1-1;
   $dot2: $acc1-1;
   
   $gradient: 135deg, $dot2, $dot 1px, transparent 1px, transparent 3px, $dot 3px;

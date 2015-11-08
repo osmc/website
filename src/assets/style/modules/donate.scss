@@ -3,7 +3,7 @@
   @include transition(max-height 0.3s ease-in);
 	
 	@include res1 {
-		max-height: 320px;
+		max-height: 330px;
 	}
 }
 
@@ -25,6 +25,8 @@
     border-left: 1px solid $acc3-1;
 		
 		@include res1 {
+			font-size: $small2;
+			line-height: 1.5em;
 			border-left: none;
 		}
   }
@@ -77,26 +79,32 @@
 			text-align: center;
 		}
     .amount {
+			display: inline-block;
+			line-height: 1.7em;
       width: 2.5em;
       margin: 0 0.5em;
+			padding: 0;
       text-align: center;
 			@include radius1;
 			border: 1px solid $acc3-1;
 			position: relative;
-			height: 25.5px;
-			vertical-align: top;
-			font-size: $small1;
+			vertical-align: middle;
+			font-size: $small2;
     }
     .radio {
       display: none;
     }
     label {
+			display: inline-block;
+			line-height: 1.7em;
+			vertical-align: middle;
       cursor: pointer;
       background-color: $trans;
 			border: 1px solid $acc3-1;
-      padding: 0.2em 0.4em;
+      padding: 0 0.4em;
       font-size: $small1;
       @include radius1;
+			font-size: $small2;
     }
     .radio:checked + label {
       background-color: $acc3-1;
@@ -172,7 +180,7 @@
   #amount-error {
     position: absolute;
     font-size: $small2;
-    top: -3px;
+    top: 5px;
 		right: 12.5em;
 		white-space: nowrap;
 		background-color: $trans;
@@ -183,6 +191,7 @@
 			max-width: 7em;
 			white-space: normal;
 			line-height: 1.5em;
+			top: 0;
 			right: auto;
 			left: 0;
 		}
@@ -190,6 +199,7 @@
   &-alt {
     white-space: nowrap;
 		float: right;
+		@include link;
 		
 		@include res1 {
 			float: none;

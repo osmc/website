@@ -4,8 +4,9 @@
 		text-align: center;
 		svg {
 			width: auto;
-			height: 12em;
+			height: 8em;
 			vertical-align: middle;
+			padding: 0 3em;
 		}
 	}
 	
@@ -16,7 +17,8 @@
   &-system {
     font-size: $small2;
     line-height: 1.2em;
-    @include link($black, $black);
+    @include link3;
+		
     svg {
       $s: 4.5em;
       width: $s;
@@ -85,8 +87,11 @@
     }
   }
 	&-disk {
-		cursor: pointer;
-		position: relative;
+		
+		&-button {
+			cursor: pointer;
+			position: relative;
+		}
 		
 		&-text {
 			//vertical-align: bottom;

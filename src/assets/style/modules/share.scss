@@ -1,5 +1,4 @@
 .share {
-  @include link($white, $white);
   width: 100%;
   overflow: auto;
   font-size: $small1;
@@ -32,24 +31,31 @@
   &-text {
     padding: 0 0.2em;
     display: inline-block;
+		color: $white;
   }
+	
+	a, a:visited {
+		border-bottom: 0;
+		
+		&:hover, &:active, &:focus {
+			border-bottom: 0;
+		}
+	}
+	
   &-facebook {
-    $color: $facebook;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 15%), 8%), back);
+    @include button-share($facebook, saturate(lighten($facebook, 15%), 8%));
     svg {
       width: 1.05em;
       height: 1.05em;
     }
   }
+	
   &-twitter {
-    $color: $twitter;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 7%), 20%), back);
+    @include button-share($twitter, saturate(lighten($twitter, 7%), 20%));
   }
+	
   &-google {
-    $color: $google;
-    background-color: $color;
-    @include hover(saturate(lighten($color, 9%), 10%), back);
+    @include button-share($google, saturate(lighten($google, 9%), 10%));
   }
+	
 }

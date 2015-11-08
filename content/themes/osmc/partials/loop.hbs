@@ -1,19 +1,19 @@
-<section class="column three-fourths bloglist">
-  {{#foreach posts}}
-    <article class="bloglist-post {{post_class}}">
-      <header class="post-header">
-        <h2 class="post-title bloglist-title"><a href="{{url}}">{{{title}}}</a></h2>
-        <section class="post-meta bloglist-meta">
-          <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
-            {{date format="DD MMMM YYYY"}}
-          </time>
-          <span class="post-tags">{{tags prefix=""}}</span>
-        </section>
-      </header>
-      <section class="bloglist-excerpt">
-        <p>{{excerpt words="50"}} &nbsp;&nbsp;<a class="bloglist-more more" href="{{url}}">&roarr;</a></p>
-      </section>
-    </article>
-  {{/foreach}}
-	{{pagination}}
-</section>
+<div class="bloglist-wrap">
+	{{#foreach posts}}
+		<article class="bloglist-post {{post_class}}">
+			<header class="post-header">
+				<h2 class="post-title bloglist-title"><a href="{{url}}">{{{title}}}</a></h2>
+				<section class="post-meta bloglist-meta">
+					<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+						{{date format="DD MMMM YYYY"}}
+					</time>
+					<span class="post-tags">{{tags prefix=""}}</span>
+				</section>
+			</header>
+			<section class="bloglist-content">
+				<p>{{excerpt words="50"}} &nbsp;&nbsp;<span class="bloglist-more more"><a href="{{url}}">&roarr;</a></span></p>
+			</section>
+		</article>
+	{{/foreach}}
+</div>
+{{pagination}}

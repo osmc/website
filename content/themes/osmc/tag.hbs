@@ -2,10 +2,19 @@
 <div class="row clearfix main tag">
   <div class="container">
     <section class="column full post-body">
-      <header class="column three-fourths post-header">
+			
+      <header class="column three-fourths post-three post-header">
         <h1 class="post-title">Tag: {{tag.name}}</h1>
       </header>
-      {{> "loop"}}
+			
+			<div class="column three-fourths post-three post-break">
+				{{> break}}
+			</div>
+			
+      <div class="column three-fourths post-three post-list">
+      	{{> "loop"}}
+			</div>
+			
       {{> sidebar}}
     </section>
   </div>
