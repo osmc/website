@@ -152,6 +152,9 @@
       margin: auto;
       @include ani-news;
     }
+		&-mail {
+			top: -1px;
+		}
     &-check {
       background-color: $trans;
       padding: 0;
