@@ -2,11 +2,83 @@
 	
 	&-devices {
 		text-align: center;
+		margin: 2em 0 4em;
+		font-size: $small2;
+		line-height: 1.2em;
+		
+		&-wrap {
+			display: inline;
+			margin: 3em 0 0;
+		}
 		svg {
 			width: auto;
 			height: 8em;
 			vertical-align: middle;
-			padding: 0 3em;
+			
+			@include res1 {
+				height: 6.5em;
+			}
+			@include res2 {
+				height: 5em;
+			}
+		}
+		.svg-pi {
+			path, circle {
+				fill: $acc3-4;
+				stroke: $black;
+			}
+			path.svg-pi-back {
+				fill: $brand-green;
+			}
+		}
+		.svg-vero {			
+			path, circle {
+				stroke: $brand-dblue;
+				fill: $white;
+			}
+			circle {
+				stroke: $white;
+			}
+			path {	
+				&.svg-vero-border, &.svg-vero-back, &.svg-vero-circle-back {
+					fill: $brand-dblue;
+					stroke: $brand-dblue;
+				}
+				&.svg-vero-logo {
+					stroke: $white;
+				}
+			}
+		}
+		.svg-appletv {
+			path, circle {
+				fill: $acc3-1;
+				stroke: $acc3-1;
+			}
+			path {
+				&.svg-appletv-back {
+					fill: $acc3-4;
+				}
+				&.svg-appletv-border {
+					fill: $acc3-1;
+					stroke: $acc3-1;
+				}
+				&.svg-appletv-logo {
+					stroke: $acc3-2;
+					fill: $white;
+				}
+			}
+		}
+		
+		&-title {
+			margin: 1em 0 0;
+			width: 100%;
+			display: inline-block;
+			line-height: 1em;
+		}
+		&-text {
+			font-size: $small2;
+			color: $acc3-2;
+			margin-top: 0.2em;
 		}
 	}
 	

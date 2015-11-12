@@ -5,6 +5,13 @@
 	@include background-image(linear-gradient(to top, $white 0%, $acc3-4 100%));
 	position: relative;
 	
+	@include res1 {
+		padding: 3em 0;
+	}
+	@include res1-1 {
+		padding: 0.5em 0;
+	}
+	
 	.page-home & {
 		z-index: 1;
 		position: absolute;
@@ -58,9 +65,12 @@
 
 	&-wrap {
 		position: relative;
+		padding: 0;
 	}
 	
 	$w: 3em;
+	$w-res: 2.5em;
+	
 	&-logo {
 		position: absolute;
 		left: 0;
@@ -72,6 +82,13 @@
 		height: $w;
 		overflow: visible;
 		
+		@include res1-1 {
+			left: 0.5em;
+			right: auto;
+			width: $w-res;
+			height: $w-res;
+		}
+		
 		a {
 			border-bottom: 0;
 		}
@@ -80,8 +97,25 @@
 			width: $w;
 			height: auto;
 			
+			@include res1-1 {
+				width: $w-res;
+			}
+			
 			path {
 				fill: $brand-dblue;
+			}
+			
+			&:last-child {
+				display: none;
+			}
+			
+			@include res1-1 {
+				&:last-child {
+					display: block;
+				}
+				&:first-child {
+					display: none;
+				}
 			}
 		}
 	}
@@ -95,6 +129,13 @@ $hover: $link2;
 	@include radius1;
 	padding: 0.5em;
 	text-align: center;
+	
+	@include res1-1 {
+		text-align: right;
+	}
+	@include res2 {
+		font-size: $small2;
+	}
 	
 	.page-home & {
 		text-align: right;
@@ -111,6 +152,7 @@ $hover: $link2;
 		a {
 			@include ani1;
 			@include text-shadow(1px 1px 0px $acc3-4);
+			padding: 0.5em;
 			
 			.page-home & {
 				color: $white;
@@ -119,12 +161,21 @@ $hover: $link2;
 			}
 		}
 		
-		$pp: 0.75em;
+		$pp: 0.5em;
+		$pp-res: 0;
 		
 		li {
-			display: inline-block;
+			display: inline;
 			padding: 0 $pp;
 			text-align: left;
+			
+			@include res1-1 {
+				padding: 0 $pp-res;
+				
+				&:nth-child(3):after {
+					content:"\A"; white-space:pre;
+				}
+			}
 			
 			.page-home & {
 				//display: block;
@@ -132,17 +183,34 @@ $hover: $link2;
 
 			
 			$p: 3.5em;
+			$p-res: 0em;
 			
 			&:nth-child(3) {
 				padding-right: $p;
+				
+				@include res1-1 {
+					padding-right: $p-res;
+				}
 				.page-home & {
 					padding-right: $pp;
+					
+					@include res1-1 {
+						padding-right: $pp-res;
+					}
 				}
 			}
 			&:nth-child(4) {
 				padding-left: $p;
+				
+				@include res1-1 {
+					padding-left: $p-res;
+				}
 				.page-home & {
 					padding-left: $pp;
+					
+					@include res1-1 {
+						padding-left: $pp-res;
+					}
 				}
 			}
 		}
