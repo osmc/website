@@ -95,10 +95,11 @@
 		
 		svg {
 			width: $w;
-			height: auto;
+			height: 4em;
 			
 			@include res1-1 {
 				width: $w-res;
+				height: $w-res;
 			}
 			
 			path {
