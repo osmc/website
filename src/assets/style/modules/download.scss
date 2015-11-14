@@ -166,18 +166,15 @@
 		}
 		
 		&-text {
-			//vertical-align: bottom;
-			//line-height: 1.1em;
 			padding-right: 1.2em;
 		}
 		svg {
 			$s3: 0.9em;
 			width: $s3;
 			height: $s3;
-			//vertical-align: bottom;
 			position: absolute;
 			top: 0;
-			bottom: 1px;
+			bottom: 0;
 			right: 0.5em;
 			margin: auto;
 			overflow: visible;

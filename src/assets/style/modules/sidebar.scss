@@ -10,6 +10,10 @@
 		border: 1px solid $acc3-1;
 		@include radius1;
 		padding: 0.5em 0.5em 0.8em 1em;
+		
+		@include res2 {
+			padding: 0.5em 1em 0.8em;
+		}
 	}
 	&-break {
 		text-align: center;
@@ -181,7 +185,9 @@
 			border: none;
 			padding: 0;
 			display: block;
+			@include box-shadow(none);
 		}
+		// input
 		&-form.focus {
 			.sidebar-news {
 				&-mail {

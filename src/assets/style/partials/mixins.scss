@@ -242,6 +242,7 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
+	animation-name: slideOutDown;
 }
 
 @-webkit-keyframes slideInDown {
