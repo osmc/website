@@ -1,0 +1,31 @@
+<!--[if lte IE9]>
+	<div id="outdated"></div>
+	<link rel="stylesheet" type="text/css" href="/assets/css/outdatedbrowser.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.2/outdatedbrowser.min.js"></script>
+
+	<script>
+		//event listener: DOM ready
+		function addLoadEvent(func) {
+				var oldonload = window.onload;
+				if (typeof window.onload != 'function') {
+						window.onload = func;
+				} else {
+						window.onload = function() {
+								if (oldonload) {
+										oldonload();
+								}
+								func();
+						}
+				}
+		}
+		//call plugin function after DOM ready
+		addLoadEvent(function(){
+				outdatedBrowser({
+						bgColor: '#4facdb',
+						color: '#ffffff',
+						lowerThan: 'transform',
+						languagePath: 'your_path/outdatedbrowser/lang/en.html'
+				})
+		});
+	</script>
+<![endif]-->
