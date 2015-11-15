@@ -74,7 +74,7 @@
 		padding: 0;
 	}
 	
-	$w: 3.5em;
+	$w: 3.4em;
 	$w-res: 2.7em;
 	
 	&-logo {
@@ -101,7 +101,7 @@
 		
 		svg {
 			width: $w;
-			height: $w + 1;
+			height: $w + 1.2;
 			
 			@include res1-1 {
 				width: $w-res;
