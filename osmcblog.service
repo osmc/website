@@ -1,0 +1,10 @@
+[Service]
+ExecStartPre=cd /root/osmc-blog
+ExecStart=/usr/bin/npm start /root/osmc-blog/index.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=osmc-blog
+
+[Install]
+WantedBy=multi-user.target
