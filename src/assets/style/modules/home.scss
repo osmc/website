@@ -623,7 +623,6 @@
 	}
 
 	.fifthn {
-		padding-bottom: 13%;
 		float: left;
 		width: 100%;
 		&-wrap {
@@ -674,6 +673,53 @@
 				@include button-home($blue-s3, lighten($blue-s3, 20%));
 				border-radius: 0px;
 			}
+		}
+	}
+	
+	.breaker.b4 {
+		margin-bottom: 5em;
+		@include res2 {
+			margin-bottom: 3em;
+		}
+	}
+	
+	.sixn {
+		float: left;
+		width: 100%;
+		margin-bottom: 1em;
+		text-align: center;
+
+		h3 {
+			font-weight: 300;
+			font-size: 150%;
+			margin-top: 0;
+			margin-bottom: 1.5em;
+		}
+
+		&-logo {
+			display: inline-block;
+			height: 2.5em;
+			width: 50%;
+			max-width: 55%;
+			margin: 1em 0;
+		}
+
+		@include res1-rev {
+			&-logo {
+				width: 100%;
+			}
+			&-left {
+				text-align: left;
+			}
+			&-right {
+				text-align: right;
+			}
+		}
+
+		svg {
+			vertical-align: middle;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

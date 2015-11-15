@@ -11,7 +11,13 @@
 	@include res1-1 {
 		padding: 0.5em 0;
 	}
-	
+	@include res1-1-rev {
+		.container {
+			max-width: 100em;
+			width: 100%;
+		}
+	}
+
 	.page-home & {
 		z-index: 1;
 		position: absolute;
@@ -22,11 +28,6 @@
 		
 		&-logo {
 			display: none;
-		}
-		
-		.container {
-			max-width: 100em;
-			width: 100%;
 		}
 	}
 	
@@ -197,7 +198,7 @@ $hover: $link2;
 			}
 
 			
-			$p: 3.5em;
+			$p: 3.8em;
 			$p-res: 0em;
 			
 			&:nth-child(3) {

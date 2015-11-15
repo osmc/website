@@ -184,6 +184,11 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     @content;
   }
 }
+@mixin res1-1-rev {
+	@media (min-width: #{$res1-1}) {
+    @content;
+  }
+}
 @mixin res2 {
 	@media (max-width: #{$res2}) {
     @content;
