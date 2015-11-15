@@ -91,16 +91,15 @@ var helpers = function () {
     var page = _.get(res, "data.root.pagination.page");
 		var tag = _.get(res, "data.root.tag");
     var host = _.get(res, "data.blog.url");
-		
 		var wikiPost = _.get(res, "data.root.wikiPost");
+		var notFound = _.get(res, "data.root.code");
 		
 		var url = relativeUrl;
 		var titleCustom;
 		var urlCustom;
-		
-		
+										
 		if (url) {
-			
+						
 			if (url === "/home/") {
 				// Home page
 				titleCustom = blogTitle;
@@ -123,6 +122,9 @@ var helpers = function () {
 				} else {
 					titleCustom = tag.name + " - " + blogTitle;
 				}
+				
+			} else if (notFound) {
+				titleCustom = "404 - " + blogTitle;
 			}
 			
 		} else if (wikiPost) {
