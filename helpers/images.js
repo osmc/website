@@ -26,6 +26,9 @@ if ( env == "production" ) {
   }, interval);
 }
 
+// on load
+fetch();
+
 var imagelist = path.join(__dirname, "/static/imagelist.html");
 
 var watcher = chokidar.watch(imagelist);
@@ -46,6 +49,7 @@ function readImagelist() {
   }
 };
 
+var html = "";
 var files = [];
 var items = [];
 
@@ -163,8 +167,11 @@ function buildHtml() {
   };
   
   fs.writeFile(imagelist, content, function(err) {
-  }); 
-
+  });
+	
+	// reset
+	files = [];
+	items = [];
 };
 
 module.exports = function () {
