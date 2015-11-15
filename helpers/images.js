@@ -3,11 +3,11 @@ var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
-var cheerio = require(ghostPath + "node_modules/cheerio");
 var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
 
-var host = "http://singapore.mirror.osmc.tv/osmc/download/installers/diskimages/";
+var host = "http://download.osmc.tv/installers/versions_";
+var downloadHost = "http://download.osmc.tv/installers/diskimages/";
 
 var names = {
   rbp1: "Raspberry Pi 1",
@@ -15,10 +15,6 @@ var names = {
   vero1: "Vero",
   appletv: "Apple TV 1"
 };
-
-html = "";
-var files = [];
-
 
 // Schedule. Only in production
 var env = require("./env");
@@ -50,60 +46,88 @@ function readImagelist() {
   }
 };
 
+var files = [];
+var items = [];
+
 function fetch() {
-  files = [];
-  
-  request(host, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      $ = cheerio.load(body);
+	
+	var count = 0;
+	
+	var itemCount = 0;
+	
+	for (var key in names) {
+		itemCount ++;
+		
+		if (key === "rbp1") {
+			key = "rbp";
+		}
+		var newkey = key.toUpperCase();
+		
+		request(host + newkey, function (error, response, body) {
+			count ++;
+			if (!error && response.statusCode == 200) {
+				var nSplit = body.split("\n");
+				
+				nSplit.forEach(function(item, i) {
+					var spaceSplit  = item.split(" ");
 
-      var urls = [];
-      $("a").each(function (i, item) {
-        var url = item.attribs.href;
+					var date = spaceSplit[0].replace("-", ".");
+					var url = spaceSplit[1];
+					if (url) {
+						var file = url.split("/").pop();
+						items.push({file: file, date: date});
+					}
+				});
+			}
+						
+			if (count === itemCount) {
+				process();
+			}
+			
+		});
+		
+	}
+}
 
-        // only img files
-        if (url.substring(0, 8) == "OSMC_TGT" && url.split(".")[1] == "img") {
-          urls.push(url);
-        }
-      });
+function process() {
+	var itemsCount = items.length;
+	var count = 0;
+		
+	items.forEach(function (item, i) {
+				
+		var file = item.file;
+		var date = item.date;		
+		
+		var split = file.split("_");
+		var id = split[2];
+		var md5Url = downloadHost + file.split(".")[0] + ".md5";
+				
+		// get md5 string
+		request(md5Url, function (error, response, body) {
+			if (!error && response.statusCode == 200) {
+								
+				var md5 = body.split("  ")[0];
 
-      var urlsCount = urls.length;
-      var count = 0;
-      urls.forEach(function (url, i) {
+				// so we can sort by date
+				var unixDate = new Date(date).getTime();
 
-        var split = url.split("_");
-        var id = split[2];
-        var date = split[3].substring(0, split[3].indexOf("."));
-        var md5Url = host + url.split(".")[0] + ".md5";
-        // get md5 string
-        request(md5Url, function (error, response, body) {
-          if (!error && response.statusCode == 200) {
+				files.push({
+					id: id,
+					name: names[id],
+					unixDate: unixDate,
+					date: date,
+					url: downloadHost + file,
+					md5: md5
+				});
 
-            var md5 = body.split("  ")[0];
+				count ++;
 
-            // so we can sort by date
-            var newDate = date.substring(0, 4) + "." + date.substring(4, 6) + "." + date.substring(6, 8);
-            var unixDate = new Date(newDate).getTime();
-
-            files.push({
-              id: id,
-              name: names[id],
-              unixDate: unixDate,
-              date: newDate,
-              url: host + url,
-              md5: md5
-            });
-
-            count += 1;
-
-            if (count === urlsCount) {
-              buildHtml();
-            }
-          }
-        });
-      });
-    }
-  });
+				if (count === itemsCount) {
+					buildHtml();
+				}
+			}
+		});
+	});
 };
 
 function buildHtml() {
