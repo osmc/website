@@ -125,6 +125,7 @@ var helpers = function () {
 				
 			} else if (notFound) {
 				titleCustom = "404 - " + blogTitle;
+				urlCustom = url;
 			}
 			
 		} else if (wikiPost) {
