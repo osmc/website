@@ -386,7 +386,6 @@ if ($("#discourse-comments").length) {
 }
 
 var commentsLoaded = false;
-
 function isVisible(elem, offset) {
 	var $elem = $(elem);
 	var $window = $(window);
@@ -402,7 +401,7 @@ function comments(visible) {
 		commentsLoaded = true;
 		DiscourseEmbed = {
 			discourseUrl: "https://discourse.osmc.tv/",
-			topicId: 8431
+			discourseEmbedUrl: "https://osmc.tv" + window.location.pathname
 		};
 		(function () {
 			var d = document.createElement("script");
