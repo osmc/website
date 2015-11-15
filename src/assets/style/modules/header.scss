@@ -17,10 +17,16 @@
 		position: absolute;
 		border-top: 0;
 		border-bottom: 0;
+		padding: 1em 0;
 		@include background-image(none);
 		
 		&-logo {
 			display: none;
+		}
+		
+		.container {
+			max-width: 100em;
+			width: 100%;
 		}
 	}
 	
@@ -140,6 +146,10 @@ $hover: $link2;
 	
 	.page-home & {
 		text-align: right;
+		@include res1 {
+			text-align: center;
+		}
+		font-weight: 300;
 	}
 
 	&-ul {
@@ -150,14 +160,14 @@ $hover: $link2;
 		z-index: 1;
 		display: inline-block;
 		
-		a {
+		a, a:visited {
 			@include ani1;
 			@include text-shadow(1px 1px 0px $acc3-4);
 			padding: 0.5em;
 			
 			.page-home & {
-				color: $white;
-				opacity: 0.8;
+				color: $acc3-4;
+				opacity: 1;
 				@include text-shadow(0px 0px 0px);
 			}
 		}
@@ -175,6 +185,10 @@ $hover: $link2;
 				
 				&:nth-child(3):after {
 					content:"\A"; white-space:pre;
+					
+					.page-home & {
+						content: "";
+					}
 				}
 			}
 			
@@ -212,6 +226,19 @@ $hover: $link2;
 					@include res1-1 {
 						padding-left: $pp-res;
 					}
+				}
+			}
+			&:nth-child(5) {
+				a {
+					cursor: default;
+					color: $acc3-2;
+					text-decoration: line-through;
+					&:hover, &:focus, &:active {
+						color: $acc3-2;
+					}
+				}
+				.page-home & {
+					display: none;
 				}
 			}
 		}

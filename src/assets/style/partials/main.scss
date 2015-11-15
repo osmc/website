@@ -26,6 +26,13 @@ button, select, textarea, input, a, img {
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
+::selection {
+	background: $acc1-2;
+}
+::-moz-selection {
+	background: $acc1-1;
+}
+
 // MAIN //
 html,
 body {

@@ -182,8 +182,8 @@ $(".sidebar-news-form").submit(function (e) {
 		error: function (res) {
 			button.prop("disabled", false);
 			form.removeClass("posting");
-			//form.addClass("error");
-			input.val(subscribeMessage);
+			form.addClass("error");
+			input.val(errorMessage);
 			input.blur();
 		}
 	});
@@ -202,7 +202,7 @@ $(".donate-exit").click(function () {
 });
 
 // check hash on change
-window.addEventListener("popstate", function (event) {
+window.addEventListener("hashchange", function (event) {
 	if (hash() === "donate") {
 		$(".donate").addClass("show");
 		$("html, body").animate({

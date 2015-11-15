@@ -44,12 +44,13 @@
 		}
 	}
 	
-	$s: 3.5em;
+	$s: 3.2em;
 	&-logo {
 		display: table-cell;
 		width: $s;
 		height: $s;
 		overflow: visible;
+		vertical-align: middle;
 		
 		@include res1 {
 			display: block;
@@ -73,6 +74,7 @@
 		text-align: left;
 		vertical-align: middle;
 		padding-left: 0.5em;
+		color: $color1;
 		
 		@include res1 {
 			text-align: center;
@@ -92,7 +94,7 @@
 	}
 	
 	&-links {
-		padding-top: 0.3em;
+		padding-top: 0.1em;
 	}
 	
 	$color2: $acc3-2;

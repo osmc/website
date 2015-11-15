@@ -603,6 +603,9 @@
 				}
 			}
 		}
+		&-link {
+			@inlude link;
+		}
 		&-img {
 			@include res1 {
 				text-align: center;
@@ -652,6 +655,7 @@
 				font-weight: 300;
 				margin: 0;
 				padding: 0.5em 0.7em;
+				border-radius: 0px;
 
 				@include res1 {
 					width: auto;
@@ -660,12 +664,15 @@
 			}
 			a:nth-child(1) {
 				@include button-home($blue-s1, lighten($blue-s1, 20%));
+				border-radius: 0px;
 			}
 			a:nth-child(2) {
 				@include button-home($blue-s2, lighten($blue-s2, 20%));
+				border-radius: 0px;
 			}
 			a:nth-child(3) {
 				@include button-home($blue-s3, lighten($blue-s3, 20%));
+				border-radius: 0px;
 			}
 		}
 	}

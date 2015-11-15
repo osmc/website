@@ -13,6 +13,10 @@
   overflow: hidden;
   @include transition(max-height 0.3s ease-out);
   background-color: $acc3-4;
+	
+	.page-home & {
+		opacity: 0.9;
+	}
   
   &-wrap {
     padding: 2em 0 3em;
