@@ -1,6 +1,5 @@
 [Service]
-ExecStartPre=cd /root/osmc-blog
-ExecStart=/usr/bin/npm start /root/osmc-blog/index.js
+ExecStart=/usr/bin/node /root/osmc-blog/index.js --production
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
