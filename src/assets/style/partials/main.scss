@@ -55,7 +55,6 @@ body {
 }
 
 .body-wrap {
-	background-color: $black;
 	@include radius1;
 	
 	.page-home & {
