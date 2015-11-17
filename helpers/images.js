@@ -65,7 +65,12 @@ function fetch() {
 		if (key === "rbp1") {
 			key = "rbp";
 		}
-		var newkey = key.toUpperCase();
+		
+		if (key === "appletv") {
+			var newkey = key;
+		} else {
+			var newkey = key.toUpperCase();
+		}
 		
 		request(host + newkey, function (error, response, body) {
 			count ++;
