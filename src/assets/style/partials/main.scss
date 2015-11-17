@@ -15,6 +15,9 @@ textarea {
   font-weight: 400;
   font-size: 100%;
 }
+textarea {
+	line-height: 1.4em;
+}
 
 button, select, textarea, input, a, img {
 	&:focus {
