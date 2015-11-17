@@ -49,7 +49,7 @@ body {
   margin: 0;
   overflow-y: scroll;
 	
-	.page-home & {
+	&.page-home {
 		background-color: $white;
 	}
 }
@@ -69,6 +69,7 @@ body {
 	
 	.page-home & {
 		margin-top: 0;
+		background-color: $trans;
 	}
 }
 
