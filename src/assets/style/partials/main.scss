@@ -36,7 +36,7 @@ button, select, textarea, input, a, img {
 	background: $acc1-1;
 }
 
-// MAIN //
+// Main
 html,
 body {
   width: 100%;
@@ -44,11 +44,10 @@ body {
 }
 
 body {
-  //background-color: aliceblue;
+  background-color: $acc3-4;
   color: $dark;
   margin: 0;
   overflow-y: scroll;
-  //@include scrollbars(0.8em, $acc3-1, $back);
 	
 	.page-home & {
 		background-color: $white;
@@ -56,8 +55,7 @@ body {
 }
 
 .body-wrap {
-	//margin: 1em;
-	background-color: $white;
+	background-color: $black;
 	@include radius1;
 	
 	.page-home & {
@@ -67,7 +65,8 @@ body {
 }
 
 .main {
-  margin-bottom: 4em;
+  padding-bottom: 4em;
+	background-color: $white;
 	
 	.page-home & {
 		margin-top: 0;
