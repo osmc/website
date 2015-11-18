@@ -132,7 +132,7 @@ button, .button {
 	}
 }
 
-button.button, span.button {
+button, button.button, span.button {
 	padding: $bp;
   &-alt1 {
 		padding: $bp;
