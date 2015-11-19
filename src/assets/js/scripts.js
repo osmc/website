@@ -396,13 +396,24 @@ function isVisible(elem, offset) {
 	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
+
+// check for comment id
+if ( !topicId ) {
+	var DiscourseSource = { 
+		discourseUrl: 'https://discourse.osmc.tv/',
+    discourseEmbedUrl: "https://osmc.tv" + window.location.pathname
+	};
+} else {
+	var DiscourseSource = { 
+		discourseUrl: 'https://discourse.osmc.tv/',
+    topicId: topicId
+	};
+}
+
 function comments(visible) {
 	if (visible && commentsLoaded === false) {
 		commentsLoaded = true;
-		DiscourseEmbed = {
-			discourseUrl: "https://discourse.osmc.tv/",
-			discourseEmbedUrl: "https://osmc.tv" + window.location.pathname
-		};
+		DiscourseEmbed = DiscourseSource;
 		(function () {
 			var d = document.createElement("script");
 			d.type = "text/javascript";
