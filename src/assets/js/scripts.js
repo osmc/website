@@ -396,8 +396,8 @@ function isVisible(elem, offset) {
 	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
-
 // check for comment id
+var topicId = false;
 if ( !topicId ) {
 	var DiscourseSource = { 
 		discourseUrl: 'https://discourse.osmc.tv/',
