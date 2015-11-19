@@ -397,8 +397,7 @@ function isVisible(elem, offset) {
 }
 
 // check for comment id
-var topicId = false;
-if ( !topicId ) {
+if (typeof topicId === "undefined") {
 	var DiscourseSource = { 
 		discourseUrl: 'https://discourse.osmc.tv/',
     discourseEmbedUrl: "https://osmc.tv" + window.location.pathname
