@@ -80,7 +80,7 @@ app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 	res.redirect("/wiki");
 });
 
-app.get("/help/wiki", function(req, res) {
+app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
