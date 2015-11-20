@@ -24,7 +24,7 @@ Discourse.DiscoveryView = Ember.View.extend({
   }.on('didInsertElement'),
   
   _insertDonateButton: function() {
-    this.$(".list-controls .container").before('<a target="_blank" href="https://osmc.tv/contribute/donate/#donate"><button class="btn btn-default donate-button"><i class="fa fa-heart"></i>Donate</button></a>')
+    this.$(".list-controls .container").before('<a target="_blank" href="https://osmc.tv/blog/#donate"><button class="btn btn-default donate-button"><i class="fa fa-heart"></i>Donate</button></a>')
   }.on('didInsertElement')
 });
 

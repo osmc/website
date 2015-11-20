@@ -72,6 +72,17 @@ gulp.task("comments", function () {
     .pipe(gulp.dest(css));
 });
 
+// Discourse
+gulp.task("discourse", function() {
+  return gulp.src([
+    modules + "jquery.dfp/jquery.dfp.min.js",
+    theme + "assets/discourse/scripts.js"
+    ])
+  .pipe(uglify())
+  .pipe(concat("scripts.min.js"))
+  .pipe(gulp.dest(theme + "assets/discourse"));
+});
+
 // minify js
 gulp.task("minify", function () {
   return gulp.src([
@@ -106,11 +117,12 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost", "style", "comments", "clean:js"], function () {
+gulp.task("default", ["ghost", "style", "comments", "discourse", "clean:js"], function () {
   gulp.watch([style + "**/*", !style + "comments.scss"], ["style"]);
   gulp.watch(style + "comments.*", ["comments"]);
   gulp.watch(js + "scripts.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
+	gulp.watch(theme + "assets/discourse/**/*", ["discourse"]);
 });
 
 process.on('SIGINT', function () {
