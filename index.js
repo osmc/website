@@ -94,7 +94,11 @@ app.get("/wiki/*", function(req, res) {
   }
 });
 
-app.all("/author/*", function(req, res){
+app.get("/download/**/*", function(req, res){
+  res.redirect("/download");
+});
+
+app.get("/author/*", function(req, res){
   res.redirect("/blog");
 });
 
