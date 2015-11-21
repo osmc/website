@@ -106,6 +106,10 @@ app.get("/shop/*", function(req, res){
   res.redirect("https://store.osmc.tv");
 });
 
+app.get("/status/wiki", function(req, res) {
+	res.sendFile(path.join(__dirname, "/helpers/static", "wiki-status.html"));
+});
+
 app.all("/*", function(req, res){
   var url = host + req.url;
   proxyAll.web(req, res, {target: url});
