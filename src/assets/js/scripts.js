@@ -275,7 +275,7 @@ function stripe(am, cur) {
 		key: "pk_live_HEfJk95fTFmjEBYMYVTxWFZk",
 		image: "/assets/img/logo/logo2-b.png",
 		token: function (token) {
-			window.location.href = "https://osmc.tv/contribute/donate/thanks/";
+			window.location.href = "https://osmc.tv/donate-thanks";
 		}
 	});
 
