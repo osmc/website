@@ -380,9 +380,11 @@ if ($("#discourse-comments").length) {
 			comments(visible);
 		}
 	});
-
-	var visible = isVisible(".post-comments", 300);
-	comments(visible);
+	
+	setTimeout(function() {
+		var visible = isVisible(".post-comments", 300);
+		comments(visible);
+	}, 200);
 }
 
 var commentsLoaded = false;
