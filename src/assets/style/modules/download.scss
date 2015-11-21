@@ -189,5 +189,9 @@
 	}
 	&-ad {
 		margin: 2em 0 0;
+		
+		@include res1 {
+			float: left;
+		}
 	}
 }
