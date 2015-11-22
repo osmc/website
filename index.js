@@ -110,6 +110,10 @@ app.get("/status/wiki", function(req, res) {
 	res.sendFile(path.join(__dirname, "/helpers/static", "wiki-status.html"));
 });
 
+app.get("/about/corporate/eula", function(req, res) {
+	res.redirect("/corporate-and-legal/#eula");
+});
+
 app.all("/*", function(req, res){
   var url = host + req.url;
   proxyAll.web(req, res, {target: url});
