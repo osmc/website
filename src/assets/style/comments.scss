@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600|Source+Code+Pro);
+
 @import "partials/global";
 @include link2;
 body {
@@ -28,26 +30,34 @@ header.discourse {
 article.post {
   float: left;
   width: 100%;
-  padding: 0.5em 0;
+  padding: 1em 0;
 	
 	@include link2;
 	
   .author {
-    padding: 7px 5px;
+    padding: 0 5px;
     img {
       max-width: 30px;
     }
   }
   .in-reply-to {
     font-size: $small2;
+		margin-top: 0;
+		margin-bottom: 0;
+		line-height: 1.7em;
   }
   .post-date {
     font-size: $small2;
+		margin: 0;
+		line-height: 1.7em;
   }
   .cooked {
     margin-left: 50px;
+		padding: 0;
+		
     p {
       @include link;
+			margin: 0 0 0.8em;
     }
     .button {
       @include button;
@@ -56,6 +66,9 @@ article.post {
     .username {
       @include link;
       font-size: 90%;
+			line-height: 1.7em;
+			margin-bottom: 0.5em;
+			
       a.staff {
         background-color: $trans;
       }
