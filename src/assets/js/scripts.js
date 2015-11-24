@@ -180,7 +180,6 @@ $(".sidebar-news-form").submit(function (e) {
 		type: "POST",
 		data: form.serialize(),
 		success: function (res) {
-			button.prop("disabled", false);
 			form.removeClass("posting");
 			input.val(subscribeMessage);
 			input.blur();
