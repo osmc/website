@@ -161,6 +161,19 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 	
 }
 
+@mixin button-alt2 {
+	@include button;
+	background-color: $acc5-2;
+	
+	&:visited {
+		background-color: $acc5-2;
+	}
+	&:hover, &:active, &:focus {
+		background-color: $acc5-1;
+	}
+	
+}
+
 @mixin ani-news {
   @include animation-duration(0.3s);
   @include animation-timing-function(ease-out);

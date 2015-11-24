@@ -130,11 +130,14 @@ button, .button {
   &-alt1 {
     @include button-alt1;
 	}
+	&-alt2 {
+    @include button-alt2;
+	}
 }
 
 button, button.button, span.button {
 	padding: $bp;
-  &-alt1 {
+  &-alt1, &-alt2 {
 		padding: $bp;
 	}
 }

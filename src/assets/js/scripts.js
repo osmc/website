@@ -315,12 +315,13 @@ $(".contact-form").submit(function (e) {
 		type: "POST",
 		data: form.serialize(),
 		success: function (res) {
-			button.prop("disabled", false);
 			button.text("Message sent");
+			button.addClass("button-alt1");
 		},
 		error: function (res) {
 			button.prop("disabled", false);
 			button.text("Error");
+			button.addClass("button-alt2");
 		}
 	});
 });
