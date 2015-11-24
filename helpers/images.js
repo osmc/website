@@ -80,11 +80,11 @@ function fetch() {
 				nSplit.forEach(function(item, i) {
 					var spaceSplit  = item.split(" ");
 
-					var date = spaceSplit[0].replace("-", ".");
+					var filename = spaceSplit[0];
 					var url = spaceSplit[1];
 					if (url) {
 						var file = url.split("/").pop();
-						items.push({file: file, date: date});
+						items.push({file: file, filename: filename});
 					}
 				});
 			}
@@ -105,7 +105,7 @@ function process() {
 	items.forEach(function (item, i) {
 				
 		var file = item.file;
-		var date = item.date;		
+		var filename = item.filename;		
 		
 		var split = file.split("_");
 		var id = split[2];
@@ -118,13 +118,13 @@ function process() {
 				var md5 = body.split("  ")[0];
 
 				// so we can sort by date
-				var unixDate = new Date(date).getTime();
+				var unixDate = new Date(filename.replace("-", ".")).getTime();
 
 				files.push({
 					id: id,
 					name: names[id],
 					unixDate: unixDate,
-					date: date,
+					filename: filename,
 					url: downloadHost + file,
 					md5: md5
 				});
@@ -160,7 +160,7 @@ function buildHtml() {
       var list = "";
 
       images.forEach(function (file) {
-        var div = "<tr><td><a href='" + file.url + "'>" + file.date + "</a></td><td>" + file.md5 + "</td></tr>";
+        var div = "<tr><td><a href='" + file.url + "'>" + file.filename + "</a></td><td>" + file.md5 + "</td></tr>";
         list += div;
       });
 
