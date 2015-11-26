@@ -26,11 +26,12 @@ function get_json_obj($url) {
   curl_close($ch);
   if ($errno) {
     $num_errors +=1;
-  }
-  else {
+  } elseif (!empty($output)) {
     $calls +=1;
     return json_decode($output);
-  }
+  } else {
+		exit();
+	}
 }
 
 function get_slug_url($url) {
