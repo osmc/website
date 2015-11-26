@@ -41,7 +41,7 @@ gulp.task("ghost", function () {
 });
 
 // style
-gulp.task("style", function () {
+gulp.task("style-main", function () {
   return gulp.src(style + "style.scss")
     .pipe(compass({
       css: css,
@@ -59,7 +59,7 @@ gulp.task("style", function () {
 });
 
 // style comments
-gulp.task("comments", function () {
+gulp.task("style-comments", ["style-main"], function () {
   return gulp.src(style + "comments.scss")
     .pipe(compass({
       css: css,
@@ -71,6 +71,8 @@ gulp.task("comments", function () {
     .pipe(cssmin())
     .pipe(gulp.dest(css));
 });
+
+gulp.task("style", ["style-comments"]);
 
 // Discourse
 gulp.task("discourse", function() {
@@ -117,9 +119,8 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost", "style", "comments", "discourse", "clean:js"], function () {
-  gulp.watch([style + "**/*", !style + "comments.scss"], ["style"]);
-  gulp.watch(style + "comments.*", ["comments"]);
+gulp.task("default", ["ghost", "style", "discourse", "clean:js"], function () {
+  gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "scripts.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
 	gulp.watch(theme + "assets/discourse/**/*", ["discourse"]);
