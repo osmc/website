@@ -418,7 +418,7 @@ if (typeof topicId === "undefined") {
 }
 
 function comments(visible) {
-	if (visible && commentsLoaded === false) {
+	if (visible && commentsLoaded === false && typeof draft === "undefined") {
 		commentsLoaded = true;
 		DiscourseEmbed = DiscourseSource;
 		(function () {

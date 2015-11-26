@@ -159,6 +159,16 @@ var helpers = function () {
     return output;
 
   });
+	
+	// disable comments on draft
+	hbs.registerHelper("draft", function (res) {
+		var status = _.get(res, "data.root.post.status");
+		var script = "<script>var draft = true;</script>";
+		
+		if (status === "draft") {
+			return script;
+		}
+  });
 
 };
 
