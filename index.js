@@ -102,10 +102,6 @@ app.get("/author/*", function(req, res){
   res.redirect("/blog");
 });
 
-app.get("/shop/*", function(req, res){
-  res.redirect("https://store.osmc.tv");
-});
-
 app.get("/status/wiki", function(req, res) {
 	res.sendFile(path.join(__dirname, "/helpers/static", "wiki-status.html"));
 });
