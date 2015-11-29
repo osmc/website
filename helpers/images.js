@@ -17,8 +17,8 @@ var names = {
 };
 
 // Schedule. Only in production
-var env = require("./env");
-if ( env == "production" ) {
+var env = require("./env").env;
+if (env == "production") {
   var minutes = 15;
   interval = minutes * 60 * 1000;
   setInterval(function() {

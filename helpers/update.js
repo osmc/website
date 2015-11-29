@@ -13,7 +13,7 @@ var Post = bookshelf.Model.extend({
 });
 
 // Schedule. Only in production
-var env = require("./env");
+var env = require("./env").env;
 if (env == "production") {
 	var seconds = 10;
 	interval = seconds * 1 * 1000;
