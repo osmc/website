@@ -1,18 +1,20 @@
 var ghost = require("ghost");
 var fs = require("fs");
 var path = require("path");
+var mkdirp = require("mkdirp");
 var httpProxy = require("http-proxy");
 var ghostPath = path.join(__dirname, "node_modules/ghost/");
 var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 app = express();
 
+// create static directory
+mkdirp.sync(path.join(__dirname, "/static"), function (err) {});
+
 require("./helpers/env");
-
-require("./helpers/custom").helpers();
-
+require("./helpers/custom")();
+require("./helpers/wiki").helpers();
 require("./helpers/images")();
-
 require("./helpers/update");
 
 options = {
@@ -84,7 +86,7 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wiki = require("./helpers/custom").wikiCheck;
+var wiki = require("./helpers/wiki").wikiCheck;
 app.get("/wiki/*", function(req, res) {
   var content = wiki(req.url);
   if (content) {
