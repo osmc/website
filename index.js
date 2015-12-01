@@ -11,11 +11,12 @@ app = express();
 // create static directory
 mkdirp.sync(path.join(__dirname, "/static"), function (err) {});
 
-require("./helpers/env");
-require("./helpers/custom")();
-require("./helpers/wiki").helpers();
-require("./helpers/images")();
-require("./helpers/update");
+require("./server/env");
+require("./server/custom")();
+require("./server/wiki").helpers();
+require("./server/images")();
+require("./server/update");
+require("./server/slackin");
 
 options = {
 	config: path.join(__dirname, "config.js")
@@ -86,7 +87,7 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wiki = require("./helpers/wiki").wikiCheck;
+var wiki = require("./server/wiki").wikiCheck;
 app.get("/wiki/*", function(req, res) {
   var content = wiki(req.url);
   if (content) {
@@ -105,7 +106,7 @@ app.get("/author/*", function(req, res){
 });
 
 app.get("/status/wiki", function(req, res) {
-	res.sendFile(path.join(__dirname, "/helpers/static", "wiki-status.html"));
+	res.sendFile(path.join(__dirname, "/server/static", "wiki-status.html"));
 });
 
 app.get("/about/corporate/eula", function(req, res) {
