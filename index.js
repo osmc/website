@@ -16,7 +16,6 @@ require("./server/custom")();
 require("./server/wiki").helpers();
 require("./server/images")();
 require("./server/update");
-require("./server/slackin");
 
 options = {
 	config: path.join(__dirname, "config.js")
