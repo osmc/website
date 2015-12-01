@@ -9,7 +9,7 @@ var hbs = require(ghostPath + "node_modules/express-hbs");
 app = express();
 
 // create static directory
-mkdirp.sync(path.join(__dirname, "/static"), function (err) {});
+mkdirp.sync(path.join(__dirname, "/server/static"), function (err) {});
 
 require("./server/env");
 require("./server/custom")();
