@@ -1,6 +1,6 @@
-var ad = true;
+var ad = false;
 
-var bannertext = "Get 10% off at the OSMC Store today using coupon 'autumnsavings'.";
+var bannertext = "Vero 2: coming 30.12.2015";
 var bannerlink = "https://osmc.tv/shop";
 var bannerimg = "https://osmc.tv/assets/discourse/banner.png";
 
