@@ -13,27 +13,26 @@ var wikiPath = path.join(__dirname, "/static/wiki.json");
 
 function readWiki() {
   try {
-		var newWiki = JSON.parse(fs.readFileSync(wikiPath));
-		
-		// if wiki changes, purge
-		if (JSON.stringify(wiki) !== JSON.stringify(newWiki) && loaded) {
-			purge.all();
-		}
-		
-		wiki = newWiki;
-		loaded = true;
-		
+    var newWiki = JSON.parse(fs.readFileSync(wikiPath));
+
+    // if wiki changes, purge
+    if (JSON.stringify(wiki) !== JSON.stringify(newWiki) && loaded) {
+      purge.all();
+    }
+    wiki = newWiki;
+    loaded = true;
+
   } catch (err) {
-		console.log(err);
+    console.log(err);
     console.log("wiki.json not found. Run the wiki script");
   }
 };
 
 var watcher = chokidar.watch(wikiPath);
-watcher.on("change", function() {
+watcher.on("change", function () {
   readWiki();
 });
-watcher.on("add", function() {
+watcher.on("add", function () {
   readWiki();
 });
 
@@ -91,6 +90,6 @@ var helpers = function () {
 };
 
 module.exports = {
-	wikiCheck: wikiCheck,
-	helpers: helpers
+  wikiCheck: wikiCheck,
+  helpers: helpers
 };
