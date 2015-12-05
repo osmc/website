@@ -15,7 +15,6 @@ require("./server/env");
 require("./server/custom")();
 require("./server/wiki").helpers();
 require("./server/images")();
-require("./server/update");
 
 options = {
 	config: path.join(__dirname, "config.js")
