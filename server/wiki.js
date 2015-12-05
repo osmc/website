@@ -4,16 +4,28 @@ var chokidar = require("chokidar");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
+var purge = require("./purge");
 
+
+var loaded = false;
 var wiki;
 var wikiPath = path.join(__dirname, "/static/wiki.json");
 
-readWiki();
 function readWiki() {
   try {
-    wiki = JSON.parse(fs.readFileSync(wikiPath));
+		var newWiki = JSON.parse(fs.readFileSync(wikiPath));
+		
+		// if wiki changes, purge
+		if (JSON.stringify(wiki) !== JSON.stringify(newWiki) && loaded) {
+			purge.all();
+		}
+		
+		wiki = newWiki;
+		loaded = true;
+		
   } catch (err) {
-    console.log("wiki.json not found");
+		console.log(err);
+    console.log("wiki.json not found. Run the wiki script");
   }
 };
 

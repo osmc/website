@@ -38,7 +38,6 @@ watcher.on("change", function() {
   readImagelist();
 });
 
-readImagelist();
 function readImagelist() {
   try {
     html = fs.readFileSync(imagelist);
