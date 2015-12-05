@@ -23,7 +23,7 @@ var img = theme + "assets/img/";
 
 var browserStart = false;
 // Start server
-var cmd = exec("nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*'");
+var cmd = exec("nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*' --ignore 'server/static/**/*'");
 gulp.task("ghost", function () {
   cmd.stdout.on('data', function (data) {
     process.stdout.write(data);
