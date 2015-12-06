@@ -78,11 +78,11 @@ gulp.task("style", ["style-comments"]);
 gulp.task("discourse", function() {
   return gulp.src([
     modules + "jquery.dfp/jquery.dfp.min.js",
-    theme + "assets/discourse/scripts.js"
+    js + "discourse.js"
     ])
   .pipe(uglify())
-  .pipe(concat("scripts.min.js"))
-  .pipe(gulp.dest(theme + "assets/discourse"));
+  .pipe(concat("discourse.min.js"))
+  .pipe(gulp.dest(js));
 });
 
 // minify js
@@ -123,7 +123,7 @@ gulp.task("default", ["ghost", "style", "discourse", "clean:js"], function () {
   gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "scripts.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
-	gulp.watch(theme + "assets/discourse/**/*", ["discourse"]);
+	gulp.watch(js + "discourse.js", ["discourse"]);
 });
 
 process.on('SIGINT', function () {

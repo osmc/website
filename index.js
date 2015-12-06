@@ -15,6 +15,7 @@ require("./server/env");
 require("./server/custom")();
 require("./server/wiki").helpers();
 require("./server/images")();
+require("./server/discourse");
 
 options = {
 	config: path.join(__dirname, "config.js")
@@ -109,6 +110,10 @@ app.get("/status/wiki", function(req, res) {
 
 app.get("/about/corporate/eula", function(req, res) {
 	res.redirect("/corporate-and-legal/#eula");
+});
+
+app.get("/assets/discourse/discourse.js", function(req, res) {
+  res.sendFile(__dirname + "/server/static/discourse.js");
 });
 
 app.all("/*", function(req, res){
