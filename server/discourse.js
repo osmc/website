@@ -4,11 +4,7 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var request = require(ghostPath + "node_modules/request");
 var cheerio = require(ghostPath + "node_modules/cheerio");
 
-console.log("discourse.js read keys.js");
-
 var keys = require(path.join(__dirname, "../content/data/keys"));
-
-console.log(keys);
 
 var apiKey = keys.discourseKey;
 var apiUser = keys.discourseUser;
@@ -25,13 +21,9 @@ if (env == "production") {
   }, interval);
 }
 
-console.log("discourse.js load");
-console.log(url);
-
 fetch();
 
 function fetch() {
-  console.log("discourse.js fetch");
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
@@ -49,7 +41,6 @@ function fetch() {
 }
 
 function build(code) {
-  console.log("discourse.js build");
   var script = fs.readFileSync(path.join(__dirname, "../src/assets/js/discourse.min.js"), "utf-8", function (err, data) {
     return data.toString;
   });
