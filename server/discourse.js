@@ -32,15 +32,25 @@ function fetch() {
       
       build(code);
     }
+    if (error) {
+      console.log("DISCOURSE FETCH ERROR");
+      console.log(error);
+    }
   });
 }
 
 function build(code) {
+  console.log("DISCOURSE BUILD");
   var script = fs.readFileSync(path.join(__dirname, "../src/assets/js/discourse.min.js"), "utf-8", function (err, data) {
     return data.toString;
   });
   
   var js = code + script;
   var file = path.join(__dirname, "/static/discourse.js");
-  fs.writeFile(file, js, function (err) {});
+  fs.writeFile(file, js, function (err) {
+    if (err) {
+      console.log("DISCOURSE WRITE ERROR");
+      console.log(err);
+    }
+  });
 }
