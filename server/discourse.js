@@ -4,7 +4,12 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var request = require(ghostPath + "node_modules/request");
 var cheerio = require(ghostPath + "node_modules/cheerio");
 
+console.log("discourse.js read keys.js");
+
 var keys = require(path.join(__dirname, "../content/data/keys"));
+
+console.log(keys);
+
 var apiKey = keys.discourseKey;
 var apiUser = keys.discourseUser;
 
