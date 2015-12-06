@@ -20,9 +20,13 @@ if (env == "production") {
   }, interval);
 }
 
+console.log("discourse.js load");
+console.log(url);
+
 fetch();
 
 function fetch() {
+  console.log("discourse.js fetch");
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var json = JSON.parse(body);
@@ -33,14 +37,14 @@ function fetch() {
       build(code);
     }
     if (error) {
-      console.log("DISCOURSE FETCH ERROR");
+      console.log("discourse.js fetch error");
       console.log(error);
     }
   });
 }
 
 function build(code) {
-  console.log("DISCOURSE BUILD");
+  console.log("discourse.js build");
   var script = fs.readFileSync(path.join(__dirname, "../src/assets/js/discourse.min.js"), "utf-8", function (err, data) {
     return data.toString;
   });
@@ -49,7 +53,7 @@ function build(code) {
   var file = path.join(__dirname, "/static/discourse.js");
   fs.writeFile(file, js, function (err) {
     if (err) {
-      console.log("DISCOURSE WRITE ERROR");
+      console.log("discourse.js write error");
       console.log(err);
     }
   });
