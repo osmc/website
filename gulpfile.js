@@ -49,7 +49,6 @@ gulp.task("style-main", function () {
       image: img,
       import_path: modules
     }))
-    .pipe(cssimport())
     .pipe(prefix())
     .pipe(cssmin())
     .pipe(gulp.dest(css))
@@ -59,20 +58,20 @@ gulp.task("style-main", function () {
 });
 
 // style comments
-gulp.task("style-comments", ["style-main"], function () {
-  return gulp.src(style + "comments.scss")
+gulp.task("style-ext", ["style-main"], function () {
+  return gulp.src([style + "comments.scss", style + "store.scss"])
     .pipe(compass({
       css: css,
       sass: style,
-      image: img
+      image: img,
+      import_path: modules
     }))
-    .pipe(cssimport())
     .pipe(prefix())
     .pipe(cssmin())
     .pipe(gulp.dest(css));
 });
 
-gulp.task("style", ["style-comments"]);
+gulp.task("style", ["style-ext"]);
 
 // Discourse
 gulp.task("discourse", function() {
