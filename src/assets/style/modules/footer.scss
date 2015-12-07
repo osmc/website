@@ -16,6 +16,12 @@
 	
 	&-wrap {
 		padding: 0 1em;
+    display: table;
+    width: 100%;
+    
+    @include res1 {
+      display: block;
+    }
 	}
 	&-size {
 		font-size: $small4;
@@ -24,6 +30,14 @@
 	&-top {
 		padding: 2em 1em;
 	}
+  &-left, &-right {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+    @include res1 {
+      display: block;
+    }
+  }
 	&-left {
 		text-align: left;
 	}
@@ -89,12 +103,8 @@
 			width: 5em;
 			border-top: 1px solid $acc3-1;
 			display: block;
-    	margin: 1em auto 0.5em;
+    	margin: 1em auto 0.75em;
 		}
-	}
-	
-	&-links {
-		padding-top: 0.1em;
 	}
 	
 	$color2: $acc3-2;
