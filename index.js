@@ -116,6 +116,10 @@ app.get("/assets/discourse/discourse.js", function(req, res) {
   res.sendFile(__dirname + "/server/static/discourse.js");
 });
 
+app.get("/shop", function(req, res){
+  res.redirect("https://store.osmc.tv");
+});
+
 app.all("/*", function(req, res){
   var url = host + req.url;
   proxyAll.web(req, res, {target: url});
