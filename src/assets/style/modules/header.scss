@@ -1,45 +1,47 @@
 .header {
-	width: 100%;
-	padding: 4em 0;
-	border-bottom: 2px solid $acc3-4;
-	@include background-image(linear-gradient(to top, $white 0%, $acc3-4 100%));
-	position: relative;
-	
-	@include res1 {
-		padding: 3em 0;
-	}
-	@include res1-1 {
-		padding: 0.5em 0;
-	}
-	@include res1-1-rev {
-		.container {
-			max-width: 100em;
-			width: 100%;
-		}
-	}
-
-	.page-home & {
-		z-index: 1;
-		position: absolute;
-		border-top: 0;
-		border-bottom: 0;
-		padding: 1em 0;
-		@include background-image(none);
-		
-		&-logo {
-			display: none;
-		}
-	}
-	
-	$c1: #0076a7;
-	$c2: #1092B3;
-	$c3: #2a9ecc;
-	$c4: #107bb3;
-	$c5: #2C989A;
-	$c6: #008FC2;
-	$c7: #1b518e;
-	$c8: #059fd6;
-	
+  width: 100%;
+  padding: 4em 0;
+  border-bottom: 2px solid $acc3-4;
+  @include background-image(linear-gradient(to top, $white 0%, $acc3-4 100%));
+  position: relative;
+  @include res1 {
+    padding: 3em 0;
+  }
+  @include res1-1 {
+    padding: 0.5em 0;
+  }
+  @include res1-1-rev {
+    .container {
+      max-width: 100em;
+      width: 100%;
+    }
+  }
+  .page-home & {
+    z-index: 1;
+    position: absolute;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 1em 0;
+    @include background-image(none);
+    @include res1 {
+      .container {
+        width: 100%;
+      }
+    }
+    &-logo {
+      display: none;
+    }
+  }
+  
+  $c1: #0076a7;
+  $c2: #1092B3;
+  $c3: #2a9ecc;
+  $c4: #107bb3;
+  $c5: #2C989A;
+  $c6: #008FC2;
+  $c7: #1b518e;
+  $c8: #059fd6;
+    
 	&-top {
 		width: 100%;
 		height: 0.2em;
@@ -61,174 +63,152 @@
 			$c8 90%
 		));
 		
-		.page-home & {
-			display: none;
-		}
-		
-		svg {
-			width: 100%;
-		}
+	.page-home & {
+	  display: none;
 	}
+	
+	svg {
+	  width: 100%;
+	}
+}
+&-wrap {
+  position: relative;
+  padding: 0;
+}
+$w: 3.4em;
+$w-res: 2.7em;
+&-logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: $w;
+  height: $w;
+  overflow: visible;
+  @include res1-1 {
+    left: 0.5em;
+    right: auto;
+    width: $w-res;
+    height: $w-res;
+  }
+  
+  a {
+    border-bottom: 0;
+  }
+  
+  svg {
+    width: $w;
+    height: 4.5em;
+    @include res1-1 {
+      width: $w-res;
+      height: $w-res;
+    }
+    path {
+      fill: $brand-dblue;
+    }
+    &:last-child {
+      display: none;
+    }
+    @include res1-1 {
+      &:last-child {
+        display: block;
+      }
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
 
-	&-wrap {
-		position: relative;
-		padding: 0;
-	}
-	
-	$w: 3.4em;
-	$w-res: 2.7em;
-	
-	&-logo {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		top: 0;
-		margin: auto;
-		width: $w;
-		height: $w;
-		overflow: visible;
-		
-		@include res1-1 {
-			left: 0.5em;
-			right: auto;
-			width: $w-res;
-			height: $w-res;
-		}
-		
-		a {
-			border-bottom: 0;
-		}
-		
-		svg {
-			width: $w;
-			height: 4.5em;
-			
-			@include res1-1 {
-				width: $w-res;
-				height: $w-res;
-			}
-			
-			path {
-				fill: $brand-dblue;
-			}
-			
-			&:last-child {
-				display: none;
-			}
-			
-			@include res1-1 {
-				&:last-child {
-					display: block;
-				}
-				&:first-child {
-					display: none;
-				}
-			}
-		}
-	}
 }
 $text: $black;
 $color: $link;
 $hover: $link2;
-
 .nav {
-	font-weight: 400;
-	@include radius1;
-	padding: 0.5em;
-	text-align: center;
-	
-	@include res1-1 {
-		text-align: right;
-	}
-	@include res2 {
-		font-size: $small2;
-	}
-	
-	.page-home & {
-		text-align: right;
-		@include res1 {
-			text-align: center;
-		}
-		font-weight: 300;
-	}
-
-	&-ul {
-		padding: 0;
-		list-style: none;
-		@include link3;
-		font-size: $small1;
-		z-index: 1;
-		display: inline-block;
-		
-		a, a:visited {
-			@include ani1;
-			@include text-shadow(1px 1px 0px $acc3-4);
-			padding: 0.5em;
-			
-			.page-home & {
-				color: $acc3-4;
-				opacity: 1;
-				@include text-shadow(0px 0px 0px);
-			}
-		}
-		
-		$pp: 0.5em;
-		$pp-res: 0;
-		
-		li {
-			display: inline;
-			padding: 0 $pp;
-			text-align: left;
-			
-			@include res1-1 {
-				padding: 0 $pp-res;
-				
-				&:nth-child(3):after {
-					content:"\A"; white-space:pre;
-					
-					.page-home & {
-						content: "";
-					}
-				}
-			}
-			
-			.page-home & {
-				//display: block;
-			}
-
-			
-			$p: 3.8em;
-			$p-res: 0em;
-			
-			&:nth-child(3) {
-				padding-right: $p;
-				
-				@include res1-1 {
-					padding-right: $p-res;
-				}
-				.page-home & {
-					padding-right: $pp;
-					
-					@include res1-1 {
-						padding-right: $pp-res;
-					}
-				}
-			}
-			&:nth-child(4) {
-				padding-left: $p;
-				
-				@include res1-1 {
-					padding-left: $p-res;
-				}
-				.page-home & {
-					padding-left: $pp;
-					
-					@include res1-1 {
-						padding-left: $pp-res;
-					}
-				}
-			}
+  font-weight: 400;
+  @include radius1;
+  padding: 0.5em;
+  text-align: center;
+  @include res1-1 {
+    text-align: right;
+  }
+  @include res2 {
+    font-size: $small2;
+  }
+  .page-home & {
+    text-align: right;
+    font-weight: 300;
+    @include res1 {
+      text-align: center;
+      padding: 0.5em 0;
+    }
+  }
+  &-ul {
+    padding: 0;
+    list-style: none;
+    @include link3;
+    font-size: $small1;
+    z-index: 1;
+    display: inline-block;
+    a,
+    a:visited {
+      @include ani1;
+      @include text-shadow(1px 1px 0px $acc3-4);
+      padding: 0.5em;
+      .page-home & {
+        color: $acc3-4;
+        opacity: 1;
+        @include text-shadow(0px 0px 0px);
+      }
+    }
+    
+    $pp: 0.5em;
+    $pp-res: 0;
+    li {
+      display: inline;
+      padding: 0 $pp;
+      text-align: left;
+      @include res1-1 {
+        padding: 0 $pp-res;
+        &:nth-child(3):after {
+          content: "\A";
+          white-space: pre;
+          .page-home & {
+            content: "";
+          }
+        }
+      }
+      .page-home & {
+        //display: block;
+      }
+      $p: 3.8em;
+      $p-res: 0em;
+      &:nth-child(3) {
+        padding-right: $p;
+        @include res1-1 {
+          padding-right: $p-res;
+        }
+        .page-home & {
+          padding-right: $pp;
+          @include res1-1 {
+            padding-right: $pp-res;
+          }
+        }
+      }
+      &:nth-child(4) {
+        padding-left: $p;
+        @include res1-1 {
+          padding-left: $p-res;
+        }
+        .page-home & {
+          padding-left: $pp;
+          @include res1-1 {
+            padding-left: $pp-res;
+          }
+        }
+      }
       /* Cross out store link in header
       
 			&:nth-child(5) {
@@ -245,15 +225,18 @@ $hover: $link2;
 				}
 			}
       */
-		}
-	}
-	&-current {
-		a, a:visited {
-			padding-bottom: 1px;
-			color: $color;
-			&:hover, &:focus, &:active {
-				color: $color;
-			}
-		}
-	}
+    }
+  }
+  &-current {
+    a,
+    a:visited {
+      padding-bottom: 1px;
+      color: $color;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $color;
+      }
+    }
+  }
 }
