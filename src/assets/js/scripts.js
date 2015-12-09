@@ -14,7 +14,7 @@ if (relativeUrl[1] === "tag" || $.isNumeric(relativeUrl[1])) {
 // Open external links in new window
 $(".nav-ul li a").each(function(i, item) {
 	var url = $(item).attr("href");
-	if (url.substring(0,4) === "http") {
+	if (url.substring(0,4) === "http" && url !== "https://store.osmc.tv") {
 		$(item).attr("target","_blank");
 	}
 });
