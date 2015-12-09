@@ -10,7 +10,7 @@ var host = "http://download.osmc.tv/installers/versions_";
 var downloadHost = "http://download.osmc.tv/installers/diskimages/";
 
 var names = {
-  rbp1: "Raspberry Pi 1",
+  rbp1: "Raspberry Pi 1 / Zero",
   rbp2: "Raspberry Pi 2",
   vero1: "Vero",
   appletv: "Apple TV 1"
