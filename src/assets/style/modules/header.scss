@@ -230,17 +230,18 @@ $hover: $link2;
 				}
 			}
 			&:nth-child(5) {
-				a {
-					cursor: default;
-					color: $acc3-2;
-					text-decoration: line-through;
-					&:hover, &:focus, &:active {
-						color: $acc3-2;
-					}
-				}
-				.page-home & {
-					display: none;
-				}
+                                padding-left: $p;
+
+                                @include res1-1 {
+                                        padding-left: $p-res;
+                                }
+                                .page-home & {
+                                        padding-left: $pp;
+
+                                        @include res1-1 {
+                                                padding-left: $pp-res;
+                                        }
+                                }
 			}
 		}
 	}
