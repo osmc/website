@@ -229,6 +229,8 @@ $hover: $link2;
 					}
 				}
 			}
+      /* Cross out store link in header
+      
 			&:nth-child(5) {
 				a {
 					cursor: default;
@@ -242,6 +244,7 @@ $hover: $link2;
 					display: none;
 				}
 			}
+      */
 		}
 	}
 	&-current {
