@@ -1,4 +1,17 @@
-// Newsletter
+if (hash() === "newsletter") {
+  newsletterShow();
+};
+
+function newsletterShow() {
+  if ($(".sidebar-news").length > 0) {
+    $("body").addClass("overlay-show");
+    $("html, body").animate({
+      scrollTop: $(".sidebar-news").offset().top - 200
+    }, 500);
+  }
+};
+
+
 $(".sidebar-news-email").on("input propertychange", function () {
 	if ($(this).val().length > 0)  {
 		$(this).parent().addClass("focus");

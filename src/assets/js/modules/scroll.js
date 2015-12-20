@@ -1,3 +1,9 @@
+if (hash().length > 1 && $("#" + hash()).length > 0) {
+	$("html, body").stop().animate({
+		"scrollTop": $("#" + hash()).offset().top
+	}, 200);
+};
+
 $(window).on("scroll", function () {
   var top = $(document).scrollTop();
   var bottom = $(document).scrollTop() + $(window).height();

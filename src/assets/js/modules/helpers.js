@@ -11,3 +11,20 @@ function isVisible(elem, offset) {
 var hash = function () {
 	return location.hash.slice(1);
 };
+
+function removeHash() {
+  history.pushState(undefined, undefined, " ");
+};
+
+// check hash on change
+window.addEventListener("hashchange", function (event) {
+  var h = hash();
+  
+	if (h === "donate") {
+		donateShow();
+	}
+  
+  if (h === "newsletter") {
+    newsletterShow();
+  }
+});

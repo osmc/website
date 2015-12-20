@@ -2,6 +2,7 @@
 //= require modules/nav.js
 //= require modules/up.js
 //= require modules/scroll.js
+//= require modules/overlay.js
 //= require modules/home.js
 //= require modules/donate.js
 //= require modules/newsletter.js

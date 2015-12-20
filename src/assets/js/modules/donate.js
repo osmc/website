@@ -1,30 +1,23 @@
-if (hash() !== "donate" && hash().length > 1) {
-	$("html, body").stop().animate({
-		"scrollTop": $("#" + hash()).offset().top
-	}, 200);
-};
-
 // check hash on load
 if (hash() === "donate") {
-	$(".donate").addClass("show");
+	donateShow();
 };
 
 $(".donate-exit").click(function () {
-	history.pushState(undefined, undefined, " ");
-	$(".donate").removeClass("show");
+	donateExit();
 });
 
-// check hash on change
-window.addEventListener("hashchange", function (event) {
-	if (hash() === "donate") {
-		$(".donate").addClass("show");
-		$("html, body").animate({
-			scrollTop: 0
-		}, 500);
-	} else  {
-		$(".donate").removeClass("show");
-	}
-});
+function donateShow() {
+  $(".donate").addClass("show");
+  $("html, body").animate({
+    scrollTop: 0
+  }, 500);
+};
+
+function donateExit() {
+  removeHash();
+	$(".donate").removeClass("show");
+};
 
 // button loading
 function buttonLoadStart() {
