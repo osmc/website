@@ -66,6 +66,7 @@
     }
   }
 }
+
 @mixin link-share($color, $hover) {
 	
 	a, a:visited {
@@ -75,7 +76,13 @@
       color: $hover;
     }
 	}
-}  
+}
+
+@mixin link-alt {
+  &:hover, &:active, &:focus {
+    @content;
+  }
+}
 
 @mixin button {
 

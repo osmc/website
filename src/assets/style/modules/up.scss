@@ -1,0 +1,51 @@
+.up {
+  position: fixed;
+  bottom: 1.5em;
+  right: 1.5em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  border-radius: $b-radius1;
+  border: 1px solid $acc3-1;
+  cursor: pointer;
+  transition-duration: $ani-duration2;
+  opacity: 0;
+  visibility: hidden;
+  
+  @include res1-rev {
+    @include link-alt {
+      background-color: $acc3-4;
+      svg {
+        path {
+          fill: $acc3-3;
+        }
+      }
+    }
+  }
+
+  svg {
+    vertical-align: middle;
+    transform: rotate(-90deg);
+    width: 1em;
+    height: 1em;
+    
+    path {
+      transition-duration: $ani-duration2;
+      fill: $acc3-2;
+    }
+  }
+  
+  @include res1 {
+    bottom: 1em;
+    right: 1em;
+    background-color: $white;
+  }
+  
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.bottom {
+    position: absolute;
+  }
+}

@@ -1,3 +1,13 @@
+function isVisible(elem, offset) {
+	var $elem = $(elem);
+	var $window = $(window);
+	var docViewTop = $window.scrollTop();
+	var docViewBottom = docViewTop + $window.height();
+	var elemTop = $elem.offset().top;
+	var elemBottom = elemTop + $elem.height() - offset;
+	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
 var hash = function () {
 	return location.hash.slice(1);
 };
@@ -17,6 +27,47 @@ $(".nav-ul li a").each(function(i, item) {
 	if (url.substring(0,4) === "http" && url !== "https://store.osmc.tv") {
 		$(item).attr("target","_blank");
 	}
+});
+
+// up button
+var up = $(".up");
+var upSize = parseInt(up.css("width"), 10);
+var upBottom = parseInt(up.css("bottom"), 10);
+var upOffset = upSize + upBottom;
+
+// scroll listen
+$(window).on("scroll", function () {
+  var top = $(document).scrollTop();
+  var bottom = $(document).scrollTop() + $(window).height();
+  
+  // load discourse comments if visible
+  if ($("#discourse-comments").length && !commentsLoaded) {
+    var visible = isVisible(".post-comments", 300);
+    comments(visible);
+  }
+  
+  // up button scroll
+  var footerPos = $(".footer").offset().top;
+  if (bottom >= footerPos) {
+    up.addClass("bottom");
+    up.css("top", footerPos - upOffset);
+  } else {
+    up.removeClass("bottom");
+    up.css("top", "");
+  }
+      
+  if (top > 1100) {
+    up.addClass("show");
+  } else {
+    up.removeClass("show"); 
+  }
+});	
+
+// scroll up button
+$(".up").click(function() {
+  $("html, body").animate({
+		"scrollTop": 0
+	}, 300);
 });
 
 // FRONT PAGE
@@ -380,29 +431,13 @@ function pieChart(title, items) {
 
 // Discourse comments
 if ($("#discourse-comments").length) {
-	$(window).on("scroll", function () {
-		if (!commentsLoaded) {
-			var visible = isVisible(".post-comments", 300);
-			comments(visible);
-		}
-	});
-	
-	setTimeout(function() {
-		var visible = isVisible(".post-comments", 300);
-		comments(visible);
-	}, 200);
-}
+  setTimeout(function() {
+      var visible = isVisible(".post-comments", 300);
+      comments(visible);
+    }, 200);
+};
 
 var commentsLoaded = false;
-function isVisible(elem, offset) {
-	var $elem = $(elem);
-	var $window = $(window);
-	var docViewTop = $window.scrollTop();
-	var docViewBottom = docViewTop + $window.height();
-	var elemTop = $elem.offset().top;
-	var elemBottom = elemTop + $elem.height() - offset;
-	return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
 
 // check for comment id
 if (typeof topicId === "undefined") {
