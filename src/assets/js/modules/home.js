@@ -1,6 +1,12 @@
 var homeClass = "page-home";
 if ($("body").hasClass(homeClass)) {
 
+  $(".firstn-down").click(function() {
+    $("html, body").animate({
+      scrollTop: $(".secondn").offset().top - 80
+    }, 500);
+  });
+  
 	var player = new Clappr.Player({
 		source: '/assets/vid/homepage-tour.mp4',
 		poster: '/assets/img/home/video-poster.png',
@@ -39,10 +45,8 @@ if ($("body").hasClass(homeClass)) {
 	var hwindow = $(window).height();
 	var h130 = $(window).height() * 1.55;
 	$(".home .firstn").css("height", hwindow);
-	setTimeout(function () {
-		$(".home .firstn-wrap2").addClass("show");
-	}, 100);
 	$(".home .firstn-back").css("height", h130);
+  $(".home .firstn-wrap2").addClass("show");
 
 	// images
 
