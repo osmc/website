@@ -4,13 +4,14 @@ var compass = require("gulp-compass");
 var cssmin = require("gulp-cssmin");
 var prefix = require("gulp-autoprefixer");
 var concat = require("gulp-concat");
+var include = require("gulp-include");
 var uglify = require("gulp-uglify");
 var cssimport = require("gulp-cssimport");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 
 var path = require("path");
-var exec = require('child_process').exec;
+var exec = require("child_process").exec;
 
 var modules = "node_modules/";
 
@@ -88,8 +89,9 @@ gulp.task("discourse", function() {
 gulp.task("minify", function () {
   return gulp.src([
     modules + "jquery-validation/dist/jquery.validate.js",
-    js + "scripts.js"
+    js + "main.js"
   ])
+    .pipe(include())
     .pipe(uglify())
     .pipe(concat("minified.js"))
     .pipe(gulp.dest(js));
@@ -120,7 +122,7 @@ gulp.task("reload", function () {
 
 gulp.task("default", ["ghost", "style", "discourse", "clean:js"], function () {
   gulp.watch([style + "**/*"], ["style"]);
-  gulp.watch(js + "scripts.js", ["js-reload"]);
+  gulp.watch(js + "**/*.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
 	gulp.watch(js + "discourse.js", ["discourse"]);
 });
