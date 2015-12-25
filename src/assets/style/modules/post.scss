@@ -46,4 +46,13 @@
   &-footer {
     margin: 1em 0;
   }
+  &-ad {
+		margin: 2em 0;
+    width: 100%;
+    max-height: 70px;
+		
+		@include res1 {
+			float: left;
+		}
+	}
 }
