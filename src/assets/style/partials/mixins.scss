@@ -92,11 +92,15 @@
 	@include radius1;
 	color: $white;
 	background-color: $button;
-	padding: 0.15em 0.7em;
+	padding: $bp;
 	margin: 0.3em 0.3em 0.3em 0;
 	cursor: pointer;
 	@include ani1;
 	border-bottom: 0;
+  
+  form & {
+    font-size: 100%;
+  }
  
   &:visited {
 		background-color: $button;
