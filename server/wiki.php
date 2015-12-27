@@ -39,6 +39,8 @@ function get_slug_url($url) {
   $url = str_replace(" ", "-", $url);
   $url = str_replace("'", "", $url);
   $url = str_replace("?", "", $url);
+  $url = str_replace("(", "", $url);
+  $url = str_replace(")", "", $url);
   return $url;
 }
 
