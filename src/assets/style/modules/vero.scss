@@ -84,13 +84,13 @@
       &.current {
         
         a {
-          color: $link;
+          color: $acc2-1;
         }
         
         &:after {
           $stroke1: 50%;
           $stroke2: 70%;
-          $color: $link;
+          $color: $acc2-1;
           background: radial-gradient(50% 50%, circle, $trans 0%, $trans $stroke1, $color $stroke2, $color 100%);
         }
       }
