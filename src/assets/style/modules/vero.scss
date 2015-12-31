@@ -252,6 +252,8 @@
         right: 0;
         left: 0;
         overflow: hidden;
+        z-index: -2;
+        pointer-events: none;
       }
         
     }
