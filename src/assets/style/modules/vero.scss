@@ -1,0 +1,630 @@
+.page-vero {
+  background-color: $white;
+}
+
+
+.vero {
+  position: relative;
+  
+  h1,h2,h3 {
+    font-weight: 300;
+    text-shadow: none;
+    margin: 0.5em 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    h3 {
+      margin: 0.5em 0;
+    }
+  }
+  
+  &-wrap {
+    margin: 5em 0;
+    float: left;
+    width: 100%;
+    
+    @include res1 {
+      margin: 2em 0 3em;
+    }
+  }
+  
+  &-menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 85%;
+    z-index: 9;
+    
+    @include res1 {
+      display: none;
+    }
+    
+    ul {
+      position: absolute;
+      top: 30%;
+      right: 0.7em;
+      text-align: right;
+      width: 90px;
+    }
+    li {
+      @include ani2;
+      margin: 0.9em 0;
+      //text-transform: lowercase;
+      
+      a {
+        font-weight: 300;
+        color: $acc3-2;
+        vertical-align: middle;
+        @include ani2;
+      }
+      
+      $s: 10px;
+      
+      &:after {
+        @include ani2;
+        content: "";
+        width: $s;
+        height: $s;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 50%;
+        margin-left: 0.5em;
+        $stroke1: 50%;
+        $stroke2: 70%;
+        $color: $acc3-2;
+        background: radial-gradient(50% 50%, circle, $trans 0%, $trans $stroke1, $color $stroke2, $color 100%);
+      }
+      
+      &.current {
+        
+        a {
+          color: $link;
+        }
+        
+        &:after {
+          $stroke1: 50%;
+          $stroke2: 70%;
+          $color: $link;
+          background: radial-gradient(50% 50%, circle, $trans 0%, $trans $stroke1, $color $stroke2, $color 100%);
+        }
+      }
+    }
+  }
+   
+  
+  &-first {
+    //background-color: #F8F8F8;
+    position: relative;
+    overflow: hidden;
+    max-height: 800px;
+    background-image: url("/assets/img/vero2/vero-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-width: 1700px;
+    margin: 0 auto;
+    
+    &-text {
+      position: absolute;
+      top: 5%;
+      right: 0;
+      left: 0;
+      margin: 0 5em;
+      text-align: center;
+      z-index: 1;
+      
+      @include res1 {
+        font-size: $small2;
+        position: relative;
+        margin: 2em 0;
+        text-align: center;
+        float: left;
+        width: 100%;
+        padding: 0 5%;
+      }
+      @include res2 {
+        margin: 0;
+      }
+    }
+    &-title {
+      font-size: 2em;
+      
+      @include res1 {
+        font-size: 180%;
+      }
+      @include res2 {
+        font-size: 150%;
+      }
+    }
+    
+    &-img {
+      position: relative;
+      
+      img {
+        width: 100%;
+        display: block;
+        padding: 2em 0;
+        
+        @include res2 {
+          padding: 0.5em 0;
+        }
+      }
+    }
+    &-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    &-buy {
+      position: absolute;
+      bottom: 3%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      
+      @include res2 {
+        bottom: 0;
+      }
+      
+      a {
+        @include res1 {
+          font-size: 90%;
+          padding: $bp;
+        }
+      }
+    }
+  }
+  
+  &-design {
+    border-bottom: 2px solid $acc3-4;
+    
+    .vero-wrap {
+       @include res1-rev {
+        display: table;
+        position: relative;
+        overflow: hidden;
+      }
+    }
+    .column {
+      
+      @include res1-rev {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+    }
+    
+    &-text {
+      @include res1-rev {
+        margin: 1em 0;
+        margin-right: 3em;
+        padding-bottom: 3em;
+      }
+    }
+    
+    &-svg {
+      margin-bottom: -0.5em;
+    }
+    
+    &-title {
+      font-size: 2.2em;
+      font-weight: 300;
+    }
+    
+    &-line {
+      position: absolute;
+      width: 2px;
+      left: 33%;
+      right: 0;
+      bottom: 100%;
+      height: 100em;
+      background-color: $acc3-4;
+      margin: auto;
+      transition: all 0.8s ease;
+      opacity: 0.5;
+      z-index: -1;
+      overflow: hidden;
+      
+      .vero-design.aniStart & {
+        bottom: 0;
+        opacity: 1;
+      }
+      
+      @include res1 {
+        display: none;
+      }
+      
+      &-wrap {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+      }
+        
+    }
+    
+    &-images {
+      text-align: center;
+      margin: 1em 0;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+      transition-delay: 0.9s;
+      @include ani-vero;
+      
+      .vero-design.aniStart & {
+        opacity: 1;
+        //@extend .fadeInLeft;
+      }
+      
+      @include res1 {
+        margin: 2em 0 0;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+      
+      img {
+        width: 80%;
+        padding: 0.5em;
+        
+        @include res1 {
+          width: 45%;
+        }
+      }
+    }
+  }
+  
+  &-perf {
+    &-head {
+      text-align: center;
+    }
+    &-sub {
+      text-align: center;
+    }
+  }
+  
+  &-feat {
+    float: left;
+    width: 100%;
+    margin: 5em 0 0;
+    
+    @include res1 {
+      margin-top: 2em;
+    }
+    
+    &-line {
+      display: block;
+      width: 20em;
+      max-width: 80%;
+      margin: 4em auto 0;
+      height: 2px;
+      background-color: $acc3-4;
+      
+      @include res2 {
+        max-width: 100%;
+        margin-top: 2em;
+      }
+    }
+    
+    .column {
+    }
+    
+    &-list {
+      
+      @include res1 {
+        text-align: center;
+      }
+      
+      li {
+        margin: 0 0 3em 0;
+        
+        @include res1 {
+          display: inline-block;
+          margin: 0 2em 0 0;
+          @include link;
+          
+          h2 {
+            margin: 0.3em 0;
+            font-size: $big2;
+            overflow: visible;
+          }
+        }
+        @include res2 {
+          font-size: $big1;
+        }
+      }
+      
+      h2 {
+        overflow: hidden;
+      }
+      
+      li {
+        a {
+          position: relative;
+          color: $link;
+
+          &:visited, &:focus, &:active, &:hover {
+            color: $link;
+          }
+
+          @include res1 {
+            border-bottom-width: 0px;
+            &:visited, &:focus, &:active, &:hover {
+              border-bottom-width: 0px;
+            }
+          }
+
+          &:after {
+            content: "";
+            position: absolute;
+            width: 20em;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 1px;
+            margin-left: 1em;
+            padding-right: 1em;
+            background-color: $trans;
+            pointer-events: none;
+            border-bottom: 1px dashed $link;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            @include res1 {
+              display: none;
+            }
+          }
+
+          &.current {
+            &:after {
+              opacity: 1;
+            }
+
+            @include res1 {
+              border-bottom-width: 2px;
+              border-bottom-color: $link-bottom;
+
+              &:visited, &:focus, &:active, &:hover {
+                border-bottom-color: $link-bottom;
+                border-bottom-width: 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    &-content {
+      position: relative;
+      height: 390px;
+      
+      @include res1 {
+        margin-top: 2em;
+      }
+    }
+    
+    &-box {
+      position: absolute;
+      opacity: 0;
+      display: none;
+      @include ani-vero-feat;
+      
+      &:first-child {
+        display: block;
+        position: relative;
+        @extend .fadeIn;
+      }
+    }
+    &-wrap {
+      position: relative;
+      
+      @include res1 {
+        width: 550px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+    
+    &-img {
+      position: relative;
+      width: 450px;
+      height: 240px;
+      overflow: hidden;
+      max-width: 100%;
+      
+      @include res1 {
+        height: auto;
+        width: 100%;
+        margin: 1em auto 0;
+      }
+      
+      img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        
+        @include res1 {
+          position: relative;
+        }
+      }
+    }
+    
+    &-ast {
+      padding: 0 0.2em;
+      color: $link;
+      border-bottom: 2px solid $link-bottom;
+      
+      &:visited {
+        color: $link;
+      }
+      
+      @include link-alt {
+        border-bottom-color: $link-bottom-hover;
+      }
+    }
+    
+    &-interlace, &-apps {
+      img {
+        top: auto;
+      }
+    }
+  }
+  
+  &-osmc {
+    position: relative;
+    overflow: hidden;
+    padding: 2em 0 1em;
+    border-bottom: 10px solid $acc3-4;
+    border-top: 10px solid $acc3-4;
+    background-image: url("/assets/img/vero2/back.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    .container {
+      position: auto;
+      z-index: 1;
+    }
+    
+    .vero-wrap {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    &-title {
+      width: 25em;
+      max-width: 70%;
+
+    }
+    &-text {
+      font-size: $big2;
+      text-align: left;
+      color: $white;
+      margin: 0 auto;
+      margin-top: 4em;
+      width: 50em;
+      font-weight: 300;
+      max-width: 100%;
+      
+      @include res2 {
+        font-size: 1em;
+      }
+    }
+  }
+  
+  &-order {
+    border-bottom: 2px solid $acc3-4;
+    
+    .vero-wrap {
+      //margin-bottom: 2em;
+    }
+        
+    &-img {
+      text-align: right;
+      
+      @include res1 {
+        text-align: center;
+      }
+      
+      img {
+        max-width: 20em;
+        width: 100%;
+        
+        @include res1 {
+          max-width: 25em;
+        }
+      }
+    }
+    
+    $color: lighten($acc1-1, 40%);
+    $stroke: 2px;
+    
+    &-text {
+      margin-top: 1em;
+      margin-left: 2em;
+      margin-bottom: 2em;
+      
+      @include res1 {
+        text-align: center;
+        margin-left: 0;
+      }      
+    }
+        
+    &-title {
+    }
+    
+    &-info {
+      margin: 0 0 1.5em;
+    }
+  }
+  
+  &-include {
+    margin: auto;
+    border-bottom: 2px solid $acc3-4;
+
+    @include link2;
+
+    @include res1 {
+      text-align: center;
+    }
+
+    ul {
+
+      li {          
+        @include res1 {
+          line-height: 1.5em;
+          margin: 0.9em 0;
+        }
+      }
+    }
+    
+    &-tech {
+      @include res1 {
+        margin-top: 4em;
+      }
+    }
+  }
+  
+  &-faq {
+    li {
+      &:nth-child(2n+1) {
+        font-size: $big2;
+        font-weight: 600;
+      }
+      &:nth-child(2n+2) {
+        margin-bottom: 2em;
+      }
+    }
+  }
+  
+  &-ast {
+    ul {
+      font-size: $small2;
+      margin-bottom: 2em;
+      
+      span {
+        font-style: italic;
+      }
+      
+      li {
+        margin: 0;
+      }
+    }
+  }
+}

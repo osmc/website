@@ -29,4 +29,10 @@ $(window).on("scroll", function () {
   } else {
     up.removeClass("show"); 
   }
+  
+  //Vero
+  if ($("body").hasClass("page-vero")) {
+    veroScroll();
+  }
+  
 });

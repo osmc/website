@@ -577,15 +577,16 @@
 		padding-bottom: 4%;
 		float: left;
 		width: 100%;
-		//@include background-image(linear-gradient(to bottom right, rgba(14, 148, 184, 0.30), rgba(14, 164, 184, 0.20) 70%));
-		h2 {
-			display: none;
-			text-align: center;
-			font-weight: 300;
-			font-size: 210%;
-			margin-top: 0;
-			margin-bottom: 6%;
-		}
+    
+    a, a:visited {
+      color: $link;
+      border-bottom: 2px solid $link-bottom;
+      
+      @include link-alt {
+        border-bottom-color: $link-bottom-hover;
+      }
+    }
+    
 		&-wrap {
 			display: table;
 			vertical-align: middle;
@@ -593,10 +594,15 @@
 			@include res1 {
 				display: block;
 				float: left;
+        text-align: center;
 			}
-			h3 {
+			h2 {
 				font-weight: 300;
-				font-size: 125%;
+        line-height: 1.7em;
+        
+        @include res1 {
+          margin-bottom: 1em;
+        }
 			}
 			img {
 				width: 95%;
@@ -611,17 +617,15 @@
 					display: block;
 				}
 			}
-		}
-		&-link {
-			@inlude link;
-		}
+		}    
+    
 		&-img {
 			@include res1 {
 				text-align: center;
 
 				img {
-					width: 60%;
-					max-width: 18em;
+					width: 90%;
+					max-width: 30em;
 				}
 			}
 		}

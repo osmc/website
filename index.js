@@ -49,6 +49,8 @@ var proxySingle = httpProxy.createProxyServer({
 
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 
+app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
+
 app.all("/", function(req, res){
   var url = host + "/home";
   proxySingle.web(req, res, {target: url});

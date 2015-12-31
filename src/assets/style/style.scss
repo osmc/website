@@ -3,9 +3,11 @@
 @import "lib/grid";
 @import "lib/chartistSettings";
 @import "chartist/dist/scss/chartist";
+@import "lib/chocolat";
 @import "modules/form";
 @import "modules/header";
 @import "modules/home";
+@import "modules/vero";
 @import "modules/sidebar";
 @import "modules/post";
 @import "modules/blog";
@@ -30,4 +32,12 @@ abbr[title] {
 .ie9 a {
   text-decoration: none;
   border-bottom: none;
+}
+
+.chocolat-wrapper .chocolat-fullscreen {
+  display: none;
+}
+
+.chocolat-open {
+  overflow-y: scroll;
 }

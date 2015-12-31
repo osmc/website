@@ -97,6 +97,7 @@
 	cursor: pointer;
 	@include ani1;
 	border-bottom: 0;
+  user-select: none;
   
   form & {
     font-size: 100%;
@@ -169,7 +170,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 	&:hover, &:active, &:focus {
 		background-color: $acc2-3;
 	}
-	
 }
 
 @mixin button-alt2 {
@@ -182,14 +182,65 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 	&:hover, &:active, &:focus {
 		background-color: $acc5-1;
 	}
-	
 }
+
+@mixin button-alt3 {
+	@include button;
+	background-color: $white;
+  color: $black;
+  border: 1px solid $black;
+	
+	&:visited {
+		background-color: $white;
+    color: $black;
+	}
+	&:hover, &:active, &:focus {
+		background-color: $acc3-4;
+    border: 1px solid $black;
+    color: $black;
+	}
+}
+
+@mixin button-vero {
+	@include button;
+	background-color: $trans;
+  color: $black;
+  border: 1px solid $black;
+  @include ani2;
+	
+	&:visited {
+		background-color: $trans;
+    color: $black;
+	}
+	&:hover, &:active, &:focus {
+		background-color: $acc2-1;
+    border: 1px solid $acc2-1;
+    color: $white;
+	}
+}
+
 
 @mixin ani-news {
   @include animation-duration(0.3s);
   @include animation-timing-function(ease-out);
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+}
+
+@mixin ani-vero {
+  @include animation-duration(1.4s);
+  @include animation-timing-function(ease-in-out);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-delay: 0.9s;
+}
+
+@mixin ani-vero-feat {
+  @include animation-duration(1s);
+  @include animation-timing-function(ease-in-out);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-delay: 0s;
 }
 
 
@@ -303,4 +354,66 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 .slideInDown {
   -webkit-animation-name: slideInDown;
   animation-name: slideInDown;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+@-webkit-keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }

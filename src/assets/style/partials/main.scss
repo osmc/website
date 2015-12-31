@@ -124,13 +124,32 @@ blockquote {
 
 button, .button {
   @include button;
+}
 
+.button {
   &-alt1 {
     @include button-alt1;
 	}
 	&-alt2 {
     @include button-alt2;
 	}
+  &-alt3 {
+    @include button-alt3;
+  }
+  &-vero {
+    @include button-vero;
+  }
+}
+
+.button {
+  &-big1 {
+    font-size: $big1;
+    padding: 0.1em 0.7em;
+  }
+  &-big2 {
+    font-size: $big2;
+    padding: 0.2em 0.7em;
+  }
 }
 
 pre {
