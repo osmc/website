@@ -466,21 +466,7 @@
         }
       }
     }
-    
-    &-ast {
-      padding: 0 0.2em;
-      color: $link;
-      border-bottom: 2px solid $link-bottom;
-      
-      &:visited {
-        color: $link;
-      }
-      
-      @include link-alt {
-        border-bottom-color: $link-bottom-hover;
-      }
-    }
-    
+        
     &-interlace, &-apps {
       img {
         top: auto;
@@ -617,6 +603,14 @@
   }
   
   &-ast {
+    
+    &-icon {
+      vertical-align: super;
+      font-size: 80%;
+      padding: 0 0.2em;
+      color: $acc3-2;
+    }
+    
     ul {
       font-size: $small2;
       margin-bottom: 2em;
