@@ -26,12 +26,10 @@
 		}
   }
   &-text {
-    border-left: 1px solid $acc3-1;
 		
 		@include res1 {
 			font-size: $small2;
 			line-height: 1.5em;
-			border-left: none;
 		}
   }
   
@@ -75,13 +73,22 @@
   
   &-form {
     text-align: right;
-    margin: 1.5em 0;
+    margin: 1.2em 0 0;
     font-size: $small2;
     position: relative;
 		
 		@include res1 {
 			text-align: center;
 		}
+    
+    &-wrap {
+      border-right: 1px solid $acc3-1;
+      
+      @include res1 {
+        border-right-width: 0px;
+      }
+    }
+    
     .amount {
 			display: inline-block;
 			line-height: 1.7em;
