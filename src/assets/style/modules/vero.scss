@@ -96,7 +96,6 @@
       }
     }
   }
-   
   
   &-first {
     //background-color: #F8F8F8;
@@ -335,17 +334,19 @@
         
         @include res1 {
           display: inline-block;
-          margin: 0 2em 0 0;
+          margin: 0 0.5em;
           @include link;
+          
+          @include res2 {
+            //margin: 0 0.5em;
+            font-size: $big1;
+          }
           
           h2 {
             margin: 0.3em 0;
             font-size: $big2;
             overflow: visible;
           }
-        }
-        @include res2 {
-          font-size: $big1;
         }
       }
       
@@ -591,6 +592,8 @@
   }
   
   &-faq {
+    @include link;
+    
     li {
       &:nth-child(2n+1) {
         font-size: $big2;
