@@ -248,11 +248,10 @@
 	}
   
   section.sidebar-vero {
-    padding: 0.5em;
+    padding: 0.5em 1em;
   }
   
   &-vero {
-    text-align: center;
     @include ani1;
     
     @include link-alt {
