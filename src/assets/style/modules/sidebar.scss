@@ -246,4 +246,28 @@
       background-color: $white;
     }
 	}
+  
+  section.sidebar-vero {
+    padding: 0.5em;
+  }
+  
+  &-vero {
+    text-align: center;
+    @include ani1;
+    
+    @include link-alt {
+      color: $link;
+    }
+    
+    &-title {
+      font-size: 110%;
+      font-weight: 300;
+    }
+    
+    span {
+      font-size: 120%;
+      color: $link;
+    }
+      
+  }
 }
