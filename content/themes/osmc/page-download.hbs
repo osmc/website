@@ -1,101 +1,78 @@
-{{!< default}}
-{{#post}} 
-<div class="row clearfix main {{post_class}} download">
-  <div class="container">
-    <article class="column full post-body">
-      
-			<header class="column three-fourths post-three post-header">
-				<h1 class="post-title">{{title}}</h1>
-				<section class="post-meta">
-				</section>
-			</header>
-			
-			<div class="column three-fourths post-three post-break">
-				{{> break}}
-			</div>
-			
-			<div class="column three-fourths post-three post-content">
-								
-				<section class="row clearfix download-devices">
-					
-					<h3 class="download-text">OSMC currently supports the Raspberry Pi, Vero, and Apple TV.</h3>
-					
-					<div class="column-fixed third download-devices-wrap">
-						{{> svg/device/pi}}
-						<span class="download-devices-title">Raspberry Pi</span>
-						<span class="download-devices-text">Pi 1, Zero & Pi 2</span>
-					</div>
-					<div class="column-fixed third download-devices-wrap">
-						{{> svg/device/vero}}
-						<span class="download-devices-title">Vero</span>
-						<span class="download-devices-text">OSMC flagship</span>
-					</div>
-					<div class="column-fixed third download-devices-wrap">
-						{{> svg/device/appletv}}
-						<span class="download-devices-title">Apple TV</span>
-						<span class="download-devices-text">1st generation</span>
-					</div>
-					
-				</section>
+{{!< x-page}}
 
-				<hr>
+<section class="row clearfix download-devices">
 
-				{{content}}
-				
-				<section class="row clearfix download-systems">
-					<div class="column-fixed third download-system">
-						{{> svg/windows}}
-						<div class="download-system-wrap">
-							<a href="http://download.osmc.tv/installers/osmc-installer.exe" class="download-system-dl">
-								<span class="download-system-title ani1">Windows</span>
-								{{> svg/download}}
-							</a>
-							<span class="download-system-meta" title="XP SP2 or later. Not sure about 2000">XP SP2 +</span>
-						</div>
-					</div>
-					<div class="column-fixed third download-system">
-						{{> svg/osx}}
-						<div class="download-system-wrap">
-							<a href="http://download.osmc.tv/installers/osmc-installer.dmg" class="download-system-dl">
-								<span class="download-system-title ani1">OS X</span>
-								{{> svg/download}}
-							</a>
-							<span class="download-system-meta">10.07 +</span>
-						</div>
-					</div>
-					<div class="column-fixed third download-system">
-						{{> svg/linux}}
-						<div class="download-system-wrap">
-							<a href="http://software.opensuse.org/download.html?project=home:osmc&package=osmc-installer&hcolor=17394a&fcolor=17394a&acolor=17394a" target="_blank" class="download-system-dl">
-								<span class="download-system-title ani1">Linux</span>
-								{{> svg/download}}
-							</a>
-						</div>
-					</div>
-				</section>
+  <h3 class="download-text">OSMC currently supports the Raspberry Pi, Vero, and Apple TV.</h3>
 
-				<hr>
-
-				<div class="download-disk">
-					<p>You can also download disk images.</p>
-					<span class="download-disk-button button">
-						<span class="download-disk-text">Disk images</span>{{> svg/cd}}
-					</span>
-				</div>
-
-				<div class="download-tables">
-					{{{images}}}
-				</div>	
-        
-        <div class="post-ad">
-          {{> ad}}
-        </div>
-        
-			</div>      
-
-			{{> sidebar}}			
-			
-    </article>
+  <div class="column-fixed third download-devices-wrap">
+    {{> svg/device/pi}}
+    <span class="download-devices-title">Raspberry Pi</span>
+    <span class="download-devices-text">Pi 1, Zero & Pi 2</span>
   </div>
-</div>
+  <div class="column-fixed third download-devices-wrap">
+    {{> svg/device/vero}}
+    <span class="download-devices-title">Vero</span>
+    <span class="download-devices-text">OSMC flagship</span>
+  </div>
+  <div class="column-fixed third download-devices-wrap">
+    {{> svg/device/appletv}}
+    <span class="download-devices-title">Apple TV</span>
+    <span class="download-devices-text">1st generation</span>
+  </div>
+
+</section>
+
+<hr>
+
+{{#post}}
+{{content}}
 {{/post}}
+
+<section class="row clearfix download-systems">
+  <div class="column-fixed third download-system">
+    {{> svg/windows}}
+    <div class="download-system-wrap">
+      <a href="http://download.osmc.tv/installers/osmc-installer.exe" class="download-system-dl">
+        <span class="download-system-title ani1">Windows</span>
+        {{> svg/download}}
+      </a>
+      <span class="download-system-meta" title="XP SP2 or later. Not sure about 2000">XP SP2 +</span>
+    </div>
+  </div>
+  <div class="column-fixed third download-system">
+    {{> svg/osx}}
+    <div class="download-system-wrap">
+      <a href="http://download.osmc.tv/installers/osmc-installer.dmg" class="download-system-dl">
+        <span class="download-system-title ani1">OS X</span>
+        {{> svg/download}}
+      </a>
+      <span class="download-system-meta">10.07 +</span>
+    </div>
+  </div>
+  <div class="column-fixed third download-system">
+    {{> svg/linux}}
+    <div class="download-system-wrap">
+      <a href="http://software.opensuse.org/download.html?project=home:osmc&package=osmc-installer&hcolor=17394a&fcolor=17394a&acolor=17394a" target="_blank" class="download-system-dl">
+        <span class="download-system-title ani1">Linux</span>
+        {{> svg/download}}
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<div class="download-disk">
+  <p>You can also download disk images.</p>
+  <span class="download-disk-button button">
+    <span class="download-disk-text">Disk images</span>{{> svg/cd}}
+  </span>
+</div>
+
+<div class="download-tables">
+  {{{images}}}
+</div>	
+
+<div class="post-ad">
+  {{> post/ad}}
+</div>

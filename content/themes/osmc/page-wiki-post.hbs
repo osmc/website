@@ -1,26 +1,25 @@
 {{!< default}}
+
 <div class="row clearfix main wikipost">
   <div class="container">
     <article class="column full post-body">
-      
-      <header class="column three-fourths post-three post-header">
-        <h1 class="post-title">{{wiki-post "title"}}</h1>
-        <section class="post-meta">
-          <a class="post-link" href="/wiki">Back to wiki</a>
-          <a class="wikipost-contribute" href="{{wiki-post "discourseUrl"}}" target="_blank">Make this page better</a>
-        </section>
-      </header>
-			
-			<div class="column three-fourths post-three post-break">
-				{{> break}}
-			</div>
-			
-			<div class="column three-fourths post-three post-content">
-				{{{wiki-post "body"}}}
-			</div>
+
+      {{> post/header wikipost=true}}
+
+      <div class="column three-fourths post-three post-break">
+        {{> post/break}}
+      </div>
+
+      <div class="column three-fourths post-three post-wrap">
+
+        <div class="post-content" itemprop="articleBody">
+          {{{wiki-post "body"}}}
+        </div>
+
+      </div>
 
       {{> sidebar-wiki}}
-      
+
     </article>
   </div>
-</div>
+  </div>

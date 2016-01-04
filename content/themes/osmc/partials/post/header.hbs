@@ -1,0 +1,31 @@
+<header class="column three-fourths post-three post-header">
+  <h1 class="post-title" itemprop="headline">
+    {{#if wikipost}}
+    {{wiki-post "title"}}
+    {{else}}
+    {{title}}
+    {{/if}}
+  </h1>  
+  
+  {{#if post}}
+  <section class="post-meta">
+    <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}" itemprop="datePublished" content="{{date format='YYYY-MM-DD'}}">
+      {{date format="DD MMMM YYYY"}}
+    </time>
+    <span class="post-tags">{{tags prefix=""}}</span>
+  </section>
+  {{/if}}
+  
+  {{#if page}}
+  <section class="post-meta">
+  </section>
+  {{/if}}
+  
+  {{#if wikipost}}
+  <section class="post-meta">
+    <a class="post-link" href="/wiki">Back to wiki</a>
+    <a class="wikipost-contribute" href="{{wiki-post "discourseUrl"}}" target="_blank">Make this page better</a>
+  </section>
+  {{/if}}
+    
+</header>

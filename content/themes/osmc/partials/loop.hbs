@@ -1,17 +1,17 @@
 <div class="bloglist-wrap">
 	{{#foreach posts}}
-		<article class="bloglist-post {{post_class}}">
+		<article class="bloglist-post {{post_class}}" itemscope itemType="http://schema.org/BlogPosting">
 			<header class="post-header">
-				<h2 class="post-title bloglist-title"><a href="{{url}}">{{{title}}}</a></h2>
+				<h2 class="post-title bloglist-title" itemprop="headline"><a href="{{url}}" itemprop="url">{{{title}}}</a></h2>
 				<section class="post-meta bloglist-meta">
-					<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+					<time class="post-date" datetime="{{date format='YYYY-MM-DD'}}" itemprop="datePublished" content="{{date format='YYYY-MM-DD'}}">
 						{{date format="DD MMMM YYYY"}}
 					</time>
 					<span class="post-tags">{{tags prefix=""}}</span>
 				</section>
 			</header>
-			<section class="bloglist-content">
-				<p>{{excerpt words="50"}} &nbsp;&nbsp;<span class="bloglist-more more"><a href="{{url}}">&roarr;</a></span></p>
+			<section class="bloglist-content" itemprop="description">
+				<p>{{excerpt words="50"}} &nbsp;&nbsp;<span class="bloglist-more more"><a href="{{url}}" itemprop="url">&roarr;</a></span></p>
 			</section>
 		</article>
 	{{/foreach}}
