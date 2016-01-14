@@ -11,6 +11,7 @@
   transition-duration: $ani-duration2;
   opacity: 0;
   visibility: hidden;
+  z-index: 9;
   
   @include res1-rev {
     @include link-alt {
