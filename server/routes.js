@@ -6,9 +6,20 @@ var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 app = express();
 
+var host = "http://localhost:2368";
+
+// force trailing slash on custom routes
+function slash(req, res, next) {
+  if(req.url.substr(-1) !== "/") {
+    console.log(req.url);
+    res.redirect(301, req.url + "/");
+  } else {
+    next();
+  }
+};
+
 // custom rendering for the wiki
 var theme = path.join(__dirname, "../content/themes/osmc");
-
 app.engine("hbs", hbs.express4({
   partialsDir: theme + "/partials"
 }));
@@ -29,10 +40,7 @@ var proxySingle = httpProxy.createProxyServer({
   res.end();
 });
 
-var host = "http://localhost:2368";
-
-app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
-app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
+// routes
 
 app.all("/", function(req, res){
   var url = host + "/home";
@@ -44,7 +52,7 @@ app.all("/home", function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/blog", function(req, res){
+app.all("/blog", slash, function(req, res){
   var url = host + "/";
   proxySingle.web(req, res, {target: url});
 });
@@ -53,15 +61,29 @@ app.all("/blog/page/1", function(req, res){
   res.redirect("/blog");
 });
 
-app.all("/blog/page/:page", function(req,res) {
+app.all("/blog/page/:page", slash, function(req,res) {
 	var url = host + "/page/" + req.params.page;
   proxySingle.web(req, res, {target: url});
 });
 
-app.all("/wiki", function(req, res){
+app.all("/wiki", slash, function(req, res){
   var url = host + req.url;
   proxySingle.web(req, res, {target: url});
 });
+
+// wiki
+
+var wiki = require("./wiki").wikiCheck;
+app.get("/wiki/*", slash, function(req, res) {
+  var content = wiki(req.url);
+  if (content) {
+    res.render("page-wiki-post.hbs", {wikiPost: content});
+  } else {
+    proxySingle.web(req, res, {target: host + "/404"});
+  }
+});
+
+// redirects
 
 app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 	res.redirect("/wiki");
@@ -69,16 +91,6 @@ app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 
 app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
-});
-
-var wiki = require("./wiki").wikiCheck;
-app.get("/wiki/*", function(req, res) {
-  var content = wiki(req.url);
-  if (content) {
-    res.render("page-wiki-post.hbs", {wikiPost: content});
-  } else {
-    proxySingle.web(req, res, {target: host + "/404"});
-  }
 });
 
 app.get("/download/**/*", function(req, res){
@@ -89,21 +101,28 @@ app.get("/author/*", function(req, res){
   res.redirect("/blog");
 });
 
-app.get("/status/wiki", function(req, res) {
-	res.sendFile(path.join(__dirname, "/static", "wiki-status.html"));
-});
-
 app.get("/about/corporate/eula", function(req, res) {
 	res.redirect("/corporate-and-legal/#eula");
-});
-
-app.get("/assets/discourse/discourse.js", function(req, res) {
-  res.sendFile(__dirname + "/static/discourse.js");
 });
 
 app.get("/shop", function(req, res){
   res.redirect("https://store.osmc.tv");
 });
+
+app.get("/status/wiki", function(req, res) {
+	res.sendFile(path.join(__dirname, "/static", "wiki-status.html"));
+});
+
+// files
+
+app.get("/assets/discourse/discourse.js", function(req, res) {
+  res.sendFile(__dirname + "/static/discourse.js");
+});
+
+app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
+app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
+
+// all
 
 app.all("/*", function(req, res){
   var url = host + req.url;
