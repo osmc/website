@@ -11,7 +11,6 @@ var host = "http://localhost:2368";
 // force trailing slash on custom routes
 function slash(req, res, next) {
   if(req.url.substr(-1) !== "/") {
-    console.log(req.url);
     res.redirect(301, req.url + "/");
   } else {
     next();
