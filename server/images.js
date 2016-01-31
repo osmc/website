@@ -6,8 +6,8 @@ var _ = require(ghostPath + "node_modules/lodash");
 var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
 
-var host = "http://download.osmc.tv/installers/versions_";
-var downloadHost = "http://download.osmc.tv/installers/diskimages/";
+var host = "http://realtime.mirror.osmc.tv/osmc/download/installers/versions_";
+var downloadHost = "http://realtime.mirror.osmc.tv/osmc/download/installers/diskimages/";
 
 var names = {
   rbp1: "Raspberry Pi 1 / Zero",
@@ -53,7 +53,7 @@ var files = [];
 var items = [];
 
 function fetch() {
-
+  
   var count = 0;
 
   var itemCount = 0;
@@ -70,7 +70,7 @@ function fetch() {
     } else  {
       var newkey = key.toUpperCase();
     }
-
+    
     request(host + newkey, function (error, response, body) {
       count++;
       if (!error && response.statusCode == 200) {
@@ -112,7 +112,7 @@ function process() {
     var split = file.split("_");
     var id = split[2];
     var md5Url = downloadHost + file.split(".")[0] + ".md5";
-
+    
     // get md5 string
     request(md5Url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -132,17 +132,20 @@ function process() {
         });
 
         count++;
-
+        
         if (count === itemsCount) {
           buildHtml();
         }
+      } else {
+        console.log("md5-error");
+        console.log(md5Url);
       }
     });
   });
 };
 
 function buildHtml() {
-
+  
   var content = "";
 
   // device ids that have images
