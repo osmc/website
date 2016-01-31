@@ -6,7 +6,7 @@
   "author": "Mark Theis Madsen",
   "dependencies": {
     "chokidar": "1.2.0",
-    "ghost": "0.7.1",
+    "ghost": "0.7.5",
     "http-proxy": "1.11.2",
     "mkdirp": "0.5.1"
   },
