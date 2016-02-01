@@ -7,7 +7,7 @@ var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
 
 var host = "http://realtime.mirror.osmc.tv/osmc/download/installers/versions_";
-var downloadHost = "http://realtime.mirror.osmc.tv/osmc/download/installers/diskimages/";
+var downloadHost = "http://download.osmc.tv/installers/diskimages/";
 
 var names = {
   rbp1: "Raspberry Pi 1 / Zero",
