@@ -1,6 +1,6 @@
 Discourse.DiscoveryView = Ember.View.extend({
   _insertBanner: function() {
-    if ( ad ) {
+    if (showAd && !disable) {
       this.$(".list-container").prepend("<div class='toplist_ad' data-adunit='discourse_toplist' data-size-mapping='toplist'></div>");
 
       this.$(".toplist_ad").dfp({
@@ -15,10 +15,10 @@ Discourse.DiscoveryView = Ember.View.extend({
         }
       });
       
-    } else {
+    } else if (showBanner && !disable) {
       
-      this.$(".list-container").prepend("<a href='" + bannerlink + "'><div class='toplist_banner' style='color:#fafafa; padding:2.5em 1em; margin:0.2em 0;'><h2 style='color:white; font-size:130%; font-weight:300; text-align: center;'>" + bannertext + "</h2></div></a>");
-      this.$(".toplist_banner").css({background : "url(" + bannerimg + ")"});
+      this.$(".list-container").prepend("<a href='" + bannerLink + "'><div class='toplist_banner' style='color:#fafafa; padding:2.5em 1em; margin:0.2em 0;'><h2 style='color:white; font-size:130%; font-weight:300; text-align: center;'>" + bannerText + "</h2></div></a>");
+      this.$(".toplist_banner").css({background : "url(" + bannerImg + ")"});
     }
     
   }.on('didInsertElement'),
