@@ -25,7 +25,7 @@ function buttonLoadStart() {
 	button.prop("disabled", true);
 	button.addClass("loading");
 	button.find(".donate-stripe-svg").addClass("hidden");
-	button.append("<img src='/assets/img/icon/load2.gif'>");
+	button.append("<img src='/assets/img/icon/spinner-osmc.gif'>");
 };
 
 function buttonLoadStop() {
