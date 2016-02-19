@@ -13,6 +13,7 @@ var names = {
   rbp1: "Raspberry Pi 1 / Zero",
   rbp2: "Raspberry Pi 2",
   vero1: "Vero",
+  vero2: "Vero 2",
   appletv: "Apple TV 1"
 };
 
