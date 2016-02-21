@@ -72,18 +72,6 @@ app.all("/wiki", slash, function(req, res){
 
 // wiki
 
-var wiki = require("./wiki").wikiCheck;
-app.get("/wiki/*", slash, function(req, res) {
-  var content = wiki(req.url);
-  if (content) {
-    res.render("page-wiki-post.hbs", {wikiPost: content});
-  } else {
-    proxySingle.web(req, res, {target: host + "/404"});
-  }
-});
-
-// redirects
-
 app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 	res.redirect("/wiki");
 });
@@ -91,6 +79,18 @@ app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
+
+var wiki = require("./wiki").wikiCheck;
+app.get("/wiki/*", slash, function(req, res) {
+  var content = wiki(req.url);
+  if (content) {
+    res.render("page-wiki-post.hbs", {wikiPost: content});    
+  } else {
+    proxySingle.web(req, res, {target: host + "/404"});
+  }
+});
+
+// redirects
 
 app.get("/download/**/*", function(req, res){
   res.redirect("/download");

@@ -18,12 +18,20 @@ var helpers = function () {
     var host = _.get(res, "data.blog.url");
     var wikiPost = _.get(res, "data.root.wikiPost");
     var notFound = _.get(res, "data.root.code");
-
+    
     var url = relativeUrl;
     var titleCustom;
     var urlCustom;
-
-    if (url) {
+    
+    if (wikiPost) {
+      var singlePost = res.data.root.wikiPost;
+      urlCustom = singlePost.url;
+      _.set(res, "data.root.relativeUrl", urlCustom);
+      _.set(res, "data.blog.title", "OSMC");
+      _.set(res, "data.blog.url", liveHost);
+      titleCustom = singlePost.title + " - " + singlePost.category + " - " + blogTitle;
+      
+    } else if (url) {
 
       if (url === "/home/") {
         // Home page
@@ -53,14 +61,6 @@ var helpers = function () {
         urlCustom = url;
       }
 
-    } else if (wikiPost) {
-      //Wiki post
-      var singlePost = res.data.root.wikiPost;
-      _.set(res, "data.blog.title", "OSMC");
-      _.set(res, "data.blog.url", liveHost);
-      titleCustom = singlePost.title + " - " + singlePost.category + " - " + blogTitle;
-      urlCustom = singlePost.url;
-
     }
 
     var output;
@@ -72,7 +72,7 @@ var helpers = function () {
         output = titleDefault + " - " + blogTitle;
       }
     }
-
+    
     if (option == "url") {
       if (urlCustom) {
         output = host + urlCustom;

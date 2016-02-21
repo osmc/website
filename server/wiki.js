@@ -6,7 +6,6 @@ var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
 var purge = require("./purge");
 
-
 var loaded = false;
 var wiki;
 var wikiPath = path.join(__dirname, "/static/wiki.json");
@@ -84,8 +83,10 @@ var helpers = function () {
   });
 
   hbs.registerHelper("wiki-post", function (option, res) {
-    var singlePost = res.data.root.wikiPost;
-    return singlePost[option];
+    var singlePost = _.get(res, "data.root.wikiPost");
+    if (singlePost) {
+      return singlePost[option];
+    }
   });
 };
 
