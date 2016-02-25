@@ -12,7 +12,6 @@
   opacity: 0;
   visibility: hidden;
   z-index: 9;
-  
   @include res1-rev {
     @include link-alt {
       background-color: $acc3-4;
@@ -23,25 +22,21 @@
       }
     }
   }
-
   svg {
     vertical-align: middle;
     transform: rotate(-90deg);
     width: 1em;
     height: 1em;
-    
     path {
       transition-duration: $ani-duration2;
       fill: $acc3-2;
     }
   }
-  
   @include res1 {
     bottom: 1em;
     right: 1em;
     background-color: $white;
   }
-  
   &.show {
     opacity: 1;
     visibility: visible;

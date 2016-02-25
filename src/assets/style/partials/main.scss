@@ -1,8 +1,9 @@
-a, a:visited {
-	color: $black;
-	border-bottom: 0;
-	text-decoration: none;
-	@include ani1;
+a,
+a:visited {
+  color: $black;
+  border-bottom: 0;
+  text-decoration: none;
+  @include ani1;
 }
 
 html,
@@ -15,14 +16,20 @@ textarea {
   font-weight: 400;
   font-size: 100%;
 }
+
 textarea {
-	line-height: 1.4em;
+  line-height: 1.4em;
 }
 
-button, select, textarea, input, a, img {
-	&:focus {
-		outline: 0;
-	}
+button,
+select,
+textarea,
+input,
+a,
+img {
+  &:focus {
+    outline: 0;
+  }
 }
 
 * {
@@ -30,10 +37,11 @@ button, select, textarea, input, a, img {
 }
 
 ::selection {
-	background: $acc1-2;
+  background: $acc1-2;
 }
+
 ::-moz-selection {
-	background: $acc1-1;
+  background: $acc1-1;
 }
 
 // Main
@@ -48,29 +56,26 @@ body {
   color: $dark;
   margin: 0;
   overflow-y: scroll;
-	
-	&.page-home {
-		background-color: $white;
-	}
+  &.page-home {
+    background-color: $white;
+  }
 }
 
 .body-wrap {
-	@include radius1;
-	
-	.page-home & {
-		margin: 0;
-		background-color: $trans;
-	}
+  @include radius1;
+  .page-home & {
+    margin: 0;
+    background-color: $trans;
+  }
 }
 
 .main {
   padding-bottom: 4em;
-	background-color: $white;
-	
-	.page-home & {
-		margin-top: 0;
-		background-color: $trans;
-	}
+  background-color: $white;
+  .page-home & {
+    margin-top: 0;
+    background-color: $trans;
+  }
 }
 
 img {
@@ -80,7 +85,8 @@ img {
   @include transition-timing-function(ease);
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 1.3em;
   margin: 0;
 }
@@ -97,8 +103,8 @@ hr {
 }
 
 h1 {
-	font-size: 2.1em;
-	@include text-shadow(1px 1px 0px $acc3-4);
+  font-size: 2.1em;
+  @include text-shadow(1px 1px 0px $acc3-4);
 }
 
 h1,
@@ -122,17 +128,18 @@ blockquote {
   padding: 0.1em 0.5em 0.1em 1em;
 }
 
-button, .button {
+button,
+.button {
   @include button;
 }
 
 .button {
   &-alt1 {
     @include button-alt1;
-	}
-	&-alt2 {
+  }
+  &-alt2 {
     @include button-alt2;
-	}
+  }
   &-alt3 {
     @include button-alt3;
   }
@@ -161,13 +168,12 @@ pre {
   max-height: 400px;
   overflow: auto;
   @include scrollbars(0.35em, $acc1-5, $acc1-3);
-    
   code {
     font-size: $small3;
     display: block;
     color: $pre-text;
     background-color: $trans;
-		word-break: normal;
+    word-break: normal;
   }
 }
 
@@ -178,7 +184,7 @@ code {
   background-color: $code-back;
   padding: 0 0.2em 0.1em;
   @include radius1;
-	word-break: break-all;
+  word-break: break-all;
 }
 
 .break {
@@ -186,13 +192,10 @@ code {
   width: 100%;
   padding: 0.19em 0;
   background-color: $back;
-  
   $dot: $acc1-1;
   $dot2: $white;
-  
   $gradient: 135deg, $dot2, $dot 1px, transparent 1px, transparent 3px, $dot 3px;
   $size: 4px 4px;
-  
   background-image: -webkit-repeating-linear-gradient($gradient);
   background-image: -moz-repeating-linear-gradient($gradient);
   background-image: -o-repeating-linear-gradient($gradient);
@@ -204,16 +207,18 @@ code {
 
 table {
   width: 100%;
-	font-size: $small1;
-  th, td {
+  font-size: $small1;
+  th,
+  td {
     padding: 0.2em 1em 0.2em 0;
     text-align: left;
   }
 }
 
 .ani1 {
-	@include animation-duration($ani-duration1);
+  @include animation-duration($ani-duration1);
 }
+
 .ani2 {
-	@include animation-duration($ani-duration2);
+  @include animation-duration($ani-duration2);
 }

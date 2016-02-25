@@ -1,18 +1,17 @@
 .post {
   &-body {
     margin: 3em 0 0;
-		@include radius1;
-		background-color: $white;
-		
-		@include res2 {
-			margin: 2em 0 0;
-		}
+    @include radius1;
+    background-color: $white;
+    @include res2 {
+      margin: 2em 0 0;
+    }
   }
-	&-three {
-		@include res1-rev {
-			padding-right: 2em;
-		}
-	}
+  &-three {
+    @include res1-rev {
+      padding-right: 2em;
+    }
+  }
   &-header {
     @include link2;
   }
@@ -23,18 +22,17 @@
   &-meta {
     margin: 0 0 0;
     font-size: $small2;
-		@include link2;
+    @include link2;
   }
   &-tags {
     float: right;
   }
   &-wrap {
     margin: 0.5em 0;
-		@include link;
+    @include link;
   }
   &-comments {
-		margin-top: 2em;
-		
+    margin-top: 2em;
     header {
       position: relative;
       margin-bottom: -1.55em;
@@ -47,12 +45,11 @@
     margin: 1em 0;
   }
   &-ad {
-		margin: 2em 0;
+    margin: 2em 0;
     width: 100%;
     overflow: hidden;
-		
-		@include res1 {
-			float: left;
-		}
-	}
+    @include res1 {
+      float: left;
+    }
+  }
 }

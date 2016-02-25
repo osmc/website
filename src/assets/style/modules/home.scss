@@ -3,130 +3,128 @@
   .container {
     max-width: 70em;
   }
-	@include res1 {
-		font-size: $small2;
-	}
-
-	.firstn-back {
-		position: absolute;
-		width: 100%;
-		height: 155%;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: -1;
-		&-vignette {
-			position: relative;
-			height: 100%;
-			@include box-shadow(inset 0px 0px 300px 0px rgba(0, 0, 0, 0.75), inset 0px 0px 0px 0px rgba(0, 0, 0, 0));
-			//@include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.32), transparent 20%));
-			overflow: hidden;
-		}
-		&-gradient {
-			width: 100%;
-			height: 101%;
-			display: block;
-			position: relative;
-			vertical-align: middle;
+  @include res1 {
+    font-size: $small2;
+  }
+  .firstn-back {
+    position: absolute;
+    width: 100%;
+    height: 155%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    &-vignette {
+      position: relative;
+      height: 100%;
+      @include box-shadow(inset 0px 0px 300px 0px rgba(0, 0, 0, 0.75), inset 0px 0px 0px 0px rgba(0, 0, 0, 0));
+      //@include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.32), transparent 20%));
+      overflow: hidden;
+    }
+    &-gradient {
+      width: 100%;
+      height: 101%;
+      display: block;
+      position: relative;
+      vertical-align: middle;
       @include background-image(linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, $white));
     }
-		&-wrap {
-			position: relative;
-			width: 120%;
-			height: 100%;
-			min-width: 45em;
-			z-index: -1;
-			text-align: left;
-			svg {
-				position: absolute;
-				left: 0;
-				top: 0;
-				width: 100%;
-				shape-rendering: crispEdges;
-				g {
-					polygon {
-						stroke-width: 0px;
-						stroke: $grey3;
-					}
-				}
-			}
-		}
-	}
-
-	.breaker {
-		float: left;
-		width: 100%;
-		margin: 10% 0 9%;
-		background-color: $white;
-		&-line {
-			width: 95%;
-			margin: 0 auto;
-			border-bottom: 3px dotted rgba(81, 188, 155, 0.35);
-		}
-	}
-
-	.firstn {
-		position: relative;
-		height: 1000px;
-		&-wrap {
-			position: absolute;
-			display: table;
-			vertical-align: middle;
-			height: 100%;
-			width: 100%;
-		}
-		&-wrap2 {
-			display: table-cell;
-			vertical-align: middle;
-			float: none;
-			padding-bottom: 2.5em;
-			transition-duration: $ani-duration2;
-			@include transition-timing-function(ease-in);
-			opacity: 0;
-		}
-		&-logo {
-			margin: 0 auto 5%;
-			width: 50%;
-			max-width: 21em;
-			min-width: 13em;
-		}
-		h1 {
-			text-align: center;
-			margin: 0 1em 1%;
-			font-weight: 300;
-			font-size: 135%;
-			color: $white;
-			@include text-shadow(0px 0px 0px);
-		}
-		p {
-			text-align: center;
-			color: $white;
-			font-size: 95%;
-			a {
-				color: $white;
-				border-bottom: 1px solid $white;
-				&:hover, &:focus, &:active {
-					color: $acc2-1;
-					border-bottom: 1px solid $acc2-1;
-				}
-			}
-			span {
-				font-size: 140%;
-				vertical-align: middle;
+    &-wrap {
+      position: relative;
+      width: 120%;
+      height: 100%;
+      min-width: 45em;
+      z-index: -1;
+      text-align: left;
+      svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        shape-rendering: crispEdges;
+        g {
+          polygon {
+            stroke-width: 0px;
+            stroke: $grey3;
+          }
+        }
+      }
+    }
+  }
+  .breaker {
+    float: left;
+    width: 100%;
+    margin: 10% 0 9%;
+    background-color: $white;
+    &-line {
+      width: 95%;
+      margin: 0 auto;
+      border-bottom: 3px dotted rgba(81, 188, 155, 0.35);
+    }
+  }
+  .firstn {
+    position: relative;
+    height: 1000px;
+    &-wrap {
+      position: absolute;
+      display: table;
+      vertical-align: middle;
+      height: 100%;
+      width: 100%;
+    }
+    &-wrap2 {
+      display: table-cell;
+      vertical-align: middle;
+      float: none;
+      padding-bottom: 2.5em;
+      transition-duration: $ani-duration2;
+      @include transition-timing-function(ease-in);
+      opacity: 0;
+    }
+    &-logo {
+      margin: 0 auto 5%;
+      width: 50%;
+      max-width: 21em;
+      min-width: 13em;
+    }
+    h1 {
+      text-align: center;
+      margin: 0 1em 1%;
+      font-weight: 300;
+      font-size: 135%;
+      color: $white;
+      @include text-shadow(0px 0px 0px);
+    }
+    p {
+      text-align: center;
+      color: $white;
+      font-size: 95%;
+      a {
+        color: $white;
+        border-bottom: 1px solid $white;
+        &:hover,
+        &:focus,
+        &:active {
+          color: $acc2-1;
+          border-bottom: 1px solid $acc2-1;
+        }
+      }
+      span {
+        font-size: 140%;
+        vertical-align: middle;
         cursor: pointer;
-				svg {
-					margin-bottom: -1px;
-					margin-left: 0.2em;
-					height: 0.8em;
-					width: 0.8em;
-					@include transform(rotate(90deg));
-					polygon {
+        svg {
+          margin-bottom: -1px;
+          margin-left: 0.2em;
+          height: 0.8em;
+          width: 0.8em;
+          @include transform(rotate(90deg));
+          polygon {
             transition-duration: $ani-duration1;
-						fill: $white;
-					}
-				}
-        
+            fill: $white;
+          }
+        }
         &:hover {
           svg {
             polygon {
@@ -134,605 +132,564 @@
             }
           }
         }
-			}
-		}
-		&-wrap2.show {
-			opacity: 1;
-		}
-	}
-
-	.secondn {
-		@include background-image(linear-gradient(to top, $back, rgba(81, 188, 155, 0.20), $trans 80%));
-		width: 100%;
-		padding: 0;
-		float: left;
-		padding-bottom: 2em;
-		margin-top: 2.5em;
-		&-wrap {
-			text-align: center;
-		}
-		h2 {
-			font-size: 136%;
-			font-weight: 400;
-			margin: 0 0 0.5em;
-
-			@include res2 {
-				font-size: 115%;
-			}
-		}
-		&-player {
-			&-wrap {
-				margin: 0 auto;
-				width: 90%;
-				max-width: 47em;
-				@include user-select(none);
-			}
-			width: 100%;
-			margin: 0 auto;
-			position: relative;
-			float: left;
-			@include box-shadow(0 0 10px rgba(58, 128, 106, 0.65));
-			background-color: $dark;
-		}
-		&-monitor {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			margin: 0 auto;
-			left: 0;
-			right: 0;
-			top: 6%;
-			shape-rendering: crispEdges;
-			polygon {
-				display: none;
-			}
-			line,
-			polygon {
-				stroke: $dark;
-				stroke-width: 5;
-			}
-		}
-		$mon-border: 5px;
-		&-video-wrap {
-			position: relative;
-			border: $mon-border solid $dark;
-			background-color: $dark;
-			text-align: center;
-			overflow: hidden;
-		}
-		video {
-			position: relative;
-			border: 0;
-			width: 100%;
-			float: left;
-		}
-		#player {
-			position: absolute;
-			width: 101%;
-			height: 101%;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background-color: $dark;
-			.player-poster {
-				border: 0;
-			}
-		}
-		&-size-fix {
-			width: 100%;
-			opacity: 0;
-			vertical-align: middle;
-		}
-		&-overlay {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			//border: $mon-border solid $black;
-			background-color: rgba(0, 255, 255, 0.35);
-			cursor: pointer;
-			@include transition-duration(0.4s);
-			@include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.75), rgba(11, 125, 166, 0.73) 100%));
-		}
-		&-overlay.hidden {
-			opacity: 0;
-		}
-		&-vignette {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			@include box-shadow(inset 0 0 60px rgba(0, 0, 0, 0.40));
-			//border: $mon-border solid $trans;
-			cursor: pointer;
-		}
-		&-playicon {
-			width: 50px;
-			height: 50px;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			border: 14px solid $trans;
-			@include border-radius(50%);
-			background-color: rgba(255, 255, 255, 0.75);
-			@include transition-duration(0.2s);
-			svg {
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				left: 1px;
-				margin: auto;
-				path {
-					fill: rgba(52, 112, 118, 0.88);
-				}
-			}
-		}
-		&-playicon.hidden {
-			opacity: 0;
-		}
-	}
-
-	.breaker.b1 {
-		margin: 0;
-		padding-top: 10%;
-		padding-bottom: 9%;
-	}
-
-	.thirdn {
-		float: left;
-		width: 100%;
-		position: relative;
-		background-color: $white;
-
-		&-back {
-			position: absolute;
-			top: -4em;
-			width: 140%;
-			height: 140%;
-			left: -20%;
-			right: 0;
-			bottom: 0;
-			opacity: 0.15;
-			z-index: 0;
-			svg {
-				width: 100%;
-				height: 100%;
-			}
-		}
-		h2 {
-			text-align: center;
-			font-weight: 300;
-			font-size: 210%;
-			margin-top: 0;
-			margin-bottom: 8%;
-
-			@include res2 {
-				font-size: 175%;
-				margin-top: 0.2em;
-				margin-bottom: 11%;
-			}
-		}
-		&-wrap {
-			width: 100%;
-			display: table;
-			padding-left: 1em;
-
-			@include res1 {
-				padding: 0;
-				display: block;
-				float: left;
-			}
-
-			.column {
-				display: table-cell;
-				vertical-align: middle;
-				float: none;
-
-				@include res1 {
-					width: 100%;
-					float: left;
-					display: block;
-					padding: 0 1em;
-				}
-			}
-		}
-		&-pics {
-			width: 62%;
-			position: relative;
-			&-wrap {
-				z-index: -1;
-				div {
-					position: absolute;
-					top: 0;
-					right: 0;
-					bottom: 0;
-					left: 0;
-					margin: auto;
-
-					@include res1 {
-						position: relative;
-						float: left;
-						width: 100%;
-					}
-
-					.ie9 & {
-						position: relative;
-					}
-					@include ie10 {
-						position: relative;
-					}
-				}
-				img {
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					margin: auto;
-					@include transition-duration(0.4s);
-					opacity: 0;
-					@include box-shadow(0 0 10px rgba(58, 128, 106, 0.45));
-					@include res1 {
-						top: auto;
-					}
-				}
-				img.show {
-					opacity: 1;
-				}
-				@include res1 {
-					.img-wrap1 {
-						img {
-							position: relative;
-							float: left;
-						}
-					}
-				}
-			}
-		}
-		&-text {
-			width: 38%;
-			padding-left: 4em;
-			ul {
-				padding: 0;
-				list-style: none;
-				font-size: 90%;
-				@include user-select(none);
-
-				@include res1 {
-					text-align: center;
-				}
-
-				li {
-					margin: 1.8em 0;
-					cursor: pointer;
-					@include transition-duration(0.3s);
-					position: relative;
-					$icon-size: 6px;
-					@include res1 {
-						margin: 0 1em;
-						width: 21%;
-						text-align: left;
-						display: inline-block;
-						vertical-align: top;
-
-						&:first-child {
-							margin: 0;
-						}
-						&:last-child {
-							margin: 0;
-						}
-					}
-					@include res2 {
-						margin: 0 0.2em;
-						width: 47%;
-
-						&:first-child {
-							margin: 0 0.2em;
-						}
-						&:last-child {
-							margin: 0 0.2em;
-						}
-					}
-					.icon {
-						@include transition-duration(0.3s);
-						opacity: 0;
-						position: absolute;
-						left: -2em;
-						top: 0.3em;
-						width: 0;
-						height: 0;
-						border-style: solid;
-						border-width: 0 $icon-size ( $icon-size * 2) $icon-size;
-						pointer-events: none;
-						
-						@include res1 {
-							top: 1em;
-							left: -2em;
-						}
-					}
-					h3,
-					p,
-					p a {
-						color: $acc3-2;
-						@include transition-duration(0.3s);
-					}
-					h3 {
-						margin-bottom: 0.3em;
-						font-size: 150%;
-						line-height: 1em;
-					}
-					p {
-						margin: 0;
-						line-height: 1.4em;
-						a {
-							color: $acc3-2;
-							pointer-events: none;
-							cursor: default;
-						}
-					}
-					&:hover {
-						h3,
-						p {
-							color: $dark;
-						}
-						p {
-							a {
-								color: $dark;
-							}
-						}
-					}
-				}
-				li.show {
-					.icon {
-						opacity: 1;
-						left: -1.5em;
-						
-						@include res1 {
-							left: -1em;
-						}
-					}
-					p,
-					h3 {
-						color: $dark;
-					}
-					p {
-						a {
-							color: $link;
-							pointer-events: auto;
-							cursor: pointer;
-							&:hover {
-								color: $grey3;
-							}
-						}
-					}
-				}
-				.link1 {
-					.icon {
-						top: 0.15em;
-						@include transform(rotate(25deg));
-						border-color: transparent transparent #9ed48b transparent;
-						
-						@include res1 {
-							top: 1em;
-						}
-					}
-				}
-				.link2 {
-					.icon {
-						@include transform(rotate(-20deg));
-						border-color: transparent transparent #edc0c3 transparent;
-						
-						@include res1 {
-							top: 1em;
-						}
-					}
-				}
-				.link3 {
-					.icon {
-						top: 0.15em;
-						@include transform(rotate(50deg));
-						border-color: transparent transparent #4c9aed transparent;
-						
-						@include res1 {
-							top: 1em;
-						}
-					}
-				}
-				.link4 {
-					.icon {
-						top: 0.5em;
-						@include transform(rotate(140deg));
-						border-color: transparent transparent #56c49e transparent;
-						
-						@include res1 {
-							top: 1em;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.breaker.b2 {
-		margin-bottom: 0;
-	}
-
-	.fourthn {
-		padding-top: 4%;
-		padding-bottom: 4%;
-		float: left;
-		width: 100%;
-    
-    a, a:visited {
+      }
+    }
+    &-wrap2.show {
+      opacity: 1;
+    }
+  }
+  .secondn {
+    @include background-image(linear-gradient(to top, $back, rgba(81, 188, 155, 0.20), $trans 80%));
+    width: 100%;
+    padding: 0;
+    float: left;
+    padding-bottom: 2em;
+    margin-top: 2.5em;
+    &-wrap {
+      text-align: center;
+    }
+    h2 {
+      font-size: 136%;
+      font-weight: 400;
+      margin: 0 0 0.5em;
+      @include res2 {
+        font-size: 115%;
+      }
+    }
+    &-player {
+      &-wrap {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 47em;
+        @include user-select(none);
+      }
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      float: left;
+      @include box-shadow(0 0 10px rgba(58, 128, 106, 0.65));
+      background-color: $dark;
+    }
+    &-monitor {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      top: 6%;
+      shape-rendering: crispEdges;
+      polygon {
+        display: none;
+      }
+      line,
+      polygon {
+        stroke: $dark;
+        stroke-width: 5;
+      }
+    }
+    $mon-border: 5px;
+    &-video-wrap {
+      position: relative;
+      border: $mon-border solid $dark;
+      background-color: $dark;
+      text-align: center;
+      overflow: hidden;
+    }
+    video {
+      position: relative;
+      border: 0;
+      width: 100%;
+      float: left;
+    }
+    #player {
+      position: absolute;
+      width: 101%;
+      height: 101%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $dark;
+      .player-poster {
+        border: 0;
+      }
+    }
+    &-size-fix {
+      width: 100%;
+      opacity: 0;
+      vertical-align: middle;
+    }
+    &-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      //border: $mon-border solid $black;
+      background-color: rgba(0, 255, 255, 0.35);
+      cursor: pointer;
+      @include transition-duration(0.4s);
+      @include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.75), rgba(11, 125, 166, 0.73) 100%));
+    }
+    &-overlay.hidden {
+      opacity: 0;
+    }
+    &-vignette {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      @include box-shadow(inset 0 0 60px rgba(0, 0, 0, 0.40));
+      //border: $mon-border solid $trans;
+      cursor: pointer;
+    }
+    &-playicon {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      border: 14px solid $trans;
+      @include border-radius(50%);
+      background-color: rgba(255, 255, 255, 0.75);
+      @include transition-duration(0.2s);
+      svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 1px;
+        margin: auto;
+        path {
+          fill: rgba(52, 112, 118, 0.88);
+        }
+      }
+    }
+    &-playicon.hidden {
+      opacity: 0;
+    }
+  }
+  .breaker.b1 {
+    margin: 0;
+    padding-top: 10%;
+    padding-bottom: 9%;
+  }
+  .thirdn {
+    float: left;
+    width: 100%;
+    position: relative;
+    background-color: $white;
+    &-back {
+      position: absolute;
+      top: -4em;
+      width: 140%;
+      height: 140%;
+      left: -20%;
+      right: 0;
+      bottom: 0;
+      opacity: 0.15;
+      z-index: 0;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    h2 {
+      text-align: center;
+      font-weight: 300;
+      font-size: 210%;
+      margin-top: 0;
+      margin-bottom: 8%;
+      @include res2 {
+        font-size: 175%;
+        margin-top: 0.2em;
+        margin-bottom: 11%;
+      }
+    }
+    &-wrap {
+      width: 100%;
+      display: table;
+      padding-left: 1em;
+      @include res1 {
+        padding: 0;
+        display: block;
+        float: left;
+      }
+      .column {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+        @include res1 {
+          width: 100%;
+          float: left;
+          display: block;
+          padding: 0 1em;
+        }
+      }
+    }
+    &-pics {
+      width: 62%;
+      position: relative;
+      &-wrap {
+        z-index: -1;
+        div {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+          @include res1 {
+            position: relative;
+            float: left;
+            width: 100%;
+          }
+          .ie9 & {
+            position: relative;
+          }
+          @include ie10 {
+            position: relative;
+          }
+        }
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          @include transition-duration(0.4s);
+          opacity: 0;
+          @include box-shadow(0 0 10px rgba(58, 128, 106, 0.45));
+          @include res1 {
+            top: auto;
+          }
+        }
+        img.show {
+          opacity: 1;
+        }
+        @include res1 {
+          .img-wrap1 {
+            img {
+              position: relative;
+              float: left;
+            }
+          }
+        }
+      }
+    }
+    &-text {
+      width: 38%;
+      padding-left: 4em;
+      ul {
+        padding: 0;
+        list-style: none;
+        font-size: 90%;
+        @include user-select(none);
+        @include res1 {
+          text-align: center;
+        }
+        li {
+          margin: 1.8em 0;
+          cursor: pointer;
+          @include transition-duration(0.3s);
+          position: relative;
+          $icon-size: 6px;
+          @include res1 {
+            margin: 0 1em;
+            width: 21%;
+            text-align: left;
+            display: inline-block;
+            vertical-align: top;
+            &:first-child {
+              margin: 0;
+            }
+            &:last-child {
+              margin: 0;
+            }
+          }
+          @include res2 {
+            margin: 0 0.2em;
+            width: 47%;
+            &:first-child {
+              margin: 0 0.2em;
+            }
+            &:last-child {
+              margin: 0 0.2em;
+            }
+          }
+          .icon {
+            @include transition-duration(0.3s);
+            opacity: 0;
+            position: absolute;
+            left: -2em;
+            top: 0.3em;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 $icon-size ( $icon-size * 2) $icon-size;
+            pointer-events: none;
+            @include res1 {
+              top: 1em;
+              left: -2em;
+            }
+          }
+          h3,
+          p,
+          p a {
+            color: $acc3-2;
+            @include transition-duration(0.3s);
+          }
+          h3 {
+            margin-bottom: 0.3em;
+            font-size: 150%;
+            line-height: 1em;
+          }
+          p {
+            margin: 0;
+            line-height: 1.4em;
+            a {
+              color: $acc3-2;
+              pointer-events: none;
+              cursor: default;
+            }
+          }
+          &:hover {
+            h3,
+            p {
+              color: $dark;
+            }
+            p {
+              a {
+                color: $dark;
+              }
+            }
+          }
+        }
+        li.show {
+          .icon {
+            opacity: 1;
+            left: -1.5em;
+            @include res1 {
+              left: -1em;
+            }
+          }
+          p,
+          h3 {
+            color: $dark;
+          }
+          p {
+            a {
+              color: $link;
+              pointer-events: auto;
+              cursor: pointer;
+              &:hover {
+                color: $grey3;
+              }
+            }
+          }
+        }
+        .link1 {
+          .icon {
+            top: 0.15em;
+            @include transform(rotate(25deg));
+            border-color: transparent transparent #9ed48b transparent;
+            @include res1 {
+              top: 1em;
+            }
+          }
+        }
+        .link2 {
+          .icon {
+            @include transform(rotate(-20deg));
+            border-color: transparent transparent #edc0c3 transparent;
+            @include res1 {
+              top: 1em;
+            }
+          }
+        }
+        .link3 {
+          .icon {
+            top: 0.15em;
+            @include transform(rotate(50deg));
+            border-color: transparent transparent #4c9aed transparent;
+            @include res1 {
+              top: 1em;
+            }
+          }
+        }
+        .link4 {
+          .icon {
+            top: 0.5em;
+            @include transform(rotate(140deg));
+            border-color: transparent transparent #56c49e transparent;
+            @include res1 {
+              top: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+  .breaker.b2 {
+    margin-bottom: 0;
+  }
+  .fourthn {
+    padding-top: 4%;
+    padding-bottom: 4%;
+    float: left;
+    width: 100%;
+    a,
+    a:visited {
       color: $link;
       border-bottom: 2px solid $link-bottom;
-      
       @include link-alt {
         border-bottom-color: $link-bottom-hover;
       }
     }
-    
-		&-wrap {
-			display: table;
-			vertical-align: middle;
-
-			@include res1 {
-				display: block;
-				float: left;
+    &-wrap {
+      display: table;
+      vertical-align: middle;
+      @include res1 {
+        display: block;
+        float: left;
         text-align: center;
-			}
-			h2 {
-				font-weight: 300;
+      }
+      h2 {
+        font-weight: 300;
         line-height: 1.7em;
-        
         @include res1 {
           margin-bottom: 1em;
         }
-			}
-			img {
-				width: 95%;
-				//filter: grayscale(100%);
-			}
-			.column {
-				display: table-cell;
-				vertical-align: middle;
-				float: none;
-
-				@include res1 {
-					display: block;
-				}
-			}
-		}    
-    
-		&-img {
-			@include res1 {
-				text-align: center;
-
-				img {
-					width: 90%;
-					max-width: 30em;
-				}
-			}
-		}
-	}
-
-	.breaker.b3 {
-		margin-top: 0;
-	}
-
-	.fifthn {
-		float: left;
-		width: 100%;
-		&-wrap {
-			text-align: center;
-
-			@include res2 {
-				font-size: 95%;
-			}
-			h2 {
-				margin-top: 0;
-				margin-bottom: 1.5em;
-				font-size: 210%;
-				font-weight: 300;
-
-				@include res2 {
-					font-size: 190%;
-					margin-bottom: 1em;
-				}
-			}
-		}
-		&-buttons {
-			a:nth-child(1n+1) {
-				width: 33%;
-				max-width: 10em;
-				border-radius: 0;
-				display: inline-block;
-				line-height: 1.3em;
-				font-size: 105%;
-				font-weight: 300;
-				margin: 0;
-				padding: 0.5em 0.7em;
-				border-radius: 0px;
-
-				@include res1 {
-					width: auto;
-					padding: 0.4em 2em;
-				}
-			}
-			a:nth-child(1) {
-				@include button-home($blue-s1, lighten($blue-s1, 20%));
-				border-radius: 0px;
-			}
-			a:nth-child(2) {
-				@include button-home($blue-s2, lighten($blue-s2, 20%));
-				border-radius: 0px;
-			}
-			a:nth-child(3) {
-				@include button-home($blue-s3, lighten($blue-s3, 20%));
-				border-radius: 0px;
-			}
-		}
-	}
-	
-	.breaker.b4 {
-		margin-bottom: 5em;
-		@include res2 {
-			margin-bottom: 3em;
-		}
-	}
-	
-	.sixn {
-		float: left;
-		width: 100%;
-		margin-bottom: 1em;
-		text-align: center;
-
-		h3 {
-			font-weight: 300;
-			font-size: 150%;
-			margin-top: 0;
-			margin-bottom: 1.5em;
-		}
-
-		&-logo {
-			display: inline-block;
-			height: 2.5em;
-			width: 50%;
-			max-width: 55%;
-			margin: 1em 0;
-		}
-
-		@include res1-rev {
-			&-logo {
-				width: 100%;
-			}
-			&-left {
-				text-align: left;
-			}
-			&-right {
-				text-align: right;
-			}
-		}
-
-		svg {
-			vertical-align: middle;
-			width: 100%;
-			height: 100%;
-		}
-	}
+      }
+      img {
+        width: 95%;
+        //filter: grayscale(100%);
+      }
+      .column {
+        display: table-cell;
+        vertical-align: middle;
+        float: none;
+        @include res1 {
+          display: block;
+        }
+      }
+    }
+    &-img {
+      @include res1 {
+        text-align: center;
+        img {
+          width: 90%;
+          max-width: 30em;
+        }
+      }
+    }
+  }
+  .breaker.b3 {
+    margin-top: 0;
+  }
+  .fifthn {
+    float: left;
+    width: 100%;
+    &-wrap {
+      text-align: center;
+      @include res2 {
+        font-size: 95%;
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 1.5em;
+        font-size: 210%;
+        font-weight: 300;
+        @include res2 {
+          font-size: 190%;
+          margin-bottom: 1em;
+        }
+      }
+    }
+    &-buttons {
+      a:nth-child(1n+1) {
+        width: 33%;
+        max-width: 10em;
+        border-radius: 0;
+        display: inline-block;
+        line-height: 1.3em;
+        font-size: 105%;
+        font-weight: 300;
+        margin: 0;
+        padding: 0.5em 0.7em;
+        border-radius: 0px;
+        @include res1 {
+          width: auto;
+          padding: 0.4em 2em;
+        }
+      }
+      a:nth-child(1) {
+        @include button-home($blue-s1, lighten($blue-s1, 20%));
+        border-radius: 0px;
+      }
+      a:nth-child(2) {
+        @include button-home($blue-s2, lighten($blue-s2, 20%));
+        border-radius: 0px;
+      }
+      a:nth-child(3) {
+        @include button-home($blue-s3, lighten($blue-s3, 20%));
+        border-radius: 0px;
+      }
+    }
+  }
+  .breaker.b4 {
+    margin-bottom: 5em;
+    @include res2 {
+      margin-bottom: 3em;
+    }
+  }
+  .sixn {
+    float: left;
+    width: 100%;
+    margin-bottom: 1em;
+    text-align: center;
+    h3 {
+      font-weight: 300;
+      font-size: 150%;
+      margin-top: 0;
+      margin-bottom: 1.5em;
+    }
+    &-logo {
+      display: inline-block;
+      height: 2.5em;
+      width: 50%;
+      max-width: 55%;
+      margin: 1em 0;
+    }
+    @include res1-rev {
+      &-logo {
+        width: 100%;
+      }
+      &-left {
+        text-align: left;
+      }
+      &-right {
+        text-align: right;
+      }
+    }
+    svg {
+      vertical-align: middle;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

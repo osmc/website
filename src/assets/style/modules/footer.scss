@@ -1,36 +1,33 @@
 .footer {
-	//border-top: 1px solid $acc4-1;
-	background-color: $acc3-4;
-	@include link3;
-	
-	$color1: $acc3-3;
-	
-	p {
-		color: $color1;
-	}
-	
-	a, a:visited {
-		margin: 0;
-		color: $color1;
-	}
-	
-	&-wrap {
-		padding: 0 1em;
+  //border-top: 1px solid $acc4-1;
+  background-color: $acc3-4;
+  @include link3;
+  $color1: $acc3-3;
+  p {
+    color: $color1;
+  }
+  a,
+  a:visited {
+    margin: 0;
+    color: $color1;
+  }
+  &-wrap {
+    padding: 0 1em;
     display: table;
     width: 100%;
-    
     @include res1 {
       display: block;
     }
-	}
-	&-size {
-		font-size: $small4;
-		line-height: 1.5em;
-	}
-	&-top {
-		padding: 2em 1em;
-	}
-  &-left, &-right {
+  }
+  &-size {
+    font-size: $small4;
+    line-height: 1.5em;
+  }
+  &-top {
+    padding: 2em 1em;
+  }
+  &-left,
+  &-right {
     display: table-cell;
     vertical-align: middle;
     float: none;
@@ -38,102 +35,91 @@
       display: block;
     }
   }
-	&-left {
-		text-align: left;
-	}
-	&-right {
-		text-align: right;
-		
-		@include res1 {
-			text-align: center;
-		}
-	}
-	&-info {
-		display: table;
-		
-		@include res1 {
-			display: block;
-			text-align: center;
-			margin: 0 auto;
-		}
-	}
-	
-	$s: 3.2em;
-	&-logo {
-		display: table-cell;
-		width: $s;
-		height: $s;
-		overflow: visible;
-		vertical-align: middle;
-		
-		@include res1 {
-			display: block;
-			margin: 0 auto;
-		}
-		
-		svg {
-			width: $s;
-			height: $s;
-			padding: 0.2em;
-			vertical-align: middle;
-			
-			path {
-				fill: $color1;
-			}
-		}
-	}
-	&-desc {
-		display: table-cell;
-		width: 19em;
-		text-align: left;
-		vertical-align: middle;
-		padding-left: 0.5em;
-		color: $color1;
-		
-		@include res1 {
-			text-align: center;
-			display: inline-block;
-			padding: 0.5em 0 0;
-		}
-	}
-	
-	&-break {
-		display: none;
-		@include res1 {
-			width: 5em;
-			border-top: 1px solid $acc3-1;
-			display: block;
-    	margin: 1em auto 0.75em;
-		}
-	}
-	
-	$color2: $acc3-2;
-	
-	&-bottom {
-		
-		a, a:visited {
-			margin: 0;
-			color: $color2;
-		}
-		&-wrap {
-			padding: 2em 0;
-			border-top: 1px solid $acc3-1;
-			position: relative;
-			font-size: 75%;
-			color: $color2;
-		}
-	}
-	&-c {
-		position: absolute;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		display: table;
-		
-		&-text {
-			display: table-cell;
-			vertical-align: middle;
-		}
-	}
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+    @include res1 {
+      text-align: center;
+    }
+  }
+  &-info {
+    display: table;
+    @include res1 {
+      display: block;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  $s: 3.2em;
+  &-logo {
+    display: table-cell;
+    width: $s;
+    height: $s;
+    overflow: visible;
+    vertical-align: middle;
+    @include res1 {
+      display: block;
+      margin: 0 auto;
+    }
+    svg {
+      width: $s;
+      height: $s;
+      padding: 0.2em;
+      vertical-align: middle;
+      path {
+        fill: $color1;
+      }
+    }
+  }
+  &-desc {
+    display: table-cell;
+    width: 19em;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 0.5em;
+    color: $color1;
+    @include res1 {
+      text-align: center;
+      display: inline-block;
+      padding: 0.5em 0 0;
+    }
+  }
+  &-break {
+    display: none;
+    @include res1 {
+      width: 5em;
+      border-top: 1px solid $acc3-1;
+      display: block;
+      margin: 1em auto 0.75em;
+    }
+  }
+  $color2: $acc3-2;
+  &-bottom {
+    a,
+    a:visited {
+      margin: 0;
+      color: $color2;
+    }
+    &-wrap {
+      padding: 2em 0;
+      border-top: 1px solid $acc3-1;
+      position: relative;
+      font-size: 75%;
+      color: $color2;
+    }
+  }
+  &-c {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: table;
+    &-text {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
 }

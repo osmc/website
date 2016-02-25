@@ -5,31 +5,32 @@
 }
 
 @mixin ani1 {
-	@include transition($ani-duration1);
+  @include transition($ani-duration1);
 }
+
 @mixin ani2 {
-	@include transition($ani-duration2);
+  @include transition($ani-duration2);
 }
 
 @mixin radius1 {
-	@include border-radius($b-radius1);
+  @include border-radius($b-radius1);
 }
 
 // Underline
 @mixin link {
-	$color: $link;
-	$border-bottom: 2px solid $link-bottom;
-	$border-bottom-hover: 2px solid $link-bottom-hover;
-	
-	a {
+  $color: $link;
+  $border-bottom: 2px solid $link-bottom;
+  $border-bottom-hover: 2px solid $link-bottom-hover;
+  a {
     color: $color;
     border-bottom: $border-bottom;
-    
     &:visited {
       color: $color;
       border-bottom: $border-bottom;
     }
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       color: $color;
       border-bottom: $border-bottom-hover;
     }
@@ -38,187 +39,192 @@
 
 // blue hover
 @mixin link2 {
-	
-	$color: $link;
-	$color-hover: $black;
-	
-  a, a:visited {
+  $color: $link;
+  $color-hover: $black;
+  a,
+  a:visited {
     color: $color;
-		border-bottom: 0;
-
-    &:hover, &:active, &:focus {
+    border-bottom: 0;
+    &:hover,
+    &:active,
+    &:focus {
       color: $color-hover;
-			border-bottom: 0;
+      border-bottom: 0;
     }
   }
 }
 
 // black to blue
 @mixin link3 {
-	
-  a, a:visited {
-		color: $black;
-		border-bottom: 0;
-
-    &:hover, &:active, &:focus {
+  a,
+  a:visited {
+    color: $black;
+    border-bottom: 0;
+    &:hover,
+    &:active,
+    &:focus {
       color: $link;
-			border-bottom: 0;
+      border-bottom: 0;
     }
   }
 }
 
 @mixin link-share($color, $hover) {
-	
-	a, a:visited {
-		color: $color;
-		
-		&:hover, &:active, &:focus {
+  a,
+  a:visited {
+    color: $color;
+    &:hover,
+    &:active,
+    &:focus {
       color: $hover;
     }
-	}
+  }
 }
 
 @mixin link-alt {
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     @content;
   }
 }
 
 @mixin button {
-
-	display: inline-block;
-	font-size: $small2;
-	border: 0;
-	@include radius1;
-	color: $white;
-	background-color: $button;
-	padding: $bp;
-	margin: 0.3em 0.3em 0.3em 0;
-	cursor: pointer;
-	@include ani1;
-	border-bottom: 0;
+  display: inline-block;
+  font-size: $small2;
+  border: 0;
+  @include radius1;
+  color: $white;
+  background-color: $button;
+  padding: $bp;
+  margin: 0.3em 0.3em 0.3em 0;
+  cursor: pointer;
+  @include ani1;
+  border-bottom: 0;
   user-select: none;
-  
   form & {
     font-size: 100%;
   }
- 
   &:visited {
-		background-color: $button;
+    background-color: $button;
     color: $white;
   }
-	
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     color: $white;
-		background-color: $button-hover;
+    background-color: $button-hover;
     border-bottom: 0px;
   }
 }
 
-
 @mixin button-share($color, $hover) {
-	
-	@include button;
-	color: $white;
-	background-color: $color;
-	padding: 0 0.5em;
-	margin: 0 0.5em 0 0;
-	
-	&:visited {
-		color: $white;
-		background-color: $color;
+  @include button;
+  color: $white;
+  background-color: $color;
+  padding: 0 0.5em;
+  margin: 0 0.5em 0 0;
+  &:visited {
+    color: $white;
+    background-color: $color;
   }
-	
-	&:hover, &:active, &:focus {
-		color: $white;
-		background-color: $hover;
-	}
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background-color: $hover;
+  }
 }
 
 @mixin button-home($color, $hover) {
-	
-	@include button;
-	background-color: $color;
-	padding: 0.5em 0.7em;
-	margin: 0;
-	font-size: $big1;
-	
-	&:visited {
-		background-color: $color;
+  @include button;
+  background-color: $color;
+  padding: 0.5em 0.7em;
+  margin: 0;
+  font-size: $big1;
+  &:visited {
+    background-color: $color;
   }
-	
-	&:hover, &:active, &:focus {
-		background-color: $hover;
-	}
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $hover;
+  }
 }
-	
 
 // Standard Shadows
-$z1-shadow: 0  1px  3px rgba(#000, 0.12), 0  1px  2px rgba(#000, 0.24);
-$z2-shadow: 0  3px  6px rgba(#000, 0.16), 0  3px  6px rgba(#000, 0.23);
-$z3-shadow: 0 10px 20px rgba(#000, 0.19), 0  6px  6px rgba(#000, 0.23);
-$z4-shadow: 0 14px 28px rgba(#000, 0.25), 0 10px 10px rgba(#000, 0.22);
-$z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
-
+$z1-shadow: 0 1px 3px rgba(#000, 0.12),
+0 1px 2px rgba(#000, 0.24);
+$z2-shadow: 0 3px 6px rgba(#000, 0.16),
+0 3px 6px rgba(#000, 0.23);
+$z3-shadow: 0 10px 20px rgba(#000, 0.19),
+0 6px 6px rgba(#000, 0.23);
+$z4-shadow: 0 14px 28px rgba(#000, 0.25),
+0 10px 10px rgba(#000, 0.22);
+$z5-shadow: 0 19px 38px rgba(#000, 0.30),
+0 15px 12px rgba(#000, 0.22);
 @mixin button-alt1 {
-	@include button;
-	background-color: $acc2-1;
-	
-	&:visited {
-		background-color: $acc2-1;
-	}
-	&:hover, &:active, &:focus {
-		background-color: $acc2-3;
-	}
+  @include button;
+  background-color: $acc2-1;
+  &:visited {
+    background-color: $acc2-1;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $acc2-3;
+  }
 }
 
 @mixin button-alt2 {
-	@include button;
-	background-color: $acc5-2;
-	
-	&:visited {
-		background-color: $acc5-2;
-	}
-	&:hover, &:active, &:focus {
-		background-color: $acc5-1;
-	}
+  @include button;
+  background-color: $acc5-2;
+  &:visited {
+    background-color: $acc5-2;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $acc5-1;
+  }
 }
 
 @mixin button-alt3 {
-	@include button;
-	background-color: $white;
+  @include button;
+  background-color: $white;
   color: $black;
   border: 1px solid $black;
-	
-	&:visited {
-		background-color: $white;
+  &:visited {
+    background-color: $white;
     color: $black;
-	}
-	&:hover, &:active, &:focus {
-		background-color: $acc3-4;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $acc3-4;
     border: 1px solid $black;
     color: $black;
-	}
+  }
 }
 
 @mixin button-vero {
-	@include button;
-	background-color: $trans;
+  @include button;
+  background-color: $trans;
   color: $black;
   border: 1px solid $black;
   @include ani2;
-	
-	&:visited {
-		background-color: $trans;
+  &:visited {
+    background-color: $trans;
     color: $black;
-	}
-	&:hover, &:active, &:focus {
-		background-color: $acc2-1;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $acc2-1;
     border: 1px solid $acc2-1;
     color: $white;
-	}
+  }
 }
-
 
 @mixin ani-news {
   @include animation-duration(0.3s);
@@ -243,52 +249,53 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
   animation-delay: 0s;
 }
 
-
 @mixin res1 {
   @media (max-width: #{$res1}) {
     @content;
   }
 }
+
 @mixin res1-rev {
   @media (min-width: #{$res1}) {
     @content;
   }
 }
+
 @mixin res1-1 {
-	@media (max-width: #{$res1-1}) {
+  @media (max-width: #{$res1-1}) {
     @content;
   }
 }
+
 @mixin res1-1-rev {
-	@media (min-width: #{$res1-1}) {
+  @media (min-width: #{$res1-1}) {
     @content;
   }
 }
+
 @mixin res2 {
-	@media (max-width: #{$res2}) {
+  @media (max-width: #{$res2}) {
     @content;
   }
 }
+
 @mixin res2-rev {
-	@media (min-width: #{$res2}) {
+  @media (min-width: #{$res2}) {
     @content;
   }
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
   &::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
+    width: $size;
+    height: $size;
   }
-
   &::-webkit-scrollbar-thumb {
-      background: $foreground-color;
+    background: $foreground-color;
   }
-
   &::-webkit-scrollbar-track {
-      background: $background-color;
+    background: $background-color;
   }
-
   // For Internet Explorer
   scrollbar-face-color: $foreground-color;
   scrollbar-track-color: $background-color;
@@ -299,7 +306,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -312,7 +318,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-
   to {
     visibility: hidden;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -322,7 +327,7 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
 
 .slideOutDown {
   -webkit-animation-name: slideOutDown;
-	animation-name: slideOutDown;
+  animation-name: slideOutDown;
 }
 
 @-webkit-keyframes slideInDown {
@@ -331,7 +336,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     transform: translate3d(0, -100%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -344,7 +348,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     transform: translate3d(0, -100%, 0);
     visibility: visible;
   }
-
   to {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -362,7 +365,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
-
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -376,7 +378,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
-
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -395,7 +396,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
     -webkit-transform: translate3d(-2000px, 0, 0);
     transform: translate3d(-2000px, 0, 0);
   }
-
   to {
     opacity: 1;
     -webkit-transform: none;
@@ -407,7 +407,6 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30), 0 15px 12px rgba(#000, 0.22);
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }

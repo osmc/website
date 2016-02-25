@@ -31,17 +31,17 @@
   &-text {
     padding: 0 0.2em;
     display: inline-block;
-		color: $white;
+    color: $white;
   }
-	
-	a, a:visited {
-		border-bottom: 0;
-		
-		&:hover, &:active, &:focus {
-			border-bottom: 0;
-		}
-	}
-	
+  a,
+  a:visited {
+    border-bottom: 0;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom: 0;
+    }
+  }
   &-facebook {
     @include button-share($facebook, saturate(lighten($facebook, 15%), 8%));
     svg {
@@ -49,13 +49,10 @@
       height: 1.05em;
     }
   }
-	
   &-twitter {
     @include button-share($twitter, saturate(lighten($twitter, 7%), 20%));
   }
-	
   &-google {
     @include button-share($google, saturate(lighten($google, 9%), 10%));
   }
-	
 }

@@ -1,13 +1,13 @@
 .wiki {
-	&-index {
-		position: relative;
-		padding: 0;
-		margin: 1em 0 2em 0;
-		clear: both;
-		font-size: $small2;
+  &-index {
+    position: relative;
+    padding: 0;
+    margin: 1em 0 2em 0;
+    clear: both;
+    font-size: $small2;
     @include radius1;
     border: 2px solid $acc3-4;
-	}
+  }
   &-header {
     padding: 0.5em 1em 1em;
     background-color: $acc1-2;
@@ -54,7 +54,6 @@
         @include transition-duration(0.2s);
         @include transition-timing-function(ease);
         overflow: hidden;
-        
         &.hide {
           border-bottom: 0;
           //max-height: 0;
@@ -74,10 +73,9 @@
   }
   &-search {
     display: inline-block;
-		margin-top: 1em;
-		font-size: $small2;
-		line-height: 1.6em;
-		
+    margin-top: 1em;
+    font-size: $small2;
+    line-height: 1.6em;
     &-wrap {
       display: inline-block;
       @include radius1;
@@ -94,10 +92,10 @@
       }
     }
     &-input {
-			padding: 0;
-			border: none;
-			max-width: 20em;
-			margin: 0;
+      padding: 0;
+      border: none;
+      max-width: 20em;
+      margin: 0;
       vertical-align: baseline;
     }
   }
@@ -107,55 +105,44 @@
   &-contribute {
     float: right;
   }
-	.post-content {
-		.lightbox {
-			border-bottom: 0;
-		}
-		.meta {
-			display: none;
-		}
-	}
+  .post-content {
+    .lightbox {
+      border-bottom: 0;
+    }
+    .meta {
+      display: none;
+    }
+  }
 }
 
 .sidebar-wiki {
   .wiki {
     margin: 0;
-		border: 0;
-	
-		&-index {
-			border: 0;
-		}
-
-		&-cat {
-			border: 0;
-			padding: 0;
-
-			&-header {
-				background-color: $trans;
-				padding: 0;
-				font-size: $big2;
-				margin-top: 1em;
-			}
-			&-title {
-				display: inline-block;
-				border-bottom: 1px solid $acc3-1; 
-			}
-
-			&-list {
-				padding: 0;
-				font-weight: 400;
-
-				li {
-					border-bottom: 0;
-					padding: 0.2em 0;
-				}
-			}
-		}
-	}
+    border: 0;
+    &-index {
+      border: 0;
+    }
+    &-cat {
+      border: 0;
+      padding: 0;
+      &-header {
+        background-color: $trans;
+        padding: 0;
+        font-size: $big2;
+        margin-top: 1em;
+      }
+      &-title {
+        display: inline-block;
+        border-bottom: 1px solid $acc3-1;
+      }
+      &-list {
+        padding: 0;
+        font-weight: 400;
+        li {
+          border-bottom: 0;
+          padding: 0.2em 0;
+        }
+      }
+    }
+  }
 }
-
-
-
-
-
-

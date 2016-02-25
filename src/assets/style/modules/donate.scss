@@ -1,10 +1,9 @@
 .donate.show {
   max-height: 250px;
   @include transition(max-height 0.3s ease-in);
-	
-	@include res1 {
-		max-height: 330px;
-	}
+  @include res1 {
+    max-height: 330px;
+  }
 }
 
 .donate {
@@ -13,39 +12,31 @@
   overflow: hidden;
   @include transition(max-height 0.3s ease-out);
   background-color: $acc3-4;
-	
-	.page-home & {
-		opacity: 0.9;
-	}
-  
+  .page-home & {
+    opacity: 0.9;
+  }
   &-wrap {
     padding: 2em 0 3em;
-		
-		@include res1 {
-			padding: 1em 0;
-		}
+    @include res1 {
+      padding: 1em 0;
+    }
   }
   &-text {
-		
-		@include res1 {
-			font-size: $small2;
-			line-height: 1.5em;
-		}
+    @include res1 {
+      font-size: $small2;
+      line-height: 1.5em;
+    }
   }
-  
   &-header {
     position: relative;
     max-width: 30em;
-		
-		@include res1 {
-			margin: 0 auto;
-		}
+    @include res1 {
+      margin: 0 auto;
+    }
   }
-  
   &-title {
     margin: 0.7em 0 0.5em;
   }
-  
   &-exit {
     $s: 1.5em;
     position: absolute;
@@ -57,12 +48,13 @@
     svg {
       width: $s;
       height: $s;
-      
       path {
         @include transition-duration($ani-duration1);
       }
     }
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       svg {
         path {
           fill: $link;
@@ -70,52 +62,47 @@
       }
     }
   }
-  
   &-form {
     text-align: right;
     margin: 1.2em 0 0;
     font-size: $small2;
     position: relative;
-		
-		@include res1 {
-			text-align: center;
-		}
-    
+    @include res1 {
+      text-align: center;
+    }
     &-wrap {
       border-right: 1px solid $acc3-1;
-      
       @include res1 {
         border-right-width: 0px;
       }
     }
-    
     .amount {
-			display: inline-block;
-			line-height: 1.7em;
+      display: inline-block;
+      line-height: 1.7em;
       width: 2.5em;
       margin: 0 0.5em;
-			padding: 0;
+      padding: 0;
       text-align: center;
-			@include radius1;
-			border: 1px solid $acc3-1;
-			position: relative;
-			vertical-align: middle;
-			font-size: $small2;
+      @include radius1;
+      border: 1px solid $acc3-1;
+      position: relative;
+      vertical-align: middle;
+      font-size: $small2;
     }
     .radio {
       display: none;
     }
     label {
-			display: inline-block;
-			line-height: 1.7em;
-			vertical-align: middle;
+      display: inline-block;
+      line-height: 1.7em;
+      vertical-align: middle;
       cursor: pointer;
       background-color: $trans;
-			border: 1px solid $acc3-1;
+      border: 1px solid $acc3-1;
       padding: 0 0.4em;
       font-size: $small1;
       @include radius1;
-			font-size: $small2;
+      font-size: $small2;
     }
     .radio:checked + label {
       background-color: $acc3-1;
@@ -126,8 +113,8 @@
   }
   &-button {
     background-color: $trans;
-		border: 1px solid $acc3-1;
-		@include radius1;
+    border: 1px solid $acc3-1;
+    @include radius1;
     width: 35%;
     max-width: 6.5em;
     height: 2.8em;
@@ -135,11 +122,9 @@
     margin: 0 0 0 0.4em;
     vertical-align: middle;
     position: relative;
-    
     form & {
       font-size: 90%;
     }
-    
     &:hover,
     &:focus,
     &:active {
@@ -150,7 +135,6 @@
     background-color: $acc3-1;
   }
   &-paypal {
-    
     svg {
       width: 100%;
       height: 100%;
@@ -170,14 +154,14 @@
       svg {
         width: 100%;
         height: 100%;
-				path {
-					&:first-child {
-						fill: $acc3-4;
-					}
-					&:last-child {
-						fill: $black;
-					}
-				}
+        path {
+          &:first-child {
+            fill: $acc3-4;
+          }
+          &:last-child {
+            fill: $black;
+          }
+        }
       }
       &.hidden {
         display: none;
@@ -198,29 +182,27 @@
     position: absolute;
     font-size: $small2;
     top: 4px;
-		right: 12.5em;
-		white-space: nowrap;
-		background-color: $trans;
-		border: none;
-		color: $acc5-1;
-		
-		@include res1 {
-			max-width: 7em;
-			white-space: normal;
-			line-height: 1.5em;
-			top: 0;
-			right: auto;
-			left: 0;
-		}
+    right: 12.5em;
+    white-space: nowrap;
+    background-color: $trans;
+    border: none;
+    color: $acc5-1;
+    @include res1 {
+      max-width: 7em;
+      white-space: normal;
+      line-height: 1.5em;
+      top: 0;
+      right: auto;
+      left: 0;
+    }
   }
   &-alt {
     white-space: nowrap;
-		float: right;
-		@include link;
-		
-		@include res1 {
-			float: none;
-		}
+    float: right;
+    @include link;
+    @include res1 {
+      float: none;
+    }
   }
   img {
     max-height: 100%;

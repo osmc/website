@@ -1,272 +1,264 @@
 .sidebar {
-	float: left;
-	margin-top: 2em;
-	font-size: $small2;
-	font-weight: 300;
-	line-height: 1.35em;
-	color: $black;
-	@include radius1;
-	section {
-		border: 1px solid $acc3-1;
-		@include radius1;
-		padding: 0.5em 0.5em 0.8em 1em;
-		
-		@include res2 {
-			padding: 0.5em 1em 0.8em;
-		}
-	}
-	&-break {
-		text-align: center;
-		width: 1px;
-		background-color: $acc3-1;
-		height: 1em;
-		margin: 0 auto;
-	}
-	&-header {
-		@include link3;
-	}
-	&-title {
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-	}
-	&-text {
-		margin: 0.5em 0;
-	}
-	.button {
-		font-weight: 400;
+  float: left;
+  margin-top: 2em;
+  font-size: $small2;
+  font-weight: 300;
+  line-height: 1.35em;
+  color: $black;
+  @include radius1;
+  section {
+    border: 1px solid $acc3-1;
+    @include radius1;
+    padding: 0.5em 0.5em 0.8em 1em;
+    @include res2 {
+      padding: 0.5em 1em 0.8em;
+    }
+  }
+  &-break {
+    text-align: center;
+    width: 1px;
+    background-color: $acc3-1;
+    height: 1em;
+    margin: 0 auto;
+  }
+  &-header {
+    @include link3;
+  }
+  &-title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  &-text {
+    margin: 0.5em 0;
+  }
+  .button {
+    font-weight: 400;
     line-height: $line-h + 0.2;
-	}
-	&-social {
-		font-weight: 400;
-		svg {
-			vertical-align: middle;
-			width: 1em;
-			height: 1em;
-			margin-right: 0.6em;
-			margin-bottom: 0.15em;
-			path {
-				@include ani1;
-			}
-		}
-		$hover: $black;
-		.link {
-			list-style: none;
-			padding: 0;
-			&-facebook {
-				@include link-share($facebook, $hover);
-				svg {
-					height: 0.9em;
-					width: 0.9em;
-					margin-right: 0.7em;
-				}
-				path {
-					fill: $facebook;
-				}
-			}
-			&-twitter {
-				@include link-share($twitter, $hover);
-				path {
-					fill: $twitter;
-				}
-			}
-			&-github {
-				@include link-share($github, $hover);
-				path {
-					fill: $github;
-				}
-			}
-			&-rss {
-				@include link-share($rss, $hover);
-				path {
-					fill: $rss;
-				}
-			}
-		}
-		a {
-			&:hover,
-			&:active,
-			&:focus {
-				path {
-					fill: $hover;
-				}
-			}
-		}
-	}
-	&-news {
-		&-form {
-			@include radius1;
-			overflow: hidden;
-			border: 1px solid $acc3-1;
-			margin: 1em 0.5em 0.3em 0;
-			max-width: 13em;
-			position: relative;
-		}
-		&-icons {
-			display: inline;
-			overflow: hidden;
-		}
-		svg {
-			width: 1.4em;
-			height: 100%;
-			path {
-				fill: $black;
-			}
-		}
-		img {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			margin: auto;
-			max-width: 1.45em;
-			width: 1.45em;
-			-webkit-backface-visibility: hidden;
-			-webkit-transform: translateZ(0) scale(1.0, 1.0);
-		}
-		&-icon1 {
-			display: block;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			padding: 0;
-			margin: auto;
-			@include ani-news;
-		}
-		&-mail,
-		&-check,
-		&-spinner {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: auto;
-			left: 3px;
-			margin: auto;
-			padding: 0;
-			vertical-align: middle;
-			@include ani-news;
-		}
-		&-check {
-			background-color: $trans;
-			font-size: 100%;
-			@include ani-news;
-			visibility: hidden;
-			height: 100%;
-			width: 1.3em;
-			svg {
-				path {
-					@include ani1;
-					fill: $acc2-1;
-					stroke: $acc2-1;
-					stroke-width: 1px;
-				}
-			}
-			&:hover,
-			&:active,
-			&:focus {
-				background-color: $trans;
-				svg {
-					path {
-						fill: $black;
-						stroke: $black;
-					}
-				}
-			}
-		}
-		&-spinner {
-			visibility: hidden;
-			@extend .slideOutDown;
-		}
-		input {
-			background-color: $trans;
-			margin: 0.2em 0;
-			margin-left: 2em;
-			width: calc(100% - 1.7em);
-			max-width: 30em;
-			border: none;
-			padding: 0;
-			display: block;
-			@include box-shadow(none);
-		}
-		// input
-		&-form.focus {
-			.sidebar-news {
-				&-mail {
-					@extend .slideOutDown;
-				}
-				&-check {
-					@extend .slideInDown;
-					visibility: visible;
-				}
-				&-spinner {
-					visibility: visible;
-				}
-			}
-		}
-		&-form.unfocus {
-			.sidebar-news {
-				&-mail {
-					@extend .slideInDown;
-				}
-				&-check {
-					@extend .slideOutDown;
-					visibility: visible;
-				}
-			}
-		}
-		&-form.focus.posting {
-			.sidebar-news {
-				&-check {
-					@extend .slideOutDown;
-				}
-				&-spinner {
-					visibility: visible;
-					@extend .slideInDown;
-				}
-				&-mail {
-					visibility: hidden;
-				}
-			}
-		}
-		&-form.error {
-			.sidebar-news {
-				&-check {
-					svg {
-						path {
-							fill: $acc5-1;
-							stroke: $acc5-1;
-						}
-					}
-				}
-			}
-		}
-    
+  }
+  &-social {
+    font-weight: 400;
+    svg {
+      vertical-align: middle;
+      width: 1em;
+      height: 1em;
+      margin-right: 0.6em;
+      margin-bottom: 0.15em;
+      path {
+        @include ani1;
+      }
+    }
+    $hover: $black;
+    .link {
+      list-style: none;
+      padding: 0;
+      &-facebook {
+        @include link-share($facebook, $hover);
+        svg {
+          height: 0.9em;
+          width: 0.9em;
+          margin-right: 0.7em;
+        }
+        path {
+          fill: $facebook;
+        }
+      }
+      &-twitter {
+        @include link-share($twitter, $hover);
+        path {
+          fill: $twitter;
+        }
+      }
+      &-github {
+        @include link-share($github, $hover);
+        path {
+          fill: $github;
+        }
+      }
+      &-rss {
+        @include link-share($rss, $hover);
+        path {
+          fill: $rss;
+        }
+      }
+    }
+    a {
+      &:hover,
+      &:active,
+      &:focus {
+        path {
+          fill: $hover;
+        }
+      }
+    }
+  }
+  &-news {
+    &-form {
+      @include radius1;
+      overflow: hidden;
+      border: 1px solid $acc3-1;
+      margin: 1em 0.5em 0.3em 0;
+      max-width: 13em;
+      position: relative;
+    }
+    &-icons {
+      display: inline;
+      overflow: hidden;
+    }
+    svg {
+      width: 1.4em;
+      height: 100%;
+      path {
+        fill: $black;
+      }
+    }
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      max-width: 1.45em;
+      width: 1.45em;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    }
+    &-icon1 {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 0;
+      margin: auto;
+      @include ani-news;
+    }
+    &-mail,
+    &-check,
+    &-spinner {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: auto;
+      left: 3px;
+      margin: auto;
+      padding: 0;
+      vertical-align: middle;
+      @include ani-news;
+    }
+    &-check {
+      background-color: $trans;
+      font-size: 100%;
+      @include ani-news;
+      visibility: hidden;
+      height: 100%;
+      width: 1.3em;
+      svg {
+        path {
+          @include ani1;
+          fill: $acc2-1;
+          stroke: $acc2-1;
+          stroke-width: 1px;
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $trans;
+        svg {
+          path {
+            fill: $black;
+            stroke: $black;
+          }
+        }
+      }
+    }
+    &-spinner {
+      visibility: hidden;
+      @extend .slideOutDown;
+    }
+    input {
+      background-color: $trans;
+      margin: 0.2em 0;
+      margin-left: 2em;
+      width: calc(100% - 1.7em);
+      max-width: 30em;
+      border: none;
+      padding: 0;
+      display: block;
+      @include box-shadow(none);
+    }
+    // input
+    &-form.focus {
+      .sidebar-news {
+        &-mail {
+          @extend .slideOutDown;
+        }
+        &-check {
+          @extend .slideInDown;
+          visibility: visible;
+        }
+        &-spinner {
+          visibility: visible;
+        }
+      }
+    }
+    &-form.unfocus {
+      .sidebar-news {
+        &-mail {
+          @extend .slideInDown;
+        }
+        &-check {
+          @extend .slideOutDown;
+          visibility: visible;
+        }
+      }
+    }
+    &-form.focus.posting {
+      .sidebar-news {
+        &-check {
+          @extend .slideOutDown;
+        }
+        &-spinner {
+          visibility: visible;
+          @extend .slideInDown;
+        }
+        &-mail {
+          visibility: hidden;
+        }
+      }
+    }
+    &-form.error {
+      .sidebar-news {
+        &-check {
+          svg {
+            path {
+              fill: $acc5-1;
+              stroke: $acc5-1;
+            }
+          }
+        }
+      }
+    }
     .overlay-show & {
       position: relative;
       z-index: 1;
       background-color: $white;
     }
-	}
-  
+  }
   section.sidebar-vero {
     padding: 0.5em 1em;
   }
-  
   &-vero {
     @include ani1;
-    
     @include link-alt {
       color: $link;
     }
-    
     &-title {
       font-size: 110%;
       font-weight: 300;
     }
-    
     span {
       font-size: 120%;
       color: $link;
     }
-      
   }
 }
