@@ -4,12 +4,9 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var request = require(ghostPath + "node_modules/request");
 var cheerio = require(ghostPath + "node_modules/cheerio");
 
-var keys = require(path.join(__dirname, "../content/data/keys"));
+var auth = require(path.join(__dirname, "../content/data/keys")).discourse;
 
-var apiKey = keys.discourseKey;
-var apiUser = keys.discourseUser;
-
-var url = "https://discourse.osmc.tv/t/auto-links/7458.json?api_key=" + apiKey + "&api_username=" + apiUser;
+var url = "https://discourse.osmc.tv/t/auto-links/7458.json?api_key=" + auth.key + "&api_username=" + auth.user;
 
 // Schedule. Only in production
 var env = require("./env").env;
