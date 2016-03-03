@@ -6,12 +6,15 @@ var _ = require(ghostPath + "node_modules/lodash");
 var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
 
-var host = "http://realtime.mirror.osmc.tv/osmc/download/installers/versions_";
-var downloadHost = "http://download.osmc.tv/installers/diskimages/";
+var host = "http://download.osmc.tv/installers/";
+
+var versionsUrl = host + "versions_";
+
+var imagesUrl = host + "diskimages/";
 
 var names = {
   rbp1: "Raspberry Pi 1 / Zero",
-  rbp2: "Raspberry Pi 2",
+  rbp2: "Raspberry Pi 2 / 3",
   vero1: "Vero",
   vero2: "Vero 2",
   appletv: "Apple TV 1"
@@ -72,11 +75,11 @@ function fetch() {
       var newkey = key.toUpperCase();
     }
     
-    request(host + newkey, function (error, response, body) {
+    request(versionsUrl + newkey, function (error, response, body) {
       count++;
       if (!error && response.statusCode == 200) {
         var nSplit = body.split("\n");
-
+        
         nSplit.forEach(function (item, i) {
           var spaceSplit = item.split(" ");
 
@@ -91,7 +94,7 @@ function fetch() {
           }
         });
       }
-
+      
       if (count === itemCount) {
         process();
       }
@@ -106,13 +109,13 @@ function process() {
   var count = 0;
 
   items.forEach(function (item, i) {
-
+    
     var file = item.file;
     var filename = item.filename;
 
     var split = file.split("_");
     var id = split[2];
-    var md5Url = downloadHost + file.split(".")[0] + ".md5";
+    var md5Url = imagesUrl + file.split(".")[0] + ".md5";
     
     // get md5 string
     request(md5Url, function (error, response, body) {
@@ -128,7 +131,7 @@ function process() {
           name: names[id],
           unixDate: unixDate,
           filename: filename,
-          url: downloadHost + file,
+          url: imagesUrl + file,
           md5: md5
         });
 
