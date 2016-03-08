@@ -111,7 +111,7 @@
         fill: $black;
       }
     }
-    img {
+    img, .img {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -120,6 +120,13 @@
       width: 1.45em;
       -webkit-backface-visibility: hidden;
       -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    }
+    .img {
+      background-image: url("/assets/img/icon/spinner-square.gif");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      image-rendering: -webkit-optimize-contrast;
     }
     &-icon1 {
       display: block;
