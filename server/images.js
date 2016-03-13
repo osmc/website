@@ -31,6 +31,8 @@ if (env == "production") {
 // on load
 fetch();
 
+var html = "";
+
 var imagelist = path.join(__dirname, "/static/imagelist.html");
 
 var watcher = chokidar.watch(imagelist);
@@ -47,7 +49,6 @@ function readImagelist() {
   });
 }
 
-var html = "";
 var files = [];
 var items = [];
 
