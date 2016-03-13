@@ -80,11 +80,11 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wiki = require("./wiki").wikiCheck;
+var wikiPostCheck = require("./wiki").wikiPostCheck;
 app.get("/wiki/*", slash, function(req, res) {
-  var content = wiki(req.url);
-  if (content) {
-    res.render("page-wiki-post.hbs", {wikiPost: content});    
+  var wikiPost = wikiPostCheck(req.url);
+  if (wikiPost) {
+    res.render("page-wiki-post.hbs", {wikiPost: wikiPost});    
   } else {
     proxySingle.web(req, res, {target: host + "/404"});
   }

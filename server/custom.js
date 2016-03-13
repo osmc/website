@@ -4,7 +4,7 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
 
-var liveHost = require("./env").host;
+var host = require("./helpers/env").host;
 
 var helpers = function () {
 
@@ -15,10 +15,9 @@ var helpers = function () {
     var urlDefault = _.get(res, "data.root.post.url");
     var page = _.get(res, "data.root.pagination.page");
     var tag = _.get(res, "data.root.tag");
-    var host = _.get(res, "data.blog.url");
     var wikiPost = _.get(res, "data.root.wikiPost");
     var notFound = _.get(res, "data.root.code");
-    
+        
     var url = relativeUrl;
     var titleCustom;
     var urlCustom;
@@ -28,7 +27,7 @@ var helpers = function () {
       urlCustom = singlePost.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
-      _.set(res, "data.blog.url", liveHost);
+      _.set(res, "data.blog.url", host);
       titleCustom = singlePost.title + " - " + singlePost.category + " - " + blogTitle;
       
     } else if (url) {
@@ -62,7 +61,7 @@ var helpers = function () {
       }
 
     }
-
+    
     var output;
 
     if (option == "title") {

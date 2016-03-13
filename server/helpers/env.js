@@ -1,18 +1,20 @@
 var path = require("path");
 
+var env;
+
 var flag = process.argv[2];
 if (flag != "dev") {
   process.env.NODE_ENV = "production";
-  var env = "production";
+  env = "production";
 } else {
-  var env = "development";
+  env = "development";
 }
 
 // host
-var config = require(path.join(__dirname, "../config.js"));
-var liveHost = config[env].url;
+var config = require(path.join(__dirname, "../../config.js"));
+var host = config[env].url;
 
 module.exports = {
   env: env,
-  host: liveHost
+  host: host
 }

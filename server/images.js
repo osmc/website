@@ -7,9 +7,7 @@ var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
 
 var host = "http://download.osmc.tv/installers/";
-
 var versionsUrl = host + "versions_";
-
 var imagesUrl = host + "diskimages/";
 
 var names = {
@@ -21,7 +19,7 @@ var names = {
 };
 
 // Schedule. Only in production
-var env = require("./env").env;
+var env = require("./helpers/env").env;
 if (env == "production") {
   var minutes = 15;
   interval = minutes * 60 * 1000;
@@ -43,14 +41,11 @@ watcher.on("change", function () {
 });
 
 function readImagelist() {
-  try {
-    html = fs.readFileSync(imagelist);
-  } catch (err) {
-    console.log("imagelist.html not found... ಠ_ಠ");
-    console.log("But don't worry! --> Downloading now  ｡◕‿◕｡");
-    fetch();
-  }
-};
+  var readFile = require("./helpers/readFile.js");
+  readFile("images", imagelist).then(function(res) {
+    html = res;
+  });
+}
 
 var html = "";
 var files = [];
@@ -189,6 +184,8 @@ function buildHtml() {
 
 module.exports = function () {
   hbs.registerHelper("images", function (option, res) {
-    return html;
+    if (html) {
+      return html;
+    }
   });
 };

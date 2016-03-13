@@ -4,44 +4,60 @@ var chokidar = require("chokidar");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require(ghostPath + "node_modules/lodash");
-var purge = require("./purge");
+var purge = require("./helpers/purge");
 
 var loaded = false;
-var wiki;
-var wikiPath = path.join(__dirname, "/static/wiki.json");
+var json;
+var html;
+var filePath = path.join(__dirname, "/static/wiki.json");
 
-function readWiki() {
-  try {
-    var newWiki = JSON.parse(fs.readFileSync(wikiPath));
-
-    // if wiki changes, purge
-    if (JSON.stringify(wiki) !== JSON.stringify(newWiki) && loaded) {
-      purge.all();
-    }
-    wiki = newWiki;
-    loaded = true;
-
-  } catch (err) {
-    console.log(err);
-    console.log("wiki.json not found. Run the wiki script");
-  }
-};
-
-var watcher = chokidar.watch(wikiPath);
+var watcher = chokidar.watch(filePath);
 watcher.on("change", function () {
   readWiki();
-});
-watcher.on("add", function () {
+}).on("add", function () {
   readWiki();
 });
 
+function readWiki() {
+  var readFile = require("./helpers/readFile.js");
+  readFile("wiki", filePath).then(function(res) {
+    if (JSON.stringify(json) !== JSON.stringify(res) && loaded) {
+      purge.all();
+    }
+    
+    json = JSON.parse(res);
+    loaded = true;
+    wikiIndex();
+  });
+}
+
+function wikiIndex() {
+  var categories = json.categories;
+  var content = "";
+      
+  categories.forEach(function (cat) {
+    var list = "";
+
+    cat.posts.forEach(function (post) {
+      var div = '<li><a data-name="' + post.title + '" href="' + post.url + '">' + post.title + '</a></li>';
+      list += div;
+    });
+
+    var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
+    
+    content += section;
+  });
+  
+  html = content;
+};
+
 // if no wiki post is found in the json file, return false for custom render
-var wikiCheck = function (wikiUrl) {
+var wikiPostCheck = function (url) {
   // e.g. /wiki/general/faq
-  var split = wikiUrl.substring(1).split("/");
+  var split = url.substring(1).split("/");
   var cat = split[1];
   var post = split[2];
-  var singleCat = _.find(wiki.categories, {
+  var singleCat = _.find(json.categories, {
     "slug": cat
   });
   if (singleCat) {
@@ -56,41 +72,23 @@ var wikiCheck = function (wikiUrl) {
   }
 };
 
-var liveHost = require("./env").host;
-
 var helpers = function () {
 
-  hbs.registerHelper("wiki-index", function (option, res) {
-    var categories = wiki.categories;
-
-    var html = "";
-    categories.forEach(function (cat) {
-
-      var list = "";
-
-      cat.posts.forEach(function (post) {
-        var div = '<li><a data-name="' + post.title + '" href="' + post.url + '">' + post.title + '</a></li>';
-        list += div;
-      });
-
-      var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
-
-      html += section;
-    });
-
-    return html;
-
+  hbs.registerHelper("wiki-index", function (res, option) {
+    if (html) {
+      return html;
+    }
   });
 
   hbs.registerHelper("wiki-post", function (option, res) {
-    var singlePost = _.get(res, "data.root.wikiPost");
-    if (singlePost) {
-      return singlePost[option];
+    var post = _.get(res, "data.root.wikiPost");
+    if (post) {
+      return post[option];
     }
   });
 };
 
 module.exports = {
-  wikiCheck: wikiCheck,
+  wikiPostCheck: wikiPostCheck,
   helpers: helpers
 };

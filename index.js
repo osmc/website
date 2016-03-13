@@ -17,7 +17,6 @@ ghost(options).then(function(ghostServer) {
 // create static directory
 mkdirp.sync(path.join(__dirname, "/server/static"), function (err) {});
 
-require("./server/env");
 require("./server/custom")();
 require("./server/wiki").helpers();
 require("./server/images")();

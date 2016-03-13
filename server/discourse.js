@@ -9,7 +9,7 @@ var auth = require(path.join(__dirname, "../content/data/keys")).discourse;
 var url = "https://discourse.osmc.tv/t/auto-links/7458.json?api_key=" + auth.key + "&api_username=" + auth.user;
 
 // Schedule. Only in production
-var env = require("./env").env;
+var env = require("./helpers/env").env;
 if (env == "production") {
   var minutes = 5;
   interval = minutes * 60 * 1000;
