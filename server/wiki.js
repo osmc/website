@@ -20,11 +20,13 @@ watcher.on("change", function () {
 function readWiki() {
   var readFile = require("./helpers/readFile.js");
   readFile("wiki", filePath).then(function(res) {
+    res = JSON.parse(res);
+    
     if (JSON.stringify(json) !== JSON.stringify(res) && loaded) {
       purge.all();
     }
     
-    json = JSON.parse(res);
+    json = res;
     loaded = true;
   });
 }
