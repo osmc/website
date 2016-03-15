@@ -8,7 +8,6 @@ var purge = require("./helpers/purge");
 
 var loaded = false;
 var json;
-var html;
 var filePath = path.join(__dirname, "/static/wiki.json");
 
 var watcher = chokidar.watch(filePath);
@@ -27,32 +26,11 @@ function readWiki() {
     
     json = JSON.parse(res);
     loaded = true;
-    wikiIndex();
   });
 }
 
-function wikiIndex() {
-  var categories = json.categories;
-  var content = "";
-      
-  categories.forEach(function (cat) {
-    var list = "";
-
-    cat.posts.forEach(function (post) {
-      var div = '<li><a data-name="' + post.title + '" href="' + post.url + '">' + post.title + '</a></li>';
-      list += div;
-    });
-
-    var section = '<section class="wiki-cat ' + cat.slug + '"><header class="wiki-cat-header"><h2 class="wiki-cat-title">' + cat.title + '</h2><span class="wiki-cat-desc">' + cat.description + '</span></header><ul class="wiki-cat-list">' + list + '</ul></section>';
-    
-    content += section;
-  });
-  
-  html = content;
-};
-
 // if no wiki post is found in the json file, return false for custom render
-var wikiPostCheck = function (url) {
+var wikiPost = function (url) {
   // e.g. /wiki/general/faq
   var split = url.substring(1).split("/");
   var cat = split[1];
@@ -74,21 +52,19 @@ var wikiPostCheck = function (url) {
 
 var helpers = function () {
 
-  hbs.registerHelper("wiki-index", function (res, option) {
-    if (html) {
-      return html;
+  hbs.registerHelper("wiki-index", function (res) {
+    if (json) {
+      res.data.root.wiki = json;
     }
   });
-
-  hbs.registerHelper("wiki-post", function (option, res) {
-    var post = _.get(res, "data.root.wikiPost");
-    if (post) {
-      return post[option];
-    }
+  
+  hbs.registerHelper("escape", function (res) {
+    return res;
   });
+  
 };
 
 module.exports = {
-  wikiPostCheck: wikiPostCheck,
+  wikiPost: wikiPost,
   helpers: helpers
 };

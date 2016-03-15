@@ -80,7 +80,7 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wikiPostCheck = require("./wiki").wikiPostCheck;
+var wikiPostCheck = require("./wiki").wikiPost;
 app.get("/wiki/*", slash, function(req, res) {
   var wikiPost = wikiPostCheck(req.url);
   if (wikiPost) {

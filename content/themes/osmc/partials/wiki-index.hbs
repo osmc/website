@@ -1,3 +1,22 @@
+{{wiki-index}}
+
 <div class="wiki-index">
-	{{{wiki-index}}}
+  {{#each wiki.categories}}
+    <section class="wiki-cat {{slug}}">
+
+      <header class="wiki-cat-header">
+        <h2 class="wiki-cat-title">{{title}}</h2>
+        <span class="wiki-cat-desc">{{description}}</span>
+      </header>
+
+      <ul class="wiki-cat-list">
+        {{#each posts}}
+          <li>
+            <a data-name="{{title}}" href="{{escape url}}">{{title}}</a>
+          </li>
+        {{/each}}
+      </ul>
+
+    </section>
+  {{/each}}
 </div>
