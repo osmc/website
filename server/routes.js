@@ -65,12 +65,12 @@ app.all("/blog/page/:page", slash, function(req,res) {
   proxySingle.web(req, res, {target: url});
 });
 
+// wiki
+
 app.all("/wiki", slash, function(req, res){
   var url = host + req.url;
   proxySingle.web(req, res, {target: url});
 });
-
-// wiki
 
 app.get("/wiki/:var(general|raspberry-pi|vero)?", function(req, res) {
 	res.redirect("/wiki");
@@ -80,11 +80,31 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wikiPostCheck = require("./wiki").wikiPost;
+var wikiPost = require("./wiki").post;
 app.get("/wiki/*", slash, function(req, res) {
-  var wikiPost = wikiPostCheck(req.url);
-  if (wikiPost) {
-    res.render("page-wiki-post.hbs", {wikiPost: wikiPost});    
+  var post = wikiPost(req.url);
+  if (post) {
+    res.render("page-wiki-post.hbs", {wikiPost: post});    
+  } else {
+    proxySingle.web(req, res, {target: host + "/404"});
+  }
+});
+
+// store
+
+app.all("/store", slash, function(req, res){
+  var url = host + req.url;
+  proxySingle.web(req, res, {target: url});
+});
+
+var storeProduct = require("./store").product;
+app.get("/store/*", slash, function(req, res) {
+  var product = storeProduct(req.url);
+  var store = {};
+  store["product"] = product;
+    
+  if (product) {
+    res.render("page-store-product.hbs", {store: store});
   } else {
     proxySingle.web(req, res, {target: host + "/404"});
   }

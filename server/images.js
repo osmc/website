@@ -2,9 +2,9 @@ var fs = require("fs");
 var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
-var _ = require(ghostPath + "node_modules/lodash");
 var request = require(ghostPath + "node_modules/request");
 var chokidar = require("chokidar");
+var _ = require("lodash");
 
 var host = "http://download.osmc.tv/installers/";
 var versionsUrl = host + "versions_";
@@ -149,7 +149,7 @@ function buildHtml() {
   var content = "";
 
   // device ids that have images
-  var ids = _.pluck(_.uniq(files, "id"), "id");
+  var ids = _.map(_.uniq(files, "id"), "id");
 
   // loop names for sorting (instead of ids)
   for (var key in names) {
@@ -158,7 +158,7 @@ function buildHtml() {
     if (ids.indexOf(key) > -1) {
 
       // find objects with correct id and sort by unixDate
-      var images = _.sortBy(_.where(files, {
+      var images = _.sortBy(_.filter(files, {
         id: key
       }), "unixDate").reverse();
 

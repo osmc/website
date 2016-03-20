@@ -99,18 +99,18 @@
       vertical-align: baseline;
     }
   }
-}
-
-.wikipost {
-  &-contribute {
-    float: right;
-  }
-  .post-content {
-    .lightbox {
-      border-bottom: 0;
+  
+  &-post {
+    &-contribute {
+      float: right;
     }
-    .meta {
-      display: none;
+    .post-content {
+      .lightbox {
+        border-bottom: 0;
+      }
+      .meta {
+        display: none;
+      }
     }
   }
 }

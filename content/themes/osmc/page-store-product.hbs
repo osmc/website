@@ -1,0 +1,49 @@
+{{!< default}}
+
+<div class="row clearfix main store-product">
+  <div class="container">
+    <article class="column full post-body">
+
+      {{> post/header}}
+
+      <div class="column three-fourths post-three post-break">
+        {{> post/break}}
+      </div>
+
+      <div class="column three-fourths post-three post-wrap">
+
+        <div class="post-content" itemprop="articleBody">
+          {{#store.product}}
+          
+            <form class="store-product-cart cart" method="post" action="{{store-buy-url}}">
+              <input type="hidden" name="add-to-cart" value="{{id}}">
+              <button type="submit" class="single_add_to_cart_button">Add to cart</button>
+            </form>
+          
+            {{{price_html}}}
+          
+            {{#each attributes}}
+              <h4>{{name}}</h4>
+              <select>
+              {{#each options}}
+                <option value="{{this}}">{{this}}</option>
+              {{/each}}
+              </select>
+            {{/each}}
+          
+            {{{short_description}}}
+          
+            <hr>
+          
+            {{{description}}}
+          
+          {{/store.product}}
+        </div>
+
+      </div>
+
+      {{> sidebar/store-product}}
+
+    </article>
+  </div>
+</div>

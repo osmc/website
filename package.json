@@ -11,7 +11,9 @@
     "chokidar": "1.2.0",
     "ghost": "0.7.8",
     "http-proxy": "1.11.2",
-    "mkdirp": "0.5.1"
+    "lodash": "4.6.1",
+    "mkdirp": "0.5.1",
+    "woocommerce-api": "1.1.0"
   },
   "devDependencies": {
     "browser-sync": "2.10.1",

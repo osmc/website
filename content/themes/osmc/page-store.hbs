@@ -1,0 +1,32 @@
+{{!< x-store}}
+{{store-index}}
+
+{{#post}}
+{{content}}
+{{/post}}
+
+{{#each store.products}}
+  {{#if featured}}
+    <p>{{title}}</p>
+  {{/if}}
+{{/each}}
+
+<div class="row clearfix">
+
+  {{#each store.categories}}
+
+    {{#each ../store.products}}
+      {{#if_inArray categories ../this}}
+  
+        <a class="store-item">
+          <div class="store-img" style="background-image: url('{{featured_src}}');">
+            <img class="store-img-placeholder" src="http://placehold.it/500x500">
+          </div>
+        </a>
+
+      {{/if_inArray}}
+    {{/each}}
+    
+  {{/each}}
+    
+</div>

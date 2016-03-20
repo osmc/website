@@ -2,7 +2,7 @@ var fs = require("fs");
 var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
-var _ = require(ghostPath + "node_modules/lodash");
+var _ = require("lodash");
 
 var host = require("./helpers/env").host;
 
@@ -16,19 +16,30 @@ var helpers = function () {
     var page = _.get(res, "data.root.pagination.page");
     var tag = _.get(res, "data.root.tag");
     var wikiPost = _.get(res, "data.root.wikiPost");
+    var storeProduct = _.get(res, "data.root.store.product");
     var notFound = _.get(res, "data.root.code");
         
     var url = relativeUrl;
     var titleCustom;
     var urlCustom;
     
-    if (wikiPost) {
-      var singlePost = res.data.root.wikiPost;
-      urlCustom = singlePost.url;
+    if (storeProduct) {
+      
+      var product = res.data.root.store.product;
+      urlCustom = product.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
       _.set(res, "data.blog.url", host);
-      titleCustom = singlePost.title + " - " + singlePost.category + " - " + blogTitle;
+      titleCustom = product.title + " - " + blogTitle;
+      
+    } else if (wikiPost) {
+      
+      var post = res.data.root.wikiPost;
+      urlCustom = post.url;
+      _.set(res, "data.root.relativeUrl", urlCustom);
+      _.set(res, "data.blog.title", "OSMC");
+      _.set(res, "data.blog.url", host);
+      titleCustom = post.title + " - " + post.category + " - " + blogTitle;
       
     } else if (url) {
 

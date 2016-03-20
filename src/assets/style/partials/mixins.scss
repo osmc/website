@@ -21,7 +21,7 @@
   $color: $link;
   $border-bottom: 2px solid $link-bottom;
   $border-bottom-hover: 2px solid $link-bottom-hover;
-  a {
+  a:not(.button) {
     color: $color;
     border-bottom: $border-bottom;
     &:visited {

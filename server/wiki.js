@@ -1,10 +1,11 @@
 var path = require("path");
 var fs = require("fs");
 var chokidar = require("chokidar");
+var _ = require("lodash");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
-var _ = require(ghostPath + "node_modules/lodash");
 var purge = require("./helpers/purge");
+
 
 var loaded = false;
 var json;
@@ -32,7 +33,7 @@ function readWiki() {
 }
 
 // if no wiki post is found in the json file, return false for custom render
-var wikiPost = function (url) {
+var post = function (url) {
   // e.g. /wiki/general/faq
   var split = url.substring(1).split("/");
   var cat = split[1];
@@ -67,6 +68,6 @@ var helpers = function () {
 };
 
 module.exports = {
-  wikiPost: wikiPost,
-  helpers: helpers
+  helpers: helpers,
+  post: post
 };
