@@ -41,6 +41,11 @@ gulp.task("ghost", function () {
   });
 });
 
+var onError = function (err) {
+  console.log(err);
+  this.emit('end');
+};
+
 // style
 gulp.task("style-main", function () {
   return gulp.src(style + "style.scss")
@@ -50,6 +55,7 @@ gulp.task("style-main", function () {
       image: img,
       import_path: modules
     }))
+    .on("error", onError)
     .pipe(prefix())
     .pipe(cssmin())
     .pipe(gulp.dest(css))
@@ -93,6 +99,7 @@ gulp.task("minify", function () {
   ])
     .pipe(include())
     .pipe(uglify())
+    .on("error", onError)
     .pipe(concat("minified.js"))
     .pipe(gulp.dest(js));
 });

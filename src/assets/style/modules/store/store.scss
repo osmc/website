@@ -1,0 +1,153 @@
+$grid-spacing: 1.5em;
+$grid-spacing-2: $grid-spacing * 2;
+
+&-title {
+  text-align: center;
+
+  @include res1 {
+    font-size: $small4;
+  }
+  @include res2 {
+    font-size: 0.7em;
+  }
+  h2 {
+    font-weight: 300;
+  }
+}
+
+&-feat {
+  margin: 2em 0;
+}
+
+&-nav {
+  float: left;
+  width: 100%;
+  margin: 0.5em 0;
+  @include link3;
+
+  a {
+    display: inline-block;
+    font-size: $big1;
+    font-weight: 300;
+    margin: 0 3em 0 0;
+    user-select: none;
+    cursor: pointer;
+
+    &.active {
+      color: $link;
+    }
+
+    sup {
+      font-weight: 300;
+    }
+  }
+}
+
+&-grid {
+  width: calc(100% + #{$grid-spacing-2});
+  margin-left: -$grid-spacing;
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 1;
+  @include ani2;
+
+  &.hide {
+    opacity: 0;
+  }
+}
+
+&-item {
+  float: left;
+  margin: 1.5em $grid-spacing;
+  border: none;
+  width: auto;
+
+  &:hover {
+    .store-item-view {
+      background-color: rgba(108, 108, 108, 0.37);
+
+      span {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-wrap {
+    width: 25%;
+
+    @include res1 {
+      width: 33.3%;
+    }
+
+    @include res2 {
+      width: 100%;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  &-img {
+    background-size: cover;
+    background-position: center;
+    border: 1px solid $grey4;
+    border-bottom-width: 1px !important;
+    position: relative;
+  }
+  &-placeholder {
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+  }
+
+  &-view {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: $trans;
+    @include ani2;
+
+    span {
+      @include ani2;
+      opacity: 0;
+      font-weight: 300;
+      text-transform: uppercase;
+      font-size: 2em;
+      letter-spacing: 5px;
+      color: $white;
+    }
+  }
+
+  &-content {
+    float: left;
+    width: 100%;
+    margin-top: 0.5em;
+    padding: 0 0.1em;
+    line-height: 1.3em;
+    font-size: $small1;
+    font-weight: 300;
+    color: $grey3;
+
+    @include res2 {
+      font-size: $big1;
+    }
+  }
+
+  &-two-thirds {
+    width: 66.6%;
+    float: left;
+  }
+
+  &-third {
+    width: 33.3%;
+    float: left;
+    text-align: right;
+  }
+}

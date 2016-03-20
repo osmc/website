@@ -14,7 +14,7 @@
 //= require modules/newsletter.js
 //= require modules/download.js
 //= require modules/wiki.js
-//= require modules/store.js
+//= require modules/store/main.js
 //= require modules/contact.js
 //= require modules/chartist.js
 //= require modules/discourse.js

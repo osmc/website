@@ -53,8 +53,24 @@ var helpers = function () {
     var store = res.data.root.store = {};
     
     store.products = json.products;
-    store.categories = _.uniq(_.flatten(_.map(json.products, "categories")));
+    store.categories = [];
     
+    var categories = _.uniq(_.flatten(_.map(json.products, "categories")));
+    
+    categories.forEach(function(cat, i) {
+      var amount = 0;
+      
+      json.products.forEach(function(item, j) {
+        var inCat = _.includes(item.categories, cat);
+        if (inCat) {
+          amount += 1;
+        }
+      });
+      
+      var obj = {"title": cat, "amount": amount};
+      store.categories.push(obj);
+    });
+      
   });
   
   hbs.registerHelper("store-product-url", function (res) {

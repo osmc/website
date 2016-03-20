@@ -12,6 +12,10 @@
   @include transition($ani-duration2);
 }
 
+@mixin ani3 {
+  @include transition($ani-duration3);
+}
+
 @mixin radius1 {
   @include border-radius($b-radius1);
 }
@@ -21,7 +25,7 @@
   $color: $link;
   $border-bottom: 2px solid $link-bottom;
   $border-bottom-hover: 2px solid $link-bottom-hover;
-  a:not(.button) {
+  a {
     color: $color;
     border-bottom: $border-bottom;
     &:visited {
@@ -109,12 +113,29 @@
     background-color: $button;
     color: $white;
   }
-  &:hover,
-  &:active,
-  &:focus {
+  
+  @include link-alt {
     color: $white;
     background-color: $button-hover;
     border-bottom: 0px;
+  }
+  
+  &.disabled {
+    background-color: $grey2;
+    pointer-events: none;
+    cursor: default;
+    
+    @include link-alt {
+      background-color: $grey2;
+    }
+  }
+  
+  &.success {
+    background-color: $green1;
+    
+    @include link-alt {
+      background-color: $green1;
+    }
   }
 }
 

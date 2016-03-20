@@ -129,11 +129,11 @@ blockquote {
 }
 
 button,
-.button {
-  @include button;
+.main a.button {
+  @include button;  
 }
 
-.button {
+.main a.button {
   &-alt1 {
     @include button-alt1;
   }
