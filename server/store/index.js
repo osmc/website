@@ -1,6 +1,7 @@
 var path = require("path");
 var chokidar = require("chokidar");
 var ghostPath = path.join(__dirname, "../../node_modules/ghost/");
+var cheerio = require(ghostPath + "node_modules/cheerio");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require("lodash");
 
@@ -96,6 +97,12 @@ var helpers = function () {
     var url = "https://store.osmc.tv/cart?add-to-cart=" + product.id;
     return url;
   });
+  
+  hbs.registerHelper("firstParagraph", function(html) {
+    $ = cheerio.load(html);
+    return $("p").first().text();    
+  });
+  
 };
 
 module.exports = {

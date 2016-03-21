@@ -15,8 +15,95 @@ $grid-spacing-2: $grid-spacing * 2;
   }
 }
 
+@at-root {
+  a.store-feat {
+    border: 1px solid $acc2-2;
+    border-left-color: $trans;
+    border-right-color: $trans;
+    
+    &:hover {
+      border: 1px solid $acc2-2;
+    }
+  }
+}
+
 &-feat {
-  margin: 2em 0;
+  float: left;
+  width: 100%;
+  position: relative;
+  margin: 5em 0;
+  padding: 3em 0;
+  @include ani2;
+  background-color: $white;
+  
+  @include res2 {
+    margin: 2em 0;
+    padding-bottom: 0;
+  }
+  
+  @include res2-rev {
+    display: flex;
+    align-items: center;
+  }
+  
+  &:hover {
+    color: $acc2-1;
+  }
+  
+  &-sup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 0.5em;
+    background-color: $acc2-1;
+    color: $black2;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: $small2;
+    line-height: 1.7em;
+    @include radius1;
+  }
+  
+  .column {
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  
+  &-img {
+    background-size: cover;
+    background-position: center;
+    
+    @include res2 {
+      width: 60%;
+      float: none;
+      margin: 0 auto;
+    }
+    
+    img {
+      display: block;
+    }
+  }
+  
+  &-placeholder {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  &-content {
+    padding: 2em 0;
+    
+    @include res2 {
+      text-align: center;
+    }
+    @include res2-rev {
+      padding: 1.5em 1em;
+    }
+  }
+  
+  &-title, &-desc {
+    margin: 0;
+  }
 }
 
 &-nav {
@@ -27,18 +114,18 @@ $grid-spacing-2: $grid-spacing * 2;
 
   a {
     display: inline-block;
-    font-size: $big1;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0 3em 0 0;
     user-select: none;
     cursor: pointer;
+    color: $acc3-2;
 
     &.active {
       color: $link;
     }
 
     sup {
-      font-weight: 300;
+      font-weight: 400;
     }
   }
 }
@@ -91,7 +178,7 @@ $grid-spacing-2: $grid-spacing * 2;
   &-img {
     background-size: cover;
     background-position: center;
-    border: 1px solid $grey4;
+    border: 1px solid $acc3-4;
     border-bottom-width: 1px !important;
     position: relative;
   }
@@ -133,7 +220,7 @@ $grid-spacing-2: $grid-spacing * 2;
     line-height: 1.3em;
     font-size: $small1;
     font-weight: 300;
-    color: $grey3;
+    color: $acc3-3;
 
     @include res2 {
       font-size: $big1;

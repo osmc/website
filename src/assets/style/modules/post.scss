@@ -3,6 +3,7 @@
     margin: 3em 0 0;
     @include radius1;
     background-color: $white;
+    
     @include res2 {
       margin: 2em 0 0;
     }
@@ -29,7 +30,14 @@
   }
   &-wrap {
     margin: 0.5em 0;
+  }
+  &-content {
     @include link;
+    
+    a.button {
+      color: $white;
+      border-bottom: 0;
+    }
   }
   &-comments {
     margin-top: 2em;
