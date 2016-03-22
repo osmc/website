@@ -18,8 +18,11 @@ $grid-spacing-2: $grid-spacing * 2;
 @at-root {
   a.store-feat {
     border: 1px solid $acc2-2;
-    border-left-color: $trans;
-    border-right-color: $trans;
+    
+    @include res2-rev {
+      border-left-color: $trans;
+      border-right-color: $trans;
+    }
     
     &:hover {
       border: 1px solid $acc2-2;
@@ -91,7 +94,7 @@ $grid-spacing-2: $grid-spacing * 2;
   }
   
   &-content {
-    padding: 2em 0;
+    padding: 2em 0.5em;
     
     @include res2 {
       text-align: center;
@@ -150,11 +153,16 @@ $grid-spacing-2: $grid-spacing * 2;
   width: auto;
 
   &:hover {
-    .store-item-view {
-      background-color: rgba(108, 108, 108, 0.37);
+    .store-item {
+      &-view {
+        background-color: rgba(108, 108, 108, 0.37);
 
-      span {
-        opacity: 1;
+        span {
+          opacity: 1;
+        }
+      }
+      &-content {
+        color: $black;
       }
     }
   }
@@ -221,6 +229,7 @@ $grid-spacing-2: $grid-spacing * 2;
     font-size: $small1;
     font-weight: 300;
     color: $acc3-3;
+    @include ani2;
 
     @include res2 {
       font-size: $big1;
