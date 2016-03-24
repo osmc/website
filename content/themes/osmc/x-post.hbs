@@ -4,8 +4,9 @@
     <article class="column full post-body" itemscope itemType="http://schema.org/BlogPosting">
       
       {{#post}}
-      {{> post/header post=true}}
+      {{> post/header}}
       {{/post}}
+      {{> post/header}}
 			
 			<div class="column three-fourths post-three post-break">
 				{{> post/break}}
@@ -17,23 +18,17 @@
 				  {{{body}}}
         </div>
 				
+        {{#if post}}
 				{{> post/break}}
-				
-				<footer class="post-footer">
-					{{> share-buttons}}
-				</footer>
-				
+				{{> post/share}}
 				{{> post/break}}
-        
-        <div class="post-ad">
-          {{> post/ad}}
-        </div>
-				
+        {{> post/ad}}
 				{{> post/comments}}
+        {{/if}}
 				
       </div>
 			
-      {{> sidebar/main}}
+      {{> sidebar/index}}
       
     </article>
   </div>

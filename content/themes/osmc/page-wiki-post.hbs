@@ -1,25 +1,4 @@
-{{!< default}}
+{{!< x-post}}
 
-<div class="row clearfix main wiki-post">
-  <div class="container">
-    <article class="column full post-body">
 
-      {{> post/header}}
-
-      <div class="column three-fourths post-three post-break">
-        {{> post/break}}
-      </div>
-
-      <div class="column three-fourths post-three post-wrap">
-
-        <div class="post-content" itemprop="articleBody">
-          {{{wiki.post.body}}}
-        </div>
-
-      </div>
-
-      {{> sidebar/wiki}}
-
-    </article>
-  </div>
-</div>
+{{{wiki.post.body}}}
