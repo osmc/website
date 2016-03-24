@@ -15,10 +15,10 @@ var helpers = function () {
     var urlDefault = _.get(res, "data.root.post.url");
     var page = _.get(res, "data.root.pagination.page");
     var tag = _.get(res, "data.root.tag");
-    var wikiPost = _.get(res, "data.root.wikiPost");
+    var wikiPost = _.get(res, "data.root.wiki.post");
     var storeProduct = _.get(res, "data.root.store.product");
     var notFound = _.get(res, "data.root.code");
-        
+    
     var url = relativeUrl;
     var titleCustom;
     var urlCustom;
@@ -34,7 +34,7 @@ var helpers = function () {
       
     } else if (wikiPost) {
       
-      var post = res.data.root.wikiPost;
+      var post = res.data.root.wiki.post;
       urlCustom = post.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");

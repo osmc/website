@@ -1,7 +1,7 @@
 <header class="column three-fourths post-three post-header">
   <h1 class="post-title" itemprop="headline">
-    {{#if wikiPost}}
-      {{wikiPost.title}}
+    {{#if wiki.post}}
+      {{wiki.post.title}}
     {{else if store.product}}
       {{store.product.title}}
     {{else}}
@@ -23,10 +23,10 @@
   </section>
   {{/if}}
   
-  {{#if wikiPost}}
+  {{#if wiki.post}}
   <section class="post-meta">
     <a class="post-link" href="/wiki">Wiki Home</a>
-    <a class="wiki-post-contribute" href="{{wikiPost.discourseUrl}}" target="_blank">Make this page better</a>
+    <a class="wiki-post-contribute" href="{{wiki.post.discourseUrl}}" target="_blank">Make this page better</a>
   </section>
   {{/if}}
     

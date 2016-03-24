@@ -57,7 +57,7 @@ var helpers = function () {
 
   hbs.registerHelper("wiki-index", function (res) {
     if (json) {
-      res.data.root.wiki = json;
+      _.set(res, "data.root.wiki.index", json);
     }
   });
   
