@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600|Source+Code+Pro);
-@import "normalize-scss/normalize";
+@import "normalize.css/normalize";
 @import "partials/global";
 @include link2;
 body {
@@ -84,7 +84,7 @@ article.post {
       font-size: $small2;
       border-left: 5px solid $acc1-2;
       img {
-        @include border-radius(50px);
+        border-radius: 50px;
         margin-bottom: 2px;
       }
     }

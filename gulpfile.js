@@ -1,12 +1,10 @@
 var gulp = require("gulp");
 var del = require("del");
-var compass = require("gulp-compass");
-var cssmin = require("gulp-cssmin");
+var sass = require("gulp-sass");
 var prefix = require("gulp-autoprefixer");
 var concat = require("gulp-concat");
 var include = require("gulp-include");
 var uglify = require("gulp-uglify");
-var cssimport = require("gulp-cssimport");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 
@@ -43,21 +41,24 @@ gulp.task("ghost", function () {
 
 var onError = function (err) {
   console.log(err);
-  this.emit('end');
+  this.emit("end");
 };
 
 // style
+
+var sassOpts = {
+  outputStyle: "compressed",
+  includePaths: [
+    "./node_modules/"
+  ]
+};
+
 gulp.task("style-main", function () {
-  return gulp.src(style + "style.scss")
-    .pipe(compass({
-      css: css,
-      sass: style,
-      image: img,
-      import_path: modules
-    }))
+  var files = style + "style.scss";
+  return gulp.src(files)
+    .pipe(sass(sassOpts))
     .on("error", onError)
     .pipe(prefix())
-    .pipe(cssmin())
     .pipe(gulp.dest(css))
     .pipe(reload({
       stream: true
@@ -67,14 +68,9 @@ gulp.task("style-main", function () {
 // style comments
 gulp.task("style-ext", ["style-main"], function () {
   return gulp.src([style + "comments.scss", style + "store.scss"])
-    .pipe(compass({
-      css: css,
-      sass: style,
-      image: img,
-      import_path: modules
-    }))
+    .pipe(sass(sassOpts))
+    .on("error", onError)
     .pipe(prefix())
-    .pipe(cssmin())
     .pipe(gulp.dest(css));
 });
 

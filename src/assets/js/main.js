@@ -21,7 +21,8 @@
 
 $("a img").parent().css("border-bottom-width", "0px");
 
-$(".lightbox").Chocolat({
+$(".img-box").Chocolat({
+  imageSelector: ".lightbox",
   duration: 100,
   imageSize: "default"
 });

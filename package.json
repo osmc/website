@@ -22,14 +22,12 @@
     "del": "2.0.2",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "3.1.0",
-    "gulp-compass": "2.1.0",
     "gulp-concat": "2.6.0",
-    "gulp-cssimport": "2.1.2",
-    "gulp-cssmin": "0.1.7",
     "gulp-include": "2.1.0",
+    "gulp-sass": "^2.2.0",
     "gulp-uglify": "1.5.1",
     "jquery-validation": "1.14.0",
     "jquery.dfp": "2.4.1",
-    "normalize-scss": "3.0.3"
+    "normalize.css": "^4.0.0"
   }
 }

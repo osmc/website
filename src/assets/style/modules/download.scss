@@ -147,13 +147,13 @@
   &-tables {
     max-height: 0;
     overflow: hidden;
-    @include transition(max-height 0.3s ease-out);
+    transition: max-height 0.3s ease-out;
     @include res2 {
       font-size: $small2;
     }
     &.show {
       max-height: 100em;
-      @include transition(max-height 0.3s ease-in);
+      transition: max-height 0.3s ease-in;
     }
   }
   &-table {

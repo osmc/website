@@ -191,7 +191,7 @@
       border: none;
       padding: 0;
       display: block;
-      @include box-shadow(none);
+      box-shadow: none;
     }
     // input
     &-form.focus {

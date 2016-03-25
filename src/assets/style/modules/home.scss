@@ -18,7 +18,7 @@
     &-vignette {
       position: relative;
       height: 100%;
-      @include box-shadow(inset 0px 0px 300px 0px rgba(0, 0, 0, 0.75), inset 0px 0px 0px 0px rgba(0, 0, 0, 0));
+      box-shadow: inset 0px 0px 300px 0px rgba(0, 0, 0, 0.75), inset 0px 0px 0px 0px rgba(0, 0, 0, 0);
       //@include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.32), transparent 20%));
       overflow: hidden;
     }
@@ -28,7 +28,7 @@
       display: block;
       position: relative;
       vertical-align: middle;
-      @include background-image(linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, $white));
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 40%, $white);
     }
     &-wrap {
       position: relative;
@@ -78,8 +78,8 @@
       vertical-align: middle;
       float: none;
       padding-bottom: 2.5em;
-      transition-duration: $ani-duration2;
-      @include transition-timing-function(ease-in);
+      @include ani2;
+      transition-timing-function: ease-in;
       opacity: 0;
     }
     &-logo {
@@ -94,7 +94,7 @@
       font-weight: 300;
       font-size: 135%;
       color: $white;
-      @include text-shadow(0px 0px 0px);
+      text-shadow: 0px 0px 0px;
     }
     p {
       text-align: center;
@@ -119,7 +119,7 @@
           margin-left: 0.2em;
           height: 0.8em;
           width: 0.8em;
-          @include transform(rotate(90deg));
+          transform: rotate(90deg);
           polygon {
             transition-duration: $ani-duration1;
             fill: $white;
@@ -139,7 +139,7 @@
     }
   }
   .secondn {
-    @include background-image(linear-gradient(to top, $back, rgba(81, 188, 155, 0.20), $trans 80%));
+    background-image: linear-gradient(to top, $back, rgba(81, 188, 155, 0.20), $trans 80%);
     width: 100%;
     padding: 0;
     float: left;
@@ -161,13 +161,13 @@
         margin: 0 auto;
         width: 90%;
         max-width: 47em;
-        @include user-select(none);
+        user-select: none;
       }
       width: 100%;
       margin: 0 auto;
       position: relative;
       float: left;
-      @include box-shadow(0 0 10px rgba(58, 128, 106, 0.65));
+      box-shadow: 0 0 10px rgba(58, 128, 106, 0.65);
       background-color: $dark;
     }
     &-monitor {
@@ -232,8 +232,8 @@
       //border: $mon-border solid $black;
       background-color: rgba(0, 255, 255, 0.35);
       cursor: pointer;
-      @include transition-duration(0.4s);
-      @include background-image(linear-gradient(to bottom right, rgba(81, 188, 155, 0.75), rgba(11, 125, 166, 0.73) 100%));
+      @include ani4;
+      background-image: linear-gradient(to bottom right, rgba(81, 188, 155, 0.75), rgba(11, 125, 166, 0.73) 100%);
     }
     &-overlay.hidden {
       opacity: 0;
@@ -247,8 +247,7 @@
       right: 0;
       left: 0;
       margin: auto;
-      @include box-shadow(inset 0 0 60px rgba(0, 0, 0, 0.40));
-      //border: $mon-border solid $trans;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.40);
       cursor: pointer;
     }
     &-playicon {
@@ -261,9 +260,9 @@
       left: 0;
       margin: auto;
       border: 14px solid $trans;
-      @include border-radius(50%);
+      border-radius: 50%;
       background-color: rgba(255, 255, 255, 0.75);
-      @include transition-duration(0.2s);
+      @include ani2;
       svg {
         width: 100%;
         height: 100%;
@@ -371,9 +370,9 @@
           left: 0;
           right: 0;
           margin: auto;
-          @include transition-duration(0.4s);
+          @include ani4;
           opacity: 0;
-          @include box-shadow(0 0 10px rgba(58, 128, 106, 0.45));
+          box-shadow: 0 0 10px rgba(58, 128, 106, 0.45);
           @include res1 {
             top: auto;
           }
@@ -398,16 +397,17 @@
         padding: 0;
         list-style: none;
         font-size: 90%;
-        @include user-select(none);
+        user-select: none;
         @include res1 {
           text-align: center;
         }
         li {
           margin: 1.8em 0;
           cursor: pointer;
-          @include transition-duration(0.3s);
           position: relative;
           $icon-size: 6px;
+          @include ani3;
+          
           @include res1 {
             margin: 0 1em;
             width: 21%;
@@ -432,7 +432,6 @@
             }
           }
           .icon {
-            @include transition-duration(0.3s);
             opacity: 0;
             position: absolute;
             left: -2em;
@@ -442,6 +441,7 @@
             border-style: solid;
             border-width: 0 $icon-size ( $icon-size * 2) $icon-size;
             pointer-events: none;
+            @include ani3;
             @include res1 {
               top: 1em;
               left: -2em;
@@ -451,7 +451,7 @@
           p,
           p a {
             color: $acc3-2;
-            @include transition-duration(0.3s);
+            @include ani3;
           }
           h3 {
             margin-bottom: 0.3em;
@@ -505,7 +505,7 @@
         .link1 {
           .icon {
             top: 0.15em;
-            @include transform(rotate(25deg));
+            transform: rotate(25deg);
             border-color: transparent transparent #9ed48b transparent;
             @include res1 {
               top: 1em;
@@ -514,7 +514,7 @@
         }
         .link2 {
           .icon {
-            @include transform(rotate(-20deg));
+            transform: rotate(-20deg);
             border-color: transparent transparent #edc0c3 transparent;
             @include res1 {
               top: 1em;
@@ -524,7 +524,7 @@
         .link3 {
           .icon {
             top: 0.15em;
-            @include transform(rotate(50deg));
+            transform: rotate(50deg);
             border-color: transparent transparent #4c9aed transparent;
             @include res1 {
               top: 1em;
@@ -534,7 +534,7 @@
         .link4 {
           .icon {
             top: 0.5em;
-            @include transform(rotate(140deg));
+            transform: rotate(140deg);
             border-color: transparent transparent #56c49e transparent;
             @include res1 {
               top: 1em;

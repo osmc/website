@@ -51,8 +51,7 @@
         margin: 0;
         padding: 0.5em 0;
         @include link2;
-        @include transition-duration(0.2s);
-        @include transition-timing-function(ease);
+        @include ani2;
         overflow: hidden;
         &.hide {
           border-bottom: 0;
@@ -103,14 +102,6 @@
   &-post {
     &-contribute {
       float: right;
-    }
-    .post-content {
-      .lightbox {
-        border-bottom: 0;
-      }
-      .meta {
-        display: none;
-      }
     }
   }
 }

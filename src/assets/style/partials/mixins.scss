@@ -4,20 +4,48 @@
   }
 }
 
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
 @mixin ani1 {
-  @include transition($ani-duration1);
+  transition: all $ani-duration1 ease;
 }
-
 @mixin ani2 {
-  @include transition($ani-duration2);
+  transition: all $ani-duration2 ease;
 }
-
 @mixin ani3 {
-  @include transition($ani-duration3);
+  transition: all $ani-duration3 ease;
+}
+@mixin ani4 {
+  transition: all $ani-duration4 ease;
+}
+@mixin ani5 {
+  transition: all $ani-duration5 ease;
 }
 
 @mixin radius1 {
-  @include border-radius($b-radius1);
+  border-radius: $b-radius1;
 }
 
 // Underline
@@ -248,23 +276,23 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30),
 }
 
 @mixin ani-news {
-  @include animation-duration(0.3s);
-  @include animation-timing-function(ease-out);
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
 @mixin ani-vero {
-  @include animation-duration(1.4s);
-  @include animation-timing-function(ease-in-out);
+  animation-duration: 1.4s;
+  animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   animation-delay: 0.9s;
 }
 
 @mixin ani-vero-feat {
-  @include animation-duration(1s);
-  @include animation-timing-function(ease-in-out);
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
   animation-delay: 0s;

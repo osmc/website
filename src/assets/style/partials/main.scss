@@ -81,8 +81,7 @@ body {
 img {
   max-width: 100%;
   height: auto;
-  @include transition-duration($ani-duration1);
-  @include transition-timing-function(ease);
+  @include ani1;
 }
 
 ul,
@@ -104,7 +103,7 @@ hr {
 
 h1 {
   font-size: 2.1em;
-  @include text-shadow(1px 1px 0px $acc3-4);
+  text-shadow: 1px 1px 0px $acc3-4;
 }
 
 h1,
@@ -162,7 +161,7 @@ button,
 pre {
   background-color: $pre;
   line-height: 1.3em;
-  @include box-shadow($white 0 0 8px);
+  box-shadow: $white 0 0 8px;
   padding: 1em;
   white-space: pre-wrap;
   max-height: 400px;
@@ -216,9 +215,9 @@ table {
 }
 
 .ani1 {
-  @include animation-duration($ani-duration1);
+  @include ani1;
 }
 
 .ani2 {
-  @include animation-duration($ani-duration2);
+  @include ani2;
 }

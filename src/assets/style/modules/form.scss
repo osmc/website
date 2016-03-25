@@ -21,7 +21,7 @@ textarea {
 input {
   vertical-align: middle;
   max-width: 10em;
-  @include input-placeholder {
+  @include placeholder {
     color: $acc3-2;
   }
 }

@@ -38,6 +38,13 @@
       color: $white;
       border-bottom: 0;
     }
+
+    .lightbox {
+      border-bottom: 0;
+    }
+    .meta {
+      display: none;
+    }
   }
   &-comments {
     margin-top: 2em;

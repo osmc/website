@@ -7,27 +7,26 @@
       {{> post/header}}
       {{/post}}
       {{> post/header}}
-			
-			<div class="column three-fourths post-three post-break">
-				{{> post/break}}
-			</div>
+      
+      <div class="column three-fourths post-three post-break">
+        {{> post/break}}
+      </div>
       
       <div class="column three-fourths post-three post-wrap">
-				
-        <div class="post-content" itemprop="articleBody">
-				  {{{body}}}
+        <div class="post-content img-box" itemprop="articleBody">
+          {{{body}}}
         </div>
-				
+        
         {{#if post}}
-				{{> post/break}}
-				{{> post/share}}
-				{{> post/break}}
+        {{> post/break}}
+        {{> post/share}}
+        {{> post/break}}
         {{> post/ad}}
-				{{> post/comments}}
+        {{> post/comments}}
         {{/if}}
-				
+        
       </div>
-			
+      
       {{> sidebar/index}}
       
     </article>

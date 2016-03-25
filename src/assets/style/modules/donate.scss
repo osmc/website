@@ -1,6 +1,6 @@
 .donate.show {
   max-height: 250px;
-  @include transition(max-height 0.3s ease-in);
+  transition: max-height 0.3s ease-in;
   @include res1 {
     max-height: 330px;
   }
@@ -10,7 +10,7 @@
   padding: 0;
   max-height: 0px;
   overflow: hidden;
-  @include transition(max-height 0.3s ease-out);
+  transition: max-height 0.3s ease-out;
   background-color: $acc3-4;
   .page-home & {
     opacity: 0.9;
@@ -49,7 +49,7 @@
       width: $s;
       height: $s;
       path {
-        @include transition-duration($ani-duration1);
+        @include ani1;
       }
     }
     &:hover,
