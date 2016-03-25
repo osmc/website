@@ -1,0 +1,56 @@
+&-social {
+  font-weight: 400;
+  svg {
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.6em;
+    margin-bottom: 0.15em;
+    path {
+      @include ani1;
+    }
+  }
+  $hover: $black;
+  .link {
+    list-style: none;
+    padding: 0;
+    &-facebook {
+      @include link-share($facebook, $hover);
+      svg {
+        height: 0.9em;
+        width: 0.9em;
+        margin-right: 0.7em;
+      }
+      path {
+        fill: $facebook;
+      }
+    }
+    &-twitter {
+      @include link-share($twitter, $hover);
+      path {
+        fill: $twitter;
+      }
+    }
+    &-github {
+      @include link-share($github, $hover);
+      path {
+        fill: $github;
+      }
+    }
+    &-rss {
+      @include link-share($rss, $hover);
+      path {
+        fill: $rss;
+      }
+    }
+  }
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      path {
+        fill: $hover;
+      }
+    }
+  }
+}

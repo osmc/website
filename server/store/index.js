@@ -4,12 +4,20 @@ var ghostPath = path.join(__dirname, "../../node_modules/ghost/");
 var cheerio = require(ghostPath + "node_modules/cheerio");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require("lodash");
+var env = require("../helpers/env").env;
 
 var purge = require("../helpers/purge");
 require("./get").save("products");
 
 var json;
 var file = path.join(__dirname, "../static/store/products.json");
+
+var storeHost = "";
+if (env == "production") {
+  storeHost = "https://store.osmc.tv/";
+} else {
+  storeHost = "http://shoposmc.dev/";
+}
 
 var watcher = chokidar.watch(file);
 watcher.on("change", function () {
@@ -100,8 +108,14 @@ var helpers = function () {
   
   hbs.registerHelper("store-buy-url", function(res) {
     var product = res.data.root.store.product;
-    var url = "https://store.osmc.tv/cart?add-to-cart=" + product.id;
+    var url = storeHost + "cart?add-to-cart=" + product.id;
     return url;
+  });
+  
+  hbs.registerHelper("store-cart", function() {
+    var url = storeHost + "embed_cart/";
+    iframe = "<iframe src='" + url + "' frameborder='0' scrolling='no'></iframe>";
+    return iframe;
   });
   
   hbs.registerHelper("firstParagraph", function(html) {

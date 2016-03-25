@@ -1,10 +1,18 @@
 @import "normalize.css/normalize";
+@import "partials/global";
+
 // override all wc styles
 html body {
-  @import "partials/global";
+  @import "partials/main";
   @import "lib/grid";
   @import "modules/form";
   @import "modules/header";
   @import "modules/post";
   @import "modules/footer";
+  
+  overflow-y: auto;
+}
+
+.store {
+  @import "modules/store/cart";
 }

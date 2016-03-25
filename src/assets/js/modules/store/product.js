@@ -1,3 +1,6 @@
+var cartFrame = $(".store-cart-frame iframe");
+var buyFrame = $(".store-product-frame");
+
 $(".store-product-cart").click(function(e) {
   e.preventDefault();
   var button = $(this);
@@ -5,12 +8,11 @@ $(".store-product-cart").click(function(e) {
     return;
   }
   
-  var quantity = $(".store-product-quantity").val();
-  var iframe = $(".store-product-frame");
+  var quantity = $(".store-product-quantity-input").val();
   
   var option = "";
   
-  var variable = $(".store-product-variable");
+  var variable = $(".store-product-var-input");
   if (variable.length) {
     var selected = variable.find("option:selected");
     var id = selected.attr("data-id");
@@ -21,13 +23,14 @@ $(".store-product-cart").click(function(e) {
   }
   
   var url = button.attr("href") + "&quantity=" + quantity + option;
-      
-  iframe.attr("src", url);
+  buyFrame.attr("src", url);
   
   button.addClass("disabled").text("Loading");
     
-  iframe.on("load", function () {
+  buyFrame.on("load", function () {
     button.removeClass("disabled").addClass("success").text("Product added!");
+    
+    cartFrame.attr("src", cartFrame.attr("src"));
     
     setTimeout(function() {
       button.removeClass("success").text(button.attr("data-name"));
@@ -35,3 +38,5 @@ $(".store-product-cart").click(function(e) {
   });
   
 });
+
+cartFrame.iFrameResize();

@@ -11,6 +11,11 @@
       }
       &-pagination {
         margin-right: 0;
+        float: none;
+      }
+      &-bottom {
+        font-size: $small2;
+        text-align: center;
       }
     }
   }
@@ -21,9 +26,10 @@
   
   &-content {
     border: 1px solid $acc3-4;
+    background-color: $white;
     @include ani2;
   }
-    
+   
   &-overlay {
     background-color: $acc3-1;
   }

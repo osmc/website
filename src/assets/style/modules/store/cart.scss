@@ -1,0 +1,27 @@
+// affects cart in iframe
+
+&-cart {
+  
+  &-embed {
+    font-size: $small2;
+    line-height: 1.5em;
+  }
+  
+  &-frame {
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &-product {
+    padding: 0.5em 0;
+    border-bottom: 1px solid $acc3-4;
+  }
+  
+  &-total {
+    padding: 0.5em 0;
+    font-weight: 600;
+  }
+}

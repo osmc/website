@@ -1,0 +1,44 @@
+.sidebar {
+  float: left;
+  margin-top: 2em;
+  font-size: $small2;
+  font-weight: 300;
+  line-height: 1.35em;
+  color: $black;
+  @include radius1;
+  section {
+    border: 1px solid $acc3-1;
+    @include radius1;
+    padding: 0.5em 0.5em 0.8em 1em;
+    @include res2 {
+      padding: 0.5em 1em 0.8em;
+    }
+  }
+  &-break {
+    text-align: center;
+    width: 1px;
+    background-color: $acc3-1;
+    height: 1em;
+    margin: 0 auto;
+  }
+  &-header {
+    @include link3;
+  }
+  &-title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  &-text {
+    margin: 0.5em 0;
+  }
+  .button {
+    font-weight: 400;
+    line-height: $line-h + 0.2;
+  }
+}
+
+.sidebar {
+  @import "social";
+  @import "news";
+  @import "vero";
+}

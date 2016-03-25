@@ -27,6 +27,7 @@
     "gulp-include": "2.1.0",
     "gulp-sass": "2.2.0",
     "gulp-uglify": "1.5.1",
+    "iframe-resizer": "^3.5.3",
     "jquery-validation": "1.14.0",
     "jquery.dfp": "2.4.1",
     "normalize.css": "4.0.0"
