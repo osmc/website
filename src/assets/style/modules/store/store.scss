@@ -186,6 +186,7 @@ $grid-spacing-2: $grid-spacing * 2;
     border: 1px solid $acc3-4;
     border-bottom-width: 1px !important;
     position: relative;
+    @include radius1;
   }
   &-placeholder {
     opacity: 0;
@@ -205,6 +206,7 @@ $grid-spacing-2: $grid-spacing * 2;
     text-align: center;
     background-color: $trans;
     @include ani2;
+    @include radius1;
 
     span {
       @include ani2;
@@ -235,7 +237,7 @@ $grid-spacing-2: $grid-spacing * 2;
   
   &-price {
     vertical-align: top;
-    font-size: $small2;
+    font-size: $small1;
     font-weight: 400;
     
     span {
@@ -244,6 +246,7 @@ $grid-spacing-2: $grid-spacing * 2;
     }
     
     del span {
+      display: none;
       border-bottom: 0;
     }
     

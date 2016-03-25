@@ -1,44 +1,65 @@
-@mixin store-product-img {
-  @include res1 {
-    width: percentage(1/8);
-    padding: 0.5em;
-  }
-
-  @include res2 {
-    width: percentage(1/4);
-  }
-}
-
 &-product {
+  &-top {
+    float: left;
+    width: 100%;
+    margin-top: 2em;
+    font-size: $small1;
+    
+    .column {
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
   &-images {
     float: left;
     width: 100%;
     margin: 1em 0;
   }
   &-feat {
-    padding-left: 0;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid $acc3-4;
+    
+    &-placeholder {
+      opacity: 0;
+      visibility: hidden;
+      display: block;
+    }
   }
   &-gallery {
-    padding-right: 0;
-    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1em -0.25em;
   }
   &-img {
     float: left;
-    padding: 0.5em;
-    padding-right: 0;
-    padding-top: 0;
-    width: 100%;
-    @include store-product-img;
+    padding: 0.25em;
+    width: 25%;
     
-    &.greater-than-three {
-      width: 50%;
-      @include store-product-img;
+    @include res1 {
+      width: percentage(1/8);
+      padding: 0.5em;
+    }
+
+    @include res2 {
+      width: percentage(1/4);
     }
     
     &-wrap {
       background-size: cover;
       background-position: center;
       border: 1px solid $acc3-4;
+      @include ani2;
+      @include radius1;
+      
+      &:hover {
+        border-color: $acc2-1;
+      }
     }
     
     img {
@@ -52,22 +73,29 @@
     position: relative;
     float: left;
     width: 100%;
+    margin-top: 0.5em;
+    padding-left: 2em;
+    
+    h4 {
+      margin: 0;
+      display: inline-block;
+      margin-right: 0.5em;
+    }
   }
   
   &-price {
-    font-size: 2em;
-    font-weight: 300;
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: right;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 0.75em;
     
     span {
-      border-bottom: 2px solid $black;
+      border-bottom: 1px solid $black;
     }
     
     del {
+      font-size: $small2;
       margin-right: 0.5em;
+      color: $acc3-2;
       
       span {
         border-bottom: 0px;
@@ -78,13 +106,9 @@
       text-decoration: none;
     }
   }
-  
-  &-cart {
-    //float: right;
-  }
-  
+    
   &-quantity {
-    margin: 1em 0;
+    margin: 0.5em 0;
     &-input {
       font-size: $small2;
       padding-top: 0;
@@ -92,30 +116,32 @@
       width: 3em;
       margin: 0;
       margin-bottom: 0.2em;
-      margin-left: 0.5em;
       line-height: 1.5em;
     }
     
     &-title {
-      margin: 0;
-      display: inline-block;
-      text-transform: uppercase;
-      font-weight: 600;
+
     }
   }
   
   &-var {
-    margin: 1em 0;
+    margin: 0.5em 0;
     &-title {
-      margin: 0;
-      margin-right: 0.5em;
-      display: inline-block;
-      text-transform: uppercase;
-      font-weight: 600;
+      vertical-align: text-top;
     }
     &-select {
       margin-bottom: 0.1em;
     }
+  }
+  
+    
+  &-cart {
+    margin-top: 1em;
+  }
+  
+  &-text {
+    float: left;
+    width: 100%;
   }
   
   &-frame {

@@ -1,7 +1,11 @@
 // affects cart in iframe
+@at-root {
+  section.store-cart {
+    padding-right: 1em;
+  }
+}
 
 &-cart {
-  
   &-embed {
     font-size: $small2;
     line-height: 1.5em;
@@ -11,17 +15,26 @@
     iframe {
       border: 0;
       width: 100%;
-      height: 100%;
     }
   }
   
   &-product {
     padding: 0.5em 0;
-    border-bottom: 1px solid $acc3-4;
+    border-bottom: 1px solid $acc3-1;
   }
   
   &-total {
     padding: 0.5em 0;
     font-weight: 600;
+  }
+  
+  &-empty {
+    margin: 0;
+  }
+  
+  &-go {
+    margin: 0;
+    font-weight: 400;
+    @include link;
   }
 }

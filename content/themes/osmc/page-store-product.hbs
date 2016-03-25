@@ -2,53 +2,59 @@
 
 {{#store.product}}
 
-<div class="store-product-images">
-  <div class="column three-fourths store-product-feat">
-    <img src="{{featured_src}}">
-  </div>
-  
-  <div class="column fourth store-product-gallery lightbox-wrap">
-    {{#each images}}
-    <div class="store-product-img {{if_greaterThanClass ../images 3}}">
-      <div class="store-product-img-wrap" style="background-image: url('{{src}}');">
-        <a class="lightbox" href="{{src}}"><img src="http://placehold.it/150x150"></a>
+<div class="store-product-top">
+  <div class="column half">
+    
+    <div class="store-product-feat">
+      <div class="store-product-feat" style="background-image: url('{{featured_src}}');">
+        <img class="store-product-feat-placeholder" src="http://placehold.it/500x400">
       </div>
     </div>
-    {{/each}}
-  </div>
-</div>
-
-<div class="store-product-info">
-  <div class="store-product-price">
-    {{{price_html}}}
-  </div>
-  
-  <a data-name="Add to cart" class="button store-product-cart" href="{{store-buy-url}}">Add to cart</a>
-
-  <div class="store-product-quantity">
-    <h4 class="store-product-quantity-title">Quantity:</h4>
-    <input class="store-product-quantity-input" type="number" value="1">
-  </div>
-
-  {{#if variations}}
-
-  <div class="store-product-var">
-    <h4 class="store-product-var-title">{{variations.[0].attributes.[0].name}}:</h4>
-    <select class="store-product-var-input {{name}}">
-      {{#each variations}}
-      {{#attributes.[0]}}
-        <option data-id="{{../id}}" data-link="{{../permalink}}" value="{{option}}">{{option}}</option>
-      {{/attributes.[0]}}
+    
+    <div class="store-product-gallery lightbox-wrap">
+      {{#each images}}
+      <div class="store-product-img">
+        <div class="store-product-img-wrap" style="background-image: url('{{src}}');">
+          <a class="lightbox" href="{{src}}"><img src="http://placehold.it/150x150"></a>
+        </div>
+      </div>
       {{/each}}
-    </select>
-  </div>
+    </div>
+    
+  </div>  
 
-  {{/if}}
-  
-  <hr>
+  <div class="column half store-product-info">
+    <div class="store-product-price">
+      {{{price_html}}}
+    </div>
+    
+    <div class="store-product-quantity">
+      <h4 class="store-product-quantity-title">Quantity:</h4>
+      <input class="store-product-quantity-input" type="number" value="1" min="1">
+    </div>
+    
+    {{#if variations}}
+    
+    <div class="store-product-var">
+      <h4 class="store-product-var-title">{{variations.[0].attributes.[0].name}}:</h4>
+      <select class="store-product-var-input {{name}}">
+        {{#each variations}}
+        {{#attributes.[0]}}
+          <option data-id="{{../id}}" data-link="{{../permalink}}" value="{{option}}">{{option}}</option>
+        {{/attributes.[0]}}
+        {{/each}}
+      </select>
+    </div>
+
+    {{/if}}
+        
+    <a data-name="Add to cart" class="button store-product-cart" href="{{store-buy-url}}">Add to cart</a>
+  </div>
 </div>
+
 
 <div class="store-product-text">
+  <hr>
   {{{short_description}}}
   {{#if description}}
   <hr>
