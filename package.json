@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "Mark Theis Madsen",
   "scripts": {
-    "dev": "nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*' --ignore 'server/static/**/*'"
+    "dev": "nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*' --ignore 'server/static/**/*' --ignore 'gulpfile.js'"
   },
   "dependencies": {
     "chokidar": "1.2.0",

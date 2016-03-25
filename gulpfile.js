@@ -112,7 +112,7 @@ gulp.task("js", ["js-main"], function () {
     .pipe(gulp.dest(jsDist));
 });
 
-gulp.task("js-reload", ["js"], function (cb) {
+gulp.task("js-reload", ["js"], function () {
   reload();
 });
 

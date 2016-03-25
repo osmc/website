@@ -1,8 +1,10 @@
 @import "normalize.css/normalize";
 @import "partials/global";
-@import "lib/grid";
+
 @import "lib/chartistSettings";
 @import "chartist/dist/scss/chartist";
+@import "lib/grid";
+
 @import "modules/lightbox";
 @import "modules/form";
 @import "modules/header";

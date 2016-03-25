@@ -20,8 +20,8 @@
 
 $("a img").parent().css("border-bottom-width", "0px");
 
-$(".img-box").Chocolat({
+$(".lightbox-wrap").Chocolat({
   imageSelector: ".lightbox",
-  duration: 100,
+  duration: 0,
   imageSize: "default"
 });

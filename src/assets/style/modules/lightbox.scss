@@ -1,9 +1,30 @@
 @import "chocolat/dist/css/chocolat";
 
-.chocolat-wrapper .chocolat-fullscreen {
-  display: none;
-}
-
-.chocolat-open {
-  overflow-y: scroll;
+.chocolat {
+  &-wrapper {
+    .chocolat {
+      &-fullscreen {
+        display: none;
+      }
+      &-description {
+        display: none;
+      }
+      &-pagination {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  &-open {
+    overflow-y: scroll;
+  }
+  
+  &-content {
+    border: 1px solid $acc3-4;
+    @include ani2;
+  }
+    
+  &-overlay {
+    background-color: $acc3-1;
+  }
 }
