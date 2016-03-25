@@ -19,7 +19,7 @@ watcher.on("change", function () {
 });
 
 function read() {
-  var readFile = require("../helpers/readFile.js");
+  var readFile = require("../helpers/readFile");
   readFile("store-products", file).then(function(res) {
     res = JSON.parse(res);
     res.products = _.sortBy(res.products, "menu_order");
@@ -90,6 +90,12 @@ var helpers = function () {
       return options.fn(this);
     }
     return options.inverse(this);
+  });
+    
+  hbs.registerHelper("if_greaterThanClass", function(array, quantity) {
+    if (array.length > quantity) {
+      return "greater-than-three";
+    }
   });
   
   hbs.registerHelper("store-buy-url", function(res) {

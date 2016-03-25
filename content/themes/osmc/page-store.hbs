@@ -7,11 +7,10 @@
 </header>
 {{/post}}
 
+{{! featured product}}
 {{#each store.products}}
 {{#if featured}}
-
 <a href="{{store-product-url permalink}}" class="store-feat row clearfix">
-  
   <span class="store-feat-sup">Featured</span>
 
   <div class="column fourth">
@@ -27,10 +26,10 @@
       <p>{{firstParagraph short_description}}</p>
     </div>
   </div>
-  
 </a>
 {{/if}}
 {{/each}}
+
 
 <section class="store-products">
   <h2>Products</h2>

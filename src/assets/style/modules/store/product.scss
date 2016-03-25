@@ -1,4 +1,53 @@
+@mixin store-product-img {
+  @include res1 {
+    width: percentage(1/8);
+    padding: 0.5em;
+  }
+
+  @include res2 {
+    width: percentage(1/4);
+  }
+}
+
 &-product {
+  &-images {
+    float: left;
+    width: 100%;
+    margin: 1em 0;
+  }
+  &-feat {
+    padding-left: 0;
+  }
+  &-gallery {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  &-img {
+    float: left;
+    padding: 0.5em;
+    padding-right: 0;
+    padding-top: 0;
+    width: 100%;
+    @include store-product-img;
+    
+    &.greater-than-three {
+      width: 50%;
+      @include store-product-img;
+    }
+    
+    &-wrap {
+      background-size: cover;
+      background-position: center;
+      border: 1px solid $acc3-4;
+    }
+    
+    img {
+      opacity: 0;
+      visibility: hidden;
+      display: block;      
+    }
+  }
+  
   &-frame {
     display: none;
   }

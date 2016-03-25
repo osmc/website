@@ -1,7 +1,7 @@
 var fs = require("fs");
 var path = require("path");
 var mkdirp = require("mkdirp");
-var wc = require("./api.js");
+var wc = require("./api");
 
 // create static directory
 mkdirp.sync(path.join(__dirname, "../static/store"));
@@ -34,8 +34,6 @@ var save = function(item) {
     console.log(err);
   });
 };
-
-
 
 // Schedule. Only in production
 var env = require("../helpers/env").env;

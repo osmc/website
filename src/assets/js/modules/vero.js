@@ -5,12 +5,7 @@ if ($("body").hasClass("page-vero")) {
       scrollSpeed: 600,
       scrollThreshold: 0.5,
       easing: "swing"
-  });
-  
-  $(".lightbox").Chocolat({
-    duration: 100,
-    imageSize: "default"
-  });
+  });  
   
   $(".vero-feat-list a").click(function(e) {
     

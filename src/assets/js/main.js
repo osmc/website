@@ -20,3 +20,8 @@
 //= require modules/discourse.js
 
 $("a img").parent().css("border-bottom-width", "0px");
+
+$(".lightbox").Chocolat({
+  duration: 100,
+  imageSize: "default"
+});
