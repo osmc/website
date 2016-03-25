@@ -1,5 +1,5 @@
 var gulp = require("gulp");
-var del = require("del");
+var clean = require("gulp-clean");
 var sass = require("gulp-sass");
 var prefix = require("gulp-autoprefixer");
 var concat = require("gulp-concat");
@@ -16,6 +16,7 @@ var modules = "node_modules/";
 var theme = "content/themes/osmc/";
 var style = "src/assets/style/";
 var js = "src/assets/js/";
+var jsTmp = "src/assets/js/tmp/";
 var jsDist = theme + "assets/js/";
 var css = theme + "assets/css/";
 var img = theme + "assets/img/";
@@ -78,44 +79,40 @@ gulp.task("style", ["style-ext"]);
 
 // Discourse
 gulp.task("discourse", function() {
-  return gulp.src([
-    modules + "jquery.dfp/jquery.dfp.min.js",
-    js + "discourse.js"
-    ])
+  return gulp.src(js + "discourse.js")
+  .pipe(include())
   .pipe(uglify())
   .pipe(concat("discourse.min.js"))
   .pipe(gulp.dest(js));
 });
 
-// minify js
-gulp.task("minify", function () {
-  return gulp.src([
-    modules + "jquery-validation/dist/jquery.validate.js",
-    js + "main.js"
-  ])
+// js
+gulp.task("js-lib", function () {
+  return gulp.src(js + "lib.js")
+    .pipe(include())
+    .on("error", onError)
+    .pipe(concat("lib.js"))
+    .pipe(gulp.dest(jsTmp));
+});
+
+gulp.task("js-main", ["js-lib"], function () {
+  return gulp.src(js + "main.js")
     .pipe(include())
     .pipe(uglify())
     .on("error", onError)
-    .pipe(concat("minified.js"))
-    .pipe(gulp.dest(js));
-});
-
-// js
-gulp.task("js", ["minify"], function () {
-  return gulp.src([
-    modules + "chartist/dist/chartist.min.js",
-    modules + "clappr/dist/clappr.min.js",
-    js + "minified.js"
-  ])
     .pipe(concat("main.js"))
-    .pipe(gulp.dest(jsDist))
+    .pipe(gulp.dest(jsTmp));
 });
 
-gulp.task("clean:js", ["js"], function () {
-  return del(js + "minified.js");
+gulp.task("js", ["js-main"], function () {
+  var js = [jsTmp + "lib.js", jsTmp + "main.js"];
+  return gulp.src(js)
+    .pipe(clean())
+    .pipe(concat("main.js"))
+    .pipe(gulp.dest(jsDist));
 });
 
-gulp.task("js-reload", ["clean:js"], function () {
+gulp.task("js-reload", ["js"], function (cb) {
   reload();
 });
 
@@ -123,7 +120,7 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost", "style", "discourse", "clean:js"], function () {
+gulp.task("default", ["ghost", "style", "discourse", "js"], function () {
   gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "**/*.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);

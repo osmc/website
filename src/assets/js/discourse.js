@@ -1,3 +1,5 @@
+//= require ../../../node_modules/jquery.dfp/jquery.dfp.min.js
+
 Discourse.DiscoveryView = Ember.View.extend({
   _insertBanner: function() {
     if (showAd && !disable) {

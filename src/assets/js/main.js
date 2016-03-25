@@ -1,6 +1,5 @@
-// lib
+//= require ../../../node_modules/jquery-validation/dist/jquery.validate.js
 //= require lib/jquery.nav.js
-//= require lib/jquery.chocolat.min.js
 
 // modules
 //= require modules/helpers.js
