@@ -25,7 +25,7 @@ var browserStart = false;
 // Start server
 var cmd = exec("npm run dev");
 gulp.task("ghost", function () {
-  cmd.stdout.on('data', function (data) {
+  cmd.stdout.on("data", function (data) {
     process.stdout.write(data);
     if (data.indexOf("Listening on") != -1) {
       if (!browserStart) {
@@ -124,7 +124,7 @@ gulp.task("default", ["ghost", "style", "discourse", "js"], function () {
   gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "**/*.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
-	gulp.watch(js + "discourse.js", ["discourse"]);
+  gulp.watch(js + "discourse.js", ["discourse"]);
 });
 
 process.on('SIGINT', function () {

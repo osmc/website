@@ -1,69 +1,70 @@
 {{!< x-store}}
 {{store-index}}
+<div class="store">
+  {{#post}}
+  <header class="store-title">
+  {{content}}
+  </header>
+  {{/post}}
 
-{{#post}}
-<header class="store-title">
-{{content}}
-</header>
-{{/post}}
-
-{{! featured product}}
-{{#each store.products}}
-{{#if featured}}
-<a href="{{store-product-url permalink}}" class="store-feat row clearfix">
-  <span class="store-feat-sup">Featured</span>
-
-  <div class="column fourth">
-    <div class="store-feat-img" style="background-image: url('{{featured_src}}');">
-      <img class="store-feat-placeholder" src="http://placehold.it/500x400">
-    </div>
-  </div>
-
-  <div class="column three-fourths store-feat-content">
-    <h3 class="store-feat-title">{{title}}</h3>
-    <span class="store-feat-price">{{{price_html}}}</span>
-    <div class="store-feat-desc">
-      <p>{{firstParagraph short_description}}</p>
-    </div>
-  </div>
-</a>
-{{/if}}
-{{/each}}
-
-
-<section class="store-products">
-  <h2>Products</h2>
-  <div class="store-nav">
-    <a class="active" data-name="All">All <sup>{{store.products.length}}</sup></a>
-    {{#each store.categories}}
-      <a data-name="{{title}}">{{title}} <sup>{{amount}}</sup></a>
-    {{/each}}
-  </div>
-
-  <div class="store-grid">
+  {{! featured product}}
   {{#each store.products}}
+  {{#if featured}}
+  <a href="{{store-product-url permalink}}" class="store-feat row clearfix">
+    <span class="store-feat-sup">Featured</span>
 
-    <div data-categories="{{categories}}" class="store-item-wrap">
-      <a class="store-item" href="{{store-product-url permalink}}">
-
-        <div class="store-item-img" style="background-image: url('{{featured_src}}');">
-          <img class="store-item-placeholder" src="http://placehold.it/500x500">
-          <div class="store-item-view">
-            <span>View</span>
-          </div>
-        </div>
-
-        <div class="store-item-content">
-          <div class="store-item-two-thirds">
-            <span class="store-item-title">{{title}}</span>
-          </div>
-          <div class="store-item-third">
-            <span class="store-item-price">{{{price_html}}}</span><br>
-          </div>
-        </div>
-
-      </a>
+    <div class="column fourth">
+      <div class="store-feat-img" style="background-image: url('{{featured_src}}');">
+        <img class="store-feat-placeholder" src="http://placehold.it/500x400">
+      </div>
     </div>
+
+    <div class="column three-fourths store-feat-content">
+      <h3 class="store-feat-title">{{title}}</h3>
+      <span class="store-feat-price">{{{price_html}}}</span>
+      <div class="store-feat-desc">
+        <p>{{firstParagraph short_description}}</p>
+      </div>
+    </div>
+  </a>
+  {{/if}}
   {{/each}}
-  </div>
-</section>
+
+
+  <section class="store-products">
+    <h2>Products</h2>
+    <div class="store-nav">
+      <a class="active" data-name="All">All <sup>{{store.products.length}}</sup></a>
+      {{#each store.categories}}
+        <a data-name="{{title}}">{{title}} <sup>{{amount}}</sup></a>
+      {{/each}}
+    </div>
+
+    <div class="store-grid">
+    {{#each store.products}}
+
+      <div data-categories="{{categories}}" class="store-item-wrap">
+        <a class="store-item" href="{{store-product-url permalink}}">
+
+          <div class="store-item-img" style="background-image: url('{{featured_src}}');">
+            <img class="store-item-placeholder" src="http://placehold.it/500x500">
+            <div class="store-item-view">
+              <span>View</span>
+            </div>
+          </div>
+
+          <div class="store-item-content">
+            <div class="store-item-two-thirds">
+              <span class="store-item-title">{{title}}</span>
+            </div>
+            <div class="store-item-third">
+              <span class="store-item-price">{{{price_html}}}</span><br>
+            </div>
+          </div>
+
+        </a>
+      </div>
+    {{/each}}
+    </div>
+  </section>
+</div>

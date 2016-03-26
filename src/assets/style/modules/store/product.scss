@@ -35,6 +35,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin: 1em -0.25em;
+        
+    @include res1 {
+      margin: 0 -0.5em;
+    }
   }
   &-img {
     float: left;
@@ -75,6 +79,10 @@
     width: 100%;
     margin-top: 0.5em;
     padding-left: 2em;
+    
+    @include res1 {
+      padding-left: 0;
+    }
     
     h4 {
       margin: 0;

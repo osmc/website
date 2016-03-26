@@ -93,19 +93,6 @@ var helpers = function () {
     return url;
   });
   
-  hbs.registerHelper("if_inArray", function(array, item, options) {
-    if (_.includes(array, item)) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
-  });
-    
-  hbs.registerHelper("if_greaterThanClass", function(array, quantity) {
-    if (array.length > quantity) {
-      return "greater-than-three";
-    }
-  });
-  
   hbs.registerHelper("store-buy-url", function(res) {
     var product = res.data.root.store.product;
     var url = storeHost + "cart?add-to-cart=" + product.id;

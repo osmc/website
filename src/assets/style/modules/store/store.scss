@@ -8,7 +8,7 @@ $grid-spacing-2: $grid-spacing * 2;
     font-size: $small4;
   }
   @include res2 {
-    font-size: 0.7em;
+    //font-size: 0.7em;
   }
   h2 {
     font-weight: 300;
@@ -31,6 +31,10 @@ $grid-spacing-2: $grid-spacing * 2;
   }
 }
 
+@include res2 {
+  font-size: $small2;
+}
+
 &-feat {
   float: left;
   width: 100%;
@@ -43,6 +47,7 @@ $grid-spacing-2: $grid-spacing * 2;
   @include res2 {
     margin: 2em 0;
     padding-bottom: 0;
+    
   }
   
   @include res2-rev {
@@ -111,6 +116,10 @@ $grid-spacing-2: $grid-spacing * 2;
   width: 100%;
   margin: 0.5em 0;
   @include link3;
+  
+  @include res2 {
+    margin-bottom: 1em;
+  }
 
   a {
     display: inline-block;
@@ -137,7 +146,12 @@ $grid-spacing-2: $grid-spacing * 2;
   flex-wrap: wrap;
   opacity: 1;
   @include ani2;
-
+  
+  @include res1 {
+    width: 100%;
+    margin-left: 0;
+  }
+  
   &.hide {
     opacity: 0;
   }
@@ -148,6 +162,14 @@ $grid-spacing-2: $grid-spacing * 2;
   margin: 1.5em $grid-spacing;
   border: none;
   width: auto;
+  
+  @include res1 {
+    margin: 1em;
+  }
+  
+  @include res2 {
+    margin: 1em 0;
+  }
 
   &:hover {
     .store-item {
