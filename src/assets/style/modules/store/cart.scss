@@ -35,6 +35,28 @@
   &-go {
     margin: 0;
     font-weight: 400;
-    @include link;
+    @include link2;
+    
+    span {
+      font-size: $big4;
+    }
+  }
+}
+
+&-minicart {
+  position: absolute;
+  top: -4em;
+  right: 0;
+  display: block;
+  width: 5em;
+  height: 2em;
+  overflow: hidden;
+  
+  iframe {
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  &-embed {
   }
 }

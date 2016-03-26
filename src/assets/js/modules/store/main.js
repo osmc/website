@@ -3,3 +3,7 @@ if ($("body").hasClass("page-store")) {
 }
 
 //= require product.js
+
+
+var minicartFrame = $(".store-minicart iframe");
+minicartFrame.iFrameResize();

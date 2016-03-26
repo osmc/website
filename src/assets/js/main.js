@@ -7,6 +7,8 @@
 //= require modules/up.js
 //= require modules/scroll.js
 //= require modules/overlay.js
+//= require modules/lightbox.js
+
 //= require modules/home.js
 //= require modules/vero.js
 //= require modules/donate.js
@@ -19,10 +21,3 @@
 //= require modules/discourse.js
 
 $("a img").parent().css("border-bottom-width", "0px");
-
-$(".lightbox-wrap").Chocolat({
-  imageSelector: ".lightbox",
-  duration: 0,
-  imageSize: "default",
-  loop: true
-});

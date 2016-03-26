@@ -105,6 +105,12 @@ var helpers = function () {
     return iframe;
   });
   
+  hbs.registerHelper("store-minicart", function() {
+    var url = storeHost + "embed_cart_widget/";
+    iframe = "<iframe src='" + url + "' frameborder='0' scrolling='no'></iframe>";
+    return iframe;
+  });
+  
   hbs.registerHelper("firstParagraph", function(html) {
     $ = cheerio.load(html);
     return $("p").first().text();    

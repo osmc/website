@@ -1,7 +1,7 @@
 @import "normalize.css/normalize";
 @import "partials/global";
 
-// override all wc styles
+// general styles
 html body {
   @import "partials/main";
   @import "lib/grid";
@@ -11,8 +11,13 @@ html body {
   @import "modules/footer";
   
   overflow-y: auto;
+  background-color: $trans;
 }
 
+// style
+@import "ext/store/main";
+
+// iframe
 .store {
   @import "modules/store/cart";
 }

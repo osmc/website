@@ -53,7 +53,8 @@
   $color: $link;
   $border-bottom: 2px solid $link-bottom;
   $border-bottom-hover: 2px solid $link-bottom-hover;
-  a {
+  
+  a:not(.button) {
     color: $color;
     border-bottom: $border-bottom;
     &:visited {
@@ -212,7 +213,7 @@ $z4-shadow: 0 14px 28px rgba(#000, 0.25),
 0 10px 10px rgba(#000, 0.22);
 $z5-shadow: 0 19px 38px rgba(#000, 0.30),
 0 15px 12px rgba(#000, 0.22);
-@mixin button-alt1 {
+@mixin button-green {
   @include button;
   background-color: $acc2-1;
   &:visited {
@@ -225,7 +226,7 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30),
   }
 }
 
-@mixin button-alt2 {
+@mixin button-red {
   @include button;
   background-color: $acc5-2;
   &:visited {
@@ -238,21 +239,22 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30),
   }
 }
 
-@mixin button-alt3 {
+@mixin button-vero {
   @include button;
-  background-color: $white;
+  background-color: $trans;
   color: $black;
   border: 1px solid $black;
+  @include ani2;
   &:visited {
-    background-color: $white;
+    background-color: $trans;
     color: $black;
   }
   &:hover,
   &:active,
   &:focus {
-    background-color: $acc3-4;
-    border: 1px solid $black;
-    color: $black;
+    background-color: $acc2-1;
+    border: 1px solid $acc2-1;
+    color: $white;
   }
 }
 

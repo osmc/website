@@ -33,11 +33,6 @@
   }
   &-content {
     @include link;
-    
-    a.button {
-      color: $white;
-      border-bottom: 0;
-    }
 
     .lightbox {
       border-bottom: 0;

@@ -11,12 +11,12 @@ $(".contact-form").submit(function (e) {
 		data: form.serialize(),
 		success: function (res) {
 			button.text("Message sent");
-			button.addClass("button-alt1");
+			button.addClass("button-green");
 		},
 		error: function (res) {
 			button.prop("disabled", false);
 			button.text("Error");
-			button.addClass("button-alt2");
+			button.addClass("button-red");
 		}
 	});
 });

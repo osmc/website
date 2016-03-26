@@ -20,7 +20,7 @@ header.discourse {
     color: $acc3-2;
   }
   .button {
-    @include button-alt1;
+    @include button-green;
     float: left;
     margin-top: 2.5em;
     padding: 0.15em 0.7em 0.1em;
@@ -119,7 +119,7 @@ footer {
   text-align: right;
   margin: 1em 0;
   .button {
-    @include button-alt1;
+    @include button-green;
     padding: 0.15em 0.7em 0.1em;
     margin-top: -0.15em;
     float: left;
