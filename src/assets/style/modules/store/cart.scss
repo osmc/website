@@ -52,6 +52,10 @@
   height: 2em;
   overflow: hidden;
   
+  @include res1 {
+    top: -2em;
+  }
+  
   iframe {
     pointer-events: none;
     user-select: none;
