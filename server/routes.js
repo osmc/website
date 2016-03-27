@@ -127,10 +127,6 @@ app.get("/about/corporate/eula", function(req, res) {
 	res.redirect("/corporate-and-legal/#eula");
 });
 
-app.get("/shop", function(req, res){
-  res.redirect("https://store.osmc.tv");
-});
-
 app.get("/status/wiki", function(req, res) {
 	res.sendFile(path.join(__dirname, "/static", "wiki-status.html"));
 });
