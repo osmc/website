@@ -114,8 +114,7 @@ $grid-spacing-2: $grid-spacing * 2;
 &-nav {
   float: left;
   width: 100%;
-  margin: 0.5em 0;
-  @include link3;
+  @include ani1;
   
   @include res2 {
     margin-bottom: 1em;
@@ -124,13 +123,14 @@ $grid-spacing-2: $grid-spacing * 2;
   a {
     display: inline-block;
     font-weight: 400;
-    margin: 0 3em 0 0;
+    margin: 0 2em 0 0;
     user-select: none;
     cursor: pointer;
-    color: $acc3-2;
+    color: $acc3-3;
+    padding: 0.5em;
 
-    &.active {
-      color: $link;
+    &.active, &:hover {
+      color: $acc2-1;
     }
 
     sup {

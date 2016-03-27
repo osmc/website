@@ -2,7 +2,7 @@
   &-top {
     float: left;
     width: 100%;
-    margin-top: 2em;
+    margin-top: 1em;
     
     .column {
       &:first-child {
@@ -76,7 +76,7 @@
     position: relative;
     float: left;
     width: 100%;
-    margin-top: 0.5em;
+    margin-top: 1em;
     padding-left: 2em;
     
     @include res1 {
@@ -135,6 +135,7 @@
     margin: 0.5em 0;
     &-title {
       vertical-align: text-top;
+      text-transform: uppercase;
     }
     &-select {
       margin-bottom: 0.1em;
@@ -144,6 +145,12 @@
     
   &-cart {
     margin-top: 1em;
+  }
+  
+  &-out {
+    margin-top: 1em;
+    font-size: $small2;
+    color: $acc5-1;
   }
   
   &-text {

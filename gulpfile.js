@@ -32,8 +32,8 @@ gulp.task("ghost", function () {
         browserStart = true;
         browserSync.init({
           proxy: "localhost:2369",
-          host: "osmc.dev",
-          open: "ui"
+          open: "ui",
+          notify: false
         });
       }
     }

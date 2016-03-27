@@ -1,5 +1,5 @@
-var lightbox = $(".lightbox-wrap");
-var images = lightbox.find("img");
+var post = $(".post-content");
+var images = post.find("img");
 
 images.each(function() {
   var img = $(this);
@@ -13,7 +13,7 @@ images.each(function() {
   }
 });
 
-lightbox.Chocolat({
+$(".lightbox-wrap").Chocolat({
   imageSelector: ".lightbox",
   duration: 0,
   imageSize: "default",

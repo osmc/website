@@ -7,7 +7,7 @@
     
     <div class="store-product-feat">
       <div class="store-product-feat" style="background-image: url('{{featured_src}}');">
-        <img class="store-product-feat-placeholder" src="http://placehold.it/500x400">
+        <img class="store-product-feat-placeholder" src="{{asset "img/placehold/500x400.png"}}">
       </div>
     </div>
     
@@ -15,7 +15,7 @@
       {{#each images}}
       <div class="store-product-img">
         <div class="store-product-img-wrap" style="background-image: url('{{src}}');">
-          <a class="lightbox" href="{{src}}"><img src="http://placehold.it/150x150"></a>
+          <a class="lightbox" href="{{src}}"><img src="{{asset "img/placehold/500x500.png"}}"></a>
         </div>
       </div>
       {{/each}}
@@ -47,8 +47,12 @@
     </div>
 
     {{/if}}
-        
+    
+    {{#if in_stock}}
     <a data-name="Add to cart" class="button button-green store-product-cart" href="{{store-buy-url}}">Add to cart</a>
+    {{else}}
+    <p class="store-product-out">Not in stock.</p>
+    {{/if}}
   </div>
 </div>
 
