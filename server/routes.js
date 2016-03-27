@@ -133,8 +133,6 @@ app.get("/status/wiki", function(req, res) {
 
 // files
 
-app.use("/ext", express.static(path.join(__dirname, "/static/ext")));
-
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
 

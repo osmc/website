@@ -51,7 +51,7 @@ var onError = function (err) {
 gulp.task("move-ext", function(){
   var files = ["./node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"];
   gulp.src(files)
-  .pipe(gulp.dest(ext));
+  .pipe(gulp.dest(jsDist));
 });
 
 // style

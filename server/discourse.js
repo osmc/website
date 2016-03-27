@@ -37,13 +37,15 @@ function fetch() {
   });
 }
 
+
+
 function build(code) {
   var script = fs.readFileSync(path.join(__dirname, "../src/assets/js/discourse.min.js"), "utf-8", function (err, data) {
     return data.toString;
   });
   
   var js = code + script;
-  var file = path.join(__dirname, "/static/ext/discourse.js");
+  var file = path.join(__dirname, "../content/themes/osmc/assets/discourse/main.js");
   fs.writeFile(file, js, function (err) {
     if (err) {
       console.log("discourse.js write error");
