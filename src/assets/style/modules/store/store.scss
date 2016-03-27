@@ -160,6 +160,7 @@ $grid-spacing-2: $grid-spacing * 2;
   }
   
   @include res2 {
+    flex-flow: column;
     height: auto !important;
   }
   
