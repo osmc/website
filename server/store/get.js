@@ -26,7 +26,6 @@ var save = function(item) {
         console.log("wc write error");
         console.log(err);
       }
-      console.log("fetched");
     });
     
   }).catch(function(err) {

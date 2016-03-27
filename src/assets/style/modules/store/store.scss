@@ -109,6 +109,13 @@ $grid-spacing-2: $grid-spacing * 2;
   &-title, &-desc {
     margin: 0;
   }
+  
+  &-price {
+    del span {
+      margin-right: 0.5em;
+      font-size: $small2;
+    }
+  }
 }
 
 &-nav {
