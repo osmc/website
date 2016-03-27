@@ -47,7 +47,6 @@ $grid-spacing-2: $grid-spacing * 2;
   @include res2 {
     margin: 2em 0;
     padding-bottom: 0;
-    
   }
   
   @include res2-rev {
@@ -151,6 +150,7 @@ $grid-spacing-2: $grid-spacing * 2;
   margin-left: -$grid-spacing;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   opacity: 1;
   @include ani2;
   
@@ -160,7 +160,6 @@ $grid-spacing-2: $grid-spacing * 2;
   }
   
   @include res2 {
-    flex-flow: column;
     height: auto !important;
   }
   
