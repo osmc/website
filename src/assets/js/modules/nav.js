@@ -8,10 +8,9 @@ if (relativeUrl[1] === "tag" || $.isNumeric(relativeUrl[1])) {
 }
 
 // Open external links in new window
-var host = location.origin;
 $(".nav-ul li a").each(function(i, item) {
 	var url = $(item).attr("href");
-	if (url.indexOf(host) === -1) {
+	if (url.substring(0,1) !== "/") {
 		$(item).attr("target","_blank");
 	}
 });
