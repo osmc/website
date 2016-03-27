@@ -21,6 +21,8 @@ var jsDist = theme + "assets/js/";
 var css = theme + "assets/css/";
 var img = theme + "assets/img/";
 
+var ext = "server/static/ext/";
+
 var browserStart = false;
 // Start server
 var cmd = exec("npm run dev");
@@ -44,6 +46,13 @@ var onError = function (err) {
   console.log(err);
   this.emit("end");
 };
+
+
+gulp.task("move-ext", function(){
+  var files = ["./node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js"];
+  gulp.src(files)
+  .pipe(gulp.dest(ext));
+});
 
 // style
 
@@ -120,7 +129,7 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost", "style", "discourse", "js"], function () {
+gulp.task("default", ["ghost", "style", "discourse", "js", "move-ext"], function () {
   gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "**/*.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);

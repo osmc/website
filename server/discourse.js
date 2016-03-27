@@ -43,7 +43,7 @@ function build(code) {
   });
   
   var js = code + script;
-  var file = path.join(__dirname, "/static/discourse.js");
+  var file = path.join(__dirname, "/static/ext/discourse.js");
   fs.writeFile(file, js, function (err) {
     if (err) {
       console.log("discourse.js write error");

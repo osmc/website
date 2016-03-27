@@ -133,9 +133,7 @@ app.get("/status/wiki", function(req, res) {
 
 // files
 
-app.get("/assets/discourse/discourse.js", function(req, res) {
-  res.sendFile(__dirname + "/static/discourse.js");
-});
+app.use("/ext", express.static(path.join(__dirname, "/static/ext")));
 
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
