@@ -165,19 +165,9 @@ $grid-spacing-2: $grid-spacing * 2;
 }
 
 &-item {
-  float: left;
-  margin: 1.5em $grid-spacing;
   border: none;
   width: auto;
   
-  @include res1 {
-    margin: 1em;
-  }
-  
-  @include res2 {
-    margin: 1em 0;
-  }
-
   &:hover {
     .store-item {
       &-view {
@@ -195,13 +185,16 @@ $grid-spacing-2: $grid-spacing * 2;
 
   &-wrap {
     width: 25%;
+    padding: 1.5em $grid-spacing;
 
     @include res1 {
       width: 33.3%;
+      padding: 1em;
     }
 
     @include res2 {
       width: 100%;
+      padding: 1em 0;
     }
 
     &.hide {
