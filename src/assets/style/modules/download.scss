@@ -90,9 +90,13 @@
   &-system {
     font-size: $small2;
     line-height: 1.2em;
-    @include link3;
     padding-left: 0;
     padding-right: 0;
+    
+    .main & {
+      @include link3;
+    }
+    
     svg {
       $s: 4.5em;
       width: $s;
