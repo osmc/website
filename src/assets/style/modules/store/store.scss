@@ -210,6 +210,7 @@ $grid-spacing-2: $grid-spacing * 2;
     position: relative;
     @include radius1;
   }
+  
   &-placeholder {
     opacity: 0;
     visibility: hidden;

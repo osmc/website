@@ -46,11 +46,11 @@
     &-list {
       list-style: none;
       padding: 0 1em;
+      
       li {
         border-bottom: 1px solid $acc3-4;
         margin: 0;
         padding: 0.5em 0;
-        @include link2;
         @include ani2;
         overflow: hidden;
         &.hide {
@@ -63,6 +63,10 @@
         .highlight {
           @include radius1;
           background-color: $acc3-4;
+        }
+        
+        .main & {
+          @include link2;
         }
       }
       li:last-child {
