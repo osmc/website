@@ -10,12 +10,14 @@
   </h1>  
   
   {{#if post}}
+  {{#post}}
   <section class="post-meta">
     <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}" itemprop="datePublished" content="{{date format='YYYY-MM-DD'}}">
       {{date format="DD MMMM YYYY"}}
     </time>
     <span class="post-tags">{{tags prefix=""}}</span>
   </section>
+  {{/post}}
   {{/if}}
   
   {{#if page}}
