@@ -34,7 +34,7 @@ $(".sidebar-news-form").submit(function (e) {
 
 	button.prop("disabled", true);
 	form.addClass("posting");
-
+  
 	$.ajax({
 		url: url,
 		type: "POST",
