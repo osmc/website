@@ -5,3 +5,5 @@ npm-debug.log
 content/data/
 content/images/
 server/static/
+
+content/themes/osmc/assets/ext/
