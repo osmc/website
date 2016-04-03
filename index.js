@@ -12,8 +12,9 @@ ghost(options).then(function(ghostServer) {
 	ghostServer.start();
 });
 
-// create static directory
-mkdirp.sync(path.join(__dirname, "/server/static/ext"));
+// create static directories
+mkdirp.sync(path.join(__dirname, "/server/static"));
+mkdirp.sync(path.join(__dirname, "/content/themes/osmc/assets/ext"));
 
 require("./server/custom")();
 require("./server/wiki").helpers();
