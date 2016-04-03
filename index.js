@@ -1,8 +1,6 @@
 var ghost = require("ghost");
-var fs = require("fs");
 var path = require("path");
 var mkdirp = require("mkdirp");
-var httpProxy = require("http-proxy");
 var ghostPath = path.join(__dirname, "node_modules/ghost/");
 var express = require(ghostPath + "node_modules/express");
 app = express();
