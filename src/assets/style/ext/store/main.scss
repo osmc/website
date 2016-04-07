@@ -20,6 +20,7 @@ $res-wc: 768px;
 }
 
 html body {
+  @import "table";
   @import "product";
   @import "cart";
   @import "checkout";
@@ -87,37 +88,6 @@ html body {
       display: inline-block;
       margin: 0 2em 0 0;
       padding: 0 0.5em;
-    }
-  }
-  
-  table.cart {
-    font-size: 1em;
-    &.cart thead, thead {
-      text-indent: 0;
-    }
-    
-    th {
-      font-size: 1.1em;
-      font-weight: 400;
-      padding: 0.5em 0.5em 0;
-    }
-    
-    td {
-      padding: 0.5em 0.5em;
-    }
-    td {
-      border: 1px solid $grey1;
-      
-      &.actions {
-        border: 0;
-        padding: 1em 0;
-      }
-    }
-    .product-remove {
-      $w: 0.5em;
-      min-width: $w;
-      width: $w;
-      font-size: 1.2em;
     }
   }
   

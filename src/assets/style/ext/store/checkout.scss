@@ -1,0 +1,18 @@
+.woocommerce-checkout {
+  float: left;
+  width: 100%;
+}
+
+.woocommerce-checkout-review-order-table {
+  tr {
+    td:first-child {
+      $w: 8em;
+      min-width: $w;
+      //width: $w;
+    }
+  }
+}
+
+#payment .payment_methods li .payment_box fieldset {
+  font-size: 1em;
+}

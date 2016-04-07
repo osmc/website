@@ -1,0 +1,82 @@
+table.cart {
+  font-size: 1em;
+  &.cart thead, thead {
+    text-indent: 0;
+  }
+
+  th {
+    font-size: 1.1em;
+    font-weight: 400;
+    padding: 0.5em 0.5em 0;
+  }
+
+  td {
+    padding: 0.5em 0.5em;
+  }
+  td {
+    border: 1px solid $grey1;
+
+    &.actions {
+      border: 0;
+      padding: 1em 0;
+    }
+  }
+  .product-remove {
+    $w: 0.5em;
+    min-width: $w;
+    width: $w;
+    font-size: 1.2em;
+  }
+}
+
+.cart, .variations_button {
+  display: table;
+  width: 100%;
+  text-align: right;
+  padding: 1em 0 !important;
+
+  .quantity, button {
+    float: none !important;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .quantity {
+    text-align: left;
+    input {
+      margin: 0;
+      max-width: 3.5em !important;
+      padding: 0.25em 0 !important;
+    }
+  }
+}
+.variations_button {
+  padding-bottom: 0 !important;
+}
+.checkout_coupon {
+  .form-row.form-row-first {
+    width: auto;
+    margin-right: 0 !important;
+  }
+  .form-row-last {
+    float: left;
+  }
+}
+input[name="coupon_code"] {
+  display: inline-block !important;
+}
+input[name="apply_coupon"] {
+  display: inline-block !important;
+  width: auto !important;
+  background-color: $trans !important;
+  color: $black !important;
+  border-bottom: 1px solid $black;
+  margin-left: 1em !important;
+  padding: 0;
+}
+
+.wc-proceed-to-checkout .button {
+  display: inline-block;
+  font-size: 1em !important;
+  padding: 0.4em 1em;
+  margin-top: 1em;
+}
