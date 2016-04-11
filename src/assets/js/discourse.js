@@ -2,7 +2,7 @@
 
 Discourse.DiscoveryView = Ember.View.extend({
   _insertBanner: function() {
-    if (showAd && !disable) {
+    if (showAd) {
       this.$(".list-container").prepend("<div class='toplist_ad' data-adunit='discourse_toplist' data-size-mapping='toplist'></div>");
 
       this.$(".toplist_ad").dfp({
@@ -17,10 +17,15 @@ Discourse.DiscoveryView = Ember.View.extend({
         }
       });
       
-    } else if (showBanner && !disable) {
-      
+    }
+    
+    if (showBanner) {
       this.$(".list-container").prepend("<a href='" + bannerLink + "'><div class='toplist_banner' style='color:#fafafa; padding:2.5em 1em; margin:0.2em 0;'><h2 style='color:white; font-size:130%; font-weight:300; text-align: center;'>" + bannerText + "</h2></div></a>");
       this.$(".toplist_banner").css({background : "url(" + bannerImg + ")"});
+    }
+    
+    if (showSponsor) {
+      this.$(".list-container").prepend("<a href='" + sponsorLink + "'><div class='toplist_banner' style='margin:0.2em 0;'><img style='max-width:100%' src='" + sponsorImg + "'></a>");
     }
     
   }.on('didInsertElement'),
