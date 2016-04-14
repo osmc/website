@@ -20,7 +20,10 @@ $res-wc: 768px;
 }
 
 html body {
-  @import "table";
+  @import "base";
+  .container {
+    @import "table";
+  }
   @import "product";
   @import "cart";
   @import "checkout";
@@ -35,24 +38,6 @@ html body {
     margin-top: 1em;
   }
   
-  .button {
-    background-color: $blue1 !important;
-    color: $white !important;
-    padding: 0.5em 1em;
-  }
-  .main a {
-    color: $blue1 !important;
-    
-    &.button {
-      color: $white !important;
-      background-color: $blue1 !important;
-    }
-    
-    &.select2-choice {
-      color: $black !important;
-    }
-  }
-  
   .woocommerce-breadcrumb, .posted_in, .storefront-sorting, .related.products, .sku_wrapper {
     display: none !important;
   }
@@ -61,9 +46,8 @@ html body {
     outline: 0;
   }
   .main .shop-menu a {
-    color: $grey2 !important;
+    color: $dark !important;
     padding-bottom: 0.2em;
-    border-bottom: 1px solid $grey2;
   }
   .shop-menu {
     font-size: 90%;

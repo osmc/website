@@ -112,18 +112,6 @@
   font-size: 1em;
 }
 
-dl.variation {
-  line-height: 1.4em;
-  margin: 0;
-
-  dt {
-    font-weight: 600;
-  }
-  p {
-    margin: 0;
-  }
-}
-
 #review_form {
   .stars {
     .active {
@@ -136,10 +124,6 @@ dl.variation {
     label {
       display: block;
     }
-  }
-  input[type="submit"] {
-    background-color: $blue1;
-    border-color: $blue1;
   }
 }
 

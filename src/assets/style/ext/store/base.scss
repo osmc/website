@@ -1,0 +1,15 @@
+.main .container {
+  input  {
+    &[type="number"] {
+      @extend .store-product-quantity-input;
+      padding: 0.1em 0;
+      margin-bottom: 0;
+      max-width: 5em;
+    }
+  }
+}
+
+
+.button, input.button {
+  @extend .button;
+}

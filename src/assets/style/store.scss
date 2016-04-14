@@ -1,6 +1,10 @@
 @import "normalize.css/normalize";
 @import "partials/global";
 
+
+// extend
+@import "modules/store/main";
+
 // general styles
 html body {
   @import "partials/main";

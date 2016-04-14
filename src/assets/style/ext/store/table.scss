@@ -1,0 +1,26 @@
+table {
+  font-size: 100%;
+  
+  thead {
+    text-indent: 0;
+    font-size: 1.1em;
+    
+    th {
+      border-bottom: 2px solid $acc1-2;
+      padding: 0.5em 0;
+    }
+  }
+  
+  tr {
+  }
+  
+  td {
+    padding: 0.5em 0;
+    padding-right: 0.5em;
+    border-bottom: 1px solid $acc3-4;
+    
+    &.actions {
+      padding: 1em 0;
+    }
+  }
+}
