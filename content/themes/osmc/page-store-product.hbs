@@ -28,6 +28,8 @@
       {{{price_html}}}
     </div>
     
+    {{#if in_stock}}
+    
     <div class="store-product-quantity">
       <h4 class="store-product-quantity-title">Quantity:</h4>
       <input class="store-product-quantity-input" type="number" value="1" min="1">
@@ -48,9 +50,9 @@
 
     {{/if}}
     
-    {{#if in_stock}}
+    
     <a data-name="Add to cart" class="button button-green store-product-cart" href="{{store-buy-url}}">Add to cart</a>
-    {{else}}
+    {{else}} {{!in_stock}}
     <p class="store-product-out">Not in stock.</p>
     {{/if}}
   </div>

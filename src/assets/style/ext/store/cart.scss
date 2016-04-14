@@ -1,4 +1,6 @@
 table.cart {
+  margin-bottom: 1em;
+  
   .product-remove {
     $w: 0.5em;
     min-width: $w;
@@ -102,10 +104,14 @@ table.cart {
 }
 
 .cart-collaterals .cart_totals {
-  width: 100%;
+  width: 70%;
   max-width: 100%;
-  margin: 0 auto;
-  float: none;
+  float: right;
+  
+  @include res1 {
+    width: 100%;
+    float: left;
+  }
 
   th, td {
     margin: 0;

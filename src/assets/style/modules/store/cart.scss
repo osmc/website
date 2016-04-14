@@ -36,6 +36,7 @@
     margin: 0;
     font-weight: 400;
     @include link2;
+    line-height: 1.7em;
     
     span {
       font-size: $big4;
