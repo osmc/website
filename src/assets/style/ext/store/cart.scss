@@ -6,8 +6,11 @@ table.cart {
     min-width: $w;
     width: $w;
     font-size: 1.5em;
-    //padding-right: 0;
     text-align: center;
+    
+    @include res-wc {
+      padding-right: 0px;
+    }
     
     .remove {
       width: auto;
@@ -24,6 +27,22 @@ table.cart {
       &:before {
         content: "";
       }
+    }
+  }
+  
+  .product-subtotal {
+    padding-right: 0;
+  }
+  
+  thead {
+    @include res-wc {
+      font-size: 1em;
+    }
+  }
+  
+  tr {
+    .product-subtotal {
+      text-align: center;
     }
   }
   
@@ -44,8 +63,11 @@ table.cart {
   }
 
   td.actions {
-    
     text-align: right;
+    
+    @inclide res-wc {
+      font-size: 1.1em;
+    }
     
     .coupon {
       display: inline-block;

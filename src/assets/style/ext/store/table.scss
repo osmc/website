@@ -1,9 +1,15 @@
 table {
   font-size: 100%;
+  line-height: 1.5em;
+  
+  @include res-wc {
+    font-size: 90%;
+  }
   
   thead {
     text-indent: 0;
     font-size: 1.1em;
+    display: table-header-group;
     
     th {
       border-bottom: 2px solid $acc1-2;
@@ -12,14 +18,16 @@ table {
     }
   }
   
-  tr {
-  }
-  
   td {
     padding: 0.5em 0;
     padding-right: 0.5em;
     border-bottom: 1px solid $acc3-4;
     text-align: left;
+    display: table-cell;
+    
+    &:before {
+      display: none;
+    }
     
     &.actions {
       padding: 1em 0;

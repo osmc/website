@@ -23,9 +23,9 @@ html body {
   @import "base";
   .container {
     @import "table";
+    @import "cart";
   }
   @import "product";
-  @import "cart";
   @import "checkout";
   
   font-family: "Source Sans Pro",HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
