@@ -38,12 +38,13 @@ table.cart {
     @include res-wc {
       font-size: 1em;
     }
-  }
-  
-  tr {
+    
     .product-subtotal {
-      text-align: center;
+      @include res-wc {
+        text-align: center;
+      }
     }
+    
   }
   
   dl.variation {
@@ -64,6 +65,7 @@ table.cart {
 
   td.actions {
     text-align: right;
+    line-height: 1.7em;
     
     @inclide res-wc {
       font-size: 1.1em;
@@ -143,6 +145,7 @@ table.cart {
 
   td {
     border-bottom: 0px;
+    padding: 0.5em 0;
   }
 }
 
