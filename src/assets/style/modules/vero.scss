@@ -414,6 +414,20 @@
         top: auto;
       }
     }
+    
+    &-buy {
+      display: block;
+      float: left;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2em;
+      
+      a {
+        @include res1 {
+          font-size: 90%;
+        }
+      }
+    }
   }
   &-osmc {
     position: relative;

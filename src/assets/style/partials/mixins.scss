@@ -241,39 +241,20 @@ $z5-shadow: 0 19px 38px rgba(#000, 0.30),
 
 @mixin button-vero {
   @include button;
-  background-color: $trans;
-  color: $black;
-  border: 1px solid $black;
+  background-color: $acc2-1;
+  color: $white;
+  border: 1px solid $trans;
   @include ani2;
   &:visited {
-    background-color: $trans;
-    color: $black;
+    background-color: $acc2-1;
+    color: $white;
   }
   &:hover,
   &:active,
   &:focus {
-    background-color: $acc2-1;
-    border: 1px solid $acc2-1;
-    color: $white;
-  }
-}
-
-@mixin button-vero {
-  @include button;
-  background-color: $trans;
-  color: $black;
-  border: 1px solid $black;
-  @include ani2;
-  &:visited {
     background-color: $trans;
+    border: 1px solid $black;
     color: $black;
-  }
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $acc2-1;
-    border: 1px solid $acc2-1;
-    color: $white;
   }
 }
 
