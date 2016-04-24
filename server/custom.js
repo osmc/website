@@ -25,7 +25,7 @@ var helpers = function () {
     
     if (storeProduct) {
       
-      var product = res.data.root.store.product;
+      var product = storeProduct;
       urlCustom = product.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
@@ -34,7 +34,7 @@ var helpers = function () {
       
     } else if (wikiPost) {
       
-      var post = res.data.root.wiki.post;
+      var post = wikiPost;
       urlCustom = post.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
@@ -47,6 +47,7 @@ var helpers = function () {
         // Home page
         titleCustom = blogTitle;
         urlCustom = "/";
+        _.set(res, "data.root.home", true);
 
       } else if (url === "/" || url.substring(0, 6) === "/page/") {
         // Blog and pagination

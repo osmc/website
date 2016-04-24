@@ -1,37 +1,42 @@
 .header {
-  width: 100%;
-  padding: 4em 0;
-  border-bottom: 2px solid $acc3-4;
-  background-image: linear-gradient(to top, $white 0%, $acc3-4 100%);
-  position: relative;
-  @include res1 {
-    padding: 3em 0;
-  }
-  @include res1-1 {
-    padding: 0.5em 0;
-  }
-  @include res1-1-rev {
-    .container {
-      max-width: 100em;
-      width: 100%;
-    }
-  }
-  .page-home & {
-    z-index: 1;
-    position: absolute;
-    border-top: 0;
-    border-bottom: 0;
-    padding: 1em 0;
-    background-image: none;
+  &-main {
+    float: left;
+    width: 100%;
+    padding: 4em 0;
+    border-bottom: 2px solid $acc3-4;
+    background-image: linear-gradient(to top, $white 0%, $acc3-4 100%);
+    position: relative;
     @include res1 {
+      padding: 3em 0;
+    }
+    @include res1-1 {
+      padding: 0.5em 0;
+    }
+    @include res1-1-rev {
       .container {
+        max-width: 100em;
         width: 100%;
       }
     }
-    &-logo {
-      display: none;
+    
+    .page-home & {
+      z-index: 1;
+      position: absolute;
+      border-top: 0;
+      border-bottom: 0;
+      padding: 1em 0;
+      background-image: none;
+      @include res1 {
+        .container {
+          width: 100%;
+        }
+      }
+      .header-logo {
+        display: none;
+      }
     }
   }
+  
   &-top {
     width: 100%;
     height: 0.2em;
@@ -190,6 +195,30 @@ $hover: $link2;
       &:active {
         color: $color;
       }
+    }
+  }
+}
+
+.banner {
+  float: left;
+  width: 100%;
+  background-color: $acc3-4;
+  border-bottom: 2px solid $acc3-4;
+  
+  &-wrap {
+    text-align: center;
+    margin: 0.75em 1.5em;
+    font-size: 1.1em;
+    font-weight: 300;
+    @include link;
+    
+    
+    @include res1 {
+      margin: 0;
+    }
+    
+    p {
+      margin: 0.75em 0;
     }
   }
 }

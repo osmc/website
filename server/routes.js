@@ -131,6 +131,10 @@ app.get("/status/wiki", function(req, res) {
 	res.sendFile(path.join(__dirname, "/static", "wiki-status.html"));
 });
 
+app.get("/banner", function(req, res){
+  res.redirect("/404");
+});
+
 // files
 
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
