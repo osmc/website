@@ -14,7 +14,7 @@ $calls = 0;
 $base_file = "static/wiki.json";
 $parent_contents_url = "https://discourse.osmc.tv/t/table-of-contents/6543.json";
 
-function get_json_obj($url) {
+function get_json_obj($url, $is_fatal) {
   global $num_errors;
   global $calls;
   $ch = curl_init();
@@ -25,6 +25,9 @@ function get_json_obj($url) {
   $errno = curl_errno($ch);
   curl_close($ch);
   if ($errno) {
+    if ($is_fatal) {
+       die("Couldn't fetch resource " . $url);
+    }
     $num_errors +=1;
   } elseif (!empty($output)) {
     $calls +=1;
@@ -46,7 +49,7 @@ function get_slug_url($url) {
 
 /* Get the list of all available categories */
 echo ("Downloading list of all available categories <br>");
-$json_categories = get_json_obj($parent_contents_url);
+$json_categories = get_json_obj($parent_contents_url, 1);
 
 $cat_json = array();
 
@@ -64,7 +67,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
   echo ("<br>" . $cat_title . "<br>");
   
-  $json_category_pages = get_json_obj($tz->url . ".json");
+  $json_category_pages = get_json_obj($tz->url . ".json", 1);
   
   /* get urls from body - sorted */
   $cat_body = $json_category_pages->post_stream->posts[0]->cooked;
@@ -103,7 +106,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
       /* Get the post contents */
       echo ("- " . $tz->title . "<br>");
 
-      $post = get_json_obj($tz->url . ".json");
+      $post = get_json_obj($tz->url . ".json", 0);
       $post_content = $post->post_stream->posts[0];
       $post_body = $post_content->cooked;
 
@@ -126,7 +129,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 
       /* Get description */
       echo ("- " . $tz->title . "<br>");
-      $post = get_json_obj($tz->url . ".json");
+      $post = get_json_obj($tz->url . ".json", 0);
       $post_content = $post->post_stream->posts[0];
       $excerpt = $post_content->cooked;
       $cat_json["categories"][$i]["description"] = $excerpt;
