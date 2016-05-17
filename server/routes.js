@@ -135,6 +135,10 @@ app.get("/banner", function(req, res){
   res.redirect("/404");
 });
 
+app.get("/help", function(req, res) {
+  res.redirect("/");
+});
+
 // files
 
 app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
