@@ -92,11 +92,11 @@
     line-height: 1.2em;
     padding-left: 0;
     padding-right: 0;
-    
+
     .main & {
       @include link3;
     }
-    
+
     svg {
       $s: 4.5em;
       width: $s;
@@ -151,13 +151,13 @@
   &-tables {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.4s ease-out;
     @include res2 {
       font-size: $small2;
     }
     &.show {
-      max-height: 100em;
-      transition: max-height 0.3s ease-in;
+      max-height: 180em;
+      transition: max-height 0.4s ease-in;
     }
   }
   &-table {
