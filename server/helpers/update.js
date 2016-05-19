@@ -1,3 +1,5 @@
+// disabled
+
 var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var sqlite = require(ghostPath + "node_modules/sqlite3");

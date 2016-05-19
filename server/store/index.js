@@ -1,7 +1,7 @@
 var path = require("path");
 var chokidar = require("chokidar");
+var cheerio = require("cheerio");
 var ghostPath = path.join(__dirname, "../../node_modules/ghost/");
-var cheerio = require(ghostPath + "node_modules/cheerio");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require("lodash");
 var env = require("../helpers/env").env;

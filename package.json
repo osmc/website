@@ -8,11 +8,14 @@
     "dev": "nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*' --ignore 'server/static/**/*' --ignore 'gulpfile.js'"
   },
   "dependencies": {
+    "cheerio": "0.20.0",
     "chokidar": "1.2.0",
+    "express": "4.13.4",
     "ghost": "0.7.8",
     "http-proxy": "1.11.2",
     "lodash": "4.6.1",
     "mkdirp": "0.5.1",
+    "request": "2.72.0",
     "woocommerce-api": "1.1.0"
   },
   "devDependencies": {

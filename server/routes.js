@@ -1,8 +1,8 @@
 var fs = require("fs");
 var path = require("path");
 var httpProxy = require("http-proxy");
+var express = require("express");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
-var express = require(ghostPath + "node_modules/express");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 app = express();
 

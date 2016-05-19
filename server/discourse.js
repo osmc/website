@@ -1,8 +1,7 @@
 var fs = require("fs");
 var path = require("path");
-var ghostPath = path.join(__dirname, "../node_modules/ghost/");
-var request = require(ghostPath + "node_modules/request");
-var cheerio = require(ghostPath + "node_modules/cheerio");
+var request = require("request");
+var cheerio = require("cheerio");
 
 var auth = require(path.join(__dirname, "../content/data/keys")).discourse;
 

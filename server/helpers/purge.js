@@ -1,6 +1,5 @@
 var path = require("path");
-var ghostPath = path.join(__dirname, "../../node_modules/ghost/");
-var request = require(ghostPath + "node_modules/request");
+var request = require("request");
 var env = require("./env").env;
 
 var purge = {

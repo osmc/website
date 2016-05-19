@@ -2,10 +2,9 @@ var fs = require("fs");
 var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
-var request = require(ghostPath + "node_modules/request");
+var request = require("request");
 var chokidar = require("chokidar");
 var _ = require("lodash");
-
 var host = "http://download.osmc.tv/installers/";
 var versionsUrl = host + "versions_";
 var imagesUrl = host + "diskimages/";
