@@ -73,6 +73,14 @@
         border-bottom: 0;
       }
     }
+    
+    &-noresults {
+      display: none;
+      
+      &.show {
+        display: block;
+      }
+    }
   }
   &-search {
     display: inline-block;
