@@ -80,7 +80,7 @@ app.get("/help/wiki/*", function(req, res) {
 	res.redirect("/wiki");
 });
 
-var wikiPost = require("./wiki").post;
+var wikiPost = require("./modules/wiki").post;
 app.get("/wiki/*", slash, function(req, res) {
   var post = wikiPost(req.url);
   var wiki = {};
