@@ -17,10 +17,10 @@ mkdirp.sync(path.join(__dirname, "/server/static"));
 mkdirp.sync(path.join(__dirname, "/content/themes/osmc/assets/ext"));
 
 require("./server/custom")();
-require("./server/modules/wiki");
 require("./server/images")();
+require("./server/modules/wiki");
 require("./server/modules/autolinks");
-require("./server/store").helpers();
+require("./server/modules/store");
 require("./server/routes");
 
 app.listen(2369);

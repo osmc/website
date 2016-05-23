@@ -1,7 +1,7 @@
 var path = require("path");
 var WooCommerceAPI = require("woocommerce-api");
 
-var auth = require(path.join(__dirname, "../../content/data/keys")).wp;
+var auth = require(path.join(__dirname, "../../../content/data/keys")).wp;
 
 var wc = new WooCommerceAPI({
   url: "https://store.osmc.tv",

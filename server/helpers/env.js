@@ -14,7 +14,15 @@ if (flag != "dev") {
 var config = require(path.join(__dirname, "../../config.js"));
 var host = config[env].url;
 
+var hostStore = "";
+if (env == "production") {
+  hostStore = "https://store.osmc.tv/";
+} else {
+  hostStore = "http://shoposmc.dev/";
+}
+
 module.exports = {
   env: env,
-  host: host
+  host: host,
+  hostStore: hostStore
 }

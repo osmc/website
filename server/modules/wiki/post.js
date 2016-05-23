@@ -4,12 +4,12 @@ var json = require("./json");
 
 // if no wiki post is found in the json file, return false for custom render
 var post = function (url) {
-  var content = json();
+  var data = json();
   // e.g. /wiki/general/faq
   var split = url.substring(1).split("/");
   var cat = split[1];
   var post = split[2];
-  var singleCat = _.find(content.categories, {
+  var singleCat = _.find(data.categories, {
     "slug": cat
   });
   if (singleCat) {

@@ -85,9 +85,9 @@ app.get("/wiki/*", slash, function(req, res) {
   var post = wikiPost(req.url);
   var wiki = {};
   wiki["post"] = post;
-  
+
   if (post) {
-    res.render("page-wiki-post.hbs", {wiki: wiki});    
+    res.render("page-wiki-post.hbs", {wiki: wiki});
   } else {
     proxySingle.web(req, res, {target: host + "/404"});
   }
@@ -100,12 +100,12 @@ app.all("/store", slash, function(req, res){
   proxySingle.web(req, res, {target: url});
 });
 
-var storeProduct = require("./store").product;
+var storeProduct = require("./modules/store").product;
 app.get("/store/*", slash, function(req, res) {
   var product = storeProduct(req.url);
   var store = {};
   store["product"] = product;
-  
+
   if (product) {
     res.render("page-store-product.hbs", {store: store});
   } else {
