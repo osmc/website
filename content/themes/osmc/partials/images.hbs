@@ -1,0 +1,24 @@
+{{images}}
+
+{{#each images}}
+<section class="download-table">
+  <header>
+    <h3 class="download-table-title">{{title}}</h3>
+  </header>
+
+  <table>
+    <tr>
+      <th>Release</th>
+      <th>Checksum (MD5)</th>
+    </tr>
+
+    {{#each files}}
+    <tr>
+      <td><a href="{{escape url}}">{{title}}</a></td>
+      <td>{{md5}}</td>
+    </tr>
+    {{/each}}
+  </table>
+
+</section>
+{{/each}}
