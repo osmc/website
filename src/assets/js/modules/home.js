@@ -1,12 +1,16 @@
 var homeClass = "page-home";
 if ($("body").hasClass(homeClass)) {
 
+	if (hash() === "newsletter" || hash() === "donate") {
+		window.location.replace("/blog/#" + hash());
+	}
+
   $(".firstn-down").click(function() {
     $("html, body").animate({
       scrollTop: $(".secondn").offset().top - 80
     }, 500);
   });
-  
+
 	var player = new Clappr.Player({
 		source: '/assets/vid/homepage-tour.mp4',
 		poster: '/assets/img/home/video-poster.png',
