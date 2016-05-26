@@ -113,6 +113,15 @@ app.get("/store/*", slash, function(req, res) {
   }
 });
 
+// newsletter
+
+app.get("/newsletter/:id", function(req, res) {
+  var newsletter = require("./modules/newsletter");
+  newsletter(req.params.id).then(function(data) {
+    res.send(data);
+  });
+});
+
 // redirects
 
 app.get("/download/**/*", function(req, res){
@@ -141,7 +150,6 @@ app.get("/help", function(req, res) {
 
 // files
 
-app.use("/content/themes/osmc/library/images/email", express.static(theme + "/assets/mail"));
 app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
 
 // all

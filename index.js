@@ -21,6 +21,7 @@ require("./server/modules/images");
 require("./server/modules/wiki");
 require("./server/modules/autolinks");
 require("./server/modules/store");
+require("./server/modules/newsletter");
 require("./server/routes");
 
 app.listen(2369);
