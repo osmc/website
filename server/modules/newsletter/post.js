@@ -12,13 +12,6 @@ var filter = function(html) {
       var src = "https://discourse.osmc.tv" + img.attr("src");
       img.attr("src", src);
     }
-
-    // emoji
-    if(img.hasClass("emoji")) {
-      img.css("width", "20px !important");
-      img.css("display", "inline-block !important");
-      img.css("vertical-align", "middle !important");
-    }
   });
 
   // image meta element
