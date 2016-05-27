@@ -16,7 +16,7 @@ var post = function(html) {
 
     // emoji
     if(img.hasClass("emoji")) {
-      img.css("width", "16px");
+      img.css("width", "16px !important");
     }
   });
 
@@ -48,7 +48,10 @@ var email = function(obj) {
   html = html.replace("<!-- <style> -->", style);
 
   // inline css
-  html = juice(html);
+  html = juice(html, {
+    preserveImportant: true,
+    removeStyleTags: false
+  });
 
   // minify
   html = minify(html, {
