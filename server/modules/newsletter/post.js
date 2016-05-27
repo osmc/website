@@ -1,5 +1,38 @@
+var cheerio = require("cheerio");
 var get = require("../../helpers/discourse").get;
-var filters = require("./filters");
+
+var filter = function(html) {
+  $ = cheerio.load(html);
+
+  $("img").map(function() {
+    var img = $(this);
+
+    // relative urls
+    if (img.attr("src").substring(0,1) === "/") {
+      var src = "https://discourse.osmc.tv" + img.attr("src");
+      img.attr("src", src);
+    }
+
+    // emoji
+    if(img.hasClass("emoji")) {
+      img.css("width", "20px !important");
+      img.css("display", "inline-block !important");
+      img.css("vertical-align", "middle !important");
+    }
+  });
+
+  // image meta element
+  $(".meta").remove();
+
+  // image lightbox wrapper
+  $(".lightbox-wrapper").map(function() {
+    var a = $(this).find("a").clone();
+    $(this).after(a);
+    $(this).remove();
+  });
+
+  return $.html();
+};
 
 var post = function(id) {
   return new Promise(function (resolve, reject) {
@@ -8,7 +41,7 @@ var post = function(id) {
     get(url).then(function(res) {
       var title = res.title;
       var body = res.post_stream.posts[0].cooked;
-      body = filters.post(body);
+      body = filter(body);
 
       var obj = {
         title: title,
