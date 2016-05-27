@@ -2,7 +2,9 @@ var cheerio = require("cheerio");
 var get = require("../../helpers/discourse").get;
 
 var filter = function(html) {
-  $ = cheerio.load(html);
+  $ = cheerio.load(html, {
+    decodeEntities: false
+  });
 
   $("img").map(function() {
     var img = $(this);
