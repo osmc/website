@@ -10,7 +10,9 @@ var filter = function(obj) {
   html = html.replace("[body]", obj.body);
 
   // styles
-  $ = cheerio.load(html);
+  $ = cheerio.load(html, {
+    decodeEntities: false
+  });
   $("link").attr("rel", "stylesheet").remove();
   html = $.html();
   var style = "<style>" + obj.css + "</style>";
