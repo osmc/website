@@ -30,6 +30,10 @@ var filter = function(obj) {
     minifyCSS: true
   });
 
+  // Outlook font fallback
+  var mso = "<!--[if gte mso 9]><style>body,table,td,p,a,span,h1,h2,h3,h4,h5,li,ul,ol,strong,em,b,i,small,sub,sup{font-family: Helvetica, Arial, sans-serif !important;}</style><[endif]-->";
+  html = html.replace("</style>", "</style>" + mso);
+
   return html;
 };
 
