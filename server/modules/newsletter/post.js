@@ -16,9 +16,9 @@ var filter = function(html) {
     }
 
     // width/height attributes
-    img.attr("width", null);
+    img.attr("width", 544);
     img.attr("height", null);
-    
+
   });
 
   // image meta element
