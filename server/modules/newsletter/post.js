@@ -14,6 +14,11 @@ var filter = function(html) {
       var src = "https://discourse.osmc.tv" + img.attr("src");
       img.attr("src", src);
     }
+
+    // width/height attributes
+    img.attr("width", null);
+    img.attr("height", null);
+    
   });
 
   // image meta element
