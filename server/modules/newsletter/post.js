@@ -16,8 +16,15 @@ var filter = function(html) {
     }
 
     // width/height attributes
-    img.attr("width", 544);
     img.attr("height", null);
+
+    var maxwidth = 544;
+    var width = img.attr("width");
+    if (width > maxwidth) {
+      img.attr("width", maxwidth);
+    } else {
+      img.attr("width", width);
+    }
 
   });
 
