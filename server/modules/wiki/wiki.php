@@ -138,7 +138,9 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
 }
 
 /* Generate json file */
-file_put_contents($base_file, json_encode($cat_json, JSON_PRETTY_PRINT));
+if ($num_errors == 0) {
+    file_put_contents($base_file, json_encode($cat_json, JSON_PRETTY_PRINT));
+}
 
 echo "<br><br>Errors: " . $num_errors;
 echo "<br>Calls: " . $calls;
