@@ -5,7 +5,8 @@
   "main": "index.js",
   "author": "Mark Theis Madsen",
   "scripts": {
-    "dev": "nodemon index.js dev --ignore 'src/**/*' --ignore 'content/**/*' --ignore 'server/static/**/*' --ignore 'gulpfile.js'"
+    "setup": "npm install -g node-gyp gulp",
+    "start": "npm install && gulp build && node index.js"
   },
   "dependencies": {
     "cheerio": "0.20.0",
