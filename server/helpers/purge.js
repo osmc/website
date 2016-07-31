@@ -9,7 +9,7 @@ var purge = {
     }
     request({
       method: "PURGE",
-      uri: "https://osmc.tv"
+      uri: "http://159.253.212.250"
     }, function (error, response, body) {
       if (error) {
         console.log("PURGE REQUEST ERROR");

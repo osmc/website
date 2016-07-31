@@ -1,6 +1,7 @@
 var ghost = require("ghost");
 var path = require("path");
 var mkdirp = require("mkdirp");
+var purge = require("./server/helpers/purge").all;
 var ghostPath = path.join(__dirname, "node_modules/ghost/");
 var express = require(ghostPath + "node_modules/express");
 app = express();
@@ -10,6 +11,7 @@ options = {
 };
 ghost(options).then(function(ghostServer) {
 	ghostServer.start();
+	purge(); // varnish
 });
 
 // create static directories
