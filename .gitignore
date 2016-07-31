@@ -6,4 +6,6 @@ content/data/
 content/images/
 server/static/
 
+/content/themes/osmc/assets/css/
+/content/themes/osmc/assets/js/
 content/themes/osmc/assets/ext/
