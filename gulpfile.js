@@ -6,6 +6,7 @@ var concat = require("gulp-concat");
 var include = require("gulp-include");
 var uglify = require("gulp-uglify");
 var browserSync = require("browser-sync");
+var nodemon = require("gulp-nodemon");
 var reload = browserSync.reload;
 
 var path = require("path");
@@ -21,31 +22,28 @@ var jsDist = theme + "assets/js/";
 var css = theme + "assets/css/";
 var img = theme + "assets/img/";
 
-var ext = "server/static/ext/";
-
-var browserStart = false;
-// Start server
-var cmd = exec("npm run dev");
-gulp.task("ghost", function () {
-  cmd.stdout.on("data", function (data) {
-    process.stdout.write(data);
-    if (data.indexOf("Listening on") != -1) {
-      if (!browserStart) {
-        browserStart = true;
-        browserSync.init({
-          proxy: "localhost:2369",
-          open: "ui",
-          notify: false
-        });
-      }
-    }
-  });
-});
 
 var onError = function (err) {
   console.log(err);
   this.emit("end");
 };
+
+gulp.task("sync", function() {
+  browserSync.init({
+    proxy: "localhost:2369",
+    open: "ui",
+    notify: false
+  });
+});
+
+gulp.task("ghost", function() {
+  nodemon({
+    script: "index.js",
+    args: ["dev"],
+    ext: "js",
+    ignore: ["src/**/*", "content/**/*", "server/static/**/*", "gulpfile.js"]
+  });
+});
 
 
 gulp.task("move-ext", function(){
@@ -129,23 +127,9 @@ gulp.task("reload", function () {
   reload();
 });
 
-gulp.task("default", ["ghost", "style", "discourse", "js", "move-ext"], function () {
+gulp.task("default", ["ghost", "style", "discourse", "js", "move-ext", "sync"], function () {
   gulp.watch([style + "**/*"], ["style"]);
   gulp.watch(js + "**/*.js", ["js-reload"]);
   gulp.watch(theme + "**/*.hbs", ["reload"]);
   gulp.watch(js + "discourse.js", ["discourse"]);
 });
-
-process.on('SIGINT', function () {
-  killNode();
-});
-process.on('uncaughtException', function () {
-  killNode();
-});
-
-function killNode() {
-  exec('killall node', function (err, stdout, stderr) {
-    process.stdout.write(stdout);
-    process.exit();
-  });
-};

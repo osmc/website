@@ -6,6 +6,6 @@
 
 ## Development
 
-- `npm install -g node-gyp nodemon gulp`
+- `npm install -g node-gyp gulp`
 - `npm install`
 - `gulp`
