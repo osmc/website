@@ -26,4 +26,10 @@ require("./server/modules/store");
 require("./server/modules/newsletter");
 require("./server/routes");
 
-app.listen(2369);
+var port = 2369;
+var env = require("./server/helpers/config").env;
+if (env == "testing") {
+	port = 80;
+}
+
+app.listen(port);

@@ -30,7 +30,7 @@ var run = function() {
 run();
 
 // Schedule. Only in production
-var env = require("../../helpers/env").env;
+var env = require("../../helpers/config").env;
 if (env == "production") {
   var minutes = 15;
   interval = minutes * 60 * 1000;

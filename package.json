@@ -6,7 +6,8 @@
   "author": "Mark Theis Madsen",
   "scripts": {
     "setup": "npm install -g node-gyp gulp",
-    "start": "npm install && gulp build && node index.js"
+    "start": "npm install && gulp build && node index.js",
+    "test": "npm install && gulp build && node index.js test"
   },
   "dependencies": {
     "cheerio": "0.20.0",

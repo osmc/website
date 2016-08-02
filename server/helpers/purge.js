@@ -1,10 +1,10 @@
 var path = require("path");
 var request = require("request");
-var env = require("./env").env;
+var env = require("./config").env;
 
 var purge = {
   all: function () {
-    if (env == "development") {
+    if (env != "production") {
       return;
     }
     request({

@@ -4,7 +4,7 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require("lodash");
 
-var host = require("./helpers/env").host;
+var host = require("./helpers/config").host;
 
 var helpers = function () {
 
@@ -18,29 +18,29 @@ var helpers = function () {
     var wikiPost = _.get(res, "data.root.wiki.post");
     var storeProduct = _.get(res, "data.root.store.product");
     var notFound = _.get(res, "data.root.code");
-    
+
     var url = relativeUrl;
     var titleCustom;
     var urlCustom;
-    
+
     if (storeProduct) {
-      
+
       var product = storeProduct;
       urlCustom = product.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
       _.set(res, "data.blog.url", host);
       titleCustom = product.title + " - " + blogTitle;
-      
+
     } else if (wikiPost) {
-      
+
       var post = wikiPost;
       urlCustom = post.url;
       _.set(res, "data.root.relativeUrl", urlCustom);
       _.set(res, "data.blog.title", "OSMC");
       _.set(res, "data.blog.url", host);
       titleCustom = post.title + " - " + post.category + " - " + blogTitle;
-      
+
     } else if (url) {
 
       if (url === "/home/") {
@@ -73,7 +73,7 @@ var helpers = function () {
       }
 
     }
-    
+
     var output;
 
     if (option == "title") {
@@ -83,7 +83,7 @@ var helpers = function () {
         output = titleDefault + " - " + blogTitle;
       }
     }
-    
+
     if (option == "url") {
       if (urlCustom) {
         output = host + urlCustom;
