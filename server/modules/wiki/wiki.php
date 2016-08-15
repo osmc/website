@@ -15,6 +15,7 @@ $base_file = "../../static/wiki.json";
 $parent_contents_url = "https://discourse.osmc.tv/t/table-of-contents/6543.json";
 
 function get_json_obj($url, $is_fatal) {
+  sleep(2);
   global $num_errors;
   global $calls;
   $ch = curl_init();
