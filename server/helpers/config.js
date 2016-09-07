@@ -16,7 +16,7 @@ var host = configGhost[env].url;
 
 var hostStore;
 if (env == "development") {
-  hostStore = "http://shoposmc.dev/";
+  hostStore = "http://local.store.osmc.tv/";
 } else {
   hostStore = "https://store.osmc.tv/";
 }
