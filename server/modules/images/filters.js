@@ -50,6 +50,18 @@ var files = function(res) {
 
             return resolve(obj);
 
+          }).catch(function(err) {
+            console.log("images: md5 get error on:");
+            console.log(md5Url);
+            console.log(err);
+
+            var obj = {
+              title: title,
+              url: url,
+              md5: "md5 not found."
+            };
+
+            return resolve(obj);
           });
         });
       });
