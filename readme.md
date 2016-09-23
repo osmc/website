@@ -5,6 +5,6 @@
 
 ## Development
 
-- `npm setup`
+- `npm run setup`
 - `npm install`
 - `gulp`
