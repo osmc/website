@@ -1,6 +1,8 @@
 //= require ../../../node_modules/jquery-validation/dist/jquery.validate.js
 //= require lib/jquery.nav.js
 
+var cdn = "http://blog-cdn.osmc.tv";
+
 // modules
 //= require modules/helpers.js
 //= require modules/nav.js

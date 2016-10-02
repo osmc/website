@@ -4,7 +4,7 @@ var cheerio = require("cheerio");
 var ghostPath = path.join(__dirname, "../../../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 
-var hostStore = require("../../helpers/config").hostStore;
+var hostStore = require("../../helpers/config").hosts.store;
 var json = require("./json");
 
 var helpers = function () {

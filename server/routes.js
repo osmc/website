@@ -6,7 +6,8 @@ var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 app = express();
 
-var host = "http://localhost:2368";
+var config = require("./helpers/config");
+var proxy = config.hosts.ghost;
 
 // force trailing slash on custom routes
 function slash(req, res, next) {
@@ -42,17 +43,17 @@ var proxySingle = httpProxy.createProxyServer({
 // routes
 
 app.all("/", function(req, res){
-  var url = host + "/home";
+  var url = proxy + "/home";
   proxySingle.web(req, res, {target: url});
 });
 
 app.all("/home", function(req, res){
-  var url = host + "/404";
+  var url = proxy + "/404";
   proxySingle.web(req, res, {target: url});
 });
 
 app.all("/blog", slash, function(req, res){
-  var url = host + "/";
+  var url = proxy + "/";
   proxySingle.web(req, res, {target: url});
 });
 
@@ -61,14 +62,14 @@ app.all("/blog/page/1", function(req, res){
 });
 
 app.all("/blog/page/:page", slash, function(req,res) {
-	var url = host + "/page/" + req.params.page;
+	var url = proxy + "/page/" + req.params.page;
   proxySingle.web(req, res, {target: url});
 });
 
 // wiki
 
 app.all("/wiki", slash, function(req, res){
-  var url = host + req.url;
+  var url = proxy + req.url;
   proxySingle.web(req, res, {target: url});
 });
 
@@ -89,14 +90,14 @@ app.get("/wiki/*", slash, function(req, res) {
   if (post) {
     res.render("page-wiki-post.hbs", {wiki: wiki});
   } else {
-    proxySingle.web(req, res, {target: host + "/404"});
+    proxySingle.web(req, res, {target: proxy + "/404"});
   }
 });
 
 // store
 
 app.all("/store", slash, function(req, res){
-  var url = host + req.url;
+  var url = proxy + req.url;
   proxySingle.web(req, res, {target: url});
 });
 
@@ -109,7 +110,7 @@ app.get("/store/*", slash, function(req, res) {
   if (product) {
     res.render("page-store-product.hbs", {store: store});
   } else {
-    proxySingle.web(req, res, {target: host + "/404"});
+    proxySingle.web(req, res, {target: proxy + "/404"});
   }
 });
 
@@ -155,6 +156,6 @@ app.use("/assets/images", express.static(theme + "/assets/img/lightbox"));
 // all
 
 app.all("/*", function(req, res){
-  var url = host + req.url;
+  var url = proxy + req.url;
   proxyAll.web(req, res, {target: url});
 });
