@@ -12,17 +12,21 @@ var env = process.env.NODE_ENV;
 
 // host
 var configGhost = require(path.join(__dirname, "../../config.js"));
-var host = configGhost[env].url;
 
-var hostStore;
-if (env == "development") {
-  hostStore = "http://local.store.osmc.tv/";
-} else {
-  hostStore = "https://store.osmc.tv/";
-}
+var hosts = {
+  host: configGhost[env].url,
+  ghost: "http://localhost:2368",
+  cdn: "https://blog-cdn.osmc.tv",
+  get store() {
+    if (env == "development") {
+      return "http://local.store.osmc.tv/";
+    } else {
+      return "https://store.osmc.tv/";
+    }
+  }
+};
 
 module.exports = {
   env: env,
-  host: host,
-  hostStore: hostStore
-}
+  hosts: hosts
+};

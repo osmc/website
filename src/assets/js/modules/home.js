@@ -12,8 +12,8 @@ if ($("body").hasClass(homeClass)) {
   });
 
 	var player = new Clappr.Player({
-		source: '/assets/vid/homepage-tour.mp4',
-		poster: '/assets/img/home/video-poster.png',
+		source: cdn + '/assets/vid/homepage-tour.mp4',
+		poster: cdn + '/assets/img/home/video-poster.png',
 		preload: 'none',
 		loop: 'true',
 		width: '100%',

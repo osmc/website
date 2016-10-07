@@ -3,8 +3,12 @@ var path = require("path");
 var ghostPath = path.join(__dirname, "../node_modules/ghost/");
 var hbs = require(ghostPath + "node_modules/express-hbs");
 var _ = require("lodash");
+var cheerio = require("cheerio");
 
-var host = require("./helpers/config").host;
+var config = require("./helpers/config");
+var env = config.env;
+var host = config.hosts.host;
+var cdn = config.hosts.cdn;
 
 var helpers = function () {
 
@@ -104,6 +108,33 @@ var helpers = function () {
     if (status === "draft") {
       return script;
     }
+  });
+
+  hbs.registerHelper("html", function (html, res) {
+    if (env == "development") return html;
+
+    // cdn
+    var $ = cheerio.load(html, {
+      recognizeSelfClosing: true
+    });
+
+    var els = $("img, link, .lightbox, script");
+
+    els.map(function() {
+      var attr;
+      var attrs = $(this)["0"].attribs;
+      if (attrs.src) attr = "src";
+      if (attrs.href) attr = "href";
+
+      if (!attr) return $(this);
+      if ($(this).attr("data-cdn") == "false") return $(this);
+      if (attrs[attr].charAt(0) !== "/") return $(this);
+
+      $(this).attr(attr, cdn + attrs[attr]);
+      return $(this);
+    });
+
+    return $.html();
   });
 
 };
