@@ -129,6 +129,7 @@ var helpers = function () {
       if (!attr) return $(this);
       if ($(this).attr("data-cdn") == "false") return $(this);
       if (attrs[attr].charAt(0) !== "/") return $(this);
+      if (attrs[attr].substr(0,2) === "//") return $(this);
 
       $(this).attr(attr, cdn + attrs[attr]);
       return $(this);
