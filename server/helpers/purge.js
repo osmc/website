@@ -9,7 +9,7 @@ var purge = {
     }
     request({
       method: "PURGE",
-      uri: "http://159.253.212.250"
+      uri: "http://localhost"
     }, function (error, response, body) {
       if (error) {
         console.log("PURGE REQUEST ERROR");
