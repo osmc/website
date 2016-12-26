@@ -100,7 +100,7 @@ for ($i = 0; $i < count($json_categories->details->links); $i++) {
   for ($i3 = 0; $i3 < count($json_category_pages->details->links); $i3++) {
     $pos = strrpos($sorted_ids[$i3], '?');
     if ($pos !== false) {
-	$sorted_ids[$i3] = substr($sorted_ids[$i3], 0, strrpos($sorted_ids[$i3], '?'));
+	$sorted_ids[$i3] = substr($sorted_ids[$i3], 0, $pos);
     }
     $sorted_key = array_search($sorted_ids[$i3], $unsorted_ids);
     $tz = $json_category_pages->details->links[$sorted_key];
