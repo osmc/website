@@ -89,7 +89,7 @@
     position: relative;
     overflow: hidden;
     max-height: 800px;
-    background-image: url("/assets/img/vero2/vero-1.jpg");
+    background-image: url("/assets/img/vero3/verohero.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -97,7 +97,7 @@
     margin: 0 auto;
     &-text {
       position: absolute;
-      top: 5%;
+      top: 1%;
       right: 0;
       left: 0;
       margin: 0 5em;
@@ -435,7 +435,7 @@
     padding: 2em 0 1em;
     border-bottom: 10px solid $acc3-4;
     border-top: 10px solid $acc3-4;
-    background-image: url("/assets/img/vero2/back.jpg");
+    background-image: url("/assets/img/vero3/ocean.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

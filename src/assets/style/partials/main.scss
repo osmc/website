@@ -142,6 +142,9 @@ button,
   &-vero {
     @include button-vero;
   }
+  &-press {
+    @include button-press;
+  }
 }
 
 .button {

@@ -1,9 +1,19 @@
 {{!< x-main}}
+
+<script type="text/javascript">
+    window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='//rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', '93022ca6f6eeebd32ef512723d5f18fded1c3995');
+</script>
+
 <div class="vero lightbox-wrap">
 
   <section id="vero-intro" class="row clearfix vero-first">
     <span class="vero-first-text">
-      <h1 class="vero-first-title">The all new Vero 2<br>The same OSMC you've come to love</h1>
+	<h1 class="vero-first-title">The all new Vero 4K<br>The best way to enjoy TV just got better</h1>
     </span>
 
     <div class="vero-first-img">
@@ -12,7 +22,8 @@
     </div>
 
     <span class="vero-first-buy">
-      <a href="http://buy.getvero.tv" class="button-big1 button-vero">Grab your Vero 2 today</a>
+      <a href="http://buy.getvero.tv" class="button-big1 button-vero">Grab your Vero 4K today</a>
+      <a href="http://buy.getvero.tv" class="button-big1 button-press">Read the announcement</a>
     </span>
   </section>
 
@@ -22,10 +33,9 @@
         <div class="column two-thirds">
           <div class="vero-design-text">
             {{> svg/design}}
-            <p>Vero has always been the best way to enjoy OSMC and Kodi. With the new Vero 2, this holds truer than ever before.</p>
-            <p>Our new Vero 2 boasts great WiFi, support for H265, support for multiple operating systems and superior picture quality. Whether you're a newcomer or not, you'll be able to unleash the full potential of OSMC and Kodi without missing a beat.</p>
-            <p>We worked hard to pack so much performance and functionality in such a small elegant device, and we're proud. Our new Vero 2 will breeze through anything, whether you're watching a full HD movie, browsing the web, torrenting, or doing all of this at the same time.</p>
-            <p>This is Plug and Play. This is Vero 2.</p>
+	    <p>We've spent the last year redesigning Vero from the inside out to bring you one of the world's most powerful devices in one of the world's smallest form factors. The result is Vero 4K. A device bringing you PC grade performance, without the PC.</p>
+	    <p>Enjoy your TV like never before with Vero 4K's future proof design. The new powerhouse can play back your 4K and 10-bit content without breaking a sweat. With support for all major formats, you can be certain that it will be the centerpiece of your living room for many years to come.</p>
+	    <p>To round things off, we've bolstered connectivity so wherever you want to enjoy your TV, you can do so effortlessly. Vero 4K boasts excellent wireless performance, fast memory, large storage and a 64-bit architecture.</p>
           </div>
         </div>
         <span class="vero-design-line-wrap">
@@ -33,11 +43,11 @@
         </span>
         <div class="column third">
           <div class="vero-design-images">
-            <a class="lightbox" href="{{asset "img/vero2/vero-2.jpg"}}">
-              <img src="{{asset "img/vero2/vero-2.jpg"}}">
+            <a class="lightbox" href="{{asset "img/vero3/vero-2.jpg"}}">
+              <img src="{{asset "img/vero3/vero-2.jpg"}}">
             </a>
-            <a class="lightbox" href="{{asset "img/vero2/vero-3.jpg"}}">
-              <img src="{{asset "img/vero2/vero-3.jpg"}}">
+            <a class="lightbox" href="{{asset "img/vero3/vero-3.jpg"}}">
+              <img src="{{asset "img/vero3/vero-3.jpg"}}">
             </a>
           </div>
 
@@ -58,8 +68,8 @@
 
         <div class="column full">
           <div class="vero-perf-sub">
-            <h3>2x faster than Raspberry Pi 3</h3>
-            <h3>Vero 2 features a fast quad core processor and a dual core GPU. Whatever you throw at it, Vero will handle it.</h3>
+            <h3>Purpose built hardware for purpose built OSMC</h3>
+	    <h3>Vero 4K: ready to handle anything you throw at it</h3>
           </div>
         </div>
 
@@ -71,49 +81,49 @@
 
           <div class="column half">
             <ul class="vero-feat-list">
-              <li><h2><a class="current" href="#interlace">Advanced Deinterlacing</a></h2></li>
-              <li><h2><a href="#hevc">HEVC / H265</a></h2></li>
-              <li><h2><a href="#apps">Apps</a></h2></li>
-              <li><h2><a href="#mirroring">Screen Mirroring</a></h2></li>
+              <li><h2><a class="current" href="#4k">4K Ready</a></h2></li>
+              <li><h2><a href="#audio">HD Audio</a></h2></li>
+              <li><h2><a href="#connectivity">Connectivity</a></h2></li>
+              <li><h2><a href="#64bit">64-bit</a></h2></li>
             </ul>
           </div>
 
           <div class="column half">
             <div class="vero-feat-content">
 
-              <div class="vero-feat-box vero-feat-interlace">
+              <div class="vero-feat-box vero-feat-4k">
                 <div class="vero-feat-wrap">
                   <div class="vero-feat-img">
-                    <img src="{{asset "img/vero2/interlace.jpg"}}">
+                    <img src="{{asset "img/vero3/4k.jpg"}}">
                   </div>
-                  <p>Advanced motion adaptive deinterlacing means that Vero handles challenging video content such as Live TV with ease. With Vero 2, you’ll be able to enjoy TV in its full, pixel-perfect glory. The way it was meant to be watched.</p>
+		  <p><strong>Enjoy TV without compromise</strong>. Vero can handle 4K playback with ease. Whether your content is encoded in H265 / VP9 or even 10-bit, Vero 4K is one of the few devices out there ready to handle it. Future. Proof.</p>
                 </div>
               </div>
 
-              <div class="vero-feat-box vero-feat-hevc">
+              <div class="vero-feat-box vero-feat-audio">
                 <div class="vero-feat-wrap">
                   <div class="vero-feat-img">
-                    <img src="{{asset "img/vero2/hevc.png"}}">
+                    <img src="{{asset "img/vero3/hd.jpg"}}">
                   </div>
-		  <p>H265 (also known as HEVC) is the next generation video codec. It delivers the same quality video at half the file size of H264. This year, more and more content is being encoded in this format. Vero 2 will breeze through your H265 content, making it future proof for years to come.</p>
+		  <p><strong>Hear every detail</strong>. Vero 4K supports 7.1 channel lossless passthrough of major audio formats, including DTS-HD and Dolby TrueHD. And with support for optical audio and analogue audio out, you can hear things you've never heard before whatever your setup.</p>
                 </div>
               </div>
 
-              <div class="vero-feat-box vero-feat-apps">
+              <div class="vero-feat-box vero-feat-connectivity">
                 <div class="vero-feat-wrap">
                   <div class="vero-feat-img">
-                    <img src="{{asset "img/vero2/apps.jpg"}}">
+                    <img src="{{asset "img/vero3/connected.jpg"}}">
                   </div>
-                  <p>It's all about the Apps! With the new Vero 2, you can switch between Android and OSMC right from your remote. Experience the best of OSMC and Android on one device and enjoy popular Android apps right on the big screen. <span class="vero-ast-icon" title="See bottom">[1,2,3]</span></p>
+		  <p><strong>No wires necessary</strong>. Vero 4K doesn't fall short when it comes to connectivity. Whether you want to enjoy a rock solid wireless connection or you want to add more storage, Vero has you covered.</p>
                 </div>
               </div>
 
-              <div class="vero-feat-box vero-feat-mirroring">
+              <div class="vero-feat-box vero-feat-64bit">
                 <div class="vero-feat-wrap">
                   <div class="vero-feat-img">
-                    <img src="{{asset "img/vero2/mirroring.jpg"}}">
+                    <img src="{{asset "img/vero3/64bit.jpg"}}">
                   </div>
-                  <p>OSMC Screen Mirroring lets you enjoy your apps on your Android smartphone or tablet right on the big screen. <span class="vero-ast-icon" title="See bottom">[4]</span></p>
+		  <p><strong>Vero will handle everything you throw at it</strong>. Vero 4K is one of the first few ARM devices to feature a 64-bit environment, from hardware to software. Coupled with 2GB RAM and high speed eMMC storage, you'll experience desktop class performance, without the desktop.</p>
                 </div>
               </div>
             </div>
@@ -123,7 +133,7 @@
       </div>
 
       <div class="vero-feat-buy">
-          <a href="http://buy.getvero.tv" class="button-vero button-big1">Grab your Vero 2 today</a>
+          <a href="http://buy.getvero.tv" class="button-vero button-big1">Grab your Vero 4K today</a>
         </div>
     </div>
   </section>
@@ -134,8 +144,10 @@
       <div class="container">
         <img class="vero-osmc-title" src="{{asset "img/logo/logo1-w-big.png"}}">
         <div class="vero-osmc-text">
-	<p>OSMC may be young but it has old ties and the team who have been working on it have been involved in open source TV software for over 5 years. In the last year, OSMC has evolved to become the world's most popular TV centric operating system. But that's not all. Vero 2 doesn't just let you enjoy OSMC, it lets you experience it to its full potential. We can say this with absolute confidence because we've designed both the hardware and the software. This means you'll experience the very best of performance, stability and functionality. The best thing is that we're just getting started. Vero 2 owners get to experience OSMC at its finest as well as see the way they watch TV get better and better, every month.</p>
-	<p>In the Summer, we'll reveal OSMC Cloud, a new way to enjoy OSMC and your content wherever you are. Whether you watch TV on one one device or several, OSMC Cloud will simplify the way you archive your digital media and make managing your library simpler than ever. You'll be able to enjoy your library whether you're on a train on a rainy Monday morning, or tucked up in bed with your main streaming device downstairs.</p>
+	<p>With the help of you, our users, OSMC has evolved to become the world's most popular home theatre operating system in just two years. And we're just getting started.</p>
+	<p>With Vero 4K, you'll feel familiar with the ease of OSMC. You'll retain OSMC's simplicity: its automatic update system; its App Store as well as its expansive Linux system. But, for the first time, you'll also experience OSMC at its full potential with speeds and performance you won't recognise on any other device. </p>
+	<p>With Vero 4K, you'll be using OSMC software with OSMC's bespoke hardware. This will provide you with a powerful, unparalleled experience. Whether you want to kick back with a movie, use a torrent client, stream content to a device, or do all of this at the same time, Vero 4K's mighty processor's got you covered, and it won't even break a sweat.</p>
+	<p>We invite you to join thousands of other users who enjoy Vero every day and watch your TV experience get better and better every day before your eyes.</p>
         </div>
       </div>
     </div>
@@ -148,21 +160,21 @@
 
         <div class="column half flow-opposite">
           <div class="vero-order-text">
-            <h1 class="vero-order-title">Vero 2</h1>
+            <h1 class="vero-order-title">Vero 4K</h1>
             <ul class="vero-order-info">
               <li><h3>Midnight Black</h3></li>
-	      <li><h3>£99 / $120 / €109</h3></li>
-              <li><h3>Worldwide 3 Day Delivery</h3></li>
+	      <li><h3>£119 or £2 per month<span class="vero-ast-icon" title="See bottom">[2]</span></h3></li>
+              <li><h3>Free worldwide shipping</h3></li>
             </ul>
-            <a href="http://buy.getvero.tv" class="button-vero">I want to get my own Vero 2</a>
+            <a href="http://buy.getvero.tv" class="button-vero">Buy Now</a>
 
           </div>
         </div>
 
         <div class="column half">
           <div class="vero-order-img">
-            <a class="lightbox" href="{{asset "img/vero2/box.jpg"}}">
-              <img src="{{asset "img/vero2/box.jpg"}}">
+            <a class="lightbox" href="{{asset "img/vero3/box.jpg"}}">
+              <img src="{{asset "img/vero3/box.jpg"}}">
             </a>
           </div>
         </div>
@@ -176,34 +188,34 @@
       <div class="vero-wrap">
 
         <div class="column half flow-opposite">
-          <h1 class="vero-include-title">In the box</h1>
+          <h1 class="vero-include-title">In your box</h1>
           <ul>
-            <li>Vero 2 8GB</li>
+            <li>Vero 4K</li>
             <li>HDMI cable</li>
-            <li>OSMC remote controller</li>
-            <li>Power supply</li>
+            <li>OSMC RF remote control</li>
+	    <li>TV mounting kit</li>
+            <li>Power plug</li>
             <li>1 year international warranty</li>
             <li>5 years of software updates</li>
           </ul>
         </div>
 
         <div class="column half vero-include-tech">
-          <h1 class="vero-include-title">Tech Specs</h1>
+          <h1 class="vero-include-title">Your Vero 4K</h1>
           <ul>
-            <li>Quad Core 1.6Ghz processor</li>
-            <li>Built in 802.11 b/g/n WiFi 2.4Ghz</li>
-            <li>IR and RF receiver</li>
-            <li>1GB DDR3 RAM</li>
-            <li>8GB internal storage <span class="vero-ast-icon" title="See bottom">[5]</span></li>
-            <li>4 USB ports</li>
-            <li>SD card slot</li>
-            <li>3.5mm SPDIF audio output</li>
-            <li>HDMI 1.4 with CEC (control your Vero 2 with your TV remote)</li>
-            <li>3D ready</li>
+            <li>Quad Core 1.6Ghz 64-bit processor</li>
+            <li>2GB DDR3 RAM and 16GB eMMC storage <span class="vero-ast-icon" title="See bottom">[1]</span></li>
+	    <li>Built in 802.11 ac/b/g/n WiFi with Bluetooth 4.0</li>
+	    <li>IR and RF receiver</li>
+            <li>2x USB 2.0 ports</li>
+            <li>micro SD card slot</li>
+	    <li>3.5mm analogue audio output</li>
+	    <li>Optical (SPDIF) audio output</li>
+            <li>HDMI 2.0 with CEC (control your Vero 4K with your TV remote)</li>
             <li>Fast Ethernet</li>
-            <li>Full HD 24Hz output</li>
-            <li>Dimensions: 11 x 11 x 2.2cm / 4.3 x 4.3 x 1 inches</li>
-            <li>Weight: 150 grams / 5 oz</li>
+            <li>4K, H265, 10-bit ready</li>
+            <li>Dimensions: 9 x 9 x 2cm / 3.5 x 3.5 x 0.75 inches</li>
+            <li>Weight: 140 grams / 5 oz</li>
           </ul>
         </div>
 
@@ -222,25 +234,24 @@
         <div class="column half">
           <ul>
             <li>What warranty does Vero ship with? </li>
-            <li>Vero 2 ships with a 1 year international warranty on the hardware and five years of software support. </li>
-            <li>Can I upgrade Vero's storage? </li>
-            <li>You can add external storage by popping in an SD card or a USB hard drive</li>
-            <li>What are its physical dimensions? </li>
-            <li>Vero 2 packs a lot of punch in a small size at a mere 11 x 11 x 2.2 cm and just 150 grams. You'll only come to appreciate its size and portability when it's in your hands</li>
+            <li>Vero 4K comes with a 1 year international warranty on the hardware and five years of software support. In the unlikely event anything goes wrong, we've got you covered.</li>
+            <li>How do I upgrade my Vero's storage? </li>
+            <li>You can add external storage by popping in a micro SD card or a USB hard drive. This storage can be automatically shared across your home network.</li>
+            <li>Which video formats can I play?</li>
+            <li>Vero 4K can play a multitude of video formats, including MPEG-2, VC-1, H264, H265 / HEVC and 10-bit HEVC. It can play all popular containers such as MKV, MP4, MOV, WMV, TS, M2TS etc.</li>
             </ul>
         </div>
 
         <div class="column half">
           <ul>
-            <li>Where does Vero 2 ship from? Will I have to pay customs? </li>
-            <li>Vero 2 ships from the UK to anywhere in the world with 3-5 day delivery. You will not have to pay any customs charges</li>
-            <li>Is Vero 2 that much faster than a Raspberry Pi 3? </li>
-	    <li>Yep! The Raspberry Pi is centered around education, but the Vero 2 is centered around fun! Vero 2 is 50% faster than Raspberry Pi. When it comes to video -- Vero 2 has you covered. It will handle everything you throw at it, even H265!</li>
-            <li>How long will the Vero 2 be supported for? </li>
-            <li>We pride ourselves on our support. Unlike other vendors that stop supporting devices after a few months, we won't leave you in the dark. The Vero 2 will receive three years of guaranteed software updates delivering new features and performance improvements, and five years of guaranteed security updates.</li>
+            <li>Where does Vero 4K ship from? Will I have to pay custom or import duties?</li>
+	    <li>Vero 4K ships from the UK to anywhere in the world with 3-5 day delivery. You will not have to pay any additional fees.</li>
+            <li>Is Vero 4K that much of an upgrade over Raspberry Pi 3?</li>
+	    <li>Yes. The Raspberry Pi is centered around education while Vero 4K is purpose built to run OSMC. Vero 4K is a lot faster than Raspberry Pi thanks to its eMMC storage, 64-bit architecture and support for new video codecs. You'll also be able to take advantage of new formats.</li>
+            <li>How long will the Vero 4K be supported for? </li>
+            <li>We pride ourselves on our support. Unlike other vendors who stop supporting devices after a few months, we won't leave you in the dark. The Vero 4K will receive five years of guaranteed software updates delivering new features, performance improvements, and security updates.</li>
           </ul>
         </div>
-
       </div>
     </div>
   </section>
@@ -249,11 +260,8 @@
     <div class="container">
       <div class="column full">
         <ul>
-          <li>[1]. <span>Requires an SD card. Available for purchase separately. Android software can be downloaded and imaged on your own card from the OSMC website</span></li>
-          <li>[2]. <span>Netflix, Spotify and Hulu are registered trademarks</span></li>
-          <li>[3]. <span>At the time of writing, Netflix is only available in standard definition. HD streams and DRM content may be subject to licensing and location</span></li>
-          <li>[4]. <span>Requires a compatible Android device</span></li>
-          <li>[5]. <span>Actual formatted capacity will be less</span></li>
+          <li>[1] <span>Actual formatted capacity will be less. Some space will be used by the operating system</span></li>
+	  <li>[2] <span>£2 / month figure based on five year support cycle. Immediate payment in full required</span></li>
         </ul>
       </div>
     </div>
@@ -261,7 +269,7 @@
 
   <div class="vero-menu">
     <ul>
-      <li class="current"><a href="#vero-intro">New Vero 2</a></li>
+      <li class="current"><a href="#vero-intro">Vero 4K</a></li>
       <li><a href="#vero-design">Design</a></li>
       <li><a href="#vero-performance">Performance</a></li>
       <li><a href="#vero-osmc">OSMC</a></li>
