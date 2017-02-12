@@ -11,6 +11,7 @@ var load = function() {
   readFile("store-products", file).then(function(res) {
     res = JSON.parse(res);
     res.products = _.sortBy(res.products, "menu_order");
+    res.products = _.filter(res.products, function(x) { return x.catalog_visibility !== "hidden";});
     json = res;
   });
 }
