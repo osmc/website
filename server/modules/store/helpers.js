@@ -38,7 +38,7 @@ var helpers = function () {
   hbs.registerHelper("store-product-url", function (res) {
     // https://store.osmc.tv/product/raspberrypi/
     var url = "/store/" + res.split("/")[3] + "/" + res.split("/")[4];
-    if (url == "/store/product/vero") {
+    if (url == "/store/product/vero" || url == "/store/product/vero4k") {
       url = "/vero";
     }
     return url;
