@@ -4,7 +4,7 @@ var WooCommerceAPI = require("woocommerce-api");
 var auth = require(path.join(__dirname, "../../../content/data/keys")).wp;
 
 var wc = new WooCommerceAPI({
-  url: "https://store.osmc.tv",
+  url: "https://my.osmc.tv",
   version: "v3",
   verifySsl: false,
   consumerKey: auth.key,

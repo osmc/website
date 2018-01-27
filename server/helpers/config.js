@@ -21,7 +21,7 @@ var hosts = {
     if (env == "development") {
       return "http://local.store.osmc.tv/";
     } else {
-      return "https://store.osmc.tv/";
+      return "https://my.osmc.tv/";
     }
   }
 };

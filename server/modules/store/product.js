@@ -9,7 +9,7 @@ var product = function (url) {
   }
   // /store/product/raspberry-pi-3-starter-kit
   var slug = url.substring(1).split("/")[2];
-  var wcUrl = "https://store.osmc.tv/product/" + slug + "/";
+  var wcUrl = "https://my.osmc.tv/product/" + slug + "/";
   var product = _.find(data.products, {
     "permalink": wcUrl
   });
