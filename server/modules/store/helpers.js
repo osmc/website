@@ -46,7 +46,7 @@ var helpers = function () {
 
   hbs.registerHelper("store-buy-url", function(res) {
     var product = res.data.root.store.product;
-    var url = hostStore + "cart?add-to-cart=" + product.id;
+    var url = hostStore + "cart/?add-to-cart=" + product.id;
     return url;
   });
 
