@@ -9,7 +9,12 @@ var get = function(url) {
   return new Promise(function (resolve, reject) {
     request(newUrl, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        return resolve(JSON.parse(body));
+	try {
+            return resolve(JSON.parse(body));
+	}
+	catch (e) {
+	    return reject(404);
+	}
       } else {
         return reject(error);
       }
