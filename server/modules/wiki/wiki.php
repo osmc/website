@@ -89,21 +89,21 @@ for ($i = 0; $i < count($json_categories->post_stream->posts[0]->link_counts); $
   
   /* unsorted ids to search */
   $unsorted_ids = array();
-  for ($i2 = 0; $i2 < count($json_category_pages->details->links); $i2++) {
-    $url = $json_category_pages->details->links[$i2]->url;
+  for ($i2 = 0; $i2 < count($json_category_pages->post_stream->posts[0]->link_counts); $i2++) {
+    $url = $json_category_pages->post_stream->posts[0]->link_counts[$i2]->url;
     $unsorted_id = substr($url, strrpos($url, '/') + 1);
     array_push($unsorted_ids, $unsorted_id);
   }
   
   $cat_json_post_num = 0;
   /* foreach https://discourse.osmc.tv/t/vero/6559.json */
-  for ($i3 = 0; $i3 < count($json_category_pages->details->links); $i3++) {
+  for ($i3 = 0; $i3 < count($json_category_pages->post_stream->posts[0]->link_counts); $i3++) {
     $pos = strrpos($sorted_ids[$i3], '?');
     if ($pos !== false) {
 	$sorted_ids[$i3] = substr($sorted_ids[$i3], 0, $pos);
     }
     $sorted_key = array_search($sorted_ids[$i3], $unsorted_ids);
-    $tz = $json_category_pages->details->links[$sorted_key];
+    $tz = $json_category_pages->post_stream->posts[0]->link_counts[$sorted_key];
     
     if ($sorted_key !== false && $tz->reflection == "0" && substr($tz->title, 0, 6) !== '/About') {
       
