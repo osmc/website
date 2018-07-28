@@ -55,9 +55,9 @@ $json_categories = get_json_obj($parent_contents_url, 1);
 $cat_json = array();
 
 /* foreach $json_categories */
-for ($i = 0; $i < count($json_categories->details->links); $i++) {
+for ($i = 0; $i < count($json_categories->post_stream->posts[0]->link_counts); $i++) {
 
-  $tz = $json_categories->details->links[$i];
+  $tz = $json_categories->post_stream->posts[0]->link_counts[$i];
 
   $cat_title = $tz->title;
   $cat_slug = get_slug_url($tz->title);
