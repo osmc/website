@@ -11,7 +11,7 @@ var filter = function(html) {
 
     // relative urls
     if (img.attr("src").substring(0,1) === "/") {
-      var src = "https://discourse.osmc.tv" + img.attr("src");
+      var src = "https:" + img.attr("src");
       img.attr("src", src);
     }
 
