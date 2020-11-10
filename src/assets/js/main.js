@@ -1,7 +1,7 @@
 //= require ../../../node_modules/jquery-validation/dist/jquery.validate.js
 //= require lib/jquery.nav.js
 
-var cdn = "https://blog-cdn.osmc.tv";
+var cdn = "https://osmc.tv";
 
 // modules
 //= require modules/helpers.js
