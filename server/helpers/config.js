@@ -16,7 +16,7 @@ var configGhost = require(path.join(__dirname, "../../config.js"));
 var hosts = {
   host: configGhost[env].url,
   ghost: "http://localhost:2368",
-  cdn: "https://blog-cdn.osmc.tv",
+  cdn: "https://osmc.tv",
   get store() {
     if (env == "development") {
       return "http://local.store.osmc.tv/";
