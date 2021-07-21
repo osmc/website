@@ -12,7 +12,7 @@ var config = {
       debug: false
     },
     server: {
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       port: '2368'
     },
     paths: {
@@ -29,7 +29,7 @@ var config = {
       }
     },
     server: {
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       port: '2368'
     },
     paths: {
@@ -46,7 +46,7 @@ var config = {
       }
     },
     server: {
-      host: '127.0.0.1',
+      host: '0.0.0.0',
       port: '2368'
     },
     paths: {
