@@ -1,67 +1,30 @@
-{{!< x-page}}
-
-<section class="row clearfix download-devices">
-
-  <h3 class="download-text">OSMC currently supports the Raspberry Pi, Vero, and Apple TV.</h3>
-
-  <div class="column-fixed third download-devices-wrap">
-    {{> svg/device/pi}}
-    <span class="download-devices-title">Raspberry Pi</span>
-    <span class="download-devices-text">Pi 1, 2, 3, 3+, 4/400 & Zero</span>
-  </div>
-  <div class="column-fixed third download-devices-wrap">
-    {{> svg/device/vero}}
-    <span class="download-devices-title">Vero</span>
-    <span class="download-devices-text">OSMC flagship</span>
-  </div>
-  <div class="column-fixed third download-devices-wrap">
-    {{> svg/device/appletv}}
-    <span class="download-devices-title">Apple TV</span>
-    <span class="download-devices-text">1st generation</span>
-  </div>
-
-</section>
-
-<hr>
-
-{{#post}}
-{{content}}
-{{/post}}
-
 <section class="row clearfix download-systems">
-  <div class="column-fixed half download-system">
+  <div class="column-fixed third download-system">
     {{> svg/windows}}
     <div class="download-system-wrap">
-      <a href="https://ftp.fau.de/osmc/osmc/download/installers/osmc-installer.exe" class="download-system-dl">
+      <a href="http://download.osmc.tv/installers/osmc-installer.exe" class="download-system-dl">
         <span class="download-system-title ani1">Windows</span>
         {{> svg/download}}
       </a>
       <span class="download-system-meta" title="XP SP2 or later. Not sure about 2000">XP SP2 +</span>
     </div>
   </div>
-  <div class="column-fixed half download-system">
+  <div class="column-fixed third download-system">
     {{> svg/osx}}
     <div class="download-system-wrap">
-      <a href="https://ftp.fau.de/osmc/osmc/download/installers/osmc-installer.dmg" class="download-system-dl">
+      <a href="http://download.osmc.tv/installers/osmc-installer.dmg" class="download-system-dl">
         <span class="download-system-title ani1">OS X</span>
         {{> svg/download}}
       </a>
       <span class="download-system-meta">10.07 +</span>
     </div>
   </div>
-</section>
-
-<hr>
-
-<div class="download-disk">
-  <p>You can also download disk images.</p>
-  <span class="download-disk-button button">
-    <span class="download-disk-text">Disk images</span>{{> svg/cd}}
-  </span>
-</div>
-
-<div class="download-tables">
-  {{> images}}
-</div>
-
-{{> post/ad}}
+  <div class="column-fixed third download-system">
+    {{> svg/linux}}
+    <div class="download-system-wrap">
+      <a href="https://github.com/tomdoyle87/osmc-linux-installer/releases/latest" target="_blank" class="download-system-dl">
+        <span class="download-system-title ani1">Linux</span>
+        {{> svg/download}}
+      </a>
+    </div>
+  </div>
