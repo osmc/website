@@ -59,7 +59,7 @@
       $s: 10px;
       &:after {
         @include ani2;
-        content: "";
+        content: '';
         width: $s;
         height: $s;
         display: inline-block;
@@ -69,7 +69,14 @@
         $stroke1: 50%;
         $stroke2: 70%;
         $color: $acc3-2;
-        background: radial-gradient(50% 50%, circle, $trans 0%, $trans $stroke1, $color $stroke2, $color 100%);
+        background: radial-gradient(
+          50% 50%,
+          circle,
+          $trans 0%,
+          $trans $stroke1,
+          $color $stroke2,
+          $color 100%
+        );
       }
       &.current {
         a {
@@ -79,7 +86,14 @@
           $stroke1: 50%;
           $stroke2: 70%;
           $color: $acc2-1;
-          background: radial-gradient(50% 50%, circle, $trans 0%, $trans $stroke1, $color $stroke2, $color 100%);
+          background: radial-gradient(
+            50% 50%,
+            circle,
+            $trans 0%,
+            $trans $stroke1,
+            $color $stroke2,
+            $color 100%
+          );
         }
       }
     }
@@ -89,10 +103,10 @@
     position: relative;
     overflow: hidden;
     max-height: 800px;
-    background-image: url("/assets/img/vero3/verohero.jpg");
+    background-image: url('/assets/img/vero5/verov_main.jpeg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     max-width: 1700px;
     margin: 0 auto;
     &-text {
@@ -245,7 +259,7 @@
         width: 80%;
         padding: 0.5em;
         @include res1 {
-          width: 45%;
+          //width: 45%;
         }
       }
     }
@@ -277,7 +291,8 @@
         margin-top: 2em;
       }
     }
-    .column {}
+    .column {
+    }
     &-list {
       @include res1 {
         text-align: center;
@@ -322,7 +337,7 @@
             }
           }
           &:after {
-            content: "";
+            content: '';
             position: absolute;
             width: 20em;
             top: 0;
@@ -414,14 +429,14 @@
         top: auto;
       }
     }
-    
+
     &-buy {
       display: block;
       float: left;
       width: 100%;
       text-align: center;
       margin-bottom: 2em;
-      
+
       a {
         @include res1 {
           font-size: 90%;
@@ -435,7 +450,7 @@
     padding: 2em 0 1em;
     border-bottom: 10px solid $acc3-4;
     border-top: 10px solid $acc3-4;
-    background-image: url("/assets/img/vero3/ocean.jpg");
+    background-image: url('/assets/img/vero3/ocean.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -484,8 +499,7 @@
         }
       }
     }
-    $color: lighten($acc1-1,
-    40%);
+    $color: lighten($acc1-1, 40%);
     $stroke: 2px;
     &-text {
       margin-top: 1em;
@@ -496,7 +510,8 @@
         margin-left: 0;
       }
     }
-    &-title {}
+    &-title {
+    }
     &-info {
       margin: 0 0 1.5em;
     }
@@ -525,11 +540,11 @@
   &-faq {
     @include link;
     li {
-      &:nth-child(2n+1) {
+      &:nth-child(2n + 1) {
         font-size: $big2;
         font-weight: 600;
       }
-      &:nth-child(2n+2) {
+      &:nth-child(2n + 2) {
         margin-bottom: 2em;
       }
     }
